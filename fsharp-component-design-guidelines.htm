@@ -1,0 +1,1734 @@
+<HTML>
+<HEAD><TITLE>fsharp-component-design-guidelines</TITLE>
+<STYLE type="text/css">
+
+body {margin-top: 0px;margin-left: 0px;}
+
+#page_1 {position:relative; overflow: hidden;margin-top: 102px;margin-left: 94px;margin-bottom: 64px;width: 628px;background-image: url(fsharp-component-design-guidelines_images/fsharp-component-design-guidelines1.jpg);background-position: 0px 81px;background-size: 628px 1px;background-repeat: no-repeat;}
+
+
+
+#page_2 {position:relative; overflow: hidden;margin-top: 96px;margin-left: 106px;margin-bottom: 64px;width: 614px;}
+
+
+
+#page_3 {position:relative; overflow: hidden;margin-top: 98px;margin-left: 96px;margin-bottom: 64px;width: 627px;}
+
+
+
+#page_4 {position:relative; overflow: hidden;margin-top: 95px;margin-left: 96px;margin-bottom: 64px;width: 627px;}
+
+
+
+#page_5 {position:relative; overflow: hidden;margin-top: 96px;margin-left: 96px;margin-bottom: 64px;width: 661px;}
+
+
+
+#page_6 {position:relative; overflow: hidden;margin-top: 98px;margin-left: 102px;margin-bottom: 64px;width: 626px;background-image: url(fsharp-component-design-guidelines_images/fsharp-component-design-guidelines6.jpg);background-position: 625px 651px;background-size: 1px 1px;background-repeat: no-repeat;}
+
+
+
+#page_7 {position:relative; overflow: hidden;margin-top: 98px;margin-left: 96px;margin-bottom: 64px;width: 650px;}
+
+
+
+#page_8 {position:relative; overflow: hidden;margin-top: 125px;margin-left: 96px;margin-bottom: 64px;width: 628px;}
+
+
+
+#page_9 {position:relative; overflow: hidden;margin-top: 99px;margin-left: 96px;margin-bottom: 64px;width: 638px;}
+
+
+
+#page_10 {position:relative; overflow: hidden;margin-top: 99px;margin-left: 96px;margin-bottom: 64px;width: 664px;}
+
+
+
+#page_11 {position:relative; overflow: hidden;margin-top: 99px;margin-left: 96px;margin-bottom: 64px;width: 643px;}
+
+
+
+#page_12 {position:relative; overflow: hidden;margin-top: 115px;margin-left: 96px;margin-bottom: 64px;width: 659px;}
+
+
+
+#page_13 {position:relative; overflow: hidden;margin-top: 113px;margin-left: 96px;margin-bottom: 64px;width: 664px;}
+
+
+
+#page_14 {position:relative; overflow: hidden;margin-top: 98px;margin-left: 96px;margin-bottom: 64px;width: 652px;}
+
+
+
+#page_15 {position:relative; overflow: hidden;margin-top: 96px;margin-left: 96px;margin-bottom: 64px;width: 623px;}
+
+
+
+#page_16 {position:relative; overflow: hidden;margin-top: 99px;margin-left: 96px;margin-bottom: 64px;width: 624px;}
+
+
+
+#page_17 {position:relative; overflow: hidden;margin-top: 99px;margin-left: 96px;margin-bottom: 64px;width: 658px;}
+
+
+
+#page_18 {position:relative; overflow: hidden;margin-top: 96px;margin-left: 96px;margin-bottom: 64px;width: 629px;}
+
+
+
+#page_19 {position:relative; overflow: hidden;margin-top: 96px;margin-left: 96px;margin-bottom: 64px;width: 643px;}
+
+
+
+#page_20 {position:relative; overflow: hidden;margin-top: 99px;margin-left: 96px;margin-bottom: 64px;width: 649px;}
+
+
+
+#page_21 {position:relative; overflow: hidden;margin-top: 96px;margin-left: 96px;margin-bottom: 64px;width: 637px;background-image: url(fsharp-component-design-guidelines_images/fsharp-component-design-guidelines21.jpg);background-position: 22px 0px;background-size: 604px 103px;background-repeat: no-repeat;}
+
+
+
+#page_22 {position:relative; overflow: hidden;margin-top: 99px;margin-left: 96px;margin-bottom: 64px;width: 633px;background-image: url(fsharp-component-design-guidelines_images/fsharp-component-design-guidelines22.jpg);background-position: 22px 110px;background-size: 604px 66px;background-repeat: no-repeat;}
+
+
+
+#page_23 {position:relative; overflow: hidden;margin-top: 98px;margin-left: 96px;margin-bottom: 64px;width: 626px;}
+
+
+
+#page_24 {position:relative; overflow: hidden;margin-top: 98px;margin-left: 96px;margin-bottom: 64px;width: 636px;}
+
+
+
+#page_25 {position:relative; overflow: hidden;margin-top: 115px;margin-left: 96px;margin-bottom: 64px;width: 597px;}
+
+
+
+#page_26 {position:relative; overflow: hidden;margin-top: 98px;margin-left: 96px;margin-bottom: 64px;width: 634px;}
+
+
+
+.ft0{font: 35px 'Arial';color: #17365d;line-height: 40px;}
+.ft1{font: 35px 'Arial';color: #17365d;line-height: 39px;}
+.ft2{font: 13px 'Arial';line-height: 19px;}
+.ft3{font: bold 15px 'Arial';line-height: 18px;}
+.ft4{font: 13px 'Arial';line-height: 21px;}
+.ft5{font: 13px 'Arial';text-decoration: underline;color: #0000ff;line-height: 21px;}
+.ft6{font: bold 12px 'Arial';line-height: 15px;}
+.ft7{font: italic 12px 'Arial';line-height: 15px;}
+.ft8{font: 13px 'Arial';line-height: 16px;white-space: nowrap;}
+.ft9{font: 12px 'Arial';line-height: 15px;white-space: nowrap;}
+.ft10{font: 12px 'Arial';line-height: 23px;}
+.ft11{font: 15px 'Arial';line-height: 17px;}
+.ft12{font: bold 35px 'Arial';color: #365f91;line-height: 37px;}
+.ft13{font: bold 32px 'Arial';color: #365f91;line-height: 33px;}
+.ft14{font: 15px 'Arial';line-height: 18px;}
+.ft15{font: 15px 'Symbol';line-height: 19px;}
+.ft16{font: 15px 'Arial';margin-left: 18px;line-height: 17px;}
+.ft17{font: italic 13px 'Arial';line-height: 21px;}
+.ft18{font: 15px 'Arial';line-height: 21px;}
+.ft19{font: 13px 'Arial';color: #4f81bd;line-height: 16px;}
+.ft20{font: 15px 'Arial';line-height: 20px;}
+.ft21{font: 16px 'Wingdings';color: #008000;line-height: 17px;}
+.ft22{font: bold 15px 'Arial';text-decoration: underline;margin-left: 10px;line-height: 18px;}
+.ft23{font: 15px 'Arial';text-decoration: underline;color: #0000ff;line-height: 17px;}
+.ft24{font: 14px 'Arial';line-height: 16px;}
+.ft25{font: 15px 'Wingdings';line-height: 16px;}
+.ft26{font: 13px 'Arial';line-height: 18px;}
+.ft27{font: bold 21px 'Arial';line-height: 24px;}
+.ft28{font: italic 15px 'Times New Roman';line-height: 17px;}
+.ft29{font: bold 14px 'Arial';line-height: 16px;white-space: nowrap;}
+.ft30{font: 13px 'Arial';color: #4f81bd;line-height: 16px;white-space: nowrap;}
+.ft31{font: 15px 'Courier New';line-height: 17px;}
+.ft32{font: 15px 'Arial';margin-left: 15px;line-height: 17px;}
+.ft33{font: 13px 'Courier New';line-height: 16px;}
+.ft34{font: 13px 'Arial';margin-left: 16px;line-height: 16px;}
+.ft35{font: 11px 'Arial';color: #4f81bd;line-height: 14px;}
+.ft36{font: 13px 'Arial';line-height: 16px;}
+.ft37{font: 14px 'Wingdings';color: #008000;line-height: 15px;}
+.ft38{font: bold 13px 'Arial';text-decoration: underline;margin-left: 12px;line-height: 18px;}
+.ft39{font: 13px 'Wingdings';color: #4f81bd;line-height: 15px;}
+.ft40{font: 13px 'Arial';color: #4f81bd;margin-left: 8px;line-height: 16px;}
+.ft41{font: 15px 'Arial';text-decoration: underline;line-height: 17px;}
+.ft42{font: 13px 'Arial';line-height: 17px;}
+.ft43{font: 11px 'Arial';color: #4f81bd;line-height: 15px;}
+.ft44{font: 13px 'Arial';color: #4f81bd;line-height: 15px;}
+.ft45{font: 13px 'Arial';color: #4f81bd;margin-left: 11px;line-height: 16px;}
+.ft46{font: bold 15px 'Arial';text-decoration: underline;margin-left: 10px;line-height: 21px;}
+.ft47{font: 16px 'Wingdings';color: #ff0000;line-height: 17px;}
+.ft48{font: 14px 'Wingdings';color: #008000;line-height: 21px;}
+.ft49{font: bold 13px 'Arial';text-decoration: underline;line-height: 22px;}
+.ft50{font: 13px 'Arial';line-height: 22px;}
+.ft51{font: bold 15px 'Arial';margin-left: 10px;line-height: 18px;}
+.ft52{font: 13px 'Arial';color: #4f81bd;margin-left: 14px;line-height: 16px;}
+.ft53{font: 13px 'Arial';color: #4f81bd;margin-left: 23px;line-height: 16px;}
+.ft54{font: bold 21px 'Arial';margin-left: 9px;line-height: 24px;}
+.ft55{font: bold 15px 'Arial';text-decoration: underline;line-height: 18px;}
+.ft56{font: 15px 'Wingdings';color: #ff0000;line-height: 16px;}
+.ft57{font: bold 14px 'Arial';text-decoration: underline;margin-left: 11px;line-height: 19px;}
+.ft58{font: 14px 'Arial';line-height: 19px;}
+.ft59{font: bold 35px 'Arial';color: #365f91;line-height: 39px;}
+.ft60{font: bold 32px 'Arial';color: #365f91;line-height: 35px;}
+.ft61{font: italic 15px 'Arial';line-height: 21px;}
+.ft62{font: 15px 'Arial';color: #4f81bd;line-height: 17px;}
+.ft63{font: 11px 'Arial';color: #4f81bd;line-height: 16px;}
+.ft64{font: 14px 'Arial';line-height: 18px;}
+.ft65{font: 12px 'Arial';color: #4f81bd;line-height: 17px;}
+.ft66{font: italic 13px 'Arial';line-height: 17px;}
+.ft67{font: 14px 'Arial';line-height: 17px;}
+.ft68{font: 12px 'Arial';color: #4f81bd;line-height: 16px;}
+.ft69{font: 15px 'Arial';margin-left: 3px;line-height: 17px;}
+.ft70{font: 12px 'Arial';color: #4f81bd;line-height: 18px;}
+.ft71{font: 12px 'Arial';color: #4f81bd;line-height: 15px;white-space: nowrap;}
+.ft72{font: bold 15px 'Arial';text-decoration: underline;margin-left: 10px;line-height: 24px;}
+.ft73{font: 15px 'Arial';line-height: 23px;}
+.ft74{font: 13px 'Arial';color: #4f81bd;line-height: 22px;}
+.ft75{font: bold 35px 'Arial';color: #365f91;line-height: 40px;}
+.ft76{font: bold 32px 'Arial';color: #365f91;line-height: 36px;}
+.ft77{font: 13px 'Arial';color: #4f81bd;margin-left: 17px;line-height: 16px;}
+.ft78{font: 13px 'Arial';color: #4f81bd;margin-left: 18px;line-height: 16px;}
+.ft79{font: 15px 'Symbol';line-height: 19px;white-space: nowrap;}
+.ft80{font: 11px 'Arial';color: #4f81bd;line-height: 14px;white-space: nowrap;}
+
+.p0{text-align: left;padding-left: 31px;margin-top: 0px;margin-bottom: 0px;}
+.p1{text-align: left;padding-left: 408px;margin-top: 0px;margin-bottom: 0px;}
+.p2{text-align: left;padding-left: 2px;padding-right: 3px;margin-top: 26px;margin-bottom: 0px;}
+.p3{text-align: left;padding-left: 2px;margin-top: 13px;margin-bottom: 0px;}
+.p4{text-align: left;padding-left: 2px;padding-right: 38px;margin-top: 11px;margin-bottom: 0px;}
+.p5{text-align: left;padding-left: 2px;margin-top: 37px;margin-bottom: 0px;}
+.p6{text-align: left;padding-left: 2px;margin-top: 11px;margin-bottom: 0px;}
+.p7{text-align: right;margin-top: 0px;margin-bottom: 0px;}
+.p8{text-align: left;padding-left: 298px;margin-top: 787px;margin-bottom: 0px;}
+.p9{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+.p10{text-align: left;padding-right: 19px;margin-top: 4px;margin-bottom: 0px;}
+.p11{text-align: justify;padding-left: 14px;margin-top: 11px;margin-bottom: 0px;}
+.p12{text-align: justify;padding-left: 14px;margin-top: 6px;margin-bottom: 0px;}
+.p13{text-align: justify;padding-left: 14px;margin-top: 7px;margin-bottom: 0px;}
+.p14{text-align: left;padding-right: 6px;margin-top: 5px;margin-bottom: 0px;}
+.p15{text-align: left;margin-top: 12px;margin-bottom: 0px;}
+.p16{text-align: left;padding-right: 16px;margin-top: 18px;margin-bottom: 0px;}
+.p17{text-align: left;padding-right: 19px;margin-top: 11px;margin-bottom: 0px;}
+.p18{text-align: left;padding-left: 308px;margin-top: 27px;margin-bottom: 0px;}
+.p19{text-align: justify;padding-left: 14px;margin-top: 0px;margin-bottom: 0px;}
+.p20{text-align: left;padding-right: 63px;margin-top: 11px;margin-bottom: 0px;}
+.p21{text-align: left;margin-top: 10px;margin-bottom: 0px;}
+.p22{text-align: left;padding-right: 4px;margin-top: 11px;margin-bottom: 0px;}
+.p23{text-align: left;padding-right: 1px;margin-top: 11px;margin-bottom: 0px;}
+.p24{text-align: left;padding-right: 25px;margin-top: 11px;margin-bottom: 0px;}
+.p25{text-align: left;margin-top: 36px;margin-bottom: 0px;}
+.p26{text-align: left;padding-right: 12px;margin-top: 4px;margin-bottom: 0px;}
+.p27{text-align: left;padding-left: 308px;margin-top: 32px;margin-bottom: 0px;}
+.p28{text-align: justify;margin-top: 0px;margin-bottom: 0px;}
+.p29{text-align: justify;padding-left: 24px;margin-top: 10px;margin-bottom: 0px;}
+.p30{text-align: justify;padding-left: 24px;padding-right: 66px;margin-top: 1px;margin-bottom: 0px;}
+.p31{text-align: left;padding-left: 24px;padding-right: 47px;margin-top: 4px;margin-bottom: 0px;}
+.p32{text-align: justify;margin-top: 23px;margin-bottom: 0px;}
+.p33{text-align: left;padding-left: 24px;padding-right: 32px;margin-top: 7px;margin-bottom: 0px;}
+.p34{text-align: justify;padding-left: 24px;margin-top: 4px;margin-bottom: 0px;}
+.p35{text-align: justify;padding-left: 24px;margin-top: 0px;margin-bottom: 0px;}
+.p36{text-align: left;padding-left: 45px;margin-top: 3px;margin-bottom: 0px;}
+.p37{text-align: left;padding-left: 68px;padding-right: 183px;margin-top: 1px;margin-bottom: 0px;}
+.p38{text-align: justify;margin-top: 24px;margin-bottom: 0px;}
+.p39{text-align: left;padding-left: 24px;padding-right: 37px;margin-top: 10px;margin-bottom: 0px;}
+.p40{text-align: left;margin-top: 31px;margin-bottom: 0px;}
+.p41{text-align: left;padding-right: 42px;margin-top: 4px;margin-bottom: 0px;}
+.p42{text-align: left;margin-top: 2px;margin-bottom: 0px;}
+.p43{text-align: left;margin-top: 29px;margin-bottom: 0px;}
+.p44{text-align: justify;padding-left: 24px;padding-right: 42px;margin-top: 5px;margin-bottom: 0px;text-indent: -24px;}
+.p45{text-align: left;padding-right: 70px;margin-top: 18px;margin-bottom: 0px;}
+.p46{text-align: left;padding-left: 308px;margin-top: 52px;margin-bottom: 0px;}
+.p47{text-align: left;padding-left: 18px;padding-right: 20px;margin-top: 12px;margin-bottom: 0px;}
+.p48{text-align: left;padding-left: 18px;margin-top: 11px;margin-bottom: 0px;}
+.p49{text-align: left;padding-left: 302px;margin-top: 80px;margin-bottom: 0px;}
+.p50{text-align: left;padding-left: 86px;padding-right: 29px;margin-top: 0px;margin-bottom: 0px;text-indent: -24px;}
+.p51{text-align: left;padding-left: 86px;padding-right: 34px;margin-top: 9px;margin-bottom: 0px;text-indent: -24px;}
+.p52{text-align: justify;padding-left: 86px;padding-right: 41px;margin-top: 9px;margin-bottom: 0px;text-indent: -24px;}
+.p53{text-align: justify;margin-top: 31px;margin-bottom: 0px;}
+.p54{text-align: justify;padding-left: 24px;padding-right: 34px;margin-top: 3px;margin-bottom: 0px;}
+.p55{text-align: left;padding-left: 24px;padding-right: 52px;margin-top: 25px;margin-bottom: 0px;text-indent: -24px;}
+.p56{text-align: justify;padding-left: 24px;padding-right: 42px;margin-top: 2px;margin-bottom: 0px;}
+.p57{text-align: left;margin-top: 46px;margin-bottom: 0px;}
+.p58{text-align: justify;margin-top: 5px;margin-bottom: 0px;}
+.p59{text-align: justify;padding-left: 24px;padding-right: 86px;margin-top: 7px;margin-bottom: 0px;}
+.p60{text-align: justify;padding-left: 48px;margin-top: 2px;margin-bottom: 0px;}
+.p61{text-align: left;padding-left: 31px;margin-top: 36px;margin-bottom: 0px;}
+.p62{text-align: left;padding-left: 31px;margin-top: 35px;margin-bottom: 0px;}
+.p63{text-align: left;padding-left: 47px;margin-top: 9px;margin-bottom: 0px;}
+.p64{text-align: left;padding-left: 24px;margin-top: 51px;margin-bottom: 0px;}
+.p65{text-align: left;padding-left: 48px;margin-top: 2px;margin-bottom: 0px;}
+.p66{text-align: left;padding-left: 308px;margin-top: 33px;margin-bottom: 0px;}
+.p67{text-align: left;padding-left: 47px;margin-top: 8px;margin-bottom: 0px;}
+.p68{text-align: left;padding-left: 24px;padding-right: 13px;margin-top: 31px;margin-bottom: 0px;}
+.p69{text-align: justify;margin-top: 27px;margin-bottom: 0px;}
+.p70{text-align: left;padding-left: 24px;margin-top: 7px;margin-bottom: 0px;}
+.p71{text-align: justify;padding-left: 24px;margin-top: 1px;margin-bottom: 0px;}
+.p72{text-align: left;margin-top: 5px;margin-bottom: 0px;}
+.p73{text-align: justify;padding-left: 48px;margin-top: 10px;margin-bottom: 0px;}
+.p74{text-align: justify;padding-left: 92px;margin-top: 3px;margin-bottom: 0px;}
+.p75{text-align: justify;padding-left: 92px;margin-top: 1px;margin-bottom: 0px;}
+.p76{text-align: justify;padding-left: 48px;margin-top: 17px;margin-bottom: 0px;}
+.p77{text-align: left;padding-left: 92px;margin-top: 3px;margin-bottom: 0px;}
+.p78{text-align: left;padding-left: 92px;margin-top: 1px;margin-bottom: 0px;}
+.p79{text-align: justify;margin-top: 28px;margin-bottom: 0px;}
+.p80{text-align: justify;padding-left: 24px;padding-right: 16px;margin-top: 11px;margin-bottom: 0px;}
+.p81{text-align: left;padding-left: 48px;margin-top: 6px;margin-bottom: 0px;}
+.p82{text-align: left;padding-left: 92px;padding-right: 382px;margin-top: 1px;margin-bottom: 0px;}
+.p83{text-align: left;padding-left: 121px;padding-right: 375px;margin-top: 2px;margin-bottom: 0px;}
+.p84{text-align: justify;padding-left: 24px;padding-right: 47px;margin-top: 0px;margin-bottom: 0px;text-indent: -24px;}
+.p85{text-align: left;padding-left: 308px;margin-top: 45px;margin-bottom: 0px;}
+.p86{text-align: left;padding-left: 24px;padding-right: 43px;margin-top: 0px;margin-bottom: 0px;}
+.p87{text-align: left;padding-left: 48px;margin-top: 8px;margin-bottom: 0px;}
+.p88{text-align: justify;padding-left: 92px;padding-right: 304px;margin-top: 2px;margin-bottom: 0px;}
+.p89{text-align: justify;padding-left: 48px;margin-top: 6px;margin-bottom: 0px;}
+.p90{text-align: justify;padding-left: 107px;padding-right: 355px;margin-top: 2px;margin-bottom: 0px;text-indent: -15px;}
+.p91{text-align: justify;margin-top: 30px;margin-bottom: 0px;}
+.p92{text-align: justify;padding-left: 24px;margin-top: 3px;margin-bottom: 0px;}
+.p93{text-align: left;padding-left: 48px;margin-top: 25px;margin-bottom: 0px;}
+.p94{text-align: left;padding-left: 77px;margin-top: 18px;margin-bottom: 0px;}
+.p95{text-align: left;padding-left: 24px;margin-top: 27px;margin-bottom: 0px;}
+.p96{text-align: left;padding-left: 24px;margin-top: 1px;margin-bottom: 0px;}
+.p97{text-align: justify;padding-left: 24px;padding-right: 18px;margin-top: 22px;margin-bottom: 0px;text-indent: -24px;}
+.p98{text-align: justify;padding-left: 24px;padding-right: 38px;margin-top: 11px;margin-bottom: 0px;}
+.p99{text-align: justify;padding-left: 24px;padding-right: 18px;margin-top: 10px;margin-bottom: 0px;}
+.p100{text-align: justify;padding-left: 24px;padding-right: 23px;margin-top: 32px;margin-bottom: 0px;text-indent: -24px;}
+.p101{text-align: left;padding-left: 24px;padding-right: 19px;margin-top: 11px;margin-bottom: 0px;}
+.p102{text-align: left;padding-left: 24px;padding-right: 20px;margin-top: 11px;margin-bottom: 0px;}
+.p103{text-align: justify;padding-left: 24px;padding-right: 71px;margin-top: 0px;margin-bottom: 0px;}
+.p104{text-align: justify;padding-left: 24px;padding-right: 53px;margin-top: 11px;margin-bottom: 0px;}
+.p105{text-align: left;padding-left: 24px;padding-right: 46px;margin-top: 10px;margin-bottom: 0px;}
+.p106{text-align: justify;padding-left: 24px;padding-right: 64px;margin-top: 26px;margin-bottom: 0px;text-indent: -24px;}
+.p107{text-align: left;padding-left: 77px;margin-top: 21px;margin-bottom: 0px;}
+.p108{text-align: left;padding-left: 107px;padding-right: 228px;margin-top: 18px;margin-bottom: 0px;text-indent: -28px;}
+.p109{text-align: left;padding-left: 107px;padding-right: 206px;margin-top: 20px;margin-bottom: 0px;text-indent: -28px;}
+.p110{text-align: left;padding-left: 63px;padding-right: 462px;margin-top: 19px;margin-bottom: 0px;}
+.p111{text-align: justify;padding-left: 24px;padding-right: 45px;margin-top: 11px;margin-bottom: 0px;}
+.p112{text-align: justify;margin-top: 25px;margin-bottom: 0px;}
+.p113{text-align: left;padding-left: 24px;padding-right: 59px;margin-top: 10px;margin-bottom: 0px;}
+.p114{text-align: justify;margin-top: 36px;margin-bottom: 0px;}
+.p115{text-align: left;padding-left: 24px;padding-right: 47px;margin-top: 11px;margin-bottom: 0px;}
+.p116{text-align: left;padding-left: 305px;margin-top: 32px;margin-bottom: 0px;}
+.p117{text-align: left;padding-left: 24px;padding-right: 32px;margin-top: 0px;margin-bottom: 0px;}
+.p118{text-align: left;margin-top: 52px;margin-bottom: 0px;}
+.p119{text-align: left;padding-right: 304px;margin-top: 5px;margin-bottom: 0px;}
+.p120{text-align: left;padding-right: 72px;margin-top: 12px;margin-bottom: 0px;}
+.p121{text-align: justify;padding-left: 24px;padding-right: 62px;margin-top: 3px;margin-bottom: 0px;}
+.p122{text-align: left;padding-left: 24px;padding-right: 23px;margin-top: 1px;margin-bottom: 0px;}
+.p123{text-align: left;padding-left: 77px;margin-top: 3px;margin-bottom: 0px;}
+.p124{text-align: left;padding-left: 77px;margin-top: 2px;margin-bottom: 0px;}
+.p125{text-align: left;padding-left: 77px;padding-right: 196px;margin-top: 16px;margin-bottom: 0px;text-indent: -28px;}
+.p126{text-align: left;padding-left: 107px;margin-top: 4px;margin-bottom: 0px;}
+.p127{text-align: left;padding-left: 24px;padding-right: 26px;margin-top: 11px;margin-bottom: 0px;}
+.p128{text-align: left;padding-left: 305px;margin-top: 250px;margin-bottom: 0px;}
+.p129{text-align: justify;padding-left: 77px;margin-top: 0px;margin-bottom: 0px;}
+.p130{text-align: justify;padding-left: 48px;margin-top: 0px;margin-bottom: 0px;}
+.p131{text-align: justify;padding-left: 77px;margin-top: 20px;margin-bottom: 0px;}
+.p132{text-align: justify;padding-left: 77px;margin-top: 19px;margin-bottom: 0px;}
+.p133{text-align: justify;padding-left: 24px;padding-right: 51px;margin-top: 11px;margin-bottom: 0px;}
+.p134{text-align: left;padding-left: 62px;margin-top: 8px;margin-bottom: 0px;}
+.p135{text-align: justify;padding-left: 86px;padding-right: 39px;margin-top: 8px;margin-bottom: 0px;text-indent: -24px;}
+.p136{text-align: justify;padding-left: 86px;padding-right: 90px;margin-top: 8px;margin-bottom: 0px;text-indent: -24px;}
+.p137{text-align: left;padding-left: 62px;margin-top: 7px;margin-bottom: 0px;}
+.p138{text-align: left;padding-left: 86px;padding-right: 37px;margin-top: 8px;margin-bottom: 0px;text-indent: -24px;}
+.p139{text-align: justify;padding-left: 62px;margin-top: 8px;margin-bottom: 0px;}
+.p140{text-align: justify;padding-left: 86px;padding-right: 38px;margin-top: 1px;margin-bottom: 0px;}
+.p141{text-align: justify;padding-right: 54px;margin-top: 7px;margin-bottom: 0px;}
+.p142{text-align: left;padding-left: 305px;margin-top: 183px;margin-bottom: 0px;}
+.p143{text-align: left;padding-left: 77px;padding-right: 217px;margin-top: 0px;margin-bottom: 0px;text-indent: -28px;}
+.p144{text-align: left;padding-left: 107px;margin-top: 5px;margin-bottom: 0px;}
+.p145{text-align: left;padding-left: 85px;padding-right: 151px;margin-top: 16px;margin-bottom: 0px;text-indent: -36px;}
+.p146{text-align: left;padding-left: 107px;padding-right: 323px;margin-top: 4px;margin-bottom: 0px;}
+.p147{text-align: left;margin-top: 53px;margin-bottom: 0px;}
+.p148{text-align: justify;padding-left: 24px;padding-right: 61px;margin-top: 25px;margin-bottom: 0px;text-indent: -24px;}
+.p149{text-align: justify;padding-left: 24px;padding-right: 44px;margin-top: 25px;margin-bottom: 0px;text-indent: -24px;}
+.p150{text-align: left;padding-left: 24px;padding-right: 40px;margin-top: 6px;margin-bottom: 0px;}
+.p151{text-align: justify;padding-left: 24px;padding-right: 96px;margin-top: 5px;margin-bottom: 0px;}
+.p152{text-align: left;padding-left: 70px;padding-right: 528px;margin-top: 9px;margin-bottom: 0px;text-indent: -21px;}
+.p153{text-align: left;padding-left: 92px;margin-top: 2px;margin-bottom: 0px;}
+.p154{text-align: justify;padding-left: 24px;padding-right: 77px;margin-top: 10px;margin-bottom: 0px;}
+.p155{text-align: left;padding-left: 24px;padding-right: 75px;margin-top: 10px;margin-bottom: 0px;}
+.p156{text-align: left;margin-top: 27px;margin-bottom: 0px;}
+.p157{text-align: justify;padding-left: 24px;padding-right: 107px;margin-top: 5px;margin-bottom: 0px;text-indent: -24px;}
+.p158{text-align: justify;padding-left: 24px;padding-right: 55px;margin-top: 7px;margin-bottom: 0px;}
+.p159{text-align: left;padding-left: 305px;margin-top: 74px;margin-bottom: 0px;}
+.p160{text-align: left;padding-left: 77px;padding-right: 340px;margin-top: 0px;margin-bottom: 0px;text-indent: -28px;}
+.p161{text-align: left;padding-left: 107px;padding-right: 201px;margin-top: 3px;margin-bottom: 0px;}
+.p162{text-align: left;padding-left: 77px;padding-right: 406px;margin-top: 2px;margin-bottom: 0px;text-indent: 29px;}
+.p163{text-align: left;margin-top: 11px;margin-bottom: 0px;}
+.p164{text-align: left;margin-top: 9px;margin-bottom: 0px;}
+.p165{text-align: justify;margin-top: 10px;margin-bottom: 0px;}
+.p166{text-align: left;padding-left: 24px;padding-right: 36px;margin-top: 11px;margin-bottom: 0px;}
+.p167{text-align: left;padding-left: 24px;padding-right: 35px;margin-top: 11px;margin-bottom: 0px;}
+.p168{text-align: left;padding-left: 24px;margin-top: 12px;margin-bottom: 0px;}
+.p169{text-align: left;margin-top: 26px;margin-bottom: 0px;}
+.p170{text-align: left;margin-top: 4px;margin-bottom: 0px;}
+.p171{text-align: left;padding-left: 24px;padding-right: 43px;margin-top: 11px;margin-bottom: 0px;}
+.p172{text-align: left;margin-top: 28px;margin-bottom: 0px;}
+.p173{text-align: left;padding-left: 305px;margin-top: 81px;margin-bottom: 0px;}
+.p174{text-align: justify;padding-left: 24px;padding-right: 23px;margin-top: 0px;margin-bottom: 0px;text-indent: -24px;}
+.p175{text-align: left;padding-left: 24px;padding-right: 19px;margin-top: 9px;margin-bottom: 0px;}
+.p176{text-align: left;padding-left: 24px;padding-right: 8px;margin-top: 10px;margin-bottom: 0px;}
+.p177{text-align: left;padding-left: 29px;padding-right: 55px;margin-top: 59px;margin-bottom: 0px;text-indent: -28px;}
+.p178{text-align: justify;padding-left: 24px;padding-right: 16px;margin-top: 27px;margin-bottom: 0px;text-indent: -24px;}
+.p179{text-align: justify;padding-left: 24px;padding-right: 7px;margin-top: 11px;margin-bottom: 0px;}
+.p180{text-align: left;padding-left: 48px;margin-top: 7px;margin-bottom: 0px;}
+.p181{text-align: left;padding-left: 48px;margin-top: 16px;margin-bottom: 0px;}
+.p182{text-align: left;padding-left: 92px;margin-top: 4px;margin-bottom: 0px;}
+.p183{text-align: justify;padding-left: 24px;padding-right: 70px;margin-top: 27px;margin-bottom: 0px;text-indent: -24px;}
+.p184{text-align: justify;padding-left: 24px;margin-top: 11px;margin-bottom: 0px;}
+.p185{text-align: left;padding-left: 305px;margin-top: 27px;margin-bottom: 0px;}
+.p186{text-align: left;padding-left: 24px;margin-top: 0px;margin-bottom: 0px;}
+.p187{text-align: left;padding-left: 24px;padding-right: 12px;margin-top: 9px;margin-bottom: 0px;}
+.p188{text-align: left;padding-left: 85px;padding-right: 422px;margin-top: 16px;margin-bottom: 0px;text-indent: -21px;}
+.p189{text-align: left;padding-left: 85px;margin-top: 2px;margin-bottom: 0px;}
+.p190{text-align: left;padding-left: 85px;margin-top: 0px;margin-bottom: 0px;}
+.p191{text-align: left;padding-left: 24px;margin-top: 8px;margin-bottom: 0px;}
+.p192{text-align: left;padding-left: 70px;padding-right: 64px;margin-top: 26px;margin-bottom: 0px;}
+.p193{text-align: left;padding-left: 85px;padding-right: 319px;margin-top: 1px;margin-bottom: 0px;}
+.p194{text-align: left;padding-left: 85px;margin-top: 3px;margin-bottom: 0px;}
+.p195{text-align: justify;margin-top: 32px;margin-bottom: 0px;}
+.p196{text-align: left;padding-left: 24px;padding-right: 14px;margin-top: 7px;margin-bottom: 0px;}
+.p197{text-align: justify;padding-left: 24px;padding-right: 6px;margin-top: 4px;margin-bottom: 0px;}
+.p198{text-align: left;padding-left: 24px;margin-top: 26px;margin-bottom: 0px;}
+.p199{text-align: left;padding-left: 48px;padding-right: 378px;margin-top: 3px;margin-bottom: 0px;}
+.p200{text-align: left;padding-left: 92px;padding-right: 371px;margin-top: 2px;margin-bottom: 0px;text-indent: -15px;}
+.p201{text-align: left;padding-left: 24px;margin-top: 25px;margin-bottom: 0px;}
+.p202{text-align: left;padding-left: 48px;margin-top: 4px;margin-bottom: 0px;}
+.p203{text-align: left;padding-left: 48px;margin-top: 1px;margin-bottom: 0px;}
+.p204{text-align: left;padding-left: 77px;padding-right: 179px;margin-top: 0px;margin-bottom: 0px;}
+.p205{text-align: left;padding-left: 48px;margin-top: 0px;margin-bottom: 0px;}
+.p206{text-align: justify;margin-top: 1px;margin-bottom: 0px;}
+.p207{text-align: left;padding-left: 24px;margin-top: 10px;margin-bottom: 0px;}
+.p208{text-align: left;padding-left: 305px;margin-top: 28px;margin-bottom: 0px;}
+.p209{text-align: left;padding-left: 24px;padding-right: 34px;margin-top: 0px;margin-bottom: 0px;}
+.p210{text-align: left;padding-left: 165px;padding-right: 273px;margin-top: 3px;margin-bottom: 0px;text-indent: -58px;}
+.p211{text-align: left;padding-left: 165px;margin-top: 3px;margin-bottom: 0px;}
+.p212{text-align: left;padding-left: 24px;padding-right: 43px;margin-top: 9px;margin-bottom: 0px;}
+.p213{text-align: left;padding-left: 136px;padding-right: 302px;margin-top: 4px;margin-bottom: 0px;text-indent: -58px;}
+.p214{text-align: left;padding-left: 136px;margin-top: 2px;margin-bottom: 0px;}
+.p215{text-align: left;padding-left: 77px;padding-right: 324px;margin-top: 1px;margin-bottom: 0px;}
+.p216{text-align: left;padding-left: 114px;margin-top: 3px;margin-bottom: 0px;}
+.p217{text-align: left;padding-left: 114px;padding-right: 266px;margin-top: 1px;margin-bottom: 0px;}
+.p218{text-align: left;padding-left: 114px;margin-top: 2px;margin-bottom: 0px;}
+.p219{text-align: left;padding-left: 77px;padding-right: 310px;margin-top: 18px;margin-bottom: 0px;}
+.p220{text-align: justify;margin-top: 34px;margin-bottom: 0px;}
+.p221{text-align: left;padding-left: 24px;padding-right: 56px;margin-top: 10px;margin-bottom: 0px;}
+.p222{text-align: justify;padding-left: 24px;padding-right: 46px;margin-top: 35px;margin-bottom: 0px;text-indent: -24px;}
+.p223{text-align: left;margin-top: 47px;margin-bottom: 0px;}
+.p224{text-align: justify;margin-top: 26px;margin-bottom: 0px;}
+.p225{text-align: justify;padding-left: 24px;padding-right: 46px;margin-top: 3px;margin-bottom: 0px;}
+.p226{text-align: left;padding-left: 305px;margin-top: 68px;margin-bottom: 0px;}
+.p227{text-align: left;padding-left: 77px;padding-right: 354px;margin-top: 3px;margin-bottom: 0px;}
+.p228{text-align: left;padding-left: 63px;padding-right: 65px;margin-top: 16px;margin-bottom: 0px;text-indent: -14px;}
+.p229{text-align: left;padding-left: 77px;padding-right: 361px;margin-top: 4px;margin-bottom: 0px;}
+.p230{text-align: left;padding-left: 63px;padding-right: 69px;margin-top: 20px;margin-bottom: 0px;}
+.p231{text-align: left;padding-left: 77px;padding-right: 134px;margin-top: 2px;margin-bottom: 0px;}
+.p232{text-align: justify;padding-left: 24px;padding-right: 45px;margin-top: 27px;margin-bottom: 0px;text-indent: -24px;}
+.p233{text-align: left;padding-left: 24px;padding-right: 12px;margin-top: 21px;margin-bottom: 0px;}
+.p234{text-align: left;padding-left: 63px;padding-right: 72px;margin-top: 7px;margin-bottom: 0px;text-indent: -14px;}
+.p235{text-align: left;padding-left: 77px;padding-right: 207px;margin-top: 5px;margin-bottom: 0px;}
+.p236{text-align: left;padding-left: 107px;margin-top: 2px;margin-bottom: 0px;}
+.p237{text-align: left;padding-left: 107px;padding-right: 185px;margin-top: 1px;margin-bottom: 0px;text-indent: -28px;}
+.p238{text-align: left;padding-left: 77px;padding-right: 148px;margin-top: 3px;margin-bottom: 0px;}
+.p239{text-align: left;padding-left: 24px;padding-right: 46px;margin-top: 27px;margin-bottom: 0px;}
+.p240{text-align: left;padding-left: 63px;padding-right: 73px;margin-top: 6px;margin-bottom: 0px;text-indent: -14px;}
+.p241{text-align: left;padding-left: 77px;margin-top: 5px;margin-bottom: 0px;}
+.p242{text-align: left;padding-left: 77px;margin-top: 1px;margin-bottom: 0px;}
+.p243{text-align: left;padding-left: 305px;margin-top: 31px;margin-bottom: 0px;}
+.p244{text-align: left;padding-left: 63px;padding-right: 79px;margin-top: 0px;margin-bottom: 0px;text-indent: -14px;}
+.p245{text-align: justify;padding-left: 48px;margin-top: 7px;margin-bottom: 0px;}
+.p246{text-align: left;padding-left: 46px;margin-top: 9px;margin-bottom: 0px;}
+.p247{text-align: left;padding-left: 24px;padding-right: 24px;margin-top: 2px;margin-bottom: 0px;}
+.p248{text-align: left;padding-left: 24px;padding-right: 26px;margin-top: 7px;margin-bottom: 0px;}
+.p249{text-align: justify;margin-top: 35px;margin-bottom: 0px;}
+.p250{text-align: justify;padding-left: 24px;margin-top: 2px;margin-bottom: 0px;}
+.p251{text-align: left;padding-left: 24px;padding-right: 26px;margin-top: 8px;margin-bottom: 0px;}
+.p252{text-align: left;padding-left: 48px;margin-top: 11px;margin-bottom: 0px;}
+.p253{text-align: left;padding-left: 92px;padding-right: 203px;margin-top: 2px;margin-bottom: 0px;text-indent: -43px;}
+.p254{text-align: left;padding-left: 92px;padding-right: 213px;margin-top: 17px;margin-bottom: 0px;text-indent: -43px;}
+.p255{text-align: justify;padding-left: 48px;margin-top: 3px;margin-bottom: 0px;}
+.p256{text-align: justify;padding-left: 48px;margin-top: 1px;margin-bottom: 0px;}
+.p257{text-align: justify;padding-left: 24px;padding-right: 27px;margin-top: 44px;margin-bottom: 0px;text-indent: -24px;}
+.p258{text-align: justify;padding-left: 24px;margin-top: 7px;margin-bottom: 0px;}
+.p259{text-align: justify;padding-left: 24px;padding-right: 17px;margin-top: 0px;margin-bottom: 0px;}
+.p260{text-align: left;padding-left: 305px;margin-top: 35px;margin-bottom: 0px;}
+.p261{text-align: left;padding-left: 24px;padding-right: 26px;margin-top: 0px;margin-bottom: 0px;}
+.p262{text-align: justify;padding-left: 48px;margin-top: 9px;margin-bottom: 0px;}
+.p263{text-align: justify;padding-left: 24px;padding-right: 25px;margin-top: 28px;margin-bottom: 0px;text-indent: -24px;}
+.p264{text-align: justify;padding-left: 48px;margin-top: 8px;margin-bottom: 0px;}
+.p265{text-align: justify;margin-top: 29px;margin-bottom: 0px;}
+.p266{text-align: left;padding-left: 24px;padding-right: 35px;margin-top: 10px;margin-bottom: 0px;}
+.p267{text-align: justify;padding-left: 24px;margin-top: 13px;margin-bottom: 0px;}
+.p268{text-align: left;padding-left: 77px;padding-right: 330px;margin-top: 8px;margin-bottom: 0px;text-indent: -28px;}
+.p269{text-align: left;padding-left: 77px;padding-right: 388px;margin-top: 2px;margin-bottom: 0px;}
+.p270{text-align: left;padding-left: 77px;padding-right: 212px;margin-top: 20px;margin-bottom: 0px;text-indent: -28px;}
+.p271{text-align: justify;margin-top: 7px;margin-bottom: 0px;}
+.p272{text-align: left;padding-left: 24px;padding-right: 37px;margin-top: 3px;margin-bottom: 0px;}
+.p273{text-align: justify;padding-left: 24px;padding-right: 30px;margin-top: 1px;margin-bottom: 0px;}
+.p274{text-align: justify;padding-left: 37px;margin-top: 10px;margin-bottom: 0px;}
+.p275{text-align: left;padding-left: 37px;margin-top: 9px;margin-bottom: 0px;}
+.p276{text-align: left;padding-left: 305px;margin-top: 52px;margin-bottom: 0px;}
+.p277{text-align: left;padding-left: 24px;padding-right: 8px;margin-top: 16px;margin-bottom: 0px;}
+.p278{text-align: left;padding-left: 29px;padding-right: 37px;margin-top: 45px;margin-bottom: 0px;text-indent: -28px;}
+.p279{text-align: left;padding-right: 23px;margin-top: 4px;margin-bottom: 0px;}
+.p280{text-align: left;margin-top: 30px;margin-bottom: 0px;}
+.p281{text-align: justify;padding-left: 24px;padding-right: 71px;margin-top: 5px;margin-bottom: 0px;text-indent: -24px;}
+.p282{text-align: justify;padding-left: 24px;padding-right: 40px;margin-top: 11px;margin-bottom: 0px;}
+.p283{text-align: left;padding-left: 48px;padding-right: 432px;margin-top: 7px;margin-bottom: 0px;}
+.p284{text-align: left;padding-left: 24px;margin-top: 13px;margin-bottom: 0px;}
+.p285{text-align: left;padding-left: 100px;margin-top: 4px;margin-bottom: 0px;}
+.p286{text-align: left;padding-left: 129px;margin-top: 1px;margin-bottom: 0px;}
+.p287{text-align: left;padding-left: 100px;margin-top: 18px;margin-bottom: 0px;}
+.p288{text-align: justify;padding-left: 24px;padding-right: 14px;margin-top: 10px;margin-bottom: 0px;}
+.p289{text-align: left;padding-left: 62px;margin-top: 9px;margin-bottom: 0px;}
+.p290{text-align: justify;padding-left: 62px;margin-top: 7px;margin-bottom: 0px;}
+.p291{text-align: left;padding-left: 24px;padding-right: 58px;margin-top: 12px;margin-bottom: 0px;}
+.p292{text-align: left;margin-top: 33px;margin-bottom: 0px;}
+.p293{text-align: left;padding-left: 305px;margin-top: 51px;margin-bottom: 0px;}
+.p294{text-align: left;padding-left: 24px;padding-right: 9px;margin-top: 0px;margin-bottom: 0px;}
+.p295{text-align: left;padding-left: 24px;padding-right: 11px;margin-top: 41px;margin-bottom: 0px;}
+.p296{text-align: left;margin-top: 41px;margin-bottom: 0px;}
+.p297{text-align: left;padding-left: 55px;padding-right: 372px;margin-top: 12px;margin-bottom: 0px;}
+.p298{text-align: left;padding-left: 55px;padding-right: 351px;margin-top: 2px;margin-bottom: 0px;}
+.p299{text-align: left;padding-left: 55px;margin-top: 20px;margin-bottom: 0px;}
+.p300{text-align: left;padding-left: 55px;padding-right: 109px;margin-top: 18px;margin-bottom: 0px;}
+.p301{text-align: left;padding-left: 55px;padding-right: 307px;margin-top: 3px;margin-bottom: 0px;}
+.p302{text-align: left;padding-left: 55px;margin-top: 2px;margin-bottom: 0px;}
+.p303{text-align: left;padding-left: 55px;padding-right: 343px;margin-top: 18px;margin-bottom: 0px;}
+.p304{text-align: left;padding-left: 55px;padding-right: 351px;margin-top: 20px;margin-bottom: 0px;}
+.p305{text-align: justify;padding-left: 24px;padding-right: 74px;margin-top: 27px;margin-bottom: 0px;text-indent: -24px;}
+.p306{text-align: left;padding-left: 305px;margin-top: 84px;margin-bottom: 0px;}
+.p307{text-align: left;padding-left: 77px;padding-right: 211px;margin-top: 0px;margin-bottom: 0px;text-indent: -28px;}
+.p308{text-align: justify;padding-left: 24px;padding-right: 13px;margin-top: 28px;margin-bottom: 0px;text-indent: -24px;}
+.p309{text-align: left;padding-left: 24px;padding-right: 3px;margin-top: 1px;margin-bottom: 0px;}
+.p310{text-align: left;padding-left: 24px;padding-right: 22px;margin-top: 10px;margin-bottom: 0px;}
+.p311{text-align: left;margin-top: 37px;margin-bottom: 0px;}
+.p312{text-align: justify;margin-top: 41px;margin-bottom: 0px;}
+.p313{text-align: justify;padding-left: 39px;margin-top: 1px;margin-bottom: 0px;}
+.p314{text-align: left;padding-right: 23px;margin-top: 8px;margin-bottom: 0px;}
+.p315{text-align: left;margin-top: 23px;margin-bottom: 0px;}
+.p316{text-align: left;padding-left: 48px;margin-top: 9px;margin-bottom: 0px;}
+.p317{text-align: left;padding-left: 77px;padding-right: 373px;margin-top: 1px;margin-bottom: 0px;text-indent: -28px;}
+.p318{text-align: left;padding-left: 77px;padding-right: 80px;margin-top: 4px;margin-bottom: 0px;}
+.p319{text-align: left;padding-left: 77px;padding-right: 29px;margin-top: 20px;margin-bottom: 0px;text-indent: 29px;}
+.p320{text-align: left;padding-left: 305px;margin-top: 39px;margin-bottom: 0px;}
+.p321{text-align: left;padding-left: 85px;margin-top: 1px;margin-bottom: 0px;}
+.p322{text-align: left;padding-left: 85px;padding-right: 229px;margin-top: 2px;margin-bottom: 0px;}
+.p323{text-align: left;padding-left: 85px;padding-right: 229px;margin-top: 3px;margin-bottom: 0px;}
+.p324{text-align: left;padding-right: 49px;margin-top: 10px;margin-bottom: 0px;}
+.p325{text-align: left;padding-left: 48px;margin-top: 15px;margin-bottom: 0px;}
+.p326{text-align: left;padding-left: 85px;padding-right: 434px;margin-top: 18px;margin-bottom: 0px;text-indent: -36px;}
+.p327{text-align: left;padding-left: 48px;padding-right: 68px;margin-top: 2px;margin-bottom: 0px;text-indent: 37px;}
+.p328{text-align: left;padding-left: 85px;margin-top: 18px;margin-bottom: 0px;}
+.p329{text-align: left;padding-left: 48px;padding-right: 82px;margin-top: 1px;margin-bottom: 0px;text-indent: 37px;}
+.p330{text-align: left;padding-left: 85px;padding-right: 332px;margin-top: 19px;margin-bottom: 0px;}
+.p331{text-align: justify;padding-left: 14px;margin-top: 8px;margin-bottom: 0px;}
+.p332{text-align: left;padding-right: 78px;margin-top: 10px;margin-bottom: 0px;}
+.p333{text-align: left;margin-top: 13px;margin-bottom: 0px;}
+.p334{text-align: left;padding-left: 305px;margin-top: 275px;margin-bottom: 0px;}
+.p335{text-align: left;padding-left: 48px;margin-top: 19px;margin-bottom: 0px;}
+.p336{text-align: justify;padding-left: 77px;padding-right: 204px;margin-top: 18px;margin-bottom: 0px;}
+.p337{text-align: justify;padding-left: 77px;padding-right: 183px;margin-top: 20px;margin-bottom: 0px;}
+.p338{text-align: justify;padding-left: 77px;padding-right: 37px;margin-top: 19px;margin-bottom: 0px;}
+.p339{text-align: left;padding-left: 107px;margin-top: 3px;margin-bottom: 0px;}
+.p340{text-align: left;padding-left: 77px;padding-right: 66px;margin-top: 18px;margin-bottom: 0px;}
+.p341{text-align: justify;padding-left: 77px;margin-top: 1px;margin-bottom: 0px;}
+.p342{text-align: left;padding-left: 107px;padding-right: 300px;margin-top: 1px;margin-bottom: 0px;text-indent: -28px;}
+.p343{text-align: left;padding-left: 180px;margin-top: 2px;margin-bottom: 0px;}
+.p344{text-align: left;padding-left: 77px;margin-top: 19px;margin-bottom: 0px;}
+.p345{text-align: left;padding-left: 48px;margin-top: 12px;margin-bottom: 0px;}
+.p346{text-align: left;padding-left: 85px;padding-right: 131px;margin-top: 1px;margin-bottom: 0px;}
+.p347{text-align: left;padding-left: 85px;padding-right: 36px;margin-top: 3px;margin-bottom: 0px;}
+.p348{text-align: left;padding-left: 305px;margin-top: 212px;margin-bottom: 0px;}
+.p349{text-align: left;padding-left: 70px;padding-right: 395px;margin-top: 0px;margin-bottom: 0px;text-indent: -21px;}
+.p350{text-align: left;padding-left: 70px;margin-top: 3px;margin-bottom: 0px;}
+.p351{text-align: left;padding-left: 187px;padding-right: 88px;margin-top: 1px;margin-bottom: 0px;text-indent: -116px;}
+.p352{text-align: left;padding-left: 70px;margin-top: 2px;margin-bottom: 0px;}
+.p353{text-align: left;padding-left: 70px;padding-right: 110px;margin-top: 1px;margin-bottom: 0px;}
+.p354{text-align: justify;padding-left: 38px;padding-right: 50px;margin-top: 8px;margin-bottom: 0px;text-indent: -24px;}
+.p355{text-align: left;padding-left: 305px;margin-top: 562px;margin-bottom: 0px;}
+
+.td0{text-align: right;padding-left: 0px;padding-right: 4px;width: 7px;vertical-align: bottom;}
+.td1{text-align: left;padding-left: 18px;padding-right: 0px;width: 580px;vertical-align: bottom;}
+.td2{text-align: right;padding-left: 0px;padding-right: 0px;width: 15px;vertical-align: bottom;}
+.td3{text-align: left;padding-left: 0px;padding-right: 0px;width: 11px;vertical-align: bottom;}
+.td4{text-align: left;padding-left: 4px;padding-right: 0px;width: 35px;vertical-align: bottom;}
+.td5{text-align: left;padding-left: 9px;padding-right: 0px;width: 550px;vertical-align: bottom;}
+.td6{text-align: left;padding-left: 0px;padding-right: 0px;width: 39px;vertical-align: bottom;}
+.td7{text-align: left;padding-left: 258px;padding-right: 0px;width: 301px;vertical-align: bottom;}
+.td8{text-align: left;padding-left: 0px;padding-right: 0px;width: 15px;vertical-align: bottom;}
+.td9{border-left: #000000 1pt solid;border-right: #000000 1pt solid;border-top: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 77px;vertical-align: bottom;}
+.td10{border-right: #000000 1pt solid;border-top: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 71px;vertical-align: bottom;}
+.td11{border-right: #000000 1pt solid;border-top: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 59px;vertical-align: bottom;}
+.td12{border-right: #000000 1pt solid;border-top: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 167px;vertical-align: bottom;}
+.td13{border-right: #000000 1pt solid;border-top: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 216px;vertical-align: bottom;}
+.td14{border-left: #000000 1pt solid;border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 5px;width: 84px;vertical-align: bottom;}
+.td15{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 5px;width: 78px;vertical-align: bottom;}
+.td16{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 5px;width: 66px;vertical-align: bottom;}
+.td17{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 5px;width: 174px;vertical-align: bottom;}
+.td18{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 5px;width: 223px;vertical-align: bottom;}
+.td19{border-left: #000000 1pt solid;border-right: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 77px;vertical-align: bottom;}
+.td20{border-right: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 71px;vertical-align: bottom;}
+.td21{border-right: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 59px;vertical-align: bottom;}
+.td22{border-right: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 167px;vertical-align: bottom;}
+.td23{border-right: #000000 1pt solid;text-align: left;padding-left: 7px;padding-right: 0px;width: 216px;vertical-align: bottom;}
+.td24{border-right: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;width: 78px;vertical-align: bottom;}
+.td25{border-right: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;width: 174px;vertical-align: bottom;}
+.td26{border-left: #000000 1pt solid;border-right: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;width: 84px;vertical-align: bottom;}
+.td27{border-right: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;width: 66px;vertical-align: bottom;}
+.td28{border-left: #000000 1pt solid;border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 4px;width: 84px;vertical-align: bottom;}
+.td29{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 4px;width: 78px;vertical-align: bottom;}
+.td30{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 4px;width: 66px;vertical-align: bottom;}
+.td31{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 4px;width: 174px;vertical-align: bottom;}
+.td32{border-right: #000000 1pt solid;border-bottom: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;line-height: 4px;width: 223px;vertical-align: bottom;}
+.td33{border-right: #000000 1pt solid;text-align: left;padding-left: 0px;padding-right: 0px;width: 223px;vertical-align: bottom;}
+.td34{border-left: #000000 1pt solid;border-right: #000000 1pt solid;text-align: left;padding-left: 11px;padding-right: 0px;width: 73px;vertical-align: bottom;}
+.td35{text-align: left;padding-left: 0px;padding-right: 0px;width: 180px;vertical-align: bottom;}
+.td36{text-align: left;padding-left: 11px;padding-right: 0px;width: 47px;vertical-align: bottom;}
+.td37{text-align: left;padding-left: 4px;padding-right: 0px;width: 117px;vertical-align: bottom;}
+.td38{text-align: left;padding-left: 0px;padding-right: 0px;width: 48px;vertical-align: bottom;}
+.td39{text-align: left;padding-left: 3px;padding-right: 0px;width: 129px;vertical-align: bottom;}
+.td40{text-align: left;padding-left: 3px;padding-right: 0px;width: 308px;vertical-align: bottom;}
+.td41{text-align: left;padding-left: 0px;padding-right: 0px;width: 271px;vertical-align: bottom;}
+.td42{text-align: left;padding-left: 0px;padding-right: 0px;width: 44px;vertical-align: bottom;}
+.td43{text-align: left;padding-left: 0px;padding-right: 0px;width: 52px;vertical-align: bottom;}
+.td44{text-align: left;padding-left: 0px;padding-right: 0px;width: 29px;vertical-align: bottom;}
+.td45{text-align: left;padding-left: 29px;padding-right: 0px;width: 37px;vertical-align: bottom;}
+.td46{text-align: left;padding-left: 15px;padding-right: 0px;width: 44px;vertical-align: bottom;}
+.td47{text-align: left;padding-left: 7px;padding-right: 0px;width: 139px;vertical-align: bottom;}
+.td48{text-align: left;padding-left: 29px;padding-right: 0px;width: 286px;vertical-align: bottom;}
+.td49{text-align: left;padding-left: 0px;padding-right: 0px;width: 205px;vertical-align: bottom;}
+.td50{text-align: left;padding-left: 8px;padding-right: 0px;width: 36px;vertical-align: bottom;}
+.td51{text-align: left;padding-left: 7px;padding-right: 0px;width: 45px;vertical-align: bottom;}
+.td52{text-align: left;padding-left: 7px;padding-right: 0px;width: 22px;vertical-align: bottom;}
+.td53{text-align: left;padding-left: 7px;padding-right: 0px;width: 198px;vertical-align: bottom;}
+.td54{text-align: left;padding-left: 0px;padding-right: 0px;width: 59px;vertical-align: bottom;}
+.td55{text-align: left;padding-left: 7px;padding-right: 0px;width: 418px;vertical-align: bottom;}
+.td56{text-align: right;padding-left: 0px;padding-right: 4px;width: 26px;vertical-align: bottom;}
+.td57{text-align: left;padding-left: 3px;padding-right: 0px;width: 15px;vertical-align: bottom;}
+.td58{text-align: left;padding-left: 7px;padding-right: 0px;width: 77px;vertical-align: bottom;}
+.td59{text-align: left;padding-left: 4px;padding-right: 0px;width: 33px;vertical-align: bottom;}
+.td60{text-align: left;padding-left: 4px;padding-right: 0px;width: 120px;vertical-align: bottom;}
+.td61{text-align: left;padding-left: 4px;padding-right: 0px;width: 55px;vertical-align: bottom;}
+.td62{text-align: left;padding-left: 4px;padding-right: 0px;width: 80px;vertical-align: bottom;}
+.td63{text-align: left;padding-left: 9px;padding-right: 0px;width: 460px;vertical-align: bottom;}
+
+.tr0{height: 17px;}
+.tr1{height: 25px;}
+.tr2{height: 24px;}
+.tr3{height: 23px;}
+.tr4{height: 49px;}
+.tr5{height: 6px;}
+.tr6{height: 19px;}
+.tr7{height: 16px;}
+.tr8{height: 5px;}
+.tr9{height: 20px;}
+.tr10{height: 18px;}
+.tr11{height: 28px;}
+
+.t0{width: 624px;margin-left: 2px;margin-top: 106px;font: 15px 'Arial';line-height: 17px;}
+.t1{width: 625px;font: 14px 'Times New Roman';line-height: 16px;}
+.t2{width: 359px;margin-left: 92px;margin-top: 1px;font: 13px 'Arial';color: #4f81bd;line-height: 16px;}
+.t3{width: 396px;margin-left: 48px;margin-top: 12px;font: 13px 'Arial';color: #4f81bd;line-height: 16px;}
+.t4{width: 484px;margin-left: 55px;margin-top: 2px;font: 13px 'Arial';color: #4f81bd;line-height: 16px;}
+.t5{width: 484px;margin-left: 14px;margin-top: 2px;font: 15px 'Arial';line-height: 17px;}
+
+</STYLE>
+</HEAD>
+
+<BODY>
+<DIV id="page_1">
+
+<P class="p0"><FONT class="ft0">Draft F# Component Design Guidelines</FONT></P>
+<P class="p1"><FONT class="ft1">(August 2010)</FONT></P>
+<P class="p2"><FONT class="ft2">This documentation is a draft set of component design guidelines for F# programming related to the 2.0 release of F# made by Microsoft Research and the Microsoft Developer Division in April 2010.</FONT></P>
+<P class="p3"><FONT class="ft3">This document assumes you are familiar with F# programming.</FONT></P>
+<P class="p4"><FONT class="ft4">For more information on F# programming see </FONT><A href="http://www.fsharp.net/"><FONT class="ft5">fsharp.net</FONT></A><A href="http://www.fsharp.net/"><FONT class="ft4">. </FONT></A><FONT class="ft4">The F# team is always very grateful for feedback on these guidelines. You can submit feedback by emailing </FONT><A href="mailto:fsbugs@microsoft.com"><FONT class="ft5">fsbugs@microsoft.com</FONT></A><A href="mailto:fsbugs@microsoft.com"><FONT class="ft4">. </FONT></A><FONT class="ft4">Many thanks to the F# user community for their helpful feedback on the document so far.</FONT></P>
+<P class="p5"><FONT class="ft6">Notice</FONT></P>
+<P class="p6"><FONT class="ft7">&#169; 2010 Microsoft Corporation. All rights reserved.</FONT></P>
+<TABLE cellpadding=0 cellspacing=0 class="t0">
+<TR class="tr0">
+	<TD class="td0"><A href="#page_3"><FONT class="ft8">1</FONT></A></TD>
+	<TD colspan=2 class="td1"><A href="#page_3"><FONT class="ft9">Overview ...............................................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_3">3</A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td0"><A href="#page_4"><FONT class="ft8">2</FONT></A></TD>
+	<TD colspan=2 class="td1"><A href="#page_4"><FONT class="ft9">General Guidelines................................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_4">4</A></TD>
+</TR>
+<TR class="tr2">
+	<TD class="td0"><A href="#page_5"><FONT class="ft8">3</FONT></A></TD>
+	<TD colspan=2 class="td1"><A href="#page_5"><FONT class="ft9">Guidelines for F#-Facing Libraries.........................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_5">5</A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_5">3.1</A></TD>
+	<TD class="td5"><A href="#page_5"><FONT class="ft9">Naming Conventions.....................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_5">5</A></TD>
+</TR>
+<TR class="tr2">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_7">3.2</A></TD>
+	<TD class="td5"><A href="#page_7"><FONT class="ft9">Object, Type and Module Design..................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_7">7</A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_11">3.3</A></TD>
+	<TD class="td5"><A href="#page_11"><FONT class="ft9">Function and Member Signatures...............................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_11"><FONT class="ft8">11</FONT></A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_12">3.4</A></TD>
+	<TD class="td5"><A href="#page_12"><FONT class="ft9">Exceptions...................................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_12"><FONT class="ft8">12</FONT></A></TD>
+</TR>
+<TR class="tr2">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_12">3.5</A></TD>
+	<TD class="td5"><A href="#page_12"><FONT class="ft9">Extension Members ....................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_12"><FONT class="ft8">12</FONT></A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_13">3.6</A></TD>
+	<TD class="td5"><A href="#page_13"><FONT class="ft9">Union Types ................................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_13"><FONT class="ft8">13</FONT></A></TD>
+</TR>
+<TR class="tr2">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_13">3.7</A></TD>
+	<TD class="td5"><A href="#page_13"><FONT class="ft9">Inline Functions and Member Constraints..................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_13"><FONT class="ft8">13</FONT></A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_14">3.8</A></TD>
+	<TD class="td5"><A href="#page_14"><FONT class="ft9">Operator Definitions ...................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_14"><FONT class="ft8">14</FONT></A></TD>
+</TR>
+<TR class="tr2">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_14">3.9</A></TD>
+	<TD class="td5"><A href="#page_14"><FONT class="ft9">Units of Measure.........................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_14"><FONT class="ft8">14</FONT></A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_14">3.10</A></TD>
+	<TD class="td5"><A href="#page_14"><FONT class="ft9">Type Abbreviations .....................................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_14"><FONT class="ft8">14</FONT></A></TD>
+</TR>
+<TR class="tr2">
+	<TD class="td0"><A href="#page_15"><FONT class="ft8">4</FONT></A></TD>
+	<TD colspan=2 class="td1"><A href="#page_15"><FONT class="ft9">Guidelines for Libraries for Use from other .NET Languages..............................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_15"><FONT class="ft8">15</FONT></A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_15">4.1</A></TD>
+	<TD class="td5"><A href="#page_15"><FONT class="ft9">Namespace and Type Design ......................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_15"><FONT class="ft8">15</FONT></A></TD>
+</TR>
+<TR class="tr1">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td4"><A href="#page_17">4.2</A></TD>
+	<TD class="td5"><A href="#page_17"><FONT class="ft9">Object and Member Design ........................................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_17"><FONT class="ft8">17</FONT></A></TD>
+</TR>
+<TR class="tr3">
+	<TD class="td0"><A href="#page_21"><FONT class="ft8">5</FONT></A></TD>
+	<TD colspan=2 class="td1"><A href="#page_21"><FONT class="ft9">Recommendations for Implementation Code ....................................................................................</FONT></A></TD>
+	<TD class="td2"><A href="#page_21"><FONT class="ft8">21</FONT></A></TD>
+</TR>
+<TR class="tr4">
+	<TD class="td3">&nbsp;</TD>
+	<TD class="td6">&nbsp;</TD>
+	<TD class="td7">1</TD>
+	<TD class="td8">&nbsp;</TD>
+</TR>
+</TABLE>
+</DIV>
+<DIV id="page_2">
+
+<P class="p7"><A href="#page_23"><FONT class="ft10">5.1 Suggested Naming Conventions in F# Implementation Code ....................................................21 5.2 Suggested Coding Conventions in F# Implementation Code......................................................22 6 Appendix .............................................................................................................................................23 6.1 End-to-end example of designing F# code for use by other .NET languages .............................23</FONT></A></P>
+<P class="p8"><FONT class="ft11">2</FONT></P>
+</DIV>
+<DIV id="page_3">
+
+<P class="p9"><FONT class="ft12">1 </FONT><FONT class="ft13">Overview</FONT></P>
+<P class="p10"><FONT class="ft14">This document looks at some of the issues related to F# component design and coding. In particular, it covers:</FONT></P>
+<P class="p11"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Guidelines for designing &#8220;vanilla&#8221; .NET libraries for use from any .NET language.</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Guidelines for F#-to-F# libraries and F# implementation code.</FONT></P>
+<P class="p13"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Suggestions on coding conventions for F# implementation code.</FONT></P>
+<P class="p14"><FONT class="ft4">F# is often seen as a functional language, but in reality is a multi-paradigm language; the OO, functional and imperative paradigms are all well supported. That is, F# is a </FONT><FONT class="ft17">functional-oriented </FONT><FONT class="ft4">language&#8212;many of the defaults are set up to encourage functional programming, but programming in the other paradigms is effective and efficient, and a combination is often best of all. It is a common misconception that the functional and object-oriented programming methodologies are competing. In fact, they are generally orthogonal and largely complementary. Often, functional programming plays a stronger role &#8220;in the small&#8221; (e.g. at the implementation level of functions/method and the code contained therein) and OO plays a bigger role &#8220;in the large&#8221; (e.g. at the structural level of classes, interfaces, and namespaces, and the organization of APIs for frameworks).</FONT></P>
+<P class="p15"><FONT class="ft4">Regardless of the methodology, the component and library designer faces a number of practical and prosaic issues when trying to craft an API that is most easily usable by developers. One of the strengths of the .NET platform is its </FONT><FONT class="ft17">unified programming model </FONT><FONT class="ft4">that is independent of the programming language being used. The consistency throughout both the .NET Framework and other .NET libraries is the result of conscientious application of the </FONT><FONT class="ft17">.NET Library Design Guidelines</FONT><FONT class="ft4">, published </FONT><A href="http://msdn.microsoft.com/en-us/library/ms229042.aspx"><FONT class="ft5">online </FONT></A><FONT class="ft4">by Microsoft and as a book (&#8220;Framework Design Guidelines: Conventions, Idioms, and Patterns for Reusable .NET Libraries&#8221; by Krzysztof Cwalina and Brad Abrams) by Addison-Wesley. These guidelines steer library designers towards creating a consistent set of APIs which enables components to be both easily authored in, and seamlessly consumed by, a variety of .NET languages.</FONT></P>
+<P class="p16"><FONT class="ft18">As a .NET programming language, the general guidelines and conventions for .NET component programming and library design apply to F#. Nevertheless F# has a number of unique features, as well as some of its own conventions and idioms, which make it worthwhile to provide prescriptive advice specific to using F#. Even if you are writing small F# scripts, it can be useful to be familiar with these design guidelines, as today&#8217;s scripts and tiny projects often evolve into tomorrow&#8217;s reusable library components.</FONT></P>
+<P class="p17"><FONT class="ft14">The .NET Library Design Guidelines are described in terms of conventions and guidelines for the use of the following constructs in public framework libraries:</FONT></P>
+<P class="p11"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Assemblies, namespaces, and types</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Classes and interfaces, containing properties, methods, and events</FONT></P>
+<P class="p13"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">.NET delegate types</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Enumerations (that is, enums from languages such as C#)</FONT></P>
+<P class="p18"><FONT class="ft11">3</FONT></P>
+</DIV>
+<DIV id="page_4">
+
+<P class="p19"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Constants (that is, constant literals from languages such as C#)</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Type parameters (that is, generic parameters)</FONT></P>
+<P class="p20"><FONT class="ft14">From the perspective of F# programming, you must also consider a variety of other constructs, including:</FONT></P>
+<P class="p11"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Union types and record types</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Values and functions declared using </FONT><FONT class="ft19">let </FONT><FONT class="ft11">and </FONT><FONT class="ft19">let rec</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Modules</FONT></P>
+<P class="p13"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Function types</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">F# optional parameters and extension methods</FONT></P>
+<P class="p21"><FONT class="ft4">Good framework library design is always nontrivial and often underestimated. F# framework and library design methodology is inevitably strongly rooted in the context of .NET object-oriented programming. In this document, we give our guidelines on how you can go about approaching library design in the context of F# programming. As with the .NET Library Design Guidelines, these guidelines are not completely proscriptive &#8211;ultimately the final choices lie with F# programmers and software architects.</FONT></P>
+<P class="p22"><FONT class="ft4">A primary decision point is whether you are designing components for use exclusively from F#, or whether your components are intended for use from other .NET languages (like C# and Visual Basic). APIs aimed specifically at F# developers can and should take advantage of the variety of F#-specific types and constructs that provide some of the unique strengths of the F# language. While it is possible to consume all of these components from other languages, a well-designed API designed for developers of any .NET language should use a more restricted subset of F# in the public interface, so as to provide familiar, idiomatic APIs that are consistent with the rest of .NET Framework.</FONT></P>
+<P class="p23"><FONT class="ft4">Sections 2-4 give recommendations for authoring F# libraries depending on the library&#8217;s intended audience. First in Section 2 we provide universal guidelines for all F# libraries. Next in Section 3 we offer advice regarding APIs designed specifically for F# developers. Then in Section 4 we describe recommendations for libraries that are intended to be consumed by any .NET language. These sections together provide all our advice regarding the design of the public interface published by an F# assembly.</FONT></P>
+<P class="p24"><FONT class="ft20">Section 5 offers suggestions for F# coding conventions. Whereas the other sections focus on the component design, this section suggests some recommendations regarding style and conventions for general F# coding (e.g. the implementation of internal components).</FONT></P>
+<P class="p15"><FONT class="ft11">The document concludes with an appendix containing an extended design example.</FONT></P>
+<P class="p25"><FONT class="ft12">2 </FONT><FONT class="ft13">General Guidelines</FONT></P>
+<P class="p26"><FONT class="ft20">There are a few universal guidelines that apply to F# libraries, regardless of the intended audience for the library. For all F# libraries, we propose the guidelines below. The first bullet is paramount, echoing one of the main themes of this document.</FONT></P>
+<P class="p27"><FONT class="ft11">4</FONT></P>
+</DIV>
+<DIV id="page_5">
+
+<P class="p28"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">be familiar with the .NET Library Design Guidelines</FONT></P>
+<P class="p29"><FONT class="ft11">Regardless of the kind of F# coding you are doing, it is valuable to have a working knowledge of the</FONT></P>
+<P class="p30"><A href="http://msdn.microsoft.com/en-us/library/ms229042.aspx"><FONT class="ft23">.NET Library Design Guidelines</FONT></A><A href="http://msdn.microsoft.com/en-us/library/ms229042.aspx"><FONT class="ft11">. </FONT></A><FONT class="ft11">Most other F# and .NET programmers will be familiar with these guidelines, and expect .NET code to conform to them.</FONT></P>
+<P class="p29"><FONT class="ft11">This in turn may require familiarity with C# and/or Visual Basic coding techniques.</FONT></P>
+<P class="p31"><FONT class="ft11">The .NET Library Design Guidelines provide lots of general guidance regarding naming, designing classes and interfaces, member design (properties, methods, events, &#8230;) and more, and are a useful first point of reference for a variety of design guidance.</FONT></P>
+<P class="p32"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">add XML documentation comments to your code.</FONT></P>
+<P class="p33"><FONT class="ft24">XML documents on public APIs ensure that users can get great Intellisense and Quickinfo when using these types and members, and enable building documentation files for the library. See the F# documentation about various xml tags that can be used for additional markup within xmldoc</FONT></P>
+<P class="p34"><FONT class="ft11">comments.</FONT></P>
+<P class="p35"><FONT class="ft25">&#61692; </FONT><FONT class="ft19">/// A class for representing (x,y) coordinates</FONT></P>
+<P class="p36"><FONT class="ft19">type Point =</FONT></P>
+<P class="p37"><FONT class="ft19">/// Computes the distance between this point and another member DistanceTo : anotherPoint:Point -&gt; float</FONT></P>
+<P class="p38"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using explicit signature files (.fsi) for stable library and component APIs.</FONT></P>
+<P class="p39"><FONT class="ft26">Using explicit signatures files in an F# library provides a succinct summary of public API, which both helps to ensure that you know the full public surface of your library, as well as provides a clean separation between public documentation and internal implementation details. Note that signature files add friction to changing the public API, by requiring changes to be made in both the implementation and signature files. As a result, signature files should typically only be introduced when an API has become solidified and is no longer expected to change significantly.</FONT></P>
+<P class="p40"><FONT class="ft12">3 </FONT><FONT class="ft13">Guidelines for F#-Facing Libraries</FONT></P>
+<P class="p41"><FONT class="ft4">In this section, we will present recommendations for developing public F#-facing libraries, that is, libraries exposing public APIs that are intended to be consumed by F# developers. (For guidance for internal/private F# implementation code, see the Section 5.) There are a variety of library-design recommendations applicable specifically to F#. In the absence of specific recommendations below, the</FONT></P>
+<P class="p42"><FONT class="ft11">.NET Library Design Guidelines are the fallback guidance.</FONT></P>
+<P class="p43"><FONT class="ft27">3.1 Naming Conventions</FONT></P>
+<P class="p44"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use the .NET naming and capitalization conventions for object-oriented code, including F#-facing libraries.</FONT></P>
+<P class="p45"><FONT class="ft28">Table 2. Conventions Associated with Public Constructs in .NET Frameworks and Extensions for F# Constructs in F#-to-F# libraries</FONT></P>
+<P class="p46"><FONT class="ft11">5</FONT></P>
+</DIV>
+<DIV id="page_6">
+
+<TABLE cellpadding=0 cellspacing=0 class="t1">
+<TR class="tr1">
+	<TD class="td9"><FONT class="ft29">Construct</FONT></TD>
+	<TD class="td10"><FONT class="ft29">Case</FONT></TD>
+	<TD class="td11"><FONT class="ft29">Part</FONT></TD>
+	<TD class="td12"><FONT class="ft29">Examples</FONT></TD>
+	<TD class="td13"><FONT class="ft29">Notes</FONT></TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Concrete</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td21">Noun/</TD>
+	<TD class="td22"><FONT class="ft30">List</FONT>, <FONT class="ft30">Double, Complex</FONT></TD>
+	<TD class="td23">Concrete types are structs, classes,</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td19">types</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td21">adjective</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">enumerations, delegates, records,</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">and unions. Though type names are</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">traditionally lowercase in OCaml, F#</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">has adopted the .NET naming</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">scheme for types.</TD>
+</TR>
+<TR class="tr8">
+	<TD class="td28">&nbsp;</TD>
+	<TD class="td29">&nbsp;</TD>
+	<TD class="td30">&nbsp;</TD>
+	<TD class="td31">&nbsp;</TD>
+	<TD class="td32">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">DLLs</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td22"><FONT class="ft30">Fabrikom.Core.dll</FONT></TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Union tags</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td21">Noun</TD>
+	<TD class="td22"><FONT class="ft30">Some</FONT>, <FONT class="ft30">Add</FONT>, <FONT class="ft30">Success</FONT></TD>
+	<TD class="td23">Do not use a prefix in public APIs.</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">Optionally use a prefix when</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">internal, such as <FONT class="ft30">type Teams =</FONT></TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23"><FONT class="ft30">TAlpha | TBeta | TDelta</FONT>.</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Event</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td21">Verb</TD>
+	<TD class="td22"><FONT class="ft30">ValueChanged</FONT></TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Exceptions</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td22"><FONT class="ft30">WebException</FONT></TD>
+	<TD class="td23">Name should end with &#8220;Exception&#8221;.</TD>
+</TR>
+<TR class="tr8">
+	<TD class="td28">&nbsp;</TD>
+	<TD class="td29">&nbsp;</TD>
+	<TD class="td30">&nbsp;</TD>
+	<TD class="td31">&nbsp;</TD>
+	<TD class="td32">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Field</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td21">Noun</TD>
+	<TD class="td22"><FONT class="ft30">CurrentName</FONT></TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Interface</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td21">Noun/</TD>
+	<TD class="td22"><FONT class="ft30">IDisposable</FONT></TD>
+	<TD class="td23">Name should start with &#8220;I&#8221;.</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td19">types</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td21">adjective</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Method</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td21">Verb</TD>
+	<TD class="td22"><FONT class="ft30">ToString</FONT></TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Namespace</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td22"><FONT class="ft30">Microsoft.FSharp.Core</FONT></TD>
+	<TD class="td23">Generally use</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23"><FONT class="ft30">&lt;Organization&gt;.&lt;Technology&gt;[</FONT></TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23"><FONT class="ft30">.&lt;Subnamespace&gt;]</FONT>, though drop</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">the organization if the technology is</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">independent of organization.</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td19">Parameters</TD>
+	<TD class="td20">camelCase</TD>
+	<TD class="td21">Noun</TD>
+	<TD class="td22"><FONT class="ft30">typeName</FONT>, <FONT class="ft30">transform</FONT>,</TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td22"><FONT class="ft30">range</FONT></TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr8">
+	<TD class="td28">&nbsp;</TD>
+	<TD class="td29">&nbsp;</TD>
+	<TD class="td30">&nbsp;</TD>
+	<TD class="td31">&nbsp;</TD>
+	<TD class="td32">&nbsp;</TD>
+</TR>
+<TR class="tr9">
+	<TD class="td34"><FONT class="ft30">let </FONT>values</TD>
+	<TD class="td20">camelCase</TD>
+	<TD class="td21">Noun/</TD>
+	<TD class="td22"><FONT class="ft30">getValue</FONT>, <FONT class="ft30">myTable</FONT></TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td19">(internal)</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td21">verb</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td33">&nbsp;</TD>
+</TR>
+<TR class="tr5">
+	<TD class="td14">&nbsp;</TD>
+	<TD class="td15">&nbsp;</TD>
+	<TD class="td16">&nbsp;</TD>
+	<TD class="td17">&nbsp;</TD>
+	<TD class="td18">&nbsp;</TD>
+</TR>
+<TR class="tr6">
+	<TD class="td34"><FONT class="ft30">let </FONT>values</TD>
+	<TD class="td20">camelCase</TD>
+	<TD class="td21">Noun</TD>
+	<TD class="td22"><FONT class="ft30">List.map</FONT>, <FONT class="ft30">Dates.Today</FONT></TD>
+	<TD class="td23"><FONT class="ft30">let</FONT>-bound values are often public</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td19">(external)</TD>
+	<TD class="td20">&#8230;or&#8230;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">when following traditional</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">functional design patterns. However,</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">generally use PascalCase when the</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">identifier can be used from other</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">.NET languages.</TD>
+</TR>
+<TR class="tr8">
+	<TD class="td28">&nbsp;</TD>
+	<TD class="td29">&nbsp;</TD>
+	<TD class="td30">&nbsp;</TD>
+	<TD class="td31">&nbsp;</TD>
+	<TD class="td32">&nbsp;</TD>
+</TR>
+<TR class="tr9">
+	<TD class="td19">Property</TD>
+	<TD class="td20">PascalCase</TD>
+	<TD class="td21">Noun/</TD>
+	<TD class="td22"><FONT class="ft30">IsEndOfFile</FONT>, <FONT class="ft30">BackColor</FONT></TD>
+	<TD class="td23">Boolean properties generally use <FONT class="ft30">Is</FONT></TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td21">adjective</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">and <FONT class="ft30">Can </FONT>and should be affirmative,</TD>
+</TR>
+<TR class="tr7">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23">as in <FONT class="ft30">IsEndOfFile</FONT>, not</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td26">&nbsp;</TD>
+	<TD class="td24">&nbsp;</TD>
+	<TD class="td27">&nbsp;</TD>
+	<TD class="td25">&nbsp;</TD>
+	<TD class="td23"><FONT class="ft30">IsNotEndOfFile</FONT>.</TD>
+</TR>
+<TR class="tr8">
+	<TD class="td28">&nbsp;</TD>
+	<TD class="td29">&nbsp;</TD>
+	<TD class="td30">&nbsp;</TD>
+	<TD class="td31">&nbsp;</TD>
+	<TD class="td32">&nbsp;</TD>
+</TR>
+</TABLE>
+<P class="p47"><FONT class="ft24">Table 2 summarizes the .NET guidelines for naming and capitalization in code. We have added our own recommendations for how these should be adjusted for some F# constructs.</FONT></P>
+<P class="p48"><FONT class="ft11">Be aware of the following specific guidelines:</FONT></P>
+<P class="p49"><FONT class="ft11">6</FONT></P>
+</DIV>
+<DIV id="page_7">
+
+<P class="p50"><FONT class="ft31">o</FONT><FONT class="ft32">The .NET guidelines discourage the use of abbreviations (for example, &#8220;use </FONT><FONT class="ft19">OnButtonClick </FONT><FONT class="ft11">rather than </FONT><FONT class="ft19">OnBtnClick</FONT><FONT class="ft11">&#8221;). Very common abbreviations, such as &#8220;Async&#8221; for &#8220;Asynchronous&#8221;, are tolerated. This guideline is sometimes ignored for functional programming; for example, </FONT><FONT class="ft19">List.iter </FONT><FONT class="ft11">uses an abbreviation for &#8220;iterate&#8221;. For this reason, using abbreviations tends to be tolerated to a greater degree in F#-to-F# programming, but should still generally be avoided in public component design.</FONT></P>
+<P class="p51"><FONT class="ft33">o</FONT><FONT class="ft34">Acronyms such as XML are not abbreviations and are widely used in .NET libraries in uncapitalized form (</FONT><FONT class="ft35">Xml</FONT><FONT class="ft36">). Only well-known, widely recognized acronyms should be used.</FONT></P>
+<P class="p52"><FONT class="ft31">o</FONT><FONT class="ft32">The .NET guidelines say that casing alone cannot be used to avoid name collisions, since some client languages (e.g. Visual Basic) are case-insensitive.</FONT></P>
+<P class="p53"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use PascalCase for generic parameter names in public APIs, including for F#-facing libraries.</FONT></P>
+<P class="p54"><FONT class="ft36">In particular, use names like </FONT><FONT class="ft35">T</FONT><FONT class="ft36">, </FONT><FONT class="ft35">U</FONT><FONT class="ft36">, </FONT><FONT class="ft35">T1</FONT><FONT class="ft36">, </FONT><FONT class="ft35">T2 </FONT><FONT class="ft36">for arbitrary generic parameters, and when specific names make sense, then for F#-facing libraries use names like </FONT><FONT class="ft35">Key</FONT><FONT class="ft36">, </FONT><FONT class="ft35">Value</FONT><FONT class="ft36">, </FONT><FONT class="ft35">Arg </FONT><FONT class="ft36">(but not e.g. </FONT><FONT class="ft35">TKey</FONT><FONT class="ft36">).</FONT></P>
+<P class="p55"><FONT class="ft37">&#61694;</FONT><FONT class="ft38">Do </FONT><FONT class="ft26">use either PascalCase or camelCase for public functions and values in F# modules. camelCase is generally used for public functions which are designed to be used unqualified (e.g.</FONT></P>
+<P class="p56"><FONT class="ft19">invalidArg</FONT><FONT class="ft11">), and for the &#8220;standard collection functions&#8221; (e.g. </FONT><FONT class="ft19">List.map</FONT><FONT class="ft11">). In both these cases, the function names act much like keywords in the language.</FONT></P>
+<P class="p57"><FONT class="ft27">3.2 Object, Type and Module Design</FONT></P>
+<P class="p58"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use namespaces or modules to contain your types and modules.</FONT></P>
+<P class="p59"><FONT class="ft11">Each F# file in a component should begin with either a namespace declaration or a module declaration.</FONT></P>
+<P class="p60"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">namespace Fabrikom.BasicOperationsAndTypes</FONT></P>
+<P class="p61"><FONT class="ft11">type ObjectType1() = ...</FONT></P>
+<P class="p62"><FONT class="ft11">type ObjectType2() = ...</FONT></P>
+<P class="p62"><FONT class="ft11">module CommonOperations =</FONT></P>
+<P class="p63"><FONT class="ft11">....</FONT></P>
+<P class="p64"><FONT class="ft41">or</FONT></P>
+<P class="p65"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">module Fabrikom.BasicOperationsAndTypes</FONT></P>
+<P class="p61"><FONT class="ft11">type ObjectType1() = ...</FONT></P>
+<P class="p66"><FONT class="ft11">7</FONT></P>
+</DIV>
+<DIV id="page_8">
+
+<P class="p0"><FONT class="ft11">type ObjectType2() = ...</FONT></P>
+<P class="p62"><FONT class="ft11">module CommonOperations =</FONT></P>
+<P class="p67"><FONT class="ft11">....</FONT></P>
+<P class="p68"><FONT class="ft24">From the F# coding perspective there is not a lot of difference between these options: the use of a module allows utility functions to be defined as part of the module, and is useful for prototyping, but these should be made private in a public-facing component. The choice affects the compiled form of the code, and thus will affect the view from other .NET language.</FONT></P>
+<P class="p69"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use properties and methods for operations intrinsic to types.</FONT></P>
+<P class="p70"><FONT class="ft42">This is called out specifically because some people from a functional programming background avoid the use of object oriented programming together, preferring a module containing a set of functions defining the intrinsic functions related to a type (e.g. </FONT><FONT class="ft43">length foo </FONT><FONT class="ft42">rather than </FONT><FONT class="ft43">foo.Length</FONT><FONT class="ft42">). But see also the next bullet. In general, in F#, the use of object-oriented programming is preferred as a software engineering device. This strategy also provides some tooling benefits such as Visual</FONT></P>
+<P class="p71"><FONT class="ft11">Studio&#8217;s &#8220;Intellisense&#8221; feature to discover the methods on a type by &#8220;dotting into&#8221; an object.</FONT></P>
+<P class="p72"><FONT class="ft11">For example:</FONT></P>
+<P class="p73"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">type HardwareDevice with</FONT></P>
+<P class="p74"><FONT class="ft19">...</FONT></P>
+<P class="p75"><FONT class="ft19">member this.ID: string</FONT></P>
+<P class="p75"><FONT class="ft19">member this.SupportedProtocols: seq&lt;Protocol&gt;</FONT></P>
+<P class="p76"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">type HashTable&lt;'Key,'Value&gt; with</FONT></P>
+<P class="p77"><FONT class="ft19">...</FONT></P>
+<P class="p78"><FONT class="ft19">new: IEqualityComparer&lt;'Key&gt; -&gt; HashTable&lt;'Key,'Value&gt;</FONT></P>
+<TABLE cellpadding=0 cellspacing=0 class="t2">
+<TR class="tr7">
+	<TD colspan=2 class="td35">member this.Add</TD>
+	<TD class="td36">: 'Key</TD>
+	<TD class="td37">* 'Value -&gt; unit</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td38">member</TD>
+	<TD class="td39">this.ContainsKey</TD>
+	<TD class="td36">: 'Key</TD>
+	<TD class="td37">-&gt; bool</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td38">member</TD>
+	<TD colspan=3 class="td40">this.ContainsValue : 'Value -&gt; bool</TD>
+</TR>
+</TABLE>
+<P class="p79"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use classes to encapsulate mutable state, according to standard OO methodology.</FONT></P>
+<P class="p80"><FONT class="ft11">In F#, this only needs to be done where that state is not already encapsulated by another language construct, e.g. a closure, sequence expression, or asynchronous computation.</FONT></P>
+<P class="p29"><FONT class="ft11">For example:</FONT></P>
+<P class="p81"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type Counter() =</FONT></P>
+<P class="p82"><FONT class="ft44">let mutable count = 0 member this.Next() =</FONT></P>
+<P class="p83"><FONT class="ft19">count &lt;- count + 1 count</FONT></P>
+<P class="p84"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use interface types to represent related groups of operations that may be implemented in multiple ways.</FONT></P>
+<P class="p85"><FONT class="ft11">8</FONT></P>
+</DIV>
+<DIV id="page_9">
+
+<P class="p86"><FONT class="ft11">In F# there are a number of ways to represent a dictionary of operations, such as using tuples of functions or records of functions. In general, we recommend you use interface types for this purpose.</FONT></P>
+<P class="p87"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type ICounter =</FONT></P>
+<P class="p88"><FONT class="ft19">abstract Increment : unit -&gt; unit abstract Decrement : unit -&gt; unit abstract Value : int</FONT></P>
+<P class="p70"><FONT class="ft11">In preference to:</FONT></P>
+<P class="p89"><FONT class="ft39">&#61691;</FONT><FONT class="ft40">type CounterOps =</FONT></P>
+<P class="p90"><FONT class="ft19">{</FONT><FONT class="ft45">Increment : unit -&gt; unit Decrement : unit -&gt; unit GetValue : unit -&gt; int }</FONT></P>
+<P class="p91"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using the &#8220;module of collection functions&#8221; pattern (e.g. standard set of operations like</FONT></P>
+<P class="p92"><FONT class="ft19">CollectionType.map </FONT><FONT class="ft11">and </FONT><FONT class="ft19">CollectionType.iter</FONT><FONT class="ft11">) for new collection types.</FONT></P>
+<P class="p93"><FONT class="ft19">module CollectionType =</FONT></P>
+<P class="p94"><FONT class="ft19">let map f c = ...</FONT></P>
+<P class="p94"><FONT class="ft19">let iter f c = ...</FONT></P>
+<P class="p95"><FONT class="ft11">If you include such a module, follow the standard naming conventions for functions found in</FONT></P>
+<P class="p96"><FONT class="ft19">FSharp.Core.dll</FONT><FONT class="ft11">.</FONT></P>
+<P class="p97"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using the &#8220;module of top-level functions&#8221; design pattern for common, canonical functions, especially in math and DSL libraries.</FONT></P>
+<P class="p98"><FONT class="ft11">For example, </FONT><FONT class="ft19">Microsoft.FSharp.Core.Operators </FONT><FONT class="ft11">is an automatically opened collection of top- level functions (like </FONT><FONT class="ft19">abs </FONT><FONT class="ft11">and </FONT><FONT class="ft19">sin</FONT><FONT class="ft11">) provided by FSharp.Core.dll.</FONT></P>
+<P class="p99"><FONT class="ft11">Likewise, a statistics library might include a module with functions </FONT><FONT class="ft19">erf </FONT><FONT class="ft11">and </FONT><FONT class="ft19">erfc</FONT><FONT class="ft11">, where this module is designed to be explicitly or automatically opened.</FONT></P>
+<P class="p100"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using the </FONT><FONT class="ft19">[&lt;RequiredQualifiedAccess&gt;] </FONT><FONT class="ft11">and </FONT><FONT class="ft19">[&lt;AutoOpen&gt;] </FONT><FONT class="ft11">attributes if this improves the default ease of use and long-term maintainability of the library in common situations.</FONT></P>
+<P class="p101"><FONT class="ft42">Adding the </FONT><FONT class="ft43">[&lt;AutoOpen&gt;] </FONT><FONT class="ft42">attribute to a module means the module will be opened when the containing namespace is opened. The </FONT><FONT class="ft43">[&lt;AutoOpen&gt;] </FONT><FONT class="ft42">attribute may also be applied to an assembly indicate a namespace or module that is automatically opened when the assembly is referenced.</FONT></P>
+<P class="p102"><FONT class="ft11">For example, a statistics library </FONT><FONT class="ft19">MathsHeaven.Statistics.dll </FONT><FONT class="ft11">might contain a module </FONT><FONT class="ft19">MathsHeaven.Statistics.Operators </FONT><FONT class="ft11">containing functions </FONT><FONT class="ft19">erf </FONT><FONT class="ft11">and </FONT><FONT class="ft19">erfc </FONT><FONT class="ft11">. It is reasonable to mark this module as </FONT><FONT class="ft19">[&lt;AutoOpen&gt;]</FONT><FONT class="ft11">. This means &#8220;</FONT><FONT class="ft19">open MathsHeaven.Statistics</FONT><FONT class="ft11">&#8221; will also open this module and bring the names </FONT><FONT class="ft19">erf </FONT><FONT class="ft11">and </FONT><FONT class="ft19">erfc </FONT><FONT class="ft11">into scope. Another good use of </FONT><FONT class="ft19">[&lt;AutoOpen&gt;] </FONT><FONT class="ft11">is for modules containing extension methods.</FONT></P>
+<P class="p85"><FONT class="ft11">9</FONT></P>
+</DIV>
+<DIV id="page_10">
+
+<P class="p103"><FONT class="ft11">Overuse of </FONT><FONT class="ft19">[&lt;AutoOpen&gt;] </FONT><FONT class="ft11">leads to polluted namespaces, and the attribute should be used with care. For specific libraries in specific domains, judicious use of </FONT><FONT class="ft19">[&lt;AutoOpen&gt;] </FONT><FONT class="ft11">can lead to better usability.</FONT></P>
+<P class="p104"><FONT class="ft11">Adding the </FONT><FONT class="ft19">[&lt;RequireQualifiedAccess&gt;] </FONT><FONT class="ft11">attribute to a module indicates that the module may not be opened and that references to the elements of the module require explicit qualified access. For example, the Microsoft.FSharp.Collections.List module has this attribute.</FONT></P>
+<P class="p105"><FONT class="ft11">This is useful when functions and values in the module have names that are likely to conflict with names in other modules and requiring qualified access can greatly increase the long-term maintainability and evolvability of a library: functions can be added to the module without breaking source compatibility.</FONT></P>
+<P class="p106"><FONT class="ft21">&#61694;</FONT><FONT class="ft46">Consider </FONT><FONT class="ft20">defining operator members on types where using well-known operators is appropriate. For example</FONT></P>
+<P class="p89"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">type Vector(x:float) =</FONT></P>
+<P class="p107"><FONT class="ft19">member v.X = x</FONT></P>
+<P class="p108"><FONT class="ft19">static member (*) (vector:Vector, scalar:float) = Vector(vector.X * scalar)</FONT></P>
+<P class="p109"><FONT class="ft19">static member (+) (vector1:Vector, vector2:Vector) = Vector(vector1.X + vector2.X)</FONT></P>
+<P class="p110"><FONT class="ft19">let v = Vector(5.0) let u = v * 10.0</FONT></P>
+<P class="p111"><FONT class="ft11">This guidance corresponds to general .NET guidance for these types. However, it can be additionally important in F# coding as this will allow these types to be used in conjunction with F# functions and methods with member constraints, such as </FONT><FONT class="ft19">List.sumBy</FONT><FONT class="ft11">.</FONT></P>
+<P class="p32"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using method overloading for member functions, if doing so provides a simpler API.</FONT></P>
+<P class="p112"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">hide the representations of record and union types if the design of these types is likely to evolve.</FONT></P>
+<P class="p113"><FONT class="ft11">The rationale for this is to avoid revealing concrete representations of objects. For example, the concrete representation of </FONT><FONT class="ft19">System.DateTime </FONT><FONT class="ft11">values is not revealed by the external, public API of the .NET library design. At runtime the Common Language Runtime knows the committed implementation that will be used throughout execution. However, compiled code does not itself pick up dependencies on the concrete representation.</FONT></P>
+<P class="p114"><FONT class="ft47">&#61693;</FONT><FONT class="ft22">Avoid </FONT><FONT class="ft11">the use of implementation inheritance for extensibility.</FONT></P>
+<P class="p115"><FONT class="ft42">In general, the .NET guidelines are quite agnostic with regard to the use of implementation inheritance. In F#, implementation inheritance is used more rarely than in other .NET languages. In F# there are many alternative techniques for designing and implementing object-oriented types using F#. Other object-oriented extensibility topics discussed in the .NET guidelines include events</FONT></P>
+<P class="p116"><FONT class="ft11">10</FONT></P>
+</DIV>
+<DIV id="page_11">
+
+<P class="p117"><FONT class="ft11">and callbacks, virtual members, abstract types and inheritance, and limiting extensibility by sealing classes.</FONT></P>
+<P class="p118"><FONT class="ft27">3.3 Function and Member Signatures</FONT></P>
+<P class="p119"><FONT class="ft48">&#61694; </FONT><FONT class="ft49">Do </FONT><FONT class="ft50">use tuples when appropriate for return values. Here is a good example of using a tuple in a return type:</FONT></P>
+<P class="p87"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">val divrem : BigInteger -&gt; BigInteger -&gt; BigInteger * BigInteger</FONT></P>
+<P class="p120"><FONT class="ft14">For return types containing many components, or where the components are related to a single identifiable entity, consider using a named type instead of a tuple.</FONT></P>
+<P class="p114"><FONT class="ft21">&#61694;</FONT><FONT class="ft51">Do </FONT><FONT class="ft11">use </FONT><FONT class="ft19">Async&lt;T&gt; </FONT><FONT class="ft11">for async programming at F# API boundaries.</FONT></P>
+<P class="p121"><FONT class="ft11">If there is a corresponding synchronous operation named </FONT><FONT class="ft19">Foo </FONT><FONT class="ft11">that returns a </FONT><FONT class="ft19">T</FONT><FONT class="ft11">, then the async operation should be named </FONT><FONT class="ft19">AsyncFoo </FONT><FONT class="ft11">and return </FONT><FONT class="ft19">Async&lt;T&gt;</FONT><FONT class="ft11">.</FONT></P>
+<P class="p122"><FONT class="ft11">For commonly-used .NET types that expose Begin/End methods, consider using </FONT><FONT class="ft19">Async.FromBeginEnd </FONT><FONT class="ft11">to write extension methods as a fa&#231;ade to provide the F# async programming model to those .NET APIs.</FONT></P>
+<P class="p81"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type SomeType =</FONT></P>
+<P class="p123"><FONT class="ft19">member this.Compute(x:int) : int = ...</FONT></P>
+<P class="p124"><FONT class="ft19">member this.AsyncCompute(x:int) : Async&lt;int&gt; = ...</FONT></P>
+<P class="p125"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type System.ServiceModel.Channels.IInputChannel with member this.AsyncReceive() =</FONT></P>
+<P class="p126"><FONT class="ft19">Async.FromBeginEnd(this.BeginReceive, this.EndReceive)</FONT></P>
+<P class="p79"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using option values for return types instead of raising exceptions (for F#-facing code).</FONT></P>
+<P class="p127"><FONT class="ft11">The .NET approach to exceptions is that they should be &#8220;exceptional&#8221;; that is, they should occur relatively infrequently. However, some operations (for example, searching a table) may fail frequently. F# option values are an excellent way to represent the return types of these operations. These operations conventionally start with the name prefix &#8220;try&#8221;.</FONT></P>
+<P class="p128"><FONT class="ft11">11</FONT></P>
+</DIV>
+<DIV id="page_12">
+
+<P class="p129"><FONT class="ft19">//</FONT><FONT class="ft52">bad: throws exception if no element meets criteria</FONT></P>
+<P class="p130"><FONT class="ft39">&#61691;</FONT><FONT class="ft53">member this.FindFirstIndex(pred : 'T -&gt; bool) : int = ...</FONT></P>
+<P class="p131"><FONT class="ft19">//</FONT><FONT class="ft52">bad: returns -1 if no element meets criteria</FONT></P>
+<P class="p130"><FONT class="ft39">&#61691;</FONT><FONT class="ft53">member this.FindFirstIndex(pred : 'T -&gt; bool) : int = ...</FONT></P>
+<P class="p132"><FONT class="ft19">//</FONT><FONT class="ft52">good: returns None if no element meets criteria</FONT></P>
+<P class="p130"><FONT class="ft39">&#61692;</FONT><FONT class="ft53">member this.TryFindFirstIndex(pred : 'T -&gt; bool) : int option = ...</FONT></P>
+<P class="p79"><FONT class="ft27">3.4</FONT><FONT class="ft54">Exceptions</FONT></P>
+<P class="p58"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">follow the .NET guidelines for exceptions, including for F#-to-F# libraries.</FONT></P>
+<P class="p133"><FONT class="ft11">The .NET Library Design Guidelines give excellent advice on the use of exceptions in the context of all .NET programming. Some of these guidelines are as follows:</FONT></P>
+<P class="p134"><FONT class="ft31">o </FONT><FONT class="ft11">Do not return error codes. Exceptions are the main way of reporting errors in frameworks.</FONT></P>
+<P class="p135"><FONT class="ft31">o</FONT><FONT class="ft32">Do not use exceptions for normal flow of control. Although this technique is often used in languages such as OCaml, it is bug-prone and can be inefficient on .NET. Instead consider returning a </FONT><FONT class="ft19">None </FONT><FONT class="ft11">option value to indicate failure.</FONT></P>
+<P class="p136"><FONT class="ft31">o</FONT><FONT class="ft32">Do document all exceptions thrown by your components when a function is used incorrectly.</FONT></P>
+<P class="p137"><FONT class="ft31">o </FONT><FONT class="ft11">Where possible throw existing exceptions from the </FONT><FONT class="ft19">System </FONT><FONT class="ft11">namespaces.</FONT></P>
+<P class="p138"><FONT class="ft31">o</FONT><FONT class="ft32">Do not throw </FONT><FONT class="ft19">System.Exception </FONT><FONT class="ft11">when it will escape to user code. This includes avoiding the use of </FONT><FONT class="ft19">failwith</FONT><FONT class="ft11">, </FONT><FONT class="ft19">failwithf</FONT><FONT class="ft11">, which are handy functions for use in scripting and for code under development, but should be removed from F# library code in favor of throwing a more specific exception type.</FONT></P>
+<P class="p139"><FONT class="ft31">o</FONT><FONT class="ft32">Do use </FONT><FONT class="ft19">nullArg, invalidArg </FONT><FONT class="ft11">and </FONT><FONT class="ft19">invalidOp </FONT><FONT class="ft11">as the mechanism to throw</FONT></P>
+<P class="p140"><FONT class="ft19">ArgumentNullException</FONT><FONT class="ft11">, </FONT><FONT class="ft19">ArgumentException </FONT><FONT class="ft11">and </FONT><FONT class="ft19">InvalidOperationException </FONT><FONT class="ft11">when appropriate.</FONT></P>
+<P class="p112"><FONT class="ft27">3.5</FONT><FONT class="ft54">Extension Members</FONT></P>
+<P class="p72"><FONT class="ft21">&#61694; </FONT><FONT class="ft55">Consider </FONT><FONT class="ft11">using F# extension members in F#-to-F# code and libraries.</FONT></P>
+<P class="p141"><FONT class="ft11">F# extension members should generally only be used for operations that are in the closure of intrinsic operations associated with a type in the majority of its modes of use. One common use is to provide APIs that are more idiomatic to F# for various .NET types:</FONT></P>
+<P class="p142"><FONT class="ft11">12</FONT></P>
+</DIV>
+<DIV id="page_13">
+
+<P class="p143"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type System.ServiceModel.Channels.IInputChannel with member this.AsyncReceive() =</FONT></P>
+<P class="p144"><FONT class="ft19">Async.FromBeginEnd(this.BeginReceive, this.EndReceive)</FONT></P>
+<P class="p145"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type System.Collections.Generic.IDictionary&lt;'Key,'Value&gt; with member this.TryGet key =</FONT></P>
+<P class="p146"><FONT class="ft19">let ok, v = this.TryGetValue key if ok then Some v else None</FONT></P>
+<P class="p147"><FONT class="ft27">3.6 Union Types</FONT></P>
+<P class="p69"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use discriminated unions as an alternative to class hierarchies for creating tree-structured data.</FONT></P>
+<P class="p148"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use the </FONT><FONT class="ft19">[&lt;RequiredQualifiedAccess&gt;] </FONT><FONT class="ft11">attribute on union types whose case names are not sufficiently unique.</FONT></P>
+<P class="p149"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">hiding the representations of discriminated unions for binary compatible APIs if the design of these types is likely to evolve.</FONT></P>
+<P class="p150"><FONT class="ft11">Unions types rely on F# pattern-matching forms for a succinct programming model. As mentioned by previous guidelines you should avoid revealing concrete data representations such as records and unions in type design if the design of these types is likely to evolve.</FONT></P>
+<P class="p151"><FONT class="ft11">For example, the representation of a discriminated union can be hidden using a </FONT><FONT class="ft19">private </FONT><FONT class="ft11">or </FONT><FONT class="ft19">internal </FONT><FONT class="ft11">declaration, or by using a signature file.</FONT></P>
+<P class="p152"><FONT class="ft19">type Union = private</FONT></P>
+<P class="p153"><FONT class="ft19">| CaseA of int</FONT></P>
+<P class="p78"><FONT class="ft19">| CaseB of string</FONT></P>
+<P class="p154"><FONT class="ft11">If you reveal discriminated unions indiscriminately, you may find it hard to version your library without breaking user code. You may consider revealing one or more active patterns to permit pattern matching over values of your type.</FONT></P>
+<P class="p155"><FONT class="ft11">Active patterns provide an alternate way to provide F# consumers with pattern matching while avoiding exposing F# Union Types directly.</FONT></P>
+<P class="p156"><FONT class="ft27">3.7 Inline Functions and Member Constraints</FONT></P>
+<P class="p157"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">defining generic numeric algorithms using inline functions with implied member constraints and statically resolved generic types, for F#-facing code.</FONT></P>
+<P class="p158"><FONT class="ft11">Arithmetic member constraints and F# comparison constraints are a highly regular standard for F# programming. For example, consider the following</FONT></P>
+<P class="p159"><FONT class="ft11">13</FONT></P>
+</DIV>
+<DIV id="page_14">
+
+<P class="p160"><FONT class="ft19">let inline highestCommonFactor a b = let rec loop a b =</FONT></P>
+<P class="p161"><FONT class="ft19">if a = LanguagePrimitives.GenericZero&lt;_&gt; then b elif a &lt; b then loop a (b - a)</FONT></P>
+<P class="p162"><FONT class="ft19">else loop (a - b) b loop a b</FONT></P>
+<P class="p163"><FONT class="ft11">The type of this function is as follows:</FONT></P>
+<TABLE cellpadding=0 cellspacing=0 class="t3">
+<TR class="tr7">
+	<TD colspan=3 class="td41">val inline highestCommonFactor :</TD>
+	<TD class="td42">&nbsp;</TD>
+	<TD class="td43">&nbsp;</TD>
+	<TD class="td44">&nbsp;</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td45">^T -&gt;</TD>
+	<TD class="td46">^T -&gt;</TD>
+	<TD class="td47">^T</TD>
+	<TD class="td42">&nbsp;</TD>
+	<TD class="td43">&nbsp;</TD>
+	<TD class="td44">&nbsp;</TD>
+</TR>
+<TR class="tr0">
+	<TD colspan=4 class="td48">when ^T : (static member Zero : ^T)</TD>
+	<TD class="td43">&nbsp;</TD>
+	<TD class="td44">&nbsp;</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td45">and</TD>
+	<TD colspan=2 class="td49">^T : (static member ( - ) :</TD>
+	<TD class="td50">^T *</TD>
+	<TD class="td51">^T -&gt;</TD>
+	<TD class="td52">^T)</TD>
+</TR>
+<TR class="tr10">
+	<TD class="td45">and</TD>
+	<TD colspan=2 class="td53">^T : equality</TD>
+	<TD class="td42">&nbsp;</TD>
+	<TD class="td43">&nbsp;</TD>
+	<TD class="td44">&nbsp;</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td45">and</TD>
+	<TD colspan=2 class="td53">^T : comparison</TD>
+	<TD class="td42">&nbsp;</TD>
+	<TD class="td43">&nbsp;</TD>
+	<TD class="td44">&nbsp;</TD>
+</TR>
+</TABLE>
+<P class="p164"><FONT class="ft11">This is a suitable function for a public API in a mathematical library.</FONT></P>
+<P class="p165"><FONT class="ft47">&#61693;</FONT><FONT class="ft22">Avoid </FONT><FONT class="ft11">the over-using member constraints for other ad-hoc coding purposes in F# library designs.</FONT></P>
+<P class="p166"><FONT class="ft11">It is possible to simulate &#8220;duck typing&#8221; using F# member constraints. However, members that make use of this should not in general be used in F#-to-F# library designs. This is because library designs based on unfamiliar or non-standard implicit constraints tend to cause user code to become inflexible and strongly tied to one particular framework pattern.</FONT></P>
+<P class="p43"><FONT class="ft27">3.8 Operator Definitions</FONT></P>
+<P class="p72"><FONT class="ft47">&#61693; </FONT><FONT class="ft55">Avoid </FONT><FONT class="ft11">defining custom symbolic operators in F#-facing library designs.</FONT></P>
+<P class="p167"><FONT class="ft42">Custom operators are essential in some situations and are highly useful notational devices within a large body of implementation code. For new users of a library, named functions are often easier to use. In addition custom symbolic operators can be hard to document, and users find it more difficult to lookup help on operators, due to existing limitations in IDE and search engines.</FONT></P>
+<P class="p168"><FONT class="ft11">As a result, it is generally best to publish your functionality as named functions and members.</FONT></P>
+<P class="p169"><FONT class="ft27">3.9 Units of Measure</FONT></P>
+<P class="p170"><FONT class="ft21">&#61694; </FONT><FONT class="ft55">Do </FONT><FONT class="ft11">use units of measure for added type safety in F# code, including in F#-facing libraries.</FONT></P>
+<P class="p171"><FONT class="ft11">This type information is erased when viewed by other .Net languages, so be aware that .NET components, tools and reflection will just see types-sans-units (e.g. </FONT><FONT class="ft19">float </FONT><FONT class="ft11">rather than </FONT><FONT class="ft19">float&lt;kg&gt;</FONT><FONT class="ft11">) after this information has been erased.</FONT></P>
+<P class="p172"><FONT class="ft27">3.10 Type Abbreviations</FONT></P>
+<P class="p58"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using type abbreviations to simplify F# code, including in F#-facing libraries.</FONT></P>
+<P class="p29"><FONT class="ft11">Be aware that .NET components, tools and reflection will just see the types-being-abbreviated.</FONT></P>
+<P class="p173"><FONT class="ft11">14</FONT></P>
+</DIV>
+<DIV id="page_15">
+
+<P class="p174"><FONT class="ft56">&#61693;</FONT><FONT class="ft57">Avoid </FONT><FONT class="ft58">using type abbreviations for public types whose members and properties should, logically speaking, be intrinsically different to those available on the type being abbreviated.</FONT></P>
+<P class="p175"><FONT class="ft11">In this case, the type being abbreviated reveals too much about the representation of the actual type being defined. Instead, consider wrapping the abbreviation in a class type or a single-case discriminated union (or, when performance is absolutely essential, consider using a struct type to wrap the abbreviation).</FONT></P>
+<P class="p168"><FONT class="ft11">For example, it is tempting to define a multi-map as a special case of an F# map, e.g.</FONT></P>
+<P class="p87"><FONT class="ft19">type MultiMap&lt;'Key,'Value&gt; = Map&lt;'Key,'Value list&gt;</FONT></P>
+<P class="p176"><FONT class="ft11">However, the logical dot-notation operations on this type are not the same as the operations on a Map &#8211; for example, it is reasonable that the lookup operator </FONT><FONT class="ft19">map.[key] </FONT><FONT class="ft11">return the empty list if the key is not in the dictionary, rather than raising an exception.</FONT></P>
+<P class="p177"><FONT class="ft59">4 </FONT><FONT class="ft60">Guidelines for Libraries for Use from other .NET Languages</FONT></P>
+<P class="p170"><FONT class="ft18">When designing libraries for use from other .NET languages, it is very important to adhere to the .NET Library Design Guidelines. In this document we label these libraries </FONT><FONT class="ft61">vanilla .NET libraries</FONT><FONT class="ft18">, as opposed to </FONT><FONT class="ft61">F#-facing libraries </FONT><FONT class="ft18">which use F# constructs without restriction and are mostly intended for use by F# applications. Designing vanilla .NET libraries means providing familiar and idiomatic APIs consistent with the rest of the .NET Framework by minimizing the use of F#-specific constructs in the public API. We propose the rules in the following sections.</FONT></P>
+<P class="p172"><FONT class="ft27">4.1 Namespace and Type Design</FONT></P>
+<P class="p178"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">apply the .NET Library Design Guidelines to the public API of your components, for vanilla .NET APIs.</FONT></P>
+<P class="p179"><FONT class="ft11">In particular, apply the naming guidelines, paying special attention to the use of abbreviated names and the .NET capitalization guidelines.</FONT></P>
+<P class="p180"><FONT class="ft39">&#61691; </FONT><FONT class="ft19">type pCoord = ...</FONT></P>
+<P class="p77"><FONT class="ft19">member this.theta = ...</FONT></P>
+<P class="p181"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type PolarCoordinate = ...</FONT></P>
+<P class="p182"><FONT class="ft19">member this.Theta = ...</FONT></P>
+<P class="p183"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use namespaces, types and members as the primary organizational structure for your components (as opposed to modules), for vanilla .NET APIs.</FONT></P>
+<P class="p184"><FONT class="ft11">This means all files containing public functionality should begin with a &#8220;namespace&#8221; declaration, and the only public-facing entities in namespaces should be types.</FONT></P>
+<P class="p185"><FONT class="ft11">15</FONT></P>
+</DIV>
+<DIV id="page_16">
+
+<P class="p186"><FONT class="ft11">Use non-public modules to hold implementation code, utility types and utility functions.</FONT></P>
+<P class="p187"><FONT class="ft36">Static types should be preferred over modules, as they allow for future evolution of the API to use overloading and other .NET API design concepts which may not be used within F# modules.</FONT></P>
+<P class="p168"><FONT class="ft11">For example, in place of the following public API:</FONT></P>
+<P class="p81"><FONT class="ft39">&#61691; </FONT><FONT class="ft19">module Fabrikom</FONT></P>
+<P class="p188"><FONT class="ft44">module Utilities = let Name = "Bob"</FONT></P>
+<P class="p189"><FONT class="ft19">let Add2 x y = x + y</FONT></P>
+<P class="p190"><FONT class="ft19">let Add3 x y z = x + y + z</FONT></P>
+<P class="p191"><FONT class="ft11">Consider instead:</FONT></P>
+<P class="p81"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">namespace Fabrikom</FONT></P>
+<P class="p192"><FONT class="ft19">// A type in a component designed for use from other .NET languages [&lt;AbstractClass; Sealed&gt;]</FONT></P>
+<P class="p124"><FONT class="ft19">type Utilities =</FONT></P>
+<P class="p193"><FONT class="ft19">static member Name = "Bob" static member Add(x,y) = x + y</FONT></P>
+<P class="p194"><FONT class="ft19">static member Add(x,y,z) = x + y + z</FONT></P>
+<P class="p195"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using F# record types in vanilla .NET APIs if the design of the types will not evolve.</FONT></P>
+<P class="p196"><FONT class="ft36">F# record types compile to a simple .NET class. These are suitable for some simple, stable types in APIs. You should consider using the </FONT><FONT class="ft35">[&lt;NoEquality&gt;] </FONT><FONT class="ft36">and </FONT><FONT class="ft35">[&lt;NoComparison&gt;] </FONT><FONT class="ft36">attributes to suppress the automatic generation of interfaces. Also avoid using mutable record fields in vanilla</FONT></P>
+<P class="p197"><FONT class="ft11">.NET APIs as these will expose a public field. Always consider whether a class would provide a more flexible option for future evolution of the API.</FONT></P>
+<P class="p34"><FONT class="ft11">For example, this F# code will expose the public API below to a C# consumer.</FONT></P>
+<P class="p198"><FONT class="ft11">F#:</FONT></P>
+<P class="p199"><FONT class="ft44">[&lt;NoEquality;NoComparison&gt;] type MyRecord =</FONT></P>
+<P class="p200"><FONT class="ft19">{</FONT><FONT class="ft45">FirstThing : int; SecondThing : string }</FONT></P>
+<P class="p201"><FONT class="ft11">C#:</FONT></P>
+<P class="p202"><FONT class="ft19">public sealed class </FONT><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://Javascript/Interpret.MyRecord"><FONT class="ft62">MyRecord</FONT></A></P>
+<P class="p203"><FONT class="ft19">{</FONT></P>
+<P class="p204"><FONT class="ft19">public </FONT><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://Javascript/Interpret.MyRecord/.ctor(Int32,String)"><FONT class="ft62">MyRecord</FONT></A><FONT class="ft19">(</FONT><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://mscorlib:4.0.0.0:b77a5c561934e089/System.Int32"><FONT class="ft62">int </FONT></A><FONT class="ft19">firstThing, </FONT><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://mscorlib:4.0.0.0:b77a5c561934e089/System.String"><FONT class="ft62">string </FONT></A><FONT class="ft19">secondThing); public </FONT><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://mscorlib:4.0.0.0:b77a5c561934e089/System.Int32"><FONT class="ft62">int </FONT></A><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://Javascript/Interpret.MyRecord/property:FirstThing:Int32"><FONT class="ft62">FirstThing </FONT></A><FONT class="ft19">{ get; }</FONT></P>
+<P class="p124"><FONT class="ft19">public </FONT><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://mscorlib:4.0.0.0:b77a5c561934e089/System.String"><FONT class="ft62">string </FONT></A><A href="http://www.aisto.com/roeder/dotnet/Default.aspx?Target=code://Javascript/Interpret.MyRecord/property:SecondThing:String"><FONT class="ft62">SecondThing </FONT></A><FONT class="ft19">{ get; }</FONT></P>
+<P class="p205"><FONT class="ft19">}</FONT></P>
+<P class="p206"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">hide the representation of F# union types in vanilla .NET APIs.</FONT></P>
+<P class="p207"><FONT class="ft36">F# union types are not commonly used across component boundaries, even for F#-to-F# coding. They are an excellent implementation device when used internally within components and libraries.</FONT></P>
+<P class="p208"><FONT class="ft11">16</FONT></P>
+</DIV>
+<DIV id="page_17">
+
+<P class="p209"><FONT class="ft11">When designing a vanilla .NET API, consider hiding the representation of a union type by using either a private declaration or a signature file.</FONT></P>
+<P class="p180"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type PropLogic =</FONT></P>
+<P class="p210"><FONT class="ft19">private | And of PropLogic * PropLogic | Not of PropLogic</FONT></P>
+<P class="p211"><FONT class="ft19">| True</FONT></P>
+<P class="p212"><FONT class="ft11">You may also augment types that use a union representation internally with members to provide a desired .NET-facing API. If the union representation is hidden, the corresponding methods and properties in the compiled form of the union type will also be hidden.</FONT></P>
+<P class="p87"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type PropLogic =</FONT></P>
+<P class="p213"><FONT class="ft19">private | And of PropLogic * PropLogic | Not of PropLogic</FONT></P>
+<P class="p214"><FONT class="ft19">| True</FONT></P>
+<P class="p215"><FONT class="ft19">/// A public member for use from C# member x.Evaluate =</FONT></P>
+<P class="p216"><FONT class="ft19">match x with</FONT></P>
+<P class="p217"><FONT class="ft19">| And(a,b) -&gt; a.Evaluate && b.Evaluate | Not a -&gt; not a.Evaluate</FONT></P>
+<P class="p218"><FONT class="ft19">| True -&gt; true</FONT></P>
+<P class="p219"><FONT class="ft19">/// A public member for use from C# static member MakeAnd(a,b) = And(a,b)</FONT></P>
+<P class="p220"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using the .NET code analysis tool FxCop with vanilla .NET APIs.</FONT></P>
+<P class="p221"><FONT class="ft11">You can use this tool to check the public interface of your assembly for compliance with the .NET Library Design Guidelines. FxCop by default also checks some internal implementation properties which are not necessarily applicable to F# coding. As a result you may need to use FxCop exemptions where necessary.</FONT></P>
+<P class="p222"><FONT class="ft37">&#61694;</FONT><FONT class="ft38">Do </FONT><FONT class="ft26">design GUI and other components using the design patterns of the particular .NET frameworks you are using. For example, for WPF programming, adopt WPF design patterns for the classes you are designing. For models in user interface programming, use design patterns such as events and notification-based collections such as those found in </FONT><FONT class="ft63">System.Collections.ObjectModel</FONT><FONT class="ft26">.</FONT></P>
+<P class="p223"><FONT class="ft27">4.2 Object and Member Design</FONT></P>
+<P class="p224"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use the CLIEvent attribute to expose .NET events, and construct a </FONT><FONT class="ft19">DelegateEvent </FONT><FONT class="ft11">with a specific</FONT></P>
+<P class="p225"><FONT class="ft11">.NET delegate type that takes an object and </FONT><FONT class="ft19">EventArgs </FONT><FONT class="ft11">(rather than an </FONT><FONT class="ft19">Event</FONT><FONT class="ft11">, which just uses the </FONT><FONT class="ft19">FSharpHandler </FONT><FONT class="ft11">type by default) so that the events are published in the familiar way to other .NET languages.</FONT></P>
+<P class="p226"><FONT class="ft11">17</FONT></P>
+</DIV>
+<DIV id="page_18">
+
+<P class="p205"><FONT class="ft39">&#61691; </FONT><FONT class="ft19">type MyBadType() =</FONT></P>
+<P class="p227"><FONT class="ft19">let myEv = new Event&lt;int&gt;() [&lt;CLIEvent&gt;]</FONT></P>
+<P class="p123"><FONT class="ft19">member this.MyEvent = myEv.Publish</FONT></P>
+<P class="p228"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">/// A type in a component designed for use from other .NET languages type MyEventArgs(x:int) =</FONT></P>
+<P class="p229"><FONT class="ft19">inherit System.EventArgs() member this.X = x</FONT></P>
+<P class="p230"><FONT class="ft19">/// A type in a component designed for use from other .NET languages type MyGoodType() =</FONT></P>
+<P class="p231"><FONT class="ft19">let myEv = new DelegateEvent&lt;EventHandler&lt;MyEventArgs&gt;&gt;() [&lt;CLIEvent&gt;]</FONT></P>
+<P class="p123"><FONT class="ft19">member this.MyEvent = myEv.Publish</FONT></P>
+<P class="p232"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">expose asynchronous operations using either the .NET asynchronous programming model (BeginFoo, EndFoo), or as methods returning .NET tasks (Task&lt;T&gt;), rather than as F# Async&lt;T&gt; objects.</FONT></P>
+<P class="p233"><FONT class="ft11">The Asynchronous Programming Model (APM) is a standard pattern for asynchronous APIs on .NET. An F# </FONT><FONT class="ft19">Async&lt;T&gt; </FONT><FONT class="ft11">computation can be exposed as an APM pattern using the F# </FONT><FONT class="ft19">Async.AsBeginEnd </FONT><FONT class="ft11">method. This method makes it easy to convert an F# async object into Begin/End/Cancel methods. Consider also exposing the Cancel method, in addition to the Begin/End methods that are the necessary portion of the pattern.</FONT></P>
+<P class="p234"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">// A type in a component designed for use from other .NET languages type MyType() =</FONT></P>
+<P class="p235"><FONT class="ft19">let compute(x:int) : Async&lt;int&gt; = async { ... } let beginAction, endAction, cancelAction =</FONT></P>
+<P class="p236"><FONT class="ft19">Async.AsBeginEnd (fun x -&gt; compute x)</FONT></P>
+<P class="p237"><FONT class="ft19">member this.BeginCompute(x, callback, state:obj) = beginAction(x, callback, state)</FONT></P>
+<P class="p238"><FONT class="ft19">member this.EndCompute(result) = endAction result member this.CancelCompute(result) = cancelAction result</FONT></P>
+<P class="p207"><FONT class="ft42">In .NET 4.0, the Task model was introduced, and tasks can represent active asynchronous computations. Tasks are in general less compositional than F# Async&lt;T&gt; objects, since they represent &#8220;already executing&#8221; tasks and can&#8217;t be composed together in ways that perform parallel composition, or which hide the propagation of cancellation signals and other contextual parameters.</FONT></P>
+<P class="p239"><FONT class="ft11">However, despite this, methods-returning-Tasks are emerging as a standard representation of asynchronous programming on .NET.</FONT></P>
+<P class="p240"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">// A type in a component designed for use from other .NET languages type MyType() =</FONT></P>
+<P class="p241"><FONT class="ft19">let compute(x:int) : Async&lt;int&gt; = async { ... }</FONT></P>
+<P class="p242"><FONT class="ft19">member this.ComputeAsTask(x) = compute x |&gt; Async.StartAsTask</FONT></P>
+<P class="p207"><FONT class="ft11">You will frequently also want to accept an explicit cancellation token:</FONT></P>
+<P class="p243"><FONT class="ft11">18</FONT></P>
+</DIV>
+<DIV id="page_19">
+
+<P class="p244"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">/// A type in a component designed for use from other .NET languages type MyType() =</FONT></P>
+<P class="p241"><FONT class="ft19">let compute(x:int) : Async&lt;int&gt; = async { ... }</FONT></P>
+<P class="p242"><FONT class="ft19">member this.ComputeAsTask(x,token) = Async.StartAsTask(compute x, token)</FONT></P>
+<P class="p79"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use .NET delegate types in preference to F# function types in vanilla .NET APIs.</FONT></P>
+<P class="p29"><FONT class="ft11">Here &#8220;F# function types&#8221; mean &#8220;arrow&#8221; types like &#8220;int -&gt; int&#8221;.</FONT></P>
+<P class="p245"><FONT class="ft39">&#61691;</FONT><FONT class="ft40">member this.Transform(f:int-&gt;int) = ...</FONT></P>
+<P class="p246"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">member this.Transform(f:Func&lt;int,int&gt;) = ...</FONT></P>
+<P class="p247"><FONT class="ft64">The F# function type appears as &#8220;</FONT><FONT class="ft65">class FSharpFunc&lt;T,U&gt;</FONT><FONT class="ft64">&#8221; to other .NET languages, and is less suitable for language features and tooling that understand delegate types. When authoring a higher-order method targeting .NET 3.5 or higher, the </FONT><FONT class="ft65">System.Func </FONT><FONT class="ft64">and </FONT><FONT class="ft65">System.Action </FONT><FONT class="ft64">delegates are the right APIs to publish to enable .NET developers to consume these APIs in a low-friction manner. (When targeting .NET 2.0, the system-defined delegate types are more limited; consider using </FONT><FONT class="ft65">System.Converter&lt;T,U&gt; </FONT><FONT class="ft64">or defining a specific delegate type.)</FONT></P>
+<P class="p248"><FONT class="ft42">On the flip side, .NET delegates are </FONT><FONT class="ft66">not </FONT><FONT class="ft42">natural for F#-facing libraries (see the previous section on F#-facing libraries). As a result, a common implementation strategy when developing higher-order methods for vanilla .NET libraries is to author all the implementation using F# function types, and then create the public API using delegates as a thin fa&#231;ade atop the actual F# implementation.</FONT></P>
+<P class="p249"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">use the TryGetValue pattern instead of returning F# option values (</FONT><FONT class="ft19">option&lt;T&gt;</FONT><FONT class="ft11">) in vanilla</FONT></P>
+<P class="p250"><FONT class="ft11">.NET APIs, and prefer method overloading to taking F# option values as arguments.</FONT></P>
+<P class="p251"><FONT class="ft67">Common patterns of use for the F# option type in APIs are better implemented in vanilla .NET APIs using standard .NET design techniques. Instead of returning an F# option value, consider using the bool return type plus an </FONT><FONT class="ft68">out </FONT><FONT class="ft67">parameter as in the TryGetValue pattern. And instead of taking F# option values as parameters, consider using method overloading.</FONT></P>
+<P class="p252"><FONT class="ft39">&#61691; </FONT><FONT class="ft19">member this.ReturnOption() = Some 3</FONT></P>
+<P class="p253"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">member this.ReturnBoolAndOut(outVal : byref&lt;int&gt;) = outVal &lt;- 3</FONT></P>
+<P class="p182"><FONT class="ft19">true</FONT></P>
+<P class="p254"><FONT class="ft39">&#61691; </FONT><FONT class="ft19">member this.ParamOption(x : int, y : int option) = match y with | Some y' -&gt; x + y' | None -&gt; x</FONT></P>
+<P class="p255"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">member this.ParamOverload(x : int) = x</FONT></P>
+<P class="p256"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">member this.ParamOverload(x : int, y : int) = x + y</FONT></P>
+<P class="p257"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using the .NET collection interface types </FONT><FONT class="ft19">IEnumerable&lt;T&gt; </FONT><FONT class="ft11">and </FONT><FONT class="ft19">IDictionary&lt;Key,Value&gt; </FONT><FONT class="ft11">for parameters and return values in vanilla .NET APIs.</FONT></P>
+<P class="p258"><FONT class="ft11">This means avoid the use of concrete collection types such as .NET arrays </FONT><FONT class="ft19">T[]</FONT><FONT class="ft11">, F# types </FONT><FONT class="ft19">list&lt;T&gt;</FONT><FONT class="ft11">,</FONT></P>
+<P class="p259"><FONT class="ft68">Map&lt;Key,Value&gt; </FONT><FONT class="ft67">and </FONT><FONT class="ft68">Set&lt;T&gt; </FONT><FONT class="ft67">, and.NET concrete collection types such as </FONT><FONT class="ft68">Dictionary&lt;Key,Value&gt;</FONT><FONT class="ft67">. The .NET Library Design Guidelines have good advice regarding when to use various collection types like </FONT><FONT class="ft68">IEnumerable&lt;T&gt;</FONT><FONT class="ft67">. Some use of arrays (</FONT><FONT class="ft68">T[]</FONT><FONT class="ft67">) is acceptable in some circumstances, on</FONT></P>
+<P class="p260"><FONT class="ft11">19</FONT></P>
+</DIV>
+<DIV id="page_20">
+
+<P class="p261"><FONT class="ft11">performance grounds. Note especially that </FONT><FONT class="ft19">seq&lt;T&gt; </FONT><FONT class="ft11">is just the F# alias for </FONT><FONT class="ft19">IEnumerable&lt;T&gt;</FONT><FONT class="ft11">, and thus </FONT><FONT class="ft19">seq </FONT><FONT class="ft11">is often an appropriate type for a vanilla .NET API.</FONT></P>
+<P class="p87"><FONT class="ft39">&#61691; </FONT><FONT class="ft19">member this.PrintNames(names : list&lt;string&gt;) = ...</FONT></P>
+<P class="p262"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">member this.PrintNames(names : seq&lt;string&gt;) = ...</FONT></P>
+<P class="p263"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use the unit type as the only input type of a method to define a zero-argument method, or as the only return type to define a void-returning method.</FONT></P>
+<P class="p258"><FONT class="ft11">Avoid other uses of the unit type.</FONT></P>
+<P class="p264"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">member this.NoArguments() = 3</FONT></P>
+<P class="p256"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">member this.ReturnVoid(x : int) = ()</FONT></P>
+<P class="p256"><FONT class="ft39">&#61691;</FONT><FONT class="ft40">member this.WrongUnit( x:unit, z:int) = ((), ())</FONT></P>
+<P class="p265"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">checking for null values on vanilla .NET API boundaries.</FONT></P>
+<P class="p266"><FONT class="ft11">F# implementation code tends to have fewer null values, due to immutable design patterns and restrictions on use of null literals for F# types. Other .NET languages often use null as a value much more frequently. Because of this, F# code that is exposing a vanilla .NET API should check parameters for null at the API boundary, and prevent these values from flowing deeper into the F# implementation code.</FONT></P>
+<P class="p267"><FONT class="ft11">You can check for null using:</FONT></P>
+<P class="p268"><FONT class="ft19">let checkNonNull argName (arg: obj) = match arg with</FONT></P>
+<P class="p269"><FONT class="ft19">| null -&gt; nullArg argName | _ -&gt; ()</FONT></P>
+<P class="p270"><FONT class="ft19">static member ExampleMethod(record:obj,info:string) = checkNonNull "info" info</FONT></P>
+<P class="p124"><FONT class="ft19">checkNonNull "record" record</FONT></P>
+<P class="p242"><FONT class="ft19">...</FONT></P>
+<P class="p271"><FONT class="ft47">&#61693;</FONT><FONT class="ft22">Avoid </FONT><FONT class="ft11">using tuples as return values in vanilla .NET APIs.</FONT></P>
+<P class="p272"><FONT class="ft42">Instead, prefer returning a named type holding the aggregate data, or using </FONT><FONT class="ft43">out </FONT><FONT class="ft42">parameters to return multiple values. Although Tuples are now part of .NET4.0, they will most often not provide the ideal and expected API for .NET developers. C# and VB programmers who get a Tuple return value will need to use properties like .Item1 and .Item2 to access the elements of the Tuple.</FONT></P>
+<P class="p249"><FONT class="ft47">&#61693;</FONT><FONT class="ft22">Do not </FONT><FONT class="ft11">use currying of parameters in vanilla .NET APIs.</FONT></P>
+<P class="p184"><FONT class="ft11">Instead, use .NET calling conventions Method(arg1,arg2,&#8230;,argN). Curried methods will appear in</FONT></P>
+<P class="p273"><FONT class="ft36">.NET as methods which return F# function values. As earlier guidance indicates, these types should not be exposed on vanilla .NET APIs, so curried members should be avoided in these APIs.</FONT></P>
+<P class="p274"><FONT class="ft25">&#61692;</FONT><FONT class="ft69">member this.TupledArguments(str, num) = String.replicate num str</FONT></P>
+<P class="p275"><FONT class="ft25">&#61691;</FONT><FONT class="ft11">member this.CurriedArguments str num = String.replicate num str</FONT></P>
+<P class="p276"><FONT class="ft11">20</FONT></P>
+</DIV>
+<DIV id="page_21">
+
+<P class="p277"><FONT class="ft2">Tip If you&#8217;re designing libraries for use from any .NET language, then there&#8217;s no substitute for actually doing some experimental C# and Visual Basic programming to ensure that your libraries look good from these languages. You can also use tools such as .NET Reflector and the Visual Studio Object Browser to ensure that libraries and their documentation appear as expected to developers.</FONT></P>
+<P class="p278"><FONT class="ft59">5 </FONT><FONT class="ft60">Recommendations for Implementation Code</FONT></P>
+<P class="p279"><FONT class="ft58">In this section, we look at a small number of recommendations when writing implementation code (as opposed to library designs). These apply to all </FONT><FONT class="ft70">internal </FONT><FONT class="ft58">and </FONT><FONT class="ft70">private </FONT><FONT class="ft58">aspects of F# coding.</FONT></P>
+<P class="p280"><FONT class="ft27">5.1 Suggested Naming Conventions in F# Implementation Code</FONT></P>
+<P class="p281"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Suggest </FONT><FONT class="ft11">using camelCase for class-bound, expression-bound and pattern-bound values and functions</FONT></P>
+<P class="p282"><FONT class="ft11">It is common and accepted F# style to use camelCase for all names bound as local variables or in pattern matches and function definitions.</FONT></P>
+<P class="p283"><FONT class="ft39">&#61691; </FONT><FONT class="ft19">let add I J = I+J </FONT><FONT class="ft39">&#61692; </FONT><FONT class="ft19">let add i j = i + j</FONT></P>
+<P class="p284"><FONT class="ft11">It is also common and accepted F# style to use camelCase for locally bound functions, e.g.</FONT></P>
+<P class="p81"><FONT class="ft39">&#61692; </FONT><FONT class="ft19">type MyClass() =</FONT></P>
+<P class="p285"><FONT class="ft19">let doSomething () =</FONT></P>
+<P class="p286"><FONT class="ft19">let firstResult = ...</FONT></P>
+<P class="p286"><FONT class="ft19">let secondResult = ...</FONT></P>
+<P class="p287"><FONT class="ft19">member x.Result = doSomething()</FONT></P>
+<P class="p38"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Suggest </FONT><FONT class="ft11">using camelCase for internal and private module-bound values and functions</FONT></P>
+<P class="p288"><FONT class="ft11">It is common and accepted F# style to use camelCase for private module-bound values, including the following:</FONT></P>
+<P class="p289"><FONT class="ft31">o </FONT><FONT class="ft11">Ad hoc functions in scripts</FONT></P>
+<P class="p290"><FONT class="ft31">o</FONT><FONT class="ft32">Values making up the internal implementation of a module or type</FONT></P>
+<P class="p89"><FONT class="ft39">&#61692;</FONT><FONT class="ft40">let emailMyBossTheLatestResults = ...</FONT></P>
+<P class="p291"><FONT class="ft11">In large assemblies and implementation files, PascalCase is sometimes used to indicate major internal routines.</FONT></P>
+<P class="p292"><FONT class="ft47">&#61693; </FONT><FONT class="ft55">Avoid </FONT><FONT class="ft11">using underscores in names.</FONT></P>
+<P class="p293"><FONT class="ft11">21</FONT></P>
+</DIV>
+<DIV id="page_22">
+
+<P class="p294"><FONT class="ft11">Historically, some F# libraries have used underscores in names. However, this is no longer widely accepted, partly because it clashes with .NET naming conventions. That said, some F# programmers use underscores heavily, partly for historical reasons, and tolerance and respect is important. However, be aware that the style is often disliked by others who have a choice about whether to use it.</FONT></P>
+<P class="p295"><FONT class="ft64">Note Some F# programmers choose to use naming conventions much more closely associated with OCaml, Python, or with a particular application domain such as hardware verification.</FONT></P>
+<P class="p296"><FONT class="ft27">5.2 Suggested Coding Conventions in F# Implementation Code</FONT></P>
+<P class="p58"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Do </FONT><FONT class="ft11">use standard F# operators</FONT></P>
+<P class="p127"><FONT class="ft11">The following operators are defined in the F# standard library and should be used instead of defining equivalents. Using these operators is recommended as it tends to make code more readable and idiomatic. Developers with a background in OCaml or other functional programming language may be accustomed to different idioms, and this list summarizes the recommended F# operators.</FONT></P>
+<P class="p297"><FONT class="ft19">x |&gt; f -- forward pipeline f &lt;| x -- reverse pipeline</FONT></P>
+<P class="p298"><FONT class="ft19">f &gt;&gt; g -- forward composition g &lt;&lt; f -- reverse composition</FONT></P>
+<P class="p299"><FONT class="ft19">x |&gt; ignore -- throwing away a value</FONT></P>
+<P class="p300"><FONT class="ft19">x + y -- overloaded addition (including string concatenation) x - y -- overloaded subtraction</FONT></P>
+<P class="p301"><FONT class="ft19">x * y -- overloaded multiplication x / y -- overloaded division</FONT></P>
+<P class="p302"><FONT class="ft19">x % y -- overloaded modulus</FONT></P>
+<P class="p303"><FONT class="ft19">x && y -- lazy/short-cut "and" x || y -- lazy/short-cut "or"</FONT></P>
+<P class="p304"><FONT class="ft19">x &lt;&lt;&lt; y -- bitwise left shift x &gt;&gt;&gt; y -- bitwise right shift</FONT></P>
+<TABLE cellpadding=0 cellspacing=0 class="t4">
+<TR class="tr7">
+	<TD colspan=3 class="td54">x ||| y</TD>
+	<TD colspan=6 class="td55">-- bitwise or, also for working with &#8220;flags&#8221; enumeration</TD>
+</TR>
+<TR class="tr0">
+	<TD class="td3">x</TD>
+	<TD class="td56"><FONT class="ft71">&&&</FONT></TD>
+	<TD class="td57">y</TD>
+	<TD class="td58">-- bitwise</TD>
+	<TD class="td59">and,</TD>
+	<TD class="td60">also for working</TD>
+	<TD class="td59">with</TD>
+	<TD class="td61">&#8220;flags&#8221;</TD>
+	<TD class="td62">enumeration</TD>
+</TR>
+<TR class="tr10">
+	<TD class="td3">x</TD>
+	<TD class="td56">^^^</TD>
+	<TD class="td57">y</TD>
+	<TD class="td58">-- bitwise</TD>
+	<TD class="td59">xor,</TD>
+	<TD class="td60">also for working</TD>
+	<TD class="td59">with</TD>
+	<TD class="td61">&#8220;flags&#8221;</TD>
+	<TD class="td62">enumeration</TD>
+</TR>
+</TABLE>
+<P class="p305"><FONT class="ft21">&#61694;</FONT><FONT class="ft72">Do </FONT><FONT class="ft73">place pipeline operator </FONT><FONT class="ft74">|&gt; </FONT><FONT class="ft73">at the start of a line when writing multi-line pipeline series. People often ask how to format pipelines. We recommend this style:</FONT></P>
+<P class="p306"><FONT class="ft11">22</FONT></P>
+</DIV>
+<DIV id="page_23">
+
+<P class="p307"><FONT class="ft19">let allTypes = System.AppDomain.CurrentDomain.GetAssemblies() |&gt; Array.map (fun assem -&gt; assem.GetTypes()) |&gt; Array.concat</FONT></P>
+<P class="p284"><FONT class="ft11">Note that this does not apply when piping on a single line (e.g. &#8220;</FONT><FONT class="ft19">expr |&gt; ignore</FONT><FONT class="ft11">&#8221;, &#8220;</FONT><FONT class="ft19">expr |&gt; box</FONT><FONT class="ft11">&#8221;)</FONT></P>
+<P class="p308"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using the prefix syntax for generics (</FONT><FONT class="ft19">Foo&lt;T&gt;</FONT><FONT class="ft11">) in preference to postfix syntax (</FONT><FONT class="ft19">T Foo</FONT><FONT class="ft11">), with four notable exceptions (</FONT><FONT class="ft19">list</FONT><FONT class="ft11">, </FONT><FONT class="ft19">option</FONT><FONT class="ft11">, </FONT><FONT class="ft19">array</FONT><FONT class="ft11">, </FONT><FONT class="ft19">ref</FONT><FONT class="ft11">).</FONT></P>
+<P class="p29"><FONT class="ft11">F# inherits both the postfix ML style of naming generic types, e.g. &#8220;</FONT><FONT class="ft19">int list</FONT><FONT class="ft11">&#8221; as well as the prefix</FONT></P>
+<P class="p309"><FONT class="ft11">.NET style, e.g. &#8220;</FONT><FONT class="ft19">list&lt;int&gt;</FONT><FONT class="ft11">&#8221;. You should prefer the .NET style, except for four specific types. For F# lists, use the postfix form: &#8220;</FONT><FONT class="ft19">int list</FONT><FONT class="ft11">&#8221; rather than &#8220;</FONT><FONT class="ft19">list&lt;int&gt;</FONT><FONT class="ft11">&#8221;. For options, use the postfix form: &#8220;</FONT><FONT class="ft19">int option</FONT><FONT class="ft11">&#8221; rather than &#8220;</FONT><FONT class="ft19">option&lt;int&gt;</FONT><FONT class="ft11">&#8221;. For arrays, use the syntactic name &#8220;</FONT><FONT class="ft19">int[]</FONT><FONT class="ft11">&#8221; rather than either &#8220;</FONT><FONT class="ft19">int array</FONT><FONT class="ft11">&#8221; or &#8220;</FONT><FONT class="ft19">array&lt;int&gt;</FONT><FONT class="ft11">&#8221;. For refs, use &#8220;</FONT><FONT class="ft19">int ref</FONT><FONT class="ft11">&#8221; rather than &#8220;</FONT><FONT class="ft19">ref&lt;int&gt;</FONT><FONT class="ft11">&#8221; or &#8220;</FONT><FONT class="ft19">Ref&lt;int&gt;</FONT><FONT class="ft11">&#8221;. For all other types, use the prefix form: &#8220;</FONT><FONT class="ft19">HashSet&lt;int&gt;</FONT><FONT class="ft11">&#8221;, &#8220;</FONT><FONT class="ft19">Dictionary&lt;string,int&gt;</FONT><FONT class="ft11">&#8221;, since this conforms to .NET standards.</FONT></P>
+<P class="p195"><FONT class="ft21">&#61694;</FONT><FONT class="ft22">Consider </FONT><FONT class="ft11">using </FONT><FONT class="ft19">// </FONT><FONT class="ft11">comments in preference to </FONT><FONT class="ft19">(*</FONT><FONT class="ft11">&#8230;</FONT><FONT class="ft19">*) </FONT><FONT class="ft11">comments.</FONT></P>
+<P class="p310"><FONT class="ft42">Line comments </FONT><FONT class="ft43">// </FONT><FONT class="ft42">are easier to see in code because they appear consistently at the beginning of lines. They are also typically more predictable when reading code line by line. Tools like Visual Studio also make it particularly easy to comment/uncomment whole blocks with </FONT><FONT class="ft43">//</FONT><FONT class="ft42">.</FONT></P>
+<P class="p311"><FONT class="ft75">6 </FONT><FONT class="ft76">Appendix</FONT></P>
+<P class="p312"><FONT class="ft27">6.1</FONT><FONT class="ft54">End-to-end example of designing F# code for use by other</FONT></P>
+<P class="p313"><FONT class="ft27">.NET languages</FONT></P>
+<P class="p314"><FONT class="ft14">For example, consider the code in Listing 1, which shows some F# code that we intend to adjust to be suitable for use as part of a .NET API.</FONT></P>
+<P class="p315"><FONT class="ft28">Listing 1. An F# Type Prior to Adjustment for Use as Part of a Vanilla .NET API</FONT></P>
+<P class="p316"><FONT class="ft19">open System</FONT></P>
+<P class="p317"><FONT class="ft19">type Point1(angle,radius) = member x.Angle = angle member x.Radius = radius</FONT></P>
+<P class="p318"><FONT class="ft19">member x.Stretch(l) = Point1(angle=x.Angle, radius=x.Radius * l) member x.Warp(f) = Point1(angle=f(x.Angle), radius=x.Radius) static member Circle(n) =</FONT></P>
+<P class="p319"><FONT class="ft19">[ for i in 1..n -&gt; Point1(angle=2.0*Math.PI/float(n), radius=1.0) ] new() = Point1(angle=0.0, radius=0.0)</FONT></P>
+<P class="p21"><FONT class="ft11">The inferred F# type of this class is as follows:</FONT></P>
+<P class="p320"><FONT class="ft11">23</FONT></P>
+</DIV>
+<DIV id="page_24">
+
+<P class="p205"><FONT class="ft19">type Point1 =</FONT></P>
+<P class="p321"><FONT class="ft19">new : unit -&gt; Point1</FONT></P>
+<P class="p322"><FONT class="ft19">new : angle:double * radius:double -&gt; Point1 static member Circle : n:int -&gt; Point1 list member Stretch : l:double -&gt; Point1</FONT></P>
+<P class="p323"><FONT class="ft19">member Warp : f:(double -&gt; double) -&gt; Point1 member Angle : double</FONT></P>
+<P class="p189"><FONT class="ft19">member Radius : double</FONT></P>
+<P class="p324"><FONT class="ft14">Let&#8217;s take a look at how this F# type will appear to a programmer using another .NET language. For example, the approximate C# &#8220;signature&#8221; is as follows:</FONT></P>
+<P class="p325"><FONT class="ft19">// C# signature for the unadjusted Point1 class</FONT></P>
+<P class="p326"><FONT class="ft19">public class Point1 { public Point1();</FONT></P>
+<P class="p189"><FONT class="ft19">public Point1(double angle, double radius);</FONT></P>
+<P class="p327"><FONT class="ft19">public static Microsoft.FSharp.Collections.List&lt;Point1&gt; Circle(int count);</FONT></P>
+<P class="p328"><FONT class="ft19">public Point1 Stretch(double factor);</FONT></P>
+<P class="p329"><FONT class="ft19">public Point1 Warp(Microsoft.FSharp.Core.FastFunc&lt;double,double&gt; transform);</FONT></P>
+<P class="p330"><FONT class="ft19">public double Angle { get; } public double Radius { get; }</FONT></P>
+<P class="p65"><FONT class="ft19">}</FONT></P>
+<P class="p21"><FONT class="ft11">There are some important points to notice about how F# represents constructs here. For example:</FONT></P>
+<P class="p331"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Metadata such as argument names has been preserved.</FONT></P>
+<P class="p13"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">F# methods that take two arguments become C# methods that take two arguments.</FONT></P>
+<P class="p12"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">Functions and lists become references to corresponding types in the F# library.</FONT></P>
+<P class="p332"><FONT class="ft2">The full rules for how F# types, modules, and members are represented in the .NET Common Intermediary Language are explained in the F# language reference on the F# website.</FONT></P>
+<P class="p333"><FONT class="ft11">The code below shows how to adjust this code to take these things into account.</FONT></P>
+<P class="p334"><FONT class="ft11">24</FONT></P>
+</DIV>
+<DIV id="page_25">
+
+<P class="p205"><FONT class="ft19">namespace ExpertFSharp.Types</FONT></P>
+<P class="p335"><FONT class="ft19">type RadialPoint(angle:double, radius:double) =</FONT></P>
+<P class="p336"><FONT class="ft19">///</FONT><FONT class="ft77">The angle to the point, from the x-axis member x.Angle = angle</FONT></P>
+<P class="p337"><FONT class="ft19">///</FONT><FONT class="ft77">The distance to the point, from the origin member x.Radius = radius</FONT></P>
+<P class="p338"><FONT class="ft19">///</FONT><FONT class="ft77">Return a new point, with radius multiplied by the given factor member x.Stretch(factor) =</FONT></P>
+<P class="p339"><FONT class="ft19">RadialPoint(angle=angle, radius=radius * factor)</FONT></P>
+<P class="p340"><FONT class="ft19">/// Return a new point, with angle transformed by the function member x.Warp(transform:Func&lt;_,_&gt;) =</FONT></P>
+<P class="p236"><FONT class="ft19">RadialPoint(angle=transform.Invoke angle, radius=radius)</FONT></P>
+<P class="p132"><FONT class="ft19">///</FONT><FONT class="ft78">Return a sequence of points describing an approximate circle using</FONT></P>
+<P class="p341"><FONT class="ft19">///</FONT><FONT class="ft78">the given count of points</FONT></P>
+<P class="p342"><FONT class="ft19">static member Circle(count) = seq { for i in 1..count -&gt;</FONT></P>
+<P class="p343"><FONT class="ft19">RadialPoint(angle=2.0*Math.PI/float(count), radius=1.0) }</FONT></P>
+<P class="p344"><FONT class="ft19">/// Return a point at the origin</FONT></P>
+<P class="p242"><FONT class="ft19">new() = RadialPoint(angle=0.0, radius=0.0)</FONT></P>
+<P class="p21"><FONT class="ft11">The inferred F# type of the code is as follows:</FONT></P>
+<P class="p345"><FONT class="ft19">type RadialPoint =</FONT></P>
+<P class="p321"><FONT class="ft19">new : unit -&gt; RadialPoint</FONT></P>
+<P class="p346"><FONT class="ft19">new : angle:double * radius:double -&gt; RadialPoint static member Circle : count:int -&gt; seq&lt;RadialPoint&gt; member Stretch : factor:double -&gt; RadialPoint</FONT></P>
+<P class="p347"><FONT class="ft19">member Warp : transform:System.Func&lt;double,double&gt; -&gt; RadialPoint member Angle : double</FONT></P>
+<P class="p194"><FONT class="ft19">member Radius : double</FONT></P>
+<P class="p21"><FONT class="ft11">The C# signature is now as follows:</FONT></P>
+<P class="p348"><FONT class="ft11">25</FONT></P>
+</DIV>
+<DIV id="page_26">
+
+<P class="p349"><FONT class="ft19">public class RadialPoint { public RadialPoint();</FONT></P>
+<P class="p350"><FONT class="ft19">public RadialPoint(double angle, double radius);</FONT></P>
+<P class="p351"><FONT class="ft19">public static System.Collections.Generic.IEnumerable&lt;RadialPoint&gt; Circle(int count);</FONT></P>
+<P class="p352"><FONT class="ft19">public RadialPoint Stretch(double factor);</FONT></P>
+<P class="p353"><FONT class="ft19">public RadialPoint Warp(System.Func&lt;double,double&gt; transform); public double Angle { get; }</FONT></P>
+<P class="p350"><FONT class="ft19">public double Radius { get; }</FONT></P>
+<P class="p203"><FONT class="ft19">}</FONT></P>
+<P class="p21"><FONT class="ft11">The fixes we have made to prepare this type for use as part of a vanilla .NET library are as follows:</FONT></P>
+<P class="p354"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">We adjusted several names; </FONT><FONT class="ft19">Point1 </FONT><FONT class="ft11">, </FONT><FONT class="ft19">n</FONT><FONT class="ft11">, </FONT><FONT class="ft19">l</FONT><FONT class="ft11">, and </FONT><FONT class="ft19">f </FONT><FONT class="ft11">became </FONT><FONT class="ft19">RadialPoint</FONT><FONT class="ft11">, </FONT><FONT class="ft19">count</FONT><FONT class="ft11">, </FONT><FONT class="ft19">factor</FONT><FONT class="ft11">, and </FONT><FONT class="ft19">transform</FONT><FONT class="ft11">, respectively.</FONT></P>
+<P class="p13"><FONT class="ft15">&#61623;</FONT><FONT class="ft16">We used a return type of </FONT><FONT class="ft19">seq&lt;RadialPoint&gt; </FONT><FONT class="ft11">instead of </FONT><FONT class="ft19">RadialPoint list </FONT><FONT class="ft11">by changing a list</FONT></P>
+<TABLE cellpadding=0 cellspacing=0 class="t5">
+<TR class="tr0">
+	<TD class="td8">&nbsp;</TD>
+	<TD class="td63">construction using <FONT class="ft30">[ ... ] </FONT>to a sequence construction using <FONT class="ft30">seq { ... }</FONT>.</TD>
+</TR>
+<TR class="tr11">
+	<TD class="td8"><FONT class="ft79">&#61623;</FONT></TD>
+	<TD class="td63"><FONT class="ft8">We used the .NET delegate type </FONT><FONT class="ft80">System.Func </FONT><FONT class="ft8">instead of an F# function type.</FONT></TD>
+</TR>
+</TABLE>
+<P class="p355"><FONT class="ft11">26</FONT></P>
+</DIV>
+<div style="padding:50px 0 15px 0;"><a href="http://pdf2html.blogspot.com/" style="padding:10;font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666; border-top:solid medium #CCC">Convert PDF to HTML using PDF2HTML Online</a></div></body>
+</HTML>
