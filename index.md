@@ -23,6 +23,28 @@ Language via the [Visual F# Language and Tools](https://visualfsharp.codeplex.co
 Please help us in our mission to maintain the excellence of these projects and
 to bring F# to your favorite platforms.
 
+<br />
+
+Blog
+====
+
+<br />
+
+[Contributing to the F# Langauge and Compiler](blog/2014/fsharp-contributions.html)
+-----------------------------------------------------------------------------------
+
+> How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
+
+<br />
+ 
+[Recent F# Open Engineering Highlights](blog/2014/may-highlights.html)
+----------------------------------------------------------------------
+
+> Updates from the F# Open Engineering Group
+
+<br />
+ 
+
 Some Core Repositories
 ======================
 
@@ -47,22 +69,3 @@ Some Core Repositories
   Refactoring and other commands for F# in Visual Studio
  
 
-Blog
-====
-
-<br />
-
-[Contributing to the F# Langauge and Compiler](blog/2014/fsharp-contributions.html)
------------------------------------------------------------------------------------
-
-> How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
-
-<br />
- 
-[Recent F# Open Engineering Highlights](blog/2014/may-highlights.html)
-----------------------------------------------------------------------
-
-> Updates from the F# Open Engineering Group
-
-<br />
- 
