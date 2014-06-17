@@ -140,6 +140,7 @@ Summary
 -------
 
 The F# Tooling ecosystem is full of energy and activity.  Two major commercial contributors are Microsoft and Xamarin, and tools are also available in 100% open source through MonoDevelop, Emacs and others.  We encourage you to contribute to the F# Compiler, Language and Core Library via the Visual F# Tools repository, and also to contribute to the many other great projects in the F# community ecosystem.  We also encourage you to join our group and help us coordinate and grow the F# tooling ecosystem.
+
 Tomas Petricek, for the F# Open Engineering Group, with assistance from Don Syme
 
 
