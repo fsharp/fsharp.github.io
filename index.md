@@ -1,7 +1,16 @@
 ---
 layout: default
-title: Hello
+title: The F# Open Engineering Group
 ---
+
+The F# Open Engineering Group is a working group associated with
+[The F# Software Foundation](http://fsharp.org).
+
+The F# Open Engineering Group's responsibilities include 
+[The Open Edition of F#](http://fsharp.github.com/fsharp)
+and an affiliated collection of community projects at GitHub.
+Help us bring F# to your favorite platforms,  and help us empower F# users on all platforms.
+
 
 F# Open Engineering News
 ========================
@@ -16,18 +25,10 @@ F# Open Engineering News
 In this blog, we outline how we, the [F# Open Engineering group][fsg] (a technical working group of 
 [The F# Software Foundation][fsf]) – are collaborating with the [Visual F# Tools][fst] team at 
 Microsoft, Xamarin, Mono and other contributors to F# to help deliver your contributions to the 
-F# Language, Compiler and Library across multiple platforms.
-We encourage you both to contribute all F# open engineering efforts, and to join our group and help us!
+F# Language, Compiler and Library across multiple platforms...
 
 <br />
  
-_Published: 16 June 2014_  
-
-_Tomas Petricek_  
-_(on behalf of the F# Open Engineering group, with assistance from Don Syme)_
-
-<br />
-<br />
 
 [Recent F# Open Engineering Highlights](blog/2014/may-highlights.html)
 ----------------------------------------------------------------------
@@ -36,14 +37,10 @@ The mission of the F# Open Engineering group is to facilitate the development of
 F# open edition (compiler and tools), coordinate work on high-quality libraries for F#
 and support the cross-platform support for F#. In this blog post, we'll have a quick
 look at the recent work done by the community that falls within the remit of the Core 
-Engineering group – there is a lot going on! 
+Engineering group... 
 
 <br />
  
-_Published: 27 May 2014_  
-
-_Tomas Petricek_  
-_(on behalf of the F# Open Engineering group)_
 
 
  [fsg]: http://fsharp.github.io/
