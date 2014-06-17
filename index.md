@@ -12,8 +12,7 @@ The F# Open Engineering Group is a working group associated with
 [The F# Software Foundation](http://fsharp.org).
 
 
-The F# Open Engineering group manages the open-source
-[F# Compiler and Components](https://github.com/fsharp) repository as well
+We manage the open-source [F# Compiler and Components](https://github.com/fsharp) repository as well
 as the [F# Community Project Incubation Space](https://github.com/fsprojects).
 The group also helps to facilitate open-source contributions to the F#
 Language via the [Visual F# Language and Tools](https://visualfsharp.codeplex.com/) repository.
