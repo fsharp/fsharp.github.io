@@ -1,7 +1,7 @@
-﻿---
+----
 layout: default
 title: Recent F# Open Engineering Highlights
----
+----
 
 Recent F# Open Engineering Highlights
 =====================================
