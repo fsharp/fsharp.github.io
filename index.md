@@ -23,6 +23,30 @@ Language via the [Visual F# Language and Tools](https://visualfsharp.codeplex.co
 Please help us in our mission to maintain the excellence of these projects and
 to bring F# to your favorite platforms.
 
+Some Core Repositories
+======================
+
+### F# Compiler and Library
+
+* [The Open Edition of F#](http://github.com/fsharp/fsharp)
+  
+  The F# compiler, core library and tools
+
+* [FSharp.Compiler.Service](http://fsharp.github.io/FSharp.Compiler.Service)
+  
+  Hostable F# compiler component for editing and execution clients
+
+### F# Editing Tools
+
+* [F# Editor Bindings](http://github.com/fsharp/fsharpbinding)
+ 
+  F# Language Bindings for Emacs, MonoDevelop, etc.
+
+* [Visual F# Power Tools](http://fsprojects.github.io/VisualFSharpPowerTools)
+  
+  Refactoring and other commands for F# in Visual Studio
+ 
+
 Blog
 ====
 
