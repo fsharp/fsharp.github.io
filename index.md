@@ -28,8 +28,8 @@ To contribute and get involved with the group activities:
 Help us bring F# to your favorite platforms,  and help us empower F# users on all platforms!
 
 
-F# Open Engineering News
-========================
+Blog
+====
 
 <br />
 
@@ -38,27 +38,12 @@ F# Open Engineering News
 
 > How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
 
-In this blog, we outline how we, the [F# Open Engineering group][fsg] (a technical working group of 
-[The F# Software Foundation][fsf]) – are collaborating with the [Visual F# Tools][fst] team at 
-Microsoft, Xamarin, Mono and other contributors to F# to help deliver your contributions to the 
-F# Language, Compiler and Library across multiple platforms...
-
 <br />
  
-
 [Recent F# Open Engineering Highlights](blog/2014/may-highlights.html)
 ----------------------------------------------------------------------
 
-The mission of the F# Open Engineering group is to facilitate the development of the 
-F# open edition (compiler and tools), coordinate work on high-quality libraries for F#
-and support the cross-platform support for F#. In this blog post, we'll have a quick
-look at the recent work done by the community that falls within the remit of the Core 
-Engineering group... 
+> Updates from the F# Open Engineering Group
 
 <br />
  
-
-
- [fsg]: http://fsharp.github.io/
- [fsf]: http://fsharp.org
- [fst]: http://blogs.msdn.com/b/fsharpteam
