@@ -3,6 +3,9 @@ layout: default
 title: The F# Open Engineering Group
 ---
 
+About Us
+========
+
 The F# Open Engineering Group is a working group associated with
 [The F# Software Foundation](http://fsharp.org).
 
