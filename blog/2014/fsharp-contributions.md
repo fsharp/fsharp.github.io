@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Contributing to the F# Core
 ---
