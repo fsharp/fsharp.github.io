@@ -1,7 +1,7 @@
 ---
 layout: default
 title: The F# Open Engineering Group
-description: How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform
+subtitle: How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform
 ---
 
 <br />
