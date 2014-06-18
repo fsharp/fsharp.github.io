@@ -12,7 +12,7 @@ layout: none
     <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
 
-    {% for post in site.blog limit: 10 %}
+    {% for post in site.posts limit: 10 %}
       <item>
         <title>{{ post.title }}</title>
         <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
