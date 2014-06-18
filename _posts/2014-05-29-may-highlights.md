@@ -61,7 +61,7 @@ addin. This has resulted in a number of fixes to intellisense.
 Although it is still in its early days, there has also been some work on 
 [integrating F# with Vim](https://github.com/timrobinson/fsharp-vim) and
 [Sublime text](https://github.com/fsharp/fsharpbinding/tree/master/sublimetext). If you're
-missing your favoirte editor here, be sure to contribute!
+missing your favourite editor here, be sure to contribute!
 
 
 Visual Studio F# Power Tools
