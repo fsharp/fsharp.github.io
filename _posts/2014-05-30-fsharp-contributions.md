@@ -58,7 +58,7 @@ How Your Contributions Flow Cross-Platform
 Below, you can see a diagram of how contributions to the F# Language, Compiler and Core Library 
 flow through the F# open source ecosystem (click on the image for a full version):
 
-<a href="repos.png"><img src="repos-small.png" /></a>
+<a href="/img/repos.png"><img src="/img/repos-small.png" /></a>
 
 Note that:
 
