@@ -55,10 +55,12 @@ Blog
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }} 
       </a> 
-      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time> 
     </h2>
 
-    <blockquote><p> subtitle {{ post.subtitle }} </p></blockquote>
+    <blockquote><p> {{ post.subtitle }} 
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B %Y" }}</time>                        </p>
+    </blockquote>
+      
     
 
 {% endfor %}
