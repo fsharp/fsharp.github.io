@@ -38,8 +38,8 @@ the core of the F# open source tools, especially in a cross-platform setting. Th
 
 You can browse our [core repos](https://github.com/fsharp) and the other 
 [community projects](http://fsharp.org/community/projects/). As you can see, there is a huge 
-amount going on in F# open source tooling, libraries and related initiatives!    
-We encourage you to both use and contribute to these initiatives.
+amount going on in F# open source tooling, libraries and related initiatives! We encourage you 
+bothto  use and contribute to these initiatives.
 
 That said, there are some things we don't do:
 
@@ -49,14 +49,14 @@ That said, there are some things we don't do:
  4.	**We don't package the F# core library for use on Android or iOS.** This is done by the Xamarin.Android and Xamarin.iOS teams at Xamarin, based on tag numbers we send them.
 
 So, instead of packaging things, our main job is work cooperatively with Microsoft, Xamarin 
-and others to ensure the F# language are made available to all users of F# on all major platforms. 
+and others to ensure F# is made available to users on all major platforms. 
 This is a key part of the mission of the F# Software Foundation.
 
 How Your Contributions Flow Cross-Platform 
 ------------------------------------------
 
 Below, you can see a diagram of how contributions to the F# Language, Compiler and Core Library 
-flow through the F# open source ecosystem (click on the image for a full version):
+flow through the core F# open source ecosystem (click on the image for a full version):
 
 <a href="/img/repos.png"><img src="/img/repos-small.png" /></a>
 
@@ -75,27 +75,29 @@ Note that:
 
     The second of these contains additional changes for turning the F# compiler code into a compiler service component with a clean API.
 
- 3. As shown in the diagram, your contributions will eventually be merged into two important downstream Git-enabled repos, both on github. In particular, your contributions will flow into the 
+As shown in the diagram, your contributions will eventually be merged into two important downstream Git-enabled repos, both on github. In particular, your contributions will flow into the 
     [FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service) repo and its 
     [nuget package releases](http://www.nuget.org/packages/FSharp.Compiler.Service/). 
 
-    A lot of interesting tooling uses this nuget package, including the 
-    [Visual F# Power Tools](http://fsprojects.github.io/VisualFSharpPowerTools/), the 
-    [Xamarin Studio tooling for F#](http://developer.xamarin.com/guides/cross-platform/fsharp/), 
-    [CloudSharper](http://cloudsharper.com/), 
-    [Tsunami](http://tsunami.io/), the 
-    [iPython Notebook](http://nbviewer.ipython.org/github/BayardRock/IfSharp/blob/master/Feature Notebook.ipynb) tooling for 
-    F# and even the [Emacs MELPA package](https://github.com/fsharp/fsharpbinding/blob/master/emacs/README.md) for F#.
+A lot of interesting tooling uses this nuget package, including:
+    * The [Visual F# Power Tools](http://fsprojects.github.io/VisualFSharpPowerTools/), the 
+    * The [Xamarin Studio tooling for F#](http://developer.xamarin.com/guides/cross-platform/fsharp/), 
+    * [CloudSharper](http://cloudsharper.com/), 
+    * [Tsunami](http://tsunami.io/), the 
+    * [iPython Notebook](http://nbviewer.ipython.org/github/BayardRock/IfSharp/blob/master/Feature Notebook.ipynb) tooling for F# 
+    * And even the [Emacs MELPA package](https://github.com/fsharp/fsharpbinding/blob/master/emacs/README.md) for F#.
 
 There is a lot of F# tooling in the world – both open source and commercial!  The good news is that 
 _all the F# tooling is ultimately derived from one professionally-tested codebase_ – the Visual F# Tools 
-curated by the Visual F# team at Microsoft.   This helps ensure the unity of both the F# language and its main implementations.
+curated by the Visual F# team at Microsoft, which you can contribute to.   This helps ensure 
+the unity of both the F# language and its main implementations.
 
 Why We Ask You To Contribute via the Visual F# Tools Repo
 ---------------------------------------------------------
 
 In the above diagram, we ask you to submit your contributions to the F# Language, Compiler and Core 
-Library via the Visual F# Tools open Git-enabled repo.
+Library via the Visual F# Tools open source Git-enabled repo.
+
 
 We do this because:
 
@@ -105,7 +107,9 @@ We do this because:
 
  3. Microsoft are very active in soliciting contributions and helping people to contribute. Follow their twitter account for updates, as well as the RSS feed from the repository.
  
- 4. Don Syme, the current Benevolent Dictator For Life for the F# Language, works at Microsoft Research and collaborates with the Visual F# Tools team in curating this repository.
+ 4. Don Syme, the current [Benevolent Dictator For Life](http://en.wikipedia.org/wiki/Benevolent_dictator_for_life) 
+    for the F# Language, works at Microsoft Research and collaborates with the Visual F# Tools team in curating 
+    this repository.
  
  5. Microsoft curate and "triage" the open issues list for the F# Compiler, Language and Core Library, based on bug reports they receive.
 
