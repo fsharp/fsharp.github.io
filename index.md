@@ -23,6 +23,8 @@ Language via the [Visual F# Language and Tools](https://visualfsharp.codeplex.co
 Please help us in our mission to maintain the excellence of these projects and
 to bring F# to your favorite platforms.
 
+<br />
+
 Blog
 ====
 
