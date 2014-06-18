@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Recent F# Open Engineering Highlights
-subtitle: Introducing the F# Open Engineering Group
+subtitle: An Update on the F# Compiler Services, Visual F# Power Tools and more
 ---
 
 Recent F# Open Engineering Highlights
