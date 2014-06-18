@@ -81,12 +81,12 @@ As shown in the diagram, your contributions will eventually be merged into two i
 
 A lot of interesting tooling uses this nuget package, including:
 
- * The [Visual F# Power Tools](http://fsprojects.github.io/VisualFSharpPowerTools/), the 
- * The [Xamarin Studio tooling for F#](http://developer.xamarin.com/guides/cross-platform/fsharp/), 
+ * the [Visual F# Power Tools](http://fsprojects.github.io/VisualFSharpPowerTools/),
+ * the [Xamarin Studio tooling for F#](http://developer.xamarin.com/guides/cross-platform/fsharp/), 
  * [CloudSharper](http://cloudsharper.com/), 
- * [Tsunami](http://tsunami.io/), the 
- * [iPython Notebook](http://nbviewer.ipython.org/github/BayardRock/IfSharp/blob/master/Feature Notebook.ipynb) tooling for F# 
- * And even the [Emacs MELPA package](https://github.com/fsharp/fsharpbinding/blob/master/emacs/README.md) for F#.
+ * [Tsunami](http://tsunami.io/), 
+ * the [iPython Notebook](http://nbviewer.ipython.org/github/BayardRock/IfSharp/blob/master/Feature Notebook.ipynb) tooling for F#, 
+ * and even the [Emacs MELPA package](https://github.com/fsharp/fsharpbinding/blob/master/emacs/README.md) for F#.
 
 There is a lot of F# tooling in the world – both open source and commercial!  The good news is that 
 _all the F# tooling is ultimately derived from one professionally-tested codebase_ – the Visual F# Tools 
