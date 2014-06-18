@@ -56,12 +56,26 @@
         </div>
         <div class="row">
 
-          <div class="col-md-10">
+          <div class="col-md-9">
             {{ content }}
           </div>
 
-          <div class="col-md-2" id="rightPanel">
+          <div class="col-md-3" id="rightPanel">
 
+          <p>Blog</p>
+<ul>
+{% for post in site.posts %}
+
+    <li>
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }} <time datetime="{{ post.date | date: '%Y-%m-%d' }}">({{ post.date | date: "%-d %B %Y" }})</time>
+      </a> 
+    </li>
+
+
+{% endfor %}
+
+</ul>
       
           </div>
         </div>
