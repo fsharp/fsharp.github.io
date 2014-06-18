@@ -1,24 +1,23 @@
 ---
 layout: default
-title: Contributing to the F# Langauge and Compiler
+title: Contributing to the F# Language and Compiler
 subtitle: How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform
 ---
 
-Contributing to the F# Langauge and Compiler
+Contributing to the F# Language and Compiler
 ============================================
 
 > How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
 
-In this blog, we outline how we, the [F# Open Engineering group][fsg] (a technical working group of 
+In this post, we outline how we, the [F# Open Engineering Group][fsg] (a technical working group of 
 [The F# Software Foundation][fsf]) – are collaborating with the [Visual F# Tools][fst] team at 
 Microsoft, Xamarin, Mono and other contributors to F# to help deliver your contributions to the 
 F# Language, Compiler and Library across multiple platforms.
-We encourage you both to contribute all F# open engineering efforts, and to join our group and help us!
 
 In particular, we want to explain more about:
 
  1.	How you can contribute to the F# Language, Compiler and Core Library 
- 2.	Why we ask you to contribute via the Visual F# Tools open source repository 
+ 2.	Why we ask you to contribute via the [Visual F# Tools][fst] open source repository 
  3.	How your contributions will flow through to other F# tooling worldwide, on many different platforms
  4.	How the core engineering changes may be improved in the future
 
