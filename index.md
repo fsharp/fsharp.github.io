@@ -33,7 +33,7 @@ Blog
 ====
 
 
-<section class="archive">
+<div>
 {% for post in site.posts %}
 
     <br />
@@ -46,8 +46,7 @@ Blog
     <blockquote><p> {{ post.subtitle }} 
                     <time datetime="{{ post.date | date: '%Y-%m-%d' }}">({{ post.date | date: "%-d %B %Y" }})</time>                        </p>
     </blockquote>
-      
-    
 
 {% endfor %}
-</section>
+
+</div>
