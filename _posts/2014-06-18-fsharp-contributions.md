@@ -21,10 +21,10 @@ In particular, we want to explain more about:
  3.	How your contributions will flow through to other F# tooling worldwide, on many different platforms
  4.	How the core engineering changes may be improved in the future
 
-Background: F# Open Engineering Group
+Background: The F# Open Engineering Group
 -------------------------------------
 
-First, some background. The F# Open Engineering group is a loose affiliation of founding members to the 
+First, some background. The F# Open Engineering group is a technical working group made up of founding members of the 
 FSSF, plus other contributors to the core F# compiler and tooling.  Our role is to enable work on 
 the core of the F# open source tools, especially in a cross-platform setting. This includes any work on:
 
