@@ -50,3 +50,21 @@ Blog
 {% endfor %}
 
 </div>
+
+Contact Us
+==========
+
+Most group discussion happens in other forums. To contact the group, please either:
+
+* [Ask questions on StackOverflow](http://stackoverflow.com/tags/f%23/info)
+* [Post to our Google Group](http://groups.google.com/group/fsharp-opensource)
+* [Propose or discsus an F# language feature](http://fslang.uservoice.com) - please check for duplicates first
+* [Contribute an issue to the F# compiler and library](http://fsharp.github.io/blog/2014/fsharp-contributions.html)
+* [Contribute an issue to other core repositories](http://github.com/fsharp)
+* [Contribute an issue to F# community incubation projects](http://github.com/fsprojects)
+
+If using the Xamarin, Microsoft or Intellifactory professional tooling for F#, you should use
+the support contacts for those products.  They may also refer you to the above forums for some issues.
+
+The convenors of the F# Open Engineering Group are Michael Newtown, Dave Thomas, Tomas Petricek and Don Syme.
+You can contact them directly, though it is better to use one of the public forums above.
