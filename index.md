@@ -32,26 +32,11 @@ to bring F# to your favorite platforms.
 Blog
 ====
 
-<br />
-
-[Contributing to the F# Langauge and Compiler](blog/2014/fsharp-contributions.html)
------------------------------------------------------------------------------------
-
-> How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
-
-<br />
- 
-[Recent F# Open Engineering Highlights](blog/2014/may-highlights.html)
-----------------------------------------------------------------------
-
-> Updates from the F# Open Engineering Group
-
-<br />
- 
 
 <section class="archive">
 {% for post in site.posts %}
 
+    <br />
     <h2>
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }} 
@@ -59,7 +44,7 @@ Blog
     </h2>
 
     <blockquote><p> {{ post.subtitle }} 
-                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B %Y" }}</time>                        </p>
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">({{ post.date | date: "%-d %B %Y" }})</time>                        </p>
     </blockquote>
       
     
