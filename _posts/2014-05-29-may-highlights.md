@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Recent F# Open Engineering Highlights
+subtitle: How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform
 ---
 
 Recent F# Open Engineering Highlights
