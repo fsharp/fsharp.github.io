@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contributing to the F# Langauge and Compiler
+subtitle: How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform
 ---
 
 Contributing to the F# Langauge and Compiler
