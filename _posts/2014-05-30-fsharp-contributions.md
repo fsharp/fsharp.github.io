@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contributing to the F# Core
+title: Contributing to the F# Langauge and Compiler
 ---
 
 Contributing to the F# Langauge and Compiler
