@@ -1,15 +1,13 @@
 ---
 layout: default
-title: Recent F# Open Engineering Highlights
+title: Some Recent F# Open Engineering Highlights
 subtitle: An Update on the F# Compiler Services, Visual F# Power Tools and more
 ---
 
-Recent F# Open Engineering Highlights
-=====================================
+Some Recent F# Open Engineering Highlights
+==========================================
 
-The mission of the F# Open Engineering group is to facilitate the development of the 
-F# open edition (compiler and tools), coordinate work on high-quality libraries for F#
-and support the cross-platform support for F#. In this blog post, we'll have a quick
+In this blog post, we'll have a quick
 look at the recent work done by the community that falls within the remit of the Core 
 Engineering group – there is a lot going on! 
 
