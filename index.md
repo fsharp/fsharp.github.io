@@ -1,6 +1,7 @@
 ---
 layout: default
 title: The F# Open Engineering Group
+subtitle: How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform
 ---
 
 <br />
@@ -31,62 +32,21 @@ to bring F# to your favorite platforms.
 Blog
 ====
 
-<br />
 
-[Contributing to the F# Langauge and Compiler](blog/2014/fsharp-contributions.html)
------------------------------------------------------------------------------------
-
-> How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
-
-<br />
- 
-[Recent F# Open Engineering Highlights](blog/2014/may-highlights.html)
-----------------------------------------------------------------------
-
-> Updates from the F# Open Engineering Group
-
-<br />
- 
-
-<section class="archive">
+<div>
 {% for post in site.posts %}
-{% unless post.next %}
 
+    <br />
+    <h2>
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }} 
+      </a> 
+    </h2>
 
-{% unless forloop.first %}</div></div>{% endunless %}
-
-
-  <div class="bundle row gutters fadeInDown animated">
-    <h2 class="post-year col span_2">{{ post.date | date: '%Y' }}</h2>
-    <div class="posts-by-year col span_10">
-
-
-{% else %}
-{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-{% if year != nyear %}
-
-
-{% unless forloop.first %}</div></div>{% endunless %}
-
-
-  <div class="bundle row gutters fadeInDown animated">
-    <h2 class="post-year col span_2">{{ post.date | date: '%Y' }}</h2>
-    <div class="posts-by-year col span_10">
-{% endif %}
-{% endunless %}
-
-
-  <article class="row gutters">
-    <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" class="col span_8">{{ post.title }}</a>
-    <div class="post-date col span_4">
-      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
-    </div>
-  </article>
-
-
-{% if forloop.last %}</div></div>{% endif %}
-
+    <blockquote><p> {{ post.subtitle }} 
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">({{ post.date | date: "%-d %B %Y" }})</time>                        </p>
+    </blockquote>
 
 {% endfor %}
-</section>
+
+</div>

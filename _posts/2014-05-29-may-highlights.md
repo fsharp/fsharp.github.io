@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Recent F# Open Engineering Highlights
+subtitle: Introducing the F# Open Engineering Group
 ---
 
 Recent F# Open Engineering Highlights
