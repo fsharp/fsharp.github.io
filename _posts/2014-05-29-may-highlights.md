@@ -61,14 +61,14 @@ addin. This has resulted in a number of fixes to intellisense.
 Although it is still in its early days, there has also been some work on 
 [integrating F# with Vim](https://github.com/timrobinson/fsharp-vim) and
 [Sublime text](https://github.com/fsharp/fsharpbinding/tree/master/sublimetext). If you're
-missing your favoirte editor here, be sure to contribute!
+missing your favourite editor here, be sure to contribute!
 
 
 Visual Studio F# Power Tools
 ----------------------------
 
-In the recent few months, an amazing work has been done on Visual F# Power Tools.
-This is an open source project that aims to bring useful F# Visual Studio xtensions 
+In the recent few months, amazing work has been done on Visual F# Power Tools.
+This is an open source project that aims to bring useful F# Visual Studio extensions 
 into a single home. The project has been rapidly developing and currently supports the 
 following features:
 
