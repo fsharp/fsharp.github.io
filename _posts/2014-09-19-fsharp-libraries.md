@@ -43,15 +43,23 @@ Some of these recommendations may eventually be added to those guidelines.
 
 <br />
 
-### Guideline: Do make the purpose of your project and package clear in its name
+### Guideline: Do make the purpose of your project or package clear in its name
+
+When starting a project, it can be all-to-easy to choose a name that is too general, for 
+example "FSharp.Helpers".  As you clarify what your project is about, make sure you adjust the name of your project 
+accordingly.
+
 
 For example, a project such as "FSharp.Cloud" is unclear in purpose. Is this for uploading music to Apple's iCloud? Or for
 Amazon AWS?  Or Microsoft Azure? Instead, use a name such as "FSharp.Azure.Scripting" or "FSharp.Amazon.Scripting" if your
 package is in fact a scripting library for a particularly cloud infrastructure provide.
 
+Alternatively, you may end up dropping the use of an "FSharp" name for your project or package. see below, and choosing
+a more product-like name.
+
 <br />
 
-### Guideline: Consider using an "FSharp.*" name for things intended primarily for F# developers
+### Guideline: Consider an "FSharp.*" name for things intended primarily for F# developers
 
 Many libraries, package or tools are designed explicitly for the use of F# programmers.
 These may be valid candidates for an "FSharp.*" name, if other criteria are met. 
@@ -60,9 +68,9 @@ For example, "FSharp.Data" or "FSharp.Data.SqlCommandProvider" are in this categ
 
 <br />
 
-### Guideline: Avoid an "FSharp.*" name for things that are not exclusively intended for F# developers
+### Guideline: Avoid an "FSharp.*" name for things not intended exclusively for F# developers
 
-Some projects, packages and tools use F# as an implementation language but are intended for broader use.
+Some projects, packages and tools use F# as an implementation or scripting language but are intended for broader use.
 If your audience is larger than the worldwide community of F# developers, then strongly consider using a
 name which doesn't mention F#.  
 
@@ -105,10 +113,11 @@ which is sufficiently broad and canonical to use a two-word name.
 ### Guideline: Do use existing second-level namespaces where appropriate
 
 .NET and F# components are placed in second-level namespaces such as "FSharp.Control", "FSharp.Data", "FSharp.Net", "FSharp.Compiler",
-"FSharp.Text", "FSharp.Core" and so on.  Do consider using these patterns, especially to avoid two-word project names.
+"FSharp.Text", "FSharp.Core" and so on.  Use these prefixes where possible, rather than inventing new ones.
 
-For example, a library like "FSharp.Actor" might be better renamed to "FSharp.Control.Actor". Likewise, a type provider 
-for a data source or schema format XYZ should normally use "FSharp.Data.XYZ".
+For example, a library like "FSharp.Actor" might be better renamed to "FSharp.Control.Actor". Similarly, "FSharp.Reactive"
+is better renamed to "FSharp.Control.Reactive".  Likewise, a type provider 
+for a data source or schema format XYZ should normally be placed in "FSharp.Data", e.g. "FSharp.Data.XYZ".
 
 <br />
 
@@ -142,42 +151,42 @@ or other community forums.
 Before you publicize an open, public-facing project, it pays to get all the basics in place to allow
 people to collaborate with you.  These are, minimially:  
 
-- _Naming_.  Get the naming of your project right. Make its purpose clear. 
+- *Naming*.  Get the naming of your project right. Make its purpose clear. 
 
-- _README_.  Add a clear, simple README to your project. Make its purpose clear
+- *README*.  Add a clear, simple README to your project. Make its purpose clear
 
-- _Packaging_.  Make a package for your library, component or tool. often this will be a nuget package, 
+- *Packaging*.  Make a package for your library, component or tool. often this will be a nuget package, 
   but if it is some other kind of tool then make and publish the appropriate package. For example,
   the [Emacs mode for F#](http://fsharp.github.io/fsharpbinding/) is published as a MELPA package.
   Document how the package gets published.
 
-- _Testing_.  Ensure your project has tests that build, run and pass out-of-the-box.
+- *Testing*.  Ensure your project has tests that build, run and pass out-of-the-box.
 
-- _Documentation_.  Ensure your project has good documentation. If on GitHub, consider publishing your 
+- *Documentation*.  Ensure your project has good documentation. If on GitHub, consider publishing your 
   documentation via GitHub pages. Strongly consider using documentation generation tools and templates used by the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold)
 
-- _Tutorials_.  Ensure your project has tutorials as part o its documentation. Templates and examples are available in the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold)
+- *Tutorials*.  Ensure your project has tutorials as part o its documentation. Templates and examples are available in the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold)
 
-- _Continuous Integration_.  Add continuous integration build and testing to your project, for example using AppVeyor or Travis.  For AppVeyor, this is done by addding `appveyor.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/appveyor.yml)) and 
+- *Continuous Integration*.  Add continuous integration build and testing to your project, for example using AppVeyor or Travis.  For AppVeyor, this is done by addding `appveyor.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/appveyor.yml)) and 
   registering your project.  For Travis, you add a `.travis.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/.travis.yml)) and register the project.
   Travis provides OSX and Linux machines - OSX machines are used if the language is set to "objective-c".
 
-- _Reach a Known State_.  Document all known issues.  Consider labelling somme of them as "up-for-grabs". Don't leave undocumented minefields in your package or tool.
+- *Reach a Known State*.  Document all known issues.  Consider labelling somme of them as "up-for-grabs". Don't leave undocumented minefields in your package or tool.
 
-- _Cross-platform_.  If working on Windows, ensure your project uses a cross-platform build-and-test using Travis if possible.
+- *Cross-platform*.  If working on Windows, ensure your project uses a cross-platform build-and-test using Travis if possible.
 
-- _PCL if possible_.  If writing a library, make your component a PCL portable component where possible, targeting the broadest possible profile such as "Profile 7" or "Profile 259".
+- *PCL if possible*.  If writing a library, make your component a PCL portable component where possible, targeting the broadest possible profile such as "Profile 7" or "Profile 259".
 
 If you don't do these things, people are unlikely to want to collaborate with you on your project.
 
 <br />
 
-### Guideline: Consider using the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold) for documentation, packaging, testing, tutorials and CI.
+### Guideline: Consider using the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold) 
 
 The [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold) gives a structure for creating new projects
-which can be very useful.
+which can be very useful for documentation, packaging, testing, tutorials, CI and more.
 
-Please contribute fixes and improvement to the project scaffolding to make it easier for others to use.
+Please contribute fixes and improvement to the scaffolding to make it easier for others to use.
 
 <br />
 
