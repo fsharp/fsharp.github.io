@@ -12,8 +12,6 @@ This document describes the goals, remit and activities of the F# Open Engineeri
 
 To organise, promote and contribute to work on F#'s core tooling to make development pain free and fully featured, enable it on new platforms, host F# code in new ways and ensure best-practice engineering in the F# community.
 
-If you’d like to help out in any of the areas covered by this work group, feel free! All of these projects are open source and more than willing to consider suggestions and pull requests.
-
 # Group Remit
 
 The group's remit covers the following areas:
