@@ -22,11 +22,35 @@ If you’d like to help out in any of the areas covered by this work group, feel
 
 The group’s initial remit covers the following areas:
 
+## Compiler, Core Library and Compiler Service 
+
+The group commits to ensuring the easy availability of the F# Compiler, Core library and Compiler Service on all major platforms at high quality. Particular points of activity are:
+
+- Work cooperativley with the Visual F# compiler team at Microsoft to allow open source contributions and integrate Microsoft updates to the F# open source release into the F# repositories on GitHub.  
+  (See [this blog entry](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) and [the Visual F# Team priorities](https://visualfsharp.codeplex.com/wikipage?title=Current%20Priorities%20))
+
+- Work cooperativley with Xamarin to integrate the F# Compiler into Mono release on the Mac and Linux
+
+- Work cooperativley to enable testing for the open edition of the F# compiler, particularly through CI systems (Travis and AppVeyor)
+
+- Work cooperativley with  Debian packaging and other distributions to ensure Linux packages are available for F# on Debian and RPM, Gentoo/Arch builds
+
+- We work cooperatively with the Visual F# compiler team to aligng code bases with Visual F# team repos
+
+- We aim to keep the  [the homebrew formula](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/fsharp.rb) for F# up-to-date
+
+- We Help maintain and improve the PCL (Portable Class Library) support for F# across multiple platforms and devices
+
+- We aim to improve the documentation quality of the core compiler and library components.
+
+- We aim to facilitate development on the compiler, core library by cross-platform users.
+
+
 ## Editing/IDE Tools
 
-- Help the F# community deliver high quality, consistent, easy-to-install, reliable editing experiences for F# code on all major platforms and as many editors as feasible
+The group aims to help the F# community deliver high quality, consistent, easy-to-install, reliable editing experiences for F# code on all major platforms and as many editors as feasible
 
-   Currently the focus for “full featured” tooling is on 
+Currently the focus for “full featured” tooling is on 
    
    - Visual Studio additional tooling
 
@@ -38,36 +62,13 @@ The group’s initial remit covers the following areas:
 
    - Emerging editor bindings yet to reach critical sustained usage are Sublime, Vim
 
+We also aim to 
+
 - Help maintain the FSharpBinding as an important project for Windows/Mac/Linux open-source development tools
 
-- Assist with light weight project support for other editors (LightTable,etc)
+- Assist with lightweight project support for other editors (LightTable,etc)
 
 - Encourage and facilitate Notebook/Workbook experiences (iPython notebook)
-
-## Compiler, Core and Compiler Service 
-
-The group commits to ensuring the easy availability of the F# Compiler, Core library and Compiler Service on all major platforms at high quality.
-
-Particular points of activity are:
-
-- Cooperate with the Visual F# compiler team at Microsoft to allow open source contributions and integrate Microsoft updates to the F# open source release into the F# repositories on GitHub.  
-  (See [this blog entry](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) and [the Visual F# Team priorities](https://visualfsharp.codeplex.com/wikipage?title=Current%20Priorities%20))
-
-- Cooperating with Xamarin to integrate the F# Compiler into Mono release on the Mac and Linux
-
-- Enable testing for the open edition of the F# compiler, particularly through CI systems (Travis and AppVeyor)
-
-- Cooperate with Debian and Mono packaging to ensure Linux packages/builds - Debian and RPM, Gentoo/Arch builds
-
-- Aligning code bases with Visual F# team repos
-
-- Keeping [the homebrew formula](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/fsharp.rb) for F# up-to-date
-
-Help maintain and improve the PCL (Portable Class Library) support for F# across multiple platforms and devices
-
-We aim to improve the documentation quality of the core compiler and library components.
-
-We aim to facilitate development on the compiler, core library by cross-platform users.
 
 
 ## Package Management
@@ -77,7 +78,7 @@ The group aim to contribute to improving package management and tools that suppo
 
 ## Virtual Machine Images/Containers
 
-The group encourage/facilitate the creation of pre-bundled VM images which include F#, e.g.
+The group encourages and facilitates the creation of pre-bundled VM images and containers which include F#, e.g.
 
 - Docker
 
@@ -96,7 +97,7 @@ The group aim to
 
 ## Libraries and Frameworks
 
-The group aim to 
+The group aims to 
 
 - Facilitate an active, high-quality ecosystem of F# libraries. 
 
@@ -140,16 +141,16 @@ We will look for inspiration from other package-based software communities for h
 
 ## Hosting
 
-Facilitate the development of new F# development experiences through “hosting” F# (whether client-side as an API, server-side or other variations).
+The group aims to facilitate the development of new F# development experiences through “hosting” F# (whether client-side as an API, server-side or other variations).
 
 
 ## Incubation Space
 
-The group manage  and facilitate the [F# Community Incubation Space](http://github.com/fsprojects) as an incubation space for F# community projects.
+The group manages  and facilitates the [F# Community Incubation Space](http://github.com/fsprojects) as an incubation space for F# community projects.
 
 ## Documentation
 
-We commit to 
+The group commits to 
 
 - maintaining and regularly validating the “getting started” guides already available on fsharp.org 
 
@@ -164,7 +165,7 @@ We commit to
 
 ## Interoperability
 
-We aim to facilitate and encourage core interoperability tooling such as
+The group aims to facilitate and encourage core interoperability tooling such as
 
 - Type providers to other programming languages (Java etc.)
 
@@ -172,18 +173,10 @@ We aim to facilitate and encourage core interoperability tooling such as
 
 ## Distributed Computing Frameworks
 
-While not part of the core remit of the group, we keep an eye on and encourage/facilitate the emerging distributed compute frameworks which work well with F# code, for example
+While not part of the core remit of the group, we keep an eye on and encourage/facilitate the emerging distributed compute frameworks which work well with F# code, for example,  Akka.NET,  M-Brace/Cloud-F# and Orleans.
 
-- Akka.NET
-
-- M-Brace/Cloud-F#
-
-- Orleans
-
-- Dryad/Naiad
 
 # What We Don’t Do
-
 
 We don’t maintain every library and tool that the F# community creates. Only the following components are “maintained” by this group. 
 
@@ -203,7 +196,7 @@ We don’t focus on tooling that relies on other minority 3rd party proprietary 
 
 Larger projects such as improved mobile support will probably need to end up as separate discussions with teams of volunteers. Most of these are mentioned in ‘Initial Remit’ above.
 
-# Possible Specific New Activities (as of late 2014 and beyond)
+# Possible Specific New Activities (as of late 2014)
 
 
 ## IDEs and Editors
