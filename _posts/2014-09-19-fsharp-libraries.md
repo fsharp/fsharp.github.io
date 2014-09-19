@@ -127,7 +127,7 @@ event-based programming, reactive programming, and similar
 -   FSharp.Text: Text processing, formating, printing, or similar functionality
 -   FSharp.Net: Types relating to networking
 -   FSharp.Compiler: Functionality relating to compilation of F#
--   FSharp.Core: Use sparingly.  Typically required for help types required by incubation of compiler features
+-   FSharp.Core: Use sparingly.  Typically required for helper types required by incubation of compiler features
 
 For example, a library like "FSharp.Actor" might be better renamed to "FSharp.Control.Actor". Similarly, "FSharp.Reactive"
 is better renamed to "FSharp.Control.Reactive".  Likewise, a type provider 
