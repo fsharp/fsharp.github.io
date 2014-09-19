@@ -20,24 +20,24 @@ The group's remit covers the following areas:
 
 The group commits to ensuring the easy availability of the F# Compiler, Core library and Compiler Service on all major platforms at high quality. Particular points of activity are:
 
-- Work cooperativley with the Visual F# compiler team at Microsoft to allow open source contributions and integrate Microsoft updates to the F# open source release into the F# repositories on GitHub.  
+- We work cooperativley with the Visual F# compiler team at Microsoft to allow open source contributions and integrate Microsoft updates to the F# open source release into the F# repositories on GitHub.  
   (See [this blog entry](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) and [the Visual F# Team priorities](https://visualfsharp.codeplex.com/wikipage?title=Current%20Priorities%20))
 
-- Work cooperativley with Xamarin to integrate the F# Compiler into Mono release on the Mac and Linux
+- We work cooperativley with Xamarin to integrate the F# Compiler into Mono release on the Mac and Linux
 
-- Work cooperativley to enable testing for the open edition of the F# compiler, particularly through CI systems (Travis and AppVeyor)
+- Weenable testing for the open edition of the F# compiler, particularly through CI systems (Travis and AppVeyor)
 
-- Work cooperativley with  Debian packaging and other distributions to ensure Linux packages are available for F# on Debian and RPM, Gentoo/Arch builds
+- We work cooperativley with  Debian packaging and other distributions to ensure Linux packages are available for F# on Debian and RPM, Gentoo/Arch builds
 
 - We work cooperatively with the Visual F# compiler team to aligng code bases with Visual F# team repos
 
 - We aim to keep the  [the homebrew formula](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/fsharp.rb) for F# up-to-date
 
-- We Help maintain and improve the PCL (Portable Class Library) support for F# across multiple platforms and devices
+- We help maintain and improve the PCL (Portable Class Library) support for F# across multiple platforms and devices
 
 - We aim to improve the documentation quality of the core compiler and library components.
 
-- We aim to facilitate development on the compiler, core library by cross-platform users.
+- We aim to help facilitate cross-platform development on the compiler, core library and compiler service.
 
 
 ## Editing/IDE Tools
