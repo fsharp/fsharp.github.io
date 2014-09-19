@@ -1,11 +1,13 @@
 ---
 layout: default
-title: Naming, Quality and Advice for F# Projects, Packages and Namespaces
+title: Recommended Guidelines for F# Projects, Packages and Namespaces
 ---
 
 One of the goals of the F# Open Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
 
 In this post we outline some current recommended guidelines for naming, quality and other issues for F# projects, packages and namespaces.
+We particularly focus on open projects such as those in the [F# Community Projects](http://fsharp.org/community/projects/) list or
+[packages in Nuget for an "FSharp" search](http://www.nuget.org/packages?q=fsharp).
 
 These are recommendations we make as a working group. They are not hard-and-fast rules, and are offered for discussion amongst
 F# developers. If you would like to discuss these guidelines or suggest modifications, please [submit a pull request or issue to GitHub](https://github.com/fsharp/fsharp.github.io/tree/master/_posts) in our group project.
@@ -216,6 +218,6 @@ Visit our [website](http://fsharp.github.io) and please continue all the great w
 
 <br />
  
-_Published: 19 September 2014_  
+_First Published: 19 September 2014_  
 
 _The F# Open Engineering group_
