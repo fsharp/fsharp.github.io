@@ -11,12 +11,14 @@ Recommended Guidelines for F# Projects, Packages and Namespaces
 
 One of the goals of the F# Open Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
 
-In this post we outline some current recommended guidelines for naming, quality and other issues for F# projects, packages and namespaces.
+In this post we outline some current recommended guidelines for naming and engineering for F# projects, packages and namespaces.
 We particularly focus on open projects such as those in the [F# Community Projects](http://fsharp.org/community/projects/) list or
 [packages in Nuget for an "FSharp" search](http://www.nuget.org/packages?q=fsharp).
 
-These are recommendations we make as a working group. They are not hard-and-fast rules, and are offered for discussion amongst
-F# developers. If you would like to discuss these guidelines or suggest modifications, please [submit a pull request or issue to GitHub](https://github.com/fsharp/fsharp.github.io/tree/master/_posts) in our group project.
+These are recommendations we make as a working group based on our remit as part of the F# Software Foundation. 
+They are not hard-and-fast rules, and are offered for discussion amongst
+F# developers. If you would like to discuss these guidelines or suggest modifications, 
+please [submit a pull request or issue to GitHub](https://github.com/fsharp/fsharp.github.io/tree/master/_posts).
 
 First, as a group we recognize that:
 
@@ -34,7 +36,11 @@ In light of these, we cover some specific recommendedations with regard to namin
 They are written to augment the existing [F# Component Design Guidelines](http://fsharp.org/specs/component-design-guidelines/).
 Some of these recommendations may eventually be added to those guidelines.
 
+<br />
+
 ## Naming Guidelines
+
+<br />
 
 ### Guideline: Do make the purpose of your project and package clear in its name
 
@@ -124,7 +130,9 @@ supported by GitHub and existing package managers, combined with global-search-a
 The F# community love to help and give good advice.  Seek advice via the [#fsharp tag on Twitter](https://twitter.com/hashtag/fsharp?src=hash)
 or other community forums.
 
-## Engineerig Guidelines
+<br />
+
+## Engineering Guidelines
 
 <br />
 
