@@ -24,13 +24,19 @@ please [submit a pull request or issue to GitHub](https://github.com/fsharp/fsha
 First, as a group we recognize that:
 
 1. We recognize that FSharp.* projects should be high-quality or trending rapidly in that direction.
+   Any packages and code under the FSharp.* namespace should be of sufficient quality to be considered 
+   ready for production use by people in the wider F# community. 
 
 2. We recognize the need to avoid pollution of the FSharp.* namespace, particularly by unfinished projects.
 
 3. We recognize the need to encourage incubation and experimentation using FSharp.* project, package and namespace names. 
    Important F# components such as [FSharp.Data](http://fsharp.github.io/FSharp.Data/) have developed in this way.
 
-4. We want to continue to encourage and scale the positive and productive spirit with which the F# community operates by sharing
+4. We recognize that packages and projects using FSharp.* naming should generally be cross-platform,
+   unless explicitly qualified by some platform-specific moniker (e.g. "Windows", "Android", "Gtk" or "Linux").
+   Code in the FSharp.* namespace should build, run and pass tests across multiple platforms.
+   
+5. We want to continue to encourage and scale the positive and productive spirit with which the F# community operates by sharing
    information about how to make successful, long-lasting and broad-reach components in a collaborative way.
 
 In light of these, we cover some specific recommendedations with regard to naming, quality and general advice below.
@@ -146,14 +152,14 @@ or other community forums.
 
 <br />
 
-### Guideline: Do apply good software engineering practice before publicizing your project
+### Guideline: Apply good software engineering practice before publicizing your project
 
 Before you publicize an open, public-facing project, it pays to get all the basics in place to allow
 people to collaborate with you.  These are, minimially:  
 
 - *Naming*.  Get the naming of your project right. Make its purpose clear. 
 
-- *README*.  Add a clear, simple README to your project. Make its purpose clear
+- *README* and *Road Map*.  Add a clear, simple README to your project. Make its purpose clear. Add a road map too.
 
 - *Packaging*.  Make a package for your library, component or tool. often this will be a nuget package, 
   but if it is some other kind of tool then make and publish the appropriate package. For example,
@@ -165,7 +171,9 @@ people to collaborate with you.  These are, minimially:
 - *Documentation*.  Ensure your project has good documentation. If on GitHub, consider publishing your 
   documentation via GitHub pages. Strongly consider using documentation generation tools and templates used by the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold)
 
-- *Tutorials*.  Ensure your project has tutorials as part o its documentation. Templates and examples are available in the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold)
+- *Tutorials*.  Ensure your project has tutorials as part of its documentation. Templates and examples are available in the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold)
+
+- *Vidoes*.  If you've given a talk on your project, add a link to the video. It's a great way to introduce yourself to potential contributors.
 
 - *Continuous Integration*.  Add continuous integration build and testing to your project, for example using AppVeyor or Travis.  For AppVeyor, this is done by addding `appveyor.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/appveyor.yml)) and 
   registering your project.  For Travis, you add a `.travis.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/.travis.yml)) and register the project.
@@ -177,7 +185,9 @@ people to collaborate with you.  These are, minimially:
 
 - *PCL if possible*.  If writing a library, make your component a PCL portable component where possible, targeting the broadest possible profile such as "Profile 7" or "Profile 259".
 
+
 If you don't do these things, people are unlikely to want to collaborate with you on your project.
+
 
 <br />
 
@@ -187,6 +197,13 @@ The [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold) give
 which can be very useful for documentation, packaging, testing, tutorials, CI and more.
 
 Please contribute fixes and improvement to the scaffolding to make it easier for others to use.
+
+<br />
+
+### Guideline: Evolving code and new features should be carried out on a feature branch, and merged in only when ready
+
+Do not develop features in your "master" branch or published nuget packages.  Instead, use a feature branch, or a fork,
+or a new project, or a component marked Experimental (or similar).
 
 <br />
 
@@ -206,7 +223,7 @@ of this space.
 
 Please contribute fixes and improvement to the project scaffolding to make it easier for others to use.  If you add your
 project to [The F# Community Incubation Space](http://github.com/fsprojects) then the owners of tha space will 
-also automatically be able to perform some mainntenance tasks on your repository, including accepting pull requests
+also automatically be able to perform some maintenance tasks on your repository, including accepting pull requests
 or curating issues.
 
 
@@ -246,16 +263,16 @@ For example, the [Akka.NET](http://akkadotnet.github.io/) project started life a
 the GitHub account of one major contributor.  It is now branded as an "independent" project. 
 
 Branding your project as independent (or indirectly-dependent) can increase
-confidence, help attract additional contributorsm, give new opportunities (for example to start a consulting company
+confidence, help attract additional contributors, give new opportunities (for example to start a consulting company
 around the technology), and above all can help with transitions as people move on and off the project.  Effectively,
-a layer of indirection is placed between the projects and the contricutors.  Behind the scenes, the same
+a layer of indirection is placed between the projects and the contributors.  Behind the scenes, the same
 contributors may be involved, especially initially, but the long term advantages are very large.
 
 This approach is frequently used for open source packages and tools initially started by individuals. 
 Note that detaching yourself from your project in this way can be both challenging and liberating.
 
 This approach can also be used for products or open-source projects where companies are major contributors. 
-This can be a difficult choice: the commpany may (or may not) want its name attached to the open-source project in a strong way.
+This can be a difficult choice: the company may (or may not) want its name attached to the open-source project in a strong way.
 For example, [Deedle](http://bluemountaincapital.github.io/Deedle/) is under the [BlueMountain Capital](http://bluemountaincapital.github.io/) 
 GitHub account.
 
