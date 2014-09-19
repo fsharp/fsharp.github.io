@@ -34,12 +34,18 @@ See  our [Goals and Remit](http://fsharp.github.io/2013/07/09/group-remit.html) 
 
 To get involved:
 
+* [Contribute to the F# compiler and core library](http://fsharp.github.io/2014/06/18/fsharp-contributions.html)
+
 * [Contribute to discussions](https://github.com/fsharp/fsharp.github.io/issues)
+
 * [Contribute to guides and blog entries on this site](https://github.com/fsharp/fsharp.github.io/tree/master/_posts)
+
 * [Contribute to guides on fsharp.org](https://github.com/fsharp/fsfoundation/tree/gh-pages/guides)
+
 * [Contribute to other core repositories](http://github.com/fsharp) and [F# community incubation projects](http://github.com/fsprojects)
-* [Learn how we bring the F# compiler and library to multiple platforms](http://fsharp.github.io/2014/06/18/fsharp-contributions.html)
+
 * [Join our Google Group](http://groups.google.com/group/fsharp-opensource)
+
 * [Join our private discussion list (low volume)](mailto:fsharp@fsharp.org)
 
 Our mission is to maintain the excellent quality of the core F# implementation across these platforms,
