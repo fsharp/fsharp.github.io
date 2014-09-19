@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Recommended Guidelines for F# Projects, Packages and Namespaces
+subtitle: Naming, Engineering and General Advice
 ---
 
 One of the goals of the F# Open Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
