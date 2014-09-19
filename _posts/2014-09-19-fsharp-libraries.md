@@ -4,11 +4,11 @@ title: Recommended Guidelines for F# Projects, Packages and Namespaces
 subtitle: Naming, Engineering and General Advice
 ---
 
-Recommended Guidelines for F# Projects, Packages and Namespaces 
+Recommended Guidelines for F# Projects, Packages and Namespaces (DRAFT, not yet [published](http://fsharp.github.io)) 
 ============================================
 
 > Naming, Engineering and General Advice
-> (DRAFT, not yet published on http://fsharp.github.io)
+
 
 One of the goals of the F# Open Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
 
