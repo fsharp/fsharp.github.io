@@ -3,7 +3,7 @@ layout: default
 title: The F# Open Engineering Group Goals, Remit and Activities
 ---
 
-The F# Open Engineering Group and Remit
+The F# Open Engineering Group: Goals and Remit
 ==========================================
 
 This document describes the goals, remit and activities of the F# Open Engineering Group.
