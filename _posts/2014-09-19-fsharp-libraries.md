@@ -118,8 +118,16 @@ which is sufficiently broad and canonical to use a two-word name.
 
 ### Guideline: Do use existing second-level namespaces where appropriate
 
-.NET and F# components are placed in second-level namespaces such as "FSharp.Control", "FSharp.Data", "FSharp.Net", "FSharp.Compiler",
-"FSharp.Text", "FSharp.Core" and so on.  Use these prefixes where possible, rather than inventing new ones.
+.NET and F# components are placed in second-level namespaces such as "FSharp.Control", "FSharp.Data", "FSharp.Net", and so on.  
+Use the following prefixes where possible, rather than inventing new ones:
+
+-   FSharp.Control: Functionality related to control flow, such as asynchronous programming, message passing, 
+event-based programming, reactive programming, and similar
+-   FSharp.Data: Types related to data access, data schema, and similar
+-   FSharp.Text: Text processing, formating, printing, or similar functionality
+-   FSharp.Net: Types relating to networking
+-   FSharp.Compiler: Functionality relating to compilation of F#
+-   FSharp.Core: Use sparingly.  Typically required for help types required by incubation of compiler features
 
 For example, a library like "FSharp.Actor" might be better renamed to "FSharp.Control.Actor". Similarly, "FSharp.Reactive"
 is better renamed to "FSharp.Control.Reactive".  Likewise, a type provider 
@@ -138,6 +146,15 @@ We encourage incubation of candidates for the FSharp.* namespace.  One way to do
 The use of "Experimental" is is useful and recommended in early stages.  Renaming projects and packages is fairly well
 supported by GitHub and existing package managers, combined with global-search-and-replace.
 
+
+<br />
+
+### Guideline: Clearly label project status prior to release
+
+Projects, packages and tools using the FSharp.* top level namespace should clearly and prominently label their status 
+in all documentation during the project's early phases of development. Projects should use version numbers below 1.0 
+to denote pre-release status, and clearly label their status as "Alpha" when the project is still lacking features 
+or functionality required for widespread usage, and "Beta" prior to adequate usage and testing to be considered a mature package.
 
 <br />
 
