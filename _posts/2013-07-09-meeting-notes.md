@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Onlin meeting notes, 02 July 2013
+title: Online meeting notes, 02 July 2013
 subtitle: Meeting notes
 ---
 
-## Meeting notes, 02 July 2013
+## Online meeting notes, 02 July 2013
 
 
 After a few glitches, ~10 of us joined the online session today to discuss the goals, remit and activities doc for the CoreEng WG.
