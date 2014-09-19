@@ -26,6 +26,8 @@ facilitate open-source contributions across the F# ecosystem. For example:
 
 * We cooperate with the [Debian packaging team](http://packages.qa.debian.org/f/fsharp.html) to see F# packaged on Debian.
 
+See also our [Goals and Remit](http://fsharp.github.io/2013/07/09/group-remit.html) document.
+
 To get involved:
 
 * [Learn how we bring the F# compiler and library to multiple platforms](http://fsharp.github.io/2014/06/18/fsharp-contributions.html)
