@@ -126,6 +126,8 @@ event-based programming, reactive programming, and similar
 -   FSharp.Data: Types related to data access, data schema, and similar
 -   FSharp.Text: Text processing, formating, printing, or similar functionality
 -   FSharp.Net: Types relating to networking
+-   FSharp.Cloud: Types related to cloud computing. Platform specific libraries should go in an appropriate third-level namespace, such as FSharp.Cloud.Azure.*
+-   FSharp.Client: Types specific for client application development, such as libraries targeting desktop, phone, or tablet
 -   FSharp.Compiler: Functionality relating to compilation of F#
 -   FSharp.Core: Use sparingly.  Typically required for helper types required by incubation of compiler features
 
