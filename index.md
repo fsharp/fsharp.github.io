@@ -91,5 +91,5 @@ Most group discussion happens in other forums. To contact the group, please eith
 If using the Xamarin, Microsoft or Intellifactory professional tooling for F#, you should use
 the support contacts for those products.  They may also refer you to the above forums for some issues.
 
-The convenors of the F# Open Engineering Group are Michael Newtown, Dave Thomas, Tomas Petricek and Don Syme.
+The convenors of the F# Core Engineering Group are Michael Newtown, Dave Thomas, Tomas Petricek and Don Syme.
 You can contact them directly, though it is better to use one of the public forums above.

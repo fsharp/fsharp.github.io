@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Some Recent F# Open Engineering Highlights
+title: Some Recent F# Core Engineering Highlights
 subtitle: An Update on the F# Compiler Services, Visual F# Power Tools and more
 ---
 
-Some Recent F# Open Engineering Highlights
+Some Recent F# Core Engineering Highlights
 ==========================================
 
 In this blog post, we'll have a quick
@@ -91,4 +91,4 @@ To get involved with the project:
 _Published: 27 May 2014_  
 
 _Tomas Petricek_  
-_(on behalf of the F# Open Engineering group)_
+_(on behalf of the F# Core Engineering group)_

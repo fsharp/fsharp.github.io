@@ -9,7 +9,7 @@ Contributing to the F# Language and Compiler
 
 > How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
 
-In this post, we outline how we, the [F# Open Engineering Group][fsg] (a technical working group of 
+In this post, we outline how we, the [F# Core Engineering Group][fsg] (a technical working group of 
 [The F# Software Foundation][fsf]) – are collaborating with the [Visual F# Tools][fst] team at 
 Microsoft, Xamarin, Mono and other contributors to F# to help deliver your contributions to the 
 F# Language, Compiler and Library across multiple platforms.
@@ -21,10 +21,10 @@ In particular, we want to explain more about:
  3.	How your contributions will flow through to other F# tooling worldwide, on many different platforms
  4.	How the core engineering changes may be improved in the future
 
-Background: The F# Open Engineering Group
+Background: The F# Core Engineering Group
 -------------------------------------
 
-First, some background. The F# Open Engineering group is a technical working group made up of founding members of the 
+First, some background. The F# Core Engineering group is a technical working group made up of founding members of the 
 FSSF, plus other contributors to the core F# compiler and tooling.  Our role is to enable work on 
 the core of the F# open source tools, especially in a cross-platform setting. This includes any work on:
 
@@ -146,7 +146,7 @@ Summary
 
 The F# Tooling ecosystem is full of energy and activity.  Two major commercial contributors are Microsoft and Xamarin, and tools are also available in 100% open source through MonoDevelop, Emacs and others.  We encourage you to contribute to the F# Compiler, Language and Core Library via the Visual F# Tools repository, and also to contribute to the many other great projects in the F# community ecosystem.  We also encourage you to join our group and help us coordinate and grow the F# tooling ecosystem.
 
-Tomas Petricek, for the F# Open Engineering Group, with assistance from Don Syme
+Tomas Petricek, for the F# Core Engineering Group, with assistance from Don Syme
 
 
 
@@ -155,7 +155,7 @@ Tomas Petricek, for the F# Open Engineering Group, with assistance from Don Syme
 _Published: 27 May 2014_  
 
 _Tomas Petricek_  
-_(on behalf of the F# Open Engineering group)_
+_(on behalf of the F# Core Engineering group)_
 
  [fsg]: http://fsharp.github.io/
  [fsf]: http://fsharp.org

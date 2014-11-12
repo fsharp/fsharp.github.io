@@ -10,7 +10,7 @@ Recommended Guidelines for F# Projects, Packages and Namespaces
 > Naming, Engineering and General Advice
 
 
-One of the goals of the F# Open Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
+One of the goals of the F# Core Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
 
 In this post we outline some current recommended guidelines for naming and engineering for F# projects, packages and namespaces.
 We particularly focus on open projects such as those in the [F# Community Projects](http://fsharp.org/community/projects/) list or
@@ -232,7 +232,7 @@ or a new project, or a component marked Experimental (or similar).
 
 ### Guideline: Consider putting open incubation projects in [The F# Community Incubation Space](http://github.com/fsprojects)
 
-The F# Open Engineering group manages [The F# Community Incubation Space](http://github.com/fsprojects) for community
+The F# Core Engineering group manages [The F# Community Incubation Space](http://github.com/fsprojects) for community
 incubation projects.  To get your project added or removed from this space, [add an issue to the admin section](https://github.com/fsprojects/FsProjectsAdmin/) 
 of this space.
 
@@ -302,7 +302,7 @@ GitHub account.
 
 ### About Us
 
-The F# Open Engineering Group is a technical group associated with [The F# Software Foundation](http://fsharp.org).
+The F# Core Engineering Group is a technical group associated with [The F# Software Foundation](http://fsharp.org).
 
 We manage the cross-platform and open-source [F# Compiler and Components](https://github.com/fsharp) repositories 
 and the [F# Community Project Incubation Space](https://github.com/fsprojects).
@@ -313,4 +313,4 @@ Visit our [website](http://fsharp.github.io) and please continue all the great w
  
 _First Published: 19 September 2014_  
 
-_The F# Open Engineering group_
+_The F# Core Engineering group_

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: The F# Open Engineering Group Goals, Remit and Activities
+title: The F# Core Engineering Group Goals, Remit and Activities
 ---
 
-The F# Open Engineering Group: Goals and Remit
+The F# Core Engineering Group: Goals and Remit
 ==========================================
 
-This document describes the goals, remit and activities of the F# Open Engineering Group.
+This document describes the goals, remit and activities of the F# Core Engineering Group.
 
 # Goals
 
@@ -218,4 +218,4 @@ Possible new activities include:
 _Published: 02 July 2013_  
 _Updated: 19 September 2014_  
 
-_(on behalf of the F# Open Engineering group)_
+_(on behalf of the F# Core Engineering group)_
