@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The F# Open Engineering Group
+title: The F# Core Engineering Group
 ---
 
 <br />
@@ -8,18 +8,17 @@ title: The F# Open Engineering Group
 About Us
 ========
 
-The F# Open Engineering Group is a technical group associated with
+The F# Core Engineering Group is a technical group associated with
 [The F# Software Foundation](http://fsharp.org).
-We manage the cross-platform and open-source [F# Compiler and Components](https://github.com/fsharp) repositories 
-and the [F# Community Project Incubation Space](https://github.com/fsprojects).
+We manage the cross-platform and open-source [F# Compiler and Components](https://github.com/fsharp) repositories. 
+
 
 The group works cooperatively with major industrial and community contributors to F# to 
-facilitate open-source contributions across the F# ecosystem. For example:
+facilitate open-source contributions to the F# core components. For example:
 
 * We work cooperatively with the [Visual F# Tools team](http://blogs.msdn.com/b/fsharpteam) to 
   [facilitate contributions](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) to
   the F# language, compiler and library via the [Visual F# Tools repository](https://visualfsharp.codeplex.com/)
-
 
 * We cooperate with the [Xamarin](http://xamarin.com) team to see F# packaged as part of the Xamarin tools for [OSX](http://fsharp.org/use/mac), 
   [Android](http://fsharp.org/use/android) and [iOS](http://fsharp.org/use/ios).
@@ -87,7 +86,7 @@ Most group discussion happens in other forums. To contact the group, please eith
 * [Propose or discuss an F# language feature](http://fslang.uservoice.com) - please check for duplicates first
 * [Contribute an issue to the F# compiler and library](http://fsharp.github.io/blog/2014/fsharp-contributions.html)
 * [Contribute an issue to other core repositories](http://github.com/fsharp)
-* [Contribute an issue to F# community incubation projects](http://github.com/fsprojects)
+* [Contribute an issue to other F# community incubation projects](http://github.com/fsprojects)
 
 If using the Xamarin, Microsoft or Intellifactory professional tooling for F#, you should use
 the support contacts for those products.  They may also refer you to the above forums for some issues.
