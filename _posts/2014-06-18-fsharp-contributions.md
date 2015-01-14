@@ -63,10 +63,11 @@ flow through the core F# open source ecosystem (click on the image for a full ve
 Note that:
 
  1. Contributions to the F# language/compiler/library/tools go first to the Visual F# Tools team 
-    Git repository at [visualfsharp.codeplex.com](http://visualfsharp.codeplex.com). 
+    Git repository at [github.com/Microsoft/visualfsharp](https://github.com/Microsoft/visualfsharp). 
     
     This is a fully open source, Git-enabled repository that is aligned with the other repositories 
-    in the diagram.  The repository is maintained by Microsoft Open Technologies.
+    in the diagram.  The repository is maintained by Microsoft who provide the QA and issue tracking
+    for this repository, a valuable service to the F# community.
 
  2.	These contributions are then integrated into [github.com/fsharp/fsharp](http://github.com/fsharp/fsharp) 
     and [github.com/fsharp/FSharp.Compiler.Service](http://github.com/fsharp/FSharp.Compiler.Service).  
@@ -122,7 +123,7 @@ Where To Contribute
 -------------------
 
 If you are using Windows and would like to contribute to the F# Language, Compiler or Core 
-Library, you should fork [visualfsharp.codeplex.com](http://visualfsharp.codeplex.com/) and contribute directly there. 
+Library, you should fork [github.com/Microsoft/visualfsharp](https://github.com/Microsoft/visualfsharp) and contribute directly there. 
 
 At the time of writing, the Visual F# Tools team repository is not yet a cross-platform repository.  
 If you are using Linux or Mac and would like to contribute to the F# Language, Compiler or Core Library, 
@@ -139,7 +140,7 @@ In the future, there are several ways we and the other teams involved are thinki
 
  3. At the time of writing, the Visual F# Tools team repository is not yet a cross-platform repository.   However they are now accepting cross-platform contributions and hopefully they will eventually support cross-platform development too. 
 
- 4. We have suggested to the Visual F# Tools team that they merge the F# compiler and language across to the open edition repo on GitHub (but leave the F# Visual Studio-specific Tools on codeplex), but they are not yet in a position to do this.
+ 4. We have suggested to the Visual F# Tools team that they move the F# compiler and language across to the open edition repo on GitHub (but leave the F# Visual Studio-specific Tools in 'visualfsharp'), but they are not yet in a position to do this.
 
 Summary
 -------
