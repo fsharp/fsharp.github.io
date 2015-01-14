@@ -18,7 +18,7 @@ facilitate open-source contributions to the F# core components. For example:
 
 * We work cooperatively with the [Visual F# Tools team](http://blogs.msdn.com/b/fsharpteam) to 
   [facilitate contributions](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) to
-  the F# language, compiler and library via the [Visual F# Tools repository](https://visualfsharp.codeplex.com/)
+  the F# language, compiler and library via the [Visual F# Tools repository](https://github.com/Microsoft/visualfsharp)
 
 * We cooperate with the [Xamarin](http://xamarin.com) team to see F# packaged as part of the Xamarin tools for [OSX](http://fsharp.org/use/mac), 
   [Android](http://fsharp.org/use/android) and [iOS](http://fsharp.org/use/ios).
