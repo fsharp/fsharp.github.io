@@ -5,6 +5,14 @@ title: Notes on FSharp.Core
 
 # Notes and Guidelines on FSharp.Core
 
+This technical guide discusses the FSharp.Core library.  Please help improve this guide by [editing it and submitting a pull-request](https://github.com/fsharp/fsharp.github.io/blob/master/_posts/2015-04-18-fsharp-core-notes.md). 
+
+Some highlights:
+
+* [Do not bundle FSharp.Core with a library](#do-not-bundle-fsharp.core-with-a-library)
+* [Do bundle FSharp.Core with an application](#do-deploy-fsharp.core-as-part-of-your-application)
+* [FSharp.Core is binary compatible](#fsharp.core-is-binary-compatible)
+* [FSharp.Core version numbers](#fsharp.core-version-numbers)
 
 ### Application v. Library v. Script
 
@@ -151,10 +159,31 @@ F# Interactive (`fsi.exe`) always references and uses the FSharp.Core of the cor
 
 F# Interactive can load PCL assemblies that reference compatible FSharp.Core
 
-### FSharp.Core in commponents using FSharp.Compiler.Service
+### FSharp.Core and static linking
 
-If your application of component uses FSharp.Commpiler.Service, 
-see [this guide](http://fsharp.github.io/FSharp.Compiler.Service/corelib.html).
+The ILMerge tool and the F# compiler both allow static linking of assemblies including static linking of FSharp.Core.
+This can be useful to build a single standalone file for a tool.
+
+However, these options must be used with caution. 
+
+* Only use this option for applications, not libraries. If it's not a .EXE (or a library that is effectively an application) then don't even try using this option.
+
+* Prior to F# 4.0, static linking could not be used for F# assemblies which use quotation literals.  Even for F# 4.0
+  static linking can only be used for F# assemblies compiled with F# 4.0 and referencing at least FSharp.Core 4.4.0.0
+  (or a corresponding portable profile for FSharp.Core).
+
+Searching on stackoverflow reveals further guidance on this topic.
+
+
+### FSharp.Core in components using FSharp.Compiler.Service
+
+If your application of component uses FSharp.Compiler.Service, 
+see [this guide](http://fsharp.github.io/FSharp.Compiler.Service/corelib.html). This scenario is more compilcated
+because FSharp.Core is used both to run your script or application, and is referenced during compilation.
+
+Likewise, if you have a script or library using FSharp.Formatting, then beware that that is using FSharp.Compiler.Service.
+For scripts that is normally OK because they are processed using F# Interactive, and the default FSharp.Core is used.
+If you have an application using FSharp.Formatting as a component then see the guide linked above.
 
 
 ### Entries in Project Files
@@ -191,39 +220,67 @@ This helps keep your binding redirects up-to-date when using Visual Studio and o
 
 ### Use ``Private=True`` when referencing FSharp.Core in applications
 
-Applications whouls use `Private=true` in their FSharp.Core reference. 
+Applications should use `Private=true` in their FSharp.Core reference. 
 This is means `FSharp.Core.dll` is copied to the target directory and can be found at runtime, see above.
+
+Libraries do not need to use this.
+
+### A C# project referencing an F# DLL or nuget package may need to also have a reference to FSharp.Core.dll
+
+A C# project referencing an F# DLL or nuget package may need to also have a reference to FSharp.Core.dll.  This
+reference must currently be managed explicitly unless you refer to the nuget package for FSharp.Core (see below).
+Using the appropriate reference text below is recommended.
+
 
 ###  Examples of how to reference FSharp.Core
 
-* *.NET 4.x*. For F# components restricted to run on .NET 4.x, it is normal to reference non-portable FSharp.Core using the following:
+* *.NET 4.x*. For F# components restricted to run on .NET 4.x, it is normal to reference non-portable FSharp.Core using the following (adjust the FSharp.Core version number appripriately):
 
+    <PropertyGroup>
+       ...
+       <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
+       ...
+    </PropertyGroup>
+    
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
 
 * * PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
 
-       <Reference Include="FSharp.Core">
+    <PropertyGroup>
+       ...
+       <TargetFSharpCoreVersion>3.78.3.1</TargetFSharpCoreVersion>
+       ...
+    </PropertyGroup>
+
+    <Reference Include="FSharp.Core">
          <Name>FSharp.Core</Name>
          <AssemblyName>FSharp.Core.dll</AssemblyName>
          <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETCore\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
-       </Reference>
+    </Reference>
 
 * *Legacy PCL libraries*. "Legacy" portable projects (profile 47) use `.NETPortable` instead of `.NETCore`:
 
-       <Reference Include="FSharp.Core">
+
+    <PropertyGroup>
+       ...
+       <TargetFSharpCoreVersion>2.3.5.1</TargetFSharpCoreVersion>
+       ...
+    </PropertyGroup>
+
+    <Reference Include="FSharp.Core">
          <Name>FSharp.Core</Name>
          <AssemblyName>FSharp.Core.dll</AssemblyName>
          <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETPortable\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
-       </Reference>
+    </Reference>
 
 For components  created with earlier F# tooling (e.g. Visual Studio 2012 or before), project files may use different reference text.
 These should generally be adjusted to use the formulations above, this may be done automatically by some tooling.
 
 ### FSharp.Core in Xamarin apps
 
-FSharp.Core is referenced as a CopyLocal component in Xamarin apps for mobile devices.  This reference is done via 
+FSharp.Core is referenced as a Private/CopyLocal component in Xamarin apps for mobile devices.  This reference is done via 
 the nuget package for FSharp.Core, see below.
 
 ### The FSharp.Core nuget package
