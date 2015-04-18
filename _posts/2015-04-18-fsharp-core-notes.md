@@ -262,7 +262,7 @@ Using the appropriate reference text below is recommended.
     </Reference>
 ```
 
-* * PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
+* *PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
 
 ```
     <PropertyGroup>
