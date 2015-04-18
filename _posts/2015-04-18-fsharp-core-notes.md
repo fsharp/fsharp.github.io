@@ -21,7 +21,7 @@ Do _not_ include a copy of FSharp.Core with your library or package.
 Especially, do _not_ include FSharp.Core in the ``lib`` folder of a nuget package.
 
 
-## Do deploy FSharp.Core as part of your application
+### Do deploy FSharp.Core as part of your application
 
 For applications, FSharp.Core is normally part of the application 
 itself (so-called `xcopy deploy` of FSharp.Core).  
@@ -71,49 +71,8 @@ be able to assume FSharp.Core is in the GAC.  But it is best to avoid this assum
 is deployed as part of your application.  To do this, use ``<Private>true</Private>`` in your project file 
 (in the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference)
 
-## FSharp.Core library verison numbers
 
-Main application DLLs (used at runtime for applications on .NET 4.x):
-
-| F# 2.0  | .NET 4.0+       |   4.0.0.0  |
-| F# 3.0  | .NET 4.0+       |   4.3.0.0  |
-| F# 3.1  | .NET 4.0+       |   4.3.1.0  |
-| F# 4.0  | .NET 4.5+       |   4.4.0.0  |
-
-Portable PCL profiles (can also be used at runtime):
-
-|         |   4.0 |  4.5 | WinStore  |  WP8  | WP8.1  |MonoTouch  | Profile | Version   | 
-|:-------:|:-----:|:----:|:---------:|:-------:|:----:|:---------:|:-------:|:----------|
-| F# 3.0  |   x   |  x   |      x    |         |           | 47      | 2.3.5.0   |
-| F# 3.1  |   x   |  x   |      x    |         |           | 47      | 2.3.5.1   |
-|         |       |  x   |      x    |         |           | 7       | 3.3.1.0   |
-|         |       |  x   |      x    |    x    |           | 78      | 3.78.3.1  |
-|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.3.1 |
-| F# 4.0  |   x   |  x   |      x    |         |           | 47      | 3.47.4.0  |
-|         |       |  x   |      x    |         |           | 7       | 3.7.4.0   |
-|         |       |  x   |      x    |    x    |           | 78      | 3.78.4.0  |
-|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.4.0 |
-
-Mobile and other platform DLLs (provided by Xamarin)
-
-|         | Platform               |   Version  |
-|:-------:|:----------------------:|:---------:|
-| F# 3.1  | MonoTouch, MonoDroid :|:  2.3.98.1  |
-|         | XamarinMac Mobile    :|:  2.3.99.1  |
-|         | XamarinMac Full      :|:  2.3.100.1  |
-| F# 4.0  | MonoTouch, MonoDroid :|:  3.98.4.0  |
-|         | XamarinMac Mobile    :|:  3.99.4.0  |
-|         | XamarinMac Full      :|:  3.100.4.0  |
-
-.NET 2.0/3.5 DLLs (only supported up to F# 3.0)
-
-|         |   Version  |
-|:-------:|:---------:|
-| F# 2.0  |   2.0.0.0  |
-| F# 3.0  |   2.3.0.0  |
-
-
-## F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible
+### F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible
 
 If your library is part of an ecosystem, it should target the lowest version of FSharp.Core that
 is necessary for the functionality of the library.  For example, consider targeting portable profile 259, or `4.3.0.0` or
@@ -127,7 +86,7 @@ For example, profile 259 only became available for F# 3.1.  Your just either hav
 choose to target F# 3.0 (and a slightly less portable profile) *or* target F# 3.1 (and the highly portable profile 259).
 
 
-## F# applications should generally use the *highest* language version and the most *platform-specific* version of FSharp.Core.
+### F# applications should generally use the *highest* language version and the most *platform-specific* version of FSharp.Core.
 
 Generally, when wrtiting an application, you want to use the highest version of FSharp.Core available for the platform
 you are targeting.
@@ -139,7 +98,7 @@ of FSharp.Core.
 For personal libraries, or libraries that are effectively part of an application, the choice is yours.
 
 
-## Use Binding Redirects for Applications
+### Use Binding Redirects for Applications
 
 If applications use library components that reference an earlier FSharp.Core, then they may need binding redirects
 to specify that those libraries should bind to the actual FSharp.Core used as part of the application.
@@ -167,7 +126,7 @@ This is located in a section of the app.config like this:
 Application project files should normally also specify `AutoGenerateBindingRedirects` which allows tooling to 
 help keep the binding redirects up-to-date, see below.
 
-## FSharp.Core in F# Interactive
+### FSharp.Core in F# Interactive
 
 F# Interactive (`fsi.exe`) always references and uses the FSharp.Core of the corresponding toolchain, as follows:
 
@@ -177,13 +136,13 @@ F# Interactive (`fsi.exe`) always references and uses the FSharp.Core of the cor
 
 F# Interactive can load PCL assemblies that reference compatible FSharp.Core
 
-## FSharp.Core in commponents using FSharp.Compiler.Service
+### FSharp.Core in commponents using FSharp.Compiler.Service
 
 If your application of component uses FSharp.Commpiler.Service, 
 see [this guide](http://fsharp.github.io/FSharp.Compiler.Service/corelib.html).
 
 
-## Entries in Project Files
+### Entries in Project Files
 
 By default, Visual Studio, Xamarin Studio and other tools generate well-formed F# `.fsproj` project files which
 reference FSharp.Core in an appropriate way for the purpose that the component serves.  However, when using F# in 
@@ -247,12 +206,12 @@ This is means `FSharp.Core.dll` is copied to the target directory and can be fou
 For components  created with earlier F# tooling (e.g. Visual Studio 2012 or before), project files may use different reference text.
 These should generally be adjusted to use the formulations above, this may be done automatically by some tooling.
 
-## FSharp.Core in Xamarin apps
+### FSharp.Core in Xamarin apps
 
 FSharp.Core is referenced as a CopyLocal component in Xamarin apps for mobile devices.  This reference is done via 
 the nuget package for FSharp.Core, see below.
 
-## The FSharp.Core nuget package
+### The FSharp.Core nuget package
 
 FSharp.Core is also available [as a NuGet package](http://www.nuget.org/packages/FSharp.Core). 
 It is not yet normal to reference FSharp.Core via this package, though it is
@@ -273,6 +232,47 @@ NOTE: If you make the FSharp.Core nuget package a dependency of your own nuget p
 transitive dependency that nuget package forany users of your package,. This forces them to manage 
 their FSharp.Core dependency more manually via nuget commands rather than via Visual Studio or other IDE
 tooling.  While useful in some situations, this should be done with caution.
+
+### FSharp.Core verison numbers
+
+Main application DLLs (used at runtime for applications on .NET 4.x):
+
+| F# 2.0  | .NET 4.0+       |   4.0.0.0  |
+| F# 3.0  | .NET 4.0+       |   4.3.0.0  |
+| F# 3.1  | .NET 4.0+       |   4.3.1.0  |
+| F# 4.0  | .NET 4.5+       |   4.4.0.0  |
+
+Portable PCL profiles (can also be used at runtime):
+
+|         |   4.0 |  4.5 | WinStore  |  WP8  | WP8.1  |MonoTouch  | Profile | Version   | 
+|:-------:|:-----:|:----:|:---------:|:-------:|:----:|:---------:|:-------:|:----------|
+| F# 3.0  |   x   |  x   |      x    |         |           | 47      | 2.3.5.0   |
+| F# 3.1  |   x   |  x   |      x    |         |           | 47      | 2.3.5.1   |
+|         |       |  x   |      x    |         |           | 7       | 3.3.1.0   |
+|         |       |  x   |      x    |    x    |           | 78      | 3.78.3.1  |
+|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.3.1 |
+| F# 4.0  |   x   |  x   |      x    |         |           | 47      | 3.47.4.0  |
+|         |       |  x   |      x    |         |           | 7       | 3.7.4.0   |
+|         |       |  x   |      x    |    x    |           | 78      | 3.78.4.0  |
+|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.4.0 |
+
+Mobile and other platform DLLs (provided by Xamarin)
+
+|         | Platform               |   Version  |
+|:-------:|:----------------------:|:---------:|
+| F# 3.1  | MonoTouch, MonoDroid :|:  2.3.98.1  |
+|         | XamarinMac Mobile    :|:  2.3.99.1  |
+|         | XamarinMac Full      :|:  2.3.100.1  |
+| F# 4.0  | MonoTouch, MonoDroid :|:  3.98.4.0  |
+|         | XamarinMac Mobile    :|:  3.99.4.0  |
+|         | XamarinMac Full      :|:  3.100.4.0  |
+
+.NET 2.0/3.5 DLLs (only supported up to F# 3.0)
+
+|         |   Version  |
+|:-------:|:---------:|
+| F# 2.0  |   2.0.0.0  |
+| F# 3.0  |   2.3.0.0  |
 
 
 
