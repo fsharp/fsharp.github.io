@@ -10,11 +10,11 @@ title: Notes on FSharp.Core
 
 Each project is either an *application* or a *library*.   Examples of applications are:
 
-* a `.exe` project
+* Application: a `.exe` project or a `.dll` project that is a test project, addin, website, or an app.
 
-* a `.dll` project that is a test project, addin, website, or an app.
+* Libraries are just ordinary `.dll` commponents (excluding those above which are applications). 
 
-Libraries are just ordinary `.dll` commponents (excluding those above which are applications). Scripts are just `.fsx` files, possibly referring to other files using `#load`.
+* Scripts are just `.fsx` files, possibly referring to other files using `#load`.
 
 ### Do *not* bundle FSharp.Core with a library package
 
