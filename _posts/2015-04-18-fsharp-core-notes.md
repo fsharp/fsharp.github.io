@@ -111,7 +111,7 @@ For example, profile 259 only became available for F# 3.1.  In this case you jus
 either target F# 3.0 (and a less portable profile such as 47) *or* target F# 3.1 (and the highly portable profile 259).
 
 
-### Applications target higher versions of FSHarp.Core
+### Applications target higher versions of FSharp.Core
 
 F# applications should generally use the *highest* language version and the most *platform-specific* version of FSharp.Core.
 
