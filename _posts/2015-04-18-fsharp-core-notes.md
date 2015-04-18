@@ -13,6 +13,8 @@ Some highlights:
 * [Do bundle FSharp.Core with an application](#do-deploy-fsharp.core-as-part-of-your-application)
 * [FSharp.Core is binary compatible](#fsharp.core-is-binary-compatible)
 * [FSharp.Core version numbers](#fsharp.core-version-numbers)
+* [C# projects referencing F# projects need an FSharp.Core reference](#a-c#-project-referencing-an-f#-dll-or-nuget-package-may-need-to-also-have-a-reference-to-fsharp.core.dll)
+
 
 ### Application v. Library v. Script
 
