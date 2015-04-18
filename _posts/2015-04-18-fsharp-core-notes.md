@@ -208,7 +208,7 @@ This is means `FSharp.Core.dll` is copied to the target directory and can be fou
          <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETCore\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
        </Reference>
 
-* *Legacy PCL libraries*. "Legacy" portable projects (profile 49) use `.NETPortable` instead of `.NETCore`:
+* *Legacy PCL libraries*. "Legacy" portable projects (profile 47) use `.NETPortable` instead of `.NETCore`:
 
        <Reference Include="FSharp.Core">
          <Name>FSharp.Core</Name>
