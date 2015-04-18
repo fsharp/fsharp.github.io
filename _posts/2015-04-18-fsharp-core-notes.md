@@ -224,11 +224,13 @@ for latest information).
 
 * [The nuget package for FSharp.Core for F# 3.1 (4.3.1.0)](http://www.nuget.org/packages/FSharp.Core/3.1.2.1)
 
-NOTE: The nuget package includes all of the FSharp.Core redistributables from Visual F#. In addition, they include 
+Notes:
+
+* The nuget package includes all of the FSharp.Core redistributables from Visual F#. In addition, they include 
 assemblies for MonoAndroid and MonoTouch built from [The F# Open Edition Repository](http://github.com/fsharp/fsharp)
 and other  extra "builds" of FSharp.Core for Xamarin-related portable profiles.
 
-NOTE: If you make the FSharp.Core nuget package a dependency of your own nuget package, you will induce a 
+* If you make the FSharp.Core nuget package a dependency of your own nuget package, you will induce a 
 transitive dependency that nuget package forany users of your package,. This forces them to manage 
 their FSharp.Core dependency more manually via nuget commands rather than via Visual Studio or other IDE
 tooling.  While useful in some situations, this should be done with caution.
@@ -237,6 +239,7 @@ tooling.  While useful in some situations, this should be done with caution.
 
 Main application DLLs (used at runtime for applications on .NET 4.x):
 
+|:-------:|:---------------:|:-----------|
 | F# 2.0  | .NET 4.0+       |   4.0.0.0  |
 | F# 3.0  | .NET 4.0+       |   4.3.0.0  |
 | F# 3.1  | .NET 4.0+       |   4.3.1.0  |
@@ -244,28 +247,28 @@ Main application DLLs (used at runtime for applications on .NET 4.x):
 
 Portable PCL profiles (can also be used at runtime):
 
-|         |   4.0 |  4.5 | WinStore  |  WP8  | WP8.1  |MonoTouch  | Profile | Version   | 
-|:-------:|:-----:|:----:|:---------:|:-------:|:----:|:---------:|:-------:|:----------|
-| F# 3.0  |   x   |  x   |      x    |         |           | 47      | 2.3.5.0   |
-| F# 3.1  |   x   |  x   |      x    |         |           | 47      | 2.3.5.1   |
-|         |       |  x   |      x    |         |           | 7       | 3.3.1.0   |
-|         |       |  x   |      x    |    x    |           | 78      | 3.78.3.1  |
-|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.3.1 |
-| F# 4.0  |   x   |  x   |      x    |         |           | 47      | 3.47.4.0  |
-|         |       |  x   |      x    |         |           | 7       | 3.7.4.0   |
-|         |       |  x   |      x    |    x    |           | 78      | 3.78.4.0  |
-|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.4.0 |
+|         |   4.0 |  4.5 | WinStore  |  WP8  | WP8.1  | iOS/Android  | Profile | Version   | 
+|:-------:|:-----:|:----:|:---------:|:-------:|:---:|:---------:|:-------:|:----------|
+| F# 3.0  |   x   |  x   |      x    |         |     |  x        | Profile47      | 2.3.5.0   |
+| F# 3.1  |   x   |  x   |      x    |         |     |  x        | Profile47      | 2.3.5.1   |
+|         |       |  x   |      x    |         |     |  x        | Profile7       | 3.3.1.0   |
+|         |       |  x   |      x    |    x    |     |  x        | Profile78      | 3.78.3.1  |
+|         |       |  x   |      x    |    x    | x   |  x        | Profile259     | 3.259.3.1 |
+| F# 4.0  |   x   |  x   |      x    |         |     |  x        | Profile47      | 3.47.4.0  |
+|         |       |  x   |      x    |         |     |  x        | Profile7       | 3.7.4.0   |
+|         |       |  x   |      x    |    x    |     |  x        | Profile78      | 3.78.4.0  |
+|         |       |  x   |      x    |    x    | x   |  x        | Profile259     | 3.259.4.0 |
 
 Mobile and other platform DLLs (provided by Xamarin)
 
-|         | Platform               |   Version  |
-|:-------:|:----------------------:|:---------:|
-| F# 3.1  | MonoTouch, MonoDroid :|:  2.3.98.1  |
-|         | XamarinMac Mobile    :|:  2.3.99.1  |
-|         | XamarinMac Full      :|:  2.3.100.1  |
-| F# 4.0  | MonoTouch, MonoDroid :|:  3.98.4.0  |
-|         | XamarinMac Mobile    :|:  3.99.4.0  |
-|         | XamarinMac Full      :|:  3.100.4.0  |
+|         | Platform              |   Version  |
+|:-------:|:----------------------|:------------|
+| F# 3.1  | MonoTouch, MonoDroid  |   2.3.98.1  |
+|         | XamarinMac Mobile     |   2.3.99.1  |
+|         | XamarinMac Full       |   2.3.100.1  |
+| F# 4.0  | MonoTouch, MonoDroid  |   3.98.4.0  |
+|         | XamarinMac Mobile     |   3.99.4.0  |
+|         | XamarinMac Full       |   3.100.4.0  |
 
 .NET 2.0/3.5 DLLs (only supported up to F# 3.0)
 
