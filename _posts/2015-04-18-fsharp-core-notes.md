@@ -215,7 +215,7 @@ the nuget package for FSharp.Core, see below.
 
 FSharp.Core is also available [as a NuGet package](http://www.nuget.org/packages/FSharp.Core). 
 It is not yet normal to reference FSharp.Core via this package, though it is
-used by Xamarin application templates and by some F# library packages (as a transtive nuget dependency). 
+used by Xamarin application templates and by some F# library packages (as a transitive nuget dependency). 
 
 At the time of writing, the relevant versions of the nuget packages were as follows (check the package versions and descriptions 
 for latest information).
