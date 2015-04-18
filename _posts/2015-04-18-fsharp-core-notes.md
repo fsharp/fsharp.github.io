@@ -16,11 +16,13 @@ Each project is either an *application* or a *library*.   Examples of applicatio
 
 * Scripts are just `.fsx` files, possibly referring to other files using `#load`.
 
-### Do *not* bundle FSharp.Core with a library package
+### Do *not* bundle FSharp.Core with a library 
 
-For a library, the decision about which `FSharp.Core` it binds to is up to the application hosting of the library.
-Do _not_ include a copy of FSharp.Core with your library or package.  If you do, you will create hell for users of
+Do _not_ include a copy of FSharp.Core with your library or package.  If you do, you will create havoc for users of
 your library.
+
+The decision about which `FSharp.Core` a library binds to is up to the application hosting of the library.
+The library and/or library package can place constraints on this, but it doesn't decide it.
 
 Especially, do _not_ include FSharp.Core in the ``lib`` folder of a nuget package.
 
@@ -55,9 +57,8 @@ being present in production code being deployed off your machine.
 
 There _are_ some exceptions to this.
 
-* Standard installations of F# on Linux and Mac as part of Monos install the latest FSharp.Core into the
-  GAC and add machine-wide binding redirects for that component. That means that, for those machines, the latest FSharp.Core
-  will be found and used (even if you include an FSharp.Core in your application).
+* Standard installations of F# tools on Linux and Mac on  Mono also install the latest FSharp.Core into the
+  GAC. THey also add machine-wide binding redirects for that component. That means that, for those machines, the latest innstalled FSharp.Core will be used by applications.
   
 * Some installations of F# on Windows Visual Studio do install FSharp.Core into the GAC. 
 
@@ -66,33 +67,36 @@ There _are_ some exceptions to this.
   - VS2013 installs FSharp.Core 4.3.1.0 only
   - VS2015 installs FSharp.Core 4.4.0.0 only
 
-This means that if you can assume a particular version of Visual Studio (e.g. in a dev/test situation), then you may
-be able to assume FSharp.Core is in the GAC.  But it is best to avoid this assumption and instead make sure FSharp.Core
-is deployed as part of your application.  To do this, use ``<Private>true</Private>`` in your project file (see below). 
-In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference.
+  If you can assume a particular version of Visual Studio (e.g. in a dev/test situation), then you may
+  be able to assume FSharp.Core is in the GAC.  
+
+But it is best to avoid this assumption and instead make sure an appropriate FSharp.Core
+is deployed as part of your application.  To do this, use ``<Private>true</Private>`` for the FSharp.Core reference
+in your project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core`  eference.
 
 ### FSharp.Core is binary compatible
 
-For example, if a library refers to FSharp.Core `4.0.0.0`, at runtime it can bind to `4.3.1.0` since that is a 
-later version. 
+FSharp.Core is binary compatible across versions of the F# language. For example, FSharp.Core `4.0.0.0` (F# 2.0) is binary compatible with  `4.3.0.0` (F# 3.0), `4.3.1.0` (F# 3.1), `4.4.0.0` (F# 4.0) and so on.
 
-This doesn't mean the behaviour of all routines is identical - some bug fixes may have been made - but the library
-doesn't need to be recompiled and the surface area will be compatible.
+Likewise, FSharp.Core is binary compatibile from "portable" profiles to actual runtime implementations. For example, FSharp.Core  `3.78.3.1` (a portable profiles for F# 3.1, see the table below) is binary compatible
+with the runtime implementation assembly `4.3.1.0` (F# 3.1) and `4.4.0.0` (F# 4.0).
+
+Binary compatibility means that a component built for X can instead bind to Y at runtime.
+It doesn't mean that Y behaves the same as X (some bug fixes may have been made, and Y may have more functionality than X).
 
 ### Libraries target lower versions of FSharp.Core
 
-F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible.
+F# ecosystem libraries should generally target the *lowest language version* and the *earliest, most portable* version of FSharp.Core feasible.
 
 If your library is part of an ecosystem, it should target the lowest version of FSharp.Core that
-is necessary for the functionality of the library.  For example, consider targeting portable profile 259, or `4.3.0.0` or
-`4.3.1.0`.  
+is necessary for the functionality of the library.  For example, consider targeting portable profile 259 (which can be used on many platforms), or `4.3.0.0` or `4.3.1.0`.  
 
-This will make your library usable in more situations by more people, and mean you will get fewer requests to 
-recompile your library for older platforms.
+This will make your library usable in more situations by more people, and you will get fewer requests to 
+recompile your library for older platforms, and you will be happier.
 
 Sometimes you will have to choose between targeting the *earliest* version of F# possible, and the *most portable* profile. 
-For example, profile 259 only became available for F# 3.1.  Your just either have to 
-choose to target F# 3.0 (and a slightly less portable profile) *or* target F# 3.1 (and the highly portable profile 259).
+For example, profile 259 only became available for F# 3.1.  In this case you just have to 
+either target F# 3.0 (and a less portable profile such as 47) *or* target F# 3.1 (and the highly portable profile 259).
 
 
 ### Applications target higher versions of FSHarp.Core
@@ -248,7 +252,7 @@ tooling.  While useful in some situations, this should be done with caution.
 
 ### FSharp.Core version numbers
 
-Main application DLLs (used at runtime for applications on .NET 4.x):
+Main .NET Framework DLLs (used at runtime for applications on .NET 4.x):
 
 |:-------:|:---------------:|:-----------|
 | F# 2.0  | .NET 4.0+       |   4.0.0.0  |
@@ -256,21 +260,21 @@ Main application DLLs (used at runtime for applications on .NET 4.x):
 | F# 3.1  | .NET 4.0+       |   4.3.1.0  |
 | F# 4.0  | .NET 4.5+       |   4.4.0.0  |
 
-Portable PCL profiles (can also be used at runtime):
+Portable PCL profiles (used at compile-time for portable libraries, can also be used at runtime when testing or as part of Windows Phone/Store apps):
 
-|         |   4.0 |  4.5 | WinStore  |  WP8  | WP8.1  | iOS/Android  | Profile | Version   | 
-|:-------:|:-----:|:----:|:---------:|:-------:|:---:|:---------:|:-------:|:----------|
-| F# 3.0  |   x   |  x   |      x    |         |     |  x        | Profile47      | 2.3.5.0   |
-| F# 3.1  |   x   |  x   |      x    |         |     |  x        | Profile47      | 2.3.5.1   |
-|         |       |  x   |      x    |         |     |  x        | Profile7       | 3.3.1.0   |
-|         |       |  x   |      x    |    x    |     |  x        | Profile78      | 3.78.3.1  |
-|         |       |  x   |      x    |    x    | x   |  x        | Profile259     | 3.259.3.1 |
-| F# 4.0  |   x   |  x   |      x    |         |     |  x        | Profile47      | 3.47.4.0  |
-|         |       |  x   |      x    |         |     |  x        | Profile7       | 3.7.4.0   |
-|         |       |  x   |      x    |    x    |     |  x        | Profile78      | 3.78.4.0  |
-|         |       |  x   |      x    |    x    | x   |  x        | Profile259     | 3.259.4.0 |
+|         |   4.0 |  4.5 | WinStore  |  WP8  | WP8.1  | iOS/Android  | Profile |  Version   | Moniker |
+|:-------:|:-----:|:----:|:---------:|:-------:|:----:|:------------:|:-------:|:-----------|:--------|
+| F# 3.0  |   x   |  x   |      x    |         |     |  x        | Profile47   |  2.3.5.0   | portable-net45+sl5+netcore45+MonoAndroid1+MonoTouch1 |
+| F# 3.1  |   x   |  x   |      x    |         |     |  x        | Profile47   |  2.3.5.1   | portable-net45+sl5+netcore45+MonoAndroid1+MonoTouch1 |
+|         |       |  x   |      x    |         |     |  x        | Profile7    |  3.3.1.0   | portable-net45+netcore45+MonoAndroid1+MonoTouch1 |
+|         |       |  x   |      x    |    x    |     |  x        | Profile78   |  3.78.3.1  | portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1 |
+|         |       |  x   |      x    |    x    | x   |  x        | Profile259  |  3.259.3.1 | portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1 |
+| F# 4.0  |   x   |  x   |      x    |         |     |  x        | Profile47   |  3.47.4.0  | portable-net45+sl5+netcore45+MonoAndroid1+MonoTouch1 |
+|         |       |  x   |      x    |         |     |  x        | Profile7    |  3.7.4.0   | portable-net45+netcore45+MonoAndroid1+MonoTouch1 |
+|         |       |  x   |      x    |    x    |     |  x        | Profile78   |  3.78.4.0  | portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1 |
+|         |       |  x   |      x    |    x    | x   |  x        | Profile259  |  3.259.4.0 | portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1 |
 
-Mobile and other platform DLLs (provided by Xamarin)
+Mobile and other platform DLLs  (used at compile-time and runtime for applications, provided by Xamarin)
 
 |         | Platform              |   Version  |
 |:-------:|:----------------------|:------------|
@@ -281,7 +285,7 @@ Mobile and other platform DLLs (provided by Xamarin)
 |         | XamarinMac Mobile     |   3.99.4.0  |
 |         | XamarinMac Full       |   3.100.4.0  |
 
-.NET 2.0/3.5 DLLs (only supported up to F# 3.0)
+.NET 2.0/3.5 DLLs (used at compile-time or runtime for applications, do not support F# 3.1+ constructs)
 
 |         |   Version  |
 |:-------:|:---------:|
