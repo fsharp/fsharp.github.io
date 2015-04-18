@@ -5,17 +5,20 @@ title: Notes on FSharp.Core
 
 # Notes and Guidelines on FSharp.Core
 
-Below, we refer to each projects as either an *application* or a *library*.   Examples of applications are:
-- a `.exe` application
-- a `.dll` that is a test project, addin, website, or an app.
+Below, we refer to each project as either an *application* or a *library*.   Examples of applications are:
+
+* a `.exe` application
+
+* a `.dll` that is a test project, addin, website, or an app.
 
 Libraries are just ordinary `.dll` commponents (excluding those above which are applications).
 
-## Do *not* bundle FSharp.Core with a library 
+### Do *not* bundle FSharp.Core with a library 
 
 When writing a library, the decision about how to bind to FSharp.Core is up to the _host_ of the library.
-Do _not_ include a copy of FSharp.Core with your library.  Especially, do _not_ include it in the ``lib`` folder
-of a nuget package.
+Do _not_ include a copy of FSharp.Core with your library or package.  
+
+Especially, do _not_ include FSharp.Core in the ``lib`` folder of a nuget package.
 
 
 ## Do deploy FSharp.Core as part of your application
@@ -23,9 +26,7 @@ of a nuget package.
 For applications, FSharp.Core is normally part of the application 
 itself (so-called `xcopy deploy` of FSharp.Core).  
 
-To achieve this, you normally use ``<Private>true</Private>`` in your project file 
-(in the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  
-properties for the `FSharp.Core` reference)
+To achieve this, you normally use ``<Private>true</Private>`` in your project file (in the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true` properties for the `FSharp.Core` reference)
 
 FSharp.Core.dll will normally appear in the `bin` output folder for your application. For example:
 
@@ -35,18 +36,16 @@ FSharp.Core.dll will normally appear in the `bin` output folder for your applica
     18/04/2015  13:20    <DIR>          ..
     18/04/2015  13:20             5,632 ConsoleApplication3.exe
     18/04/2015  13:20               187 ConsoleApplication3.exe.config
-    18/04/2015  13:20            11,776 ConsoleApplication3.pdb
-    18/04/2015  13:20               204 ConsoleApplication3.XML
     14/10/2014  12:12         1,400,472 FSharp.Core.dll
     14/10/2014  12:12           618,566 FSharp.Core.xml
 
-## Do not assume FSharp.Core is in the GAC
+### Do not assume FSharp.Core is in the GAC
 
 In production, deployed, compiled applications, you should never assume that 
 FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
 deploy the appropriate FSharp.Core as part of your application.  
 
-## Do not assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
+### Do not assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
 
 Once again, do not rely on FSharp.Core being in the GAC.  For F# executable components (see above), 
 use `Private=True` for your executable components.
@@ -74,15 +73,38 @@ is deployed as part of your application.  To do this, use ``<Private>true</Priva
 
 ## FSharp.Core library verison numbers
 
-|:-----:|:--------:|:----------:|
-| F# 2.0  | .NET 2.0+, Mono       |   2.0.0.0  |
-| F# 3.0  | .NET 3.5+, Mono       |   2.3.0.0  |
-| F# 2.0  | .NET 4.0+, Mono       |   4.0.0.0  |
-| F# 3.0  | .NET 4.0+, Mono       |   4.3.0.0  |
-| F# 3.1  | .NET 4.0+, Mono       |   4.3.1.0  |
-| F# 4.0  | .NET 4.5+, Mono       |   4.4.0.0  |
+Main application DLLs (used at runtime for applications on .NET 4.x):
 
-TBD: More to be added here (a table of all editions of FSharp.Core)
+| F# 2.0  | .NET 4.0+       |   4.0.0.0  |
+| F# 3.0  | .NET 4.0+       |   4.3.0.0  |
+| F# 3.1  | .NET 4.0+       |   4.3.1.0  |
+| F# 4.0  | .NET 4.5+       |   4.4.0.0  |
+
+Portable PCL profiles (can also be used at runtime):
+
+|         |   4.0 |  4.5 | WinStore  |  WinPh  | WinPh  |MonoTouch  | Profile | Version   | 
+|         |       |      |           |   8     |  8.1   | MonoDroid |         |           | 
+|:-------:|:-----:|:----:|:---------:|:-------:|:----:|:---------:|:-------:|:----------|
+| F# 3.0  |   x   |  x   |      x    |         |           | 47      | 2.3.5.0   |
+|:-------:|:-----:|:----:|:---------:|:-------:|:----:|:---------:|:-------:|:----------|
+| F# 3.1  |   x   |  x   |      x    |         |           | 47      | 2.3.5.1   |
+|         |       |  x   |      x    |         |           | 7       | 3.3.1.0   |
+|         |       |  x   |      x    |    x    |           | 78      | 3.78.3.1  |
+|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.3.1 |
+|:-------:|:-----:|:----:|:---------:|:-------:|:----:|:---------:|:-------:|:----------|
+| F# 4.0  |   x   |  x   |      x    |         |           | 47      | 3.47.4.0  |
+|         |       |  x   |      x    |         |           | 7       | 3.7.4.0   |
+|         |       |  x   |      x    |    x    |           | 78      | 3.78.4.0  |
+|         |       |  x   |      x    |    x    |     x     | 259     | 3.259.4.0 |
+
+Mobile DLLs:
+
+.NET 2.0/3.5 DLLs (only up to F# 3.0)
+
+|         |   Version  |
+|:-------:|:---------:|
+| F# 2.0  |   2.0.0.0  |
+| F# 3.0  |   2.3.0.0  |
 
 
 ## F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible
