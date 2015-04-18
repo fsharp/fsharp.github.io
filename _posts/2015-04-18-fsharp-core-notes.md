@@ -98,18 +98,24 @@ It doesn't mean that Y behaves the same as X (some bug fixes may have been made,
 
 ### Libraries target lower versions of FSharp.Core
 
-F# ecosystem libraries should generally target the *lowest language version* and the *earliest, most portable* version of FSharp.Core feasible.
+F# ecosystem libraries should generally target the *earliest, most portable* version of FSharp.Core feasible.
 
-If your library is part of an ecosystem, it should target the lowest version of FSharp.Core that
-is necessary for the functionality of the library.  For example, consider targeting portable profile 259 (which can be used on many platforms), or `4.3.0.0` or `4.3.1.0`.  
+If your library is part of an ecosystem, it can be helpful to target the _earliest, most widesperead language version_ 
+and the _most portable_ versions of FSharp.Core that is necessary for the functionality of the library.  
+For example, consider targeting F# 3.1 (now a relatively widespread version of the language) and 
+portable profile 259 (which can be used on many platforms). 
 
 This will make your library usable in more situations by more people, and you will get fewer requests to 
-recompile your library for older platforms, and you will be happier.
+recompile your library for older language versions or other platforms, and you will be happier.
+
+Equally, it can be painful to take this step, so don't do it until you're ready and you've got real users of your library.
 
 Sometimes you will have to choose between targeting the *earliest* version of F# possible, and the *most portable* profile. 
 For example, profile 259 only became available for F# 3.1.  In this case you just have to 
 either target F# 3.0 (and a less portable profile such as 47) *or* target F# 3.1 (and the highly portable profile 259).
 
+For personal libraries, or libraries that are effectively part of an application, the choice is yours, just target
+the latest language version and the framework you're using in your application.
 
 ### Applications target higher versions of FSharp.Core
 
@@ -122,7 +128,6 @@ If your application in being developed by people using multipl versions of F# to
 in open source working) you may need to target a lower version of the language and a correspondingly earlier version
 of FSharp.Core.
 
-For personal libraries, or libraries that are effectively part of an application, the choice is yours.
 
 
 ### Use Binding Redirects for Applications
