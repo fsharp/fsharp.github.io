@@ -233,7 +233,7 @@ transitive dependency that nuget package forany users of your package,. This for
 their FSharp.Core dependency more manually via nuget commands rather than via Visual Studio or other IDE
 tooling.  While useful in some situations, this should be done with caution.
 
-### FSharp.Core verison numbers
+### FSharp.Core version numbers
 
 Main application DLLs (used at runtime for applications on .NET 4.x):
 
