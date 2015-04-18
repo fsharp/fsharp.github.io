@@ -53,7 +53,7 @@ use `Private=True` for your executable components.
 On some installations of F#, some versions of FSharp.Core are added to the GAC.  Do not rely on these
 being present in production code being deployed off your machine.
 
-There _are_ some execptions to this.
+There _are_ some exceptions to this.
 
 * Standard installations of F# on Linux and Mac as part of Monos install the latest FSharp.Core into the
   GAC and add machine-wide binding redirects for that component. That means that, for those machines, the latest FSharp.Core
