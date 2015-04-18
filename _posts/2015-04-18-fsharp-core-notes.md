@@ -5,6 +5,12 @@ title: Notes on FSharp.Core
 
 # Notes and Guidelines on FSharp.Core
 
+
+* auto-gen TOC:
+{:toc}
+
+### Application v. Library
+
 Below, we refer to each project as either an *application* or a *library*.   Examples of applications are:
 
 * a `.exe` application
@@ -24,7 +30,7 @@ Especially, do _not_ include FSharp.Core in the ``lib`` folder of a nuget packag
 ### Do deploy FSharp.Core as part of your application
 
 For applications, FSharp.Core is normally part of the application 
-itself (so-called `xcopy deploy` of FSharp.Core).  
+itself (so-called "xcopy deploy" of FSharp.Core).  
 
 To achieve this, you normally use ``<Private>true</Private>`` in your project file (in the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true` properties for the `FSharp.Core` reference)
 
@@ -32,14 +38,11 @@ FSharp.Core.dll will normally appear in the `bin` output folder for your applica
 
     Directory of ...\ConsoleApplication3\bin\Debug
     
-    18/04/2015  13:20    <DIR>          .
-    18/04/2015  13:20    <DIR>          ..
     18/04/2015  13:20             5,632 ConsoleApplication3.exe
     18/04/2015  13:20               187 ConsoleApplication3.exe.config
     14/10/2014  12:12         1,400,472 FSharp.Core.dll
-    14/10/2014  12:12           618,566 FSharp.Core.xml
 
-### Do not assume FSharp.Core is in the GAC
+### Do *not* assume FSharp.Core is in the GAC
 
 In production, deployed, compiled applications, you should never assume that 
 FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
@@ -61,18 +64,20 @@ There _are_ some exceptions to this.
   
 * Some installations of F# on Windows Visual Studio do install FSharp.Core into the GAC. 
 
-- VS2010 installs FSharp.Core 4.0.0.0 only
-- VS2012 installs FSharp.Core 4.3.0.0 only
-- VS2013 installs FSharp.Core 4.3.1.0 only
-- VS2015 installs FSharp.Core 4.4.0.0 only
+  - VS2010 installs FSharp.Core 4.0.0.0 only
+  - VS2012 installs FSharp.Core 4.3.0.0 only
+  - VS2013 installs FSharp.Core 4.3.1.0 only
+  - VS2015 installs FSharp.Core 4.4.0.0 only
 
 This means that if you can assume a particular version of Visual Studio (e.g. in a dev/test situation), then you may
 be able to assume FSharp.Core is in the GAC.  But it is best to avoid this assumption and instead make sure FSharp.Core
-is deployed as part of your application.  To do this, use ``<Private>true</Private>`` in your project file 
-(in the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference)
+is deployed as part of your application.  To do this, use ``<Private>true</Private>`` in your project file (see below). 
+In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference.
 
 
-### F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible
+### Libraries target low versions
+
+F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible
 
 If your library is part of an ecosystem, it should target the lowest version of FSharp.Core that
 is necessary for the functionality of the library.  For example, consider targeting portable profile 259, or `4.3.0.0` or
@@ -86,7 +91,9 @@ For example, profile 259 only became available for F# 3.1.  Your just either hav
 choose to target F# 3.0 (and a slightly less portable profile) *or* target F# 3.1 (and the highly portable profile 259).
 
 
-### F# applications should generally use the *highest* language version and the most *platform-specific* version of FSharp.Core.
+### Applications target high versions
+
+F# applications should generally use the *highest* language version and the most *platform-specific* version of FSharp.Core.
 
 Generally, when wrtiting an application, you want to use the highest version of FSharp.Core available for the platform
 you are targeting.
