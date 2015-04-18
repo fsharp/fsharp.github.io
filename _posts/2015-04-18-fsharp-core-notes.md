@@ -94,9 +94,18 @@ Portable PCL profiles (can also be used at runtime):
 |         |       |  x   |      x    |    x    |           | 78      | 3.78.4.0  |
 |         |       |  x   |      x    |    x    |     x     | 259     | 3.259.4.0 |
 
-Mobile DLLs:
+Mobile and other platform DLLs (provided by Xamarin)
 
-.NET 2.0/3.5 DLLs (only up to F# 3.0)
+|         | Platform               |   Version  |
+|:-------:|:----------------------:|:---------:|
+| F# 3.1  | MonoTouch, MonoDroid :|:  2.3.98.1  |
+|         | XamarinMac Mobile    :|:  2.3.99.1  |
+|         | XamarinMac Full      :|:  2.3.100.1  |
+| F# 4.0  | MonoTouch, MonoDroid :|:  3.98.4.0  |
+|         | XamarinMac Mobile    :|:  3.99.4.0  |
+|         | XamarinMac Full      :|:  3.100.4.0  |
+
+.NET 2.0/3.5 DLLs (only supported up to F# 3.0)
 
 |         |   Version  |
 |:-------:|:---------:|
