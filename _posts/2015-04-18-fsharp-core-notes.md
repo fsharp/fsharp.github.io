@@ -45,11 +45,13 @@ To achieve this, you normally use ``<Private>true</Private>`` in your project fi
 
 FSharp.Core.dll will normally appear in the `bin` output folder for your application. For example:
 
+```
     Directory of ...\ConsoleApplication3\bin\Debug
     
     18/04/2015  13:20             5,632 ConsoleApplication3.exe
     18/04/2015  13:20               187 ConsoleApplication3.exe.config
     14/10/2014  12:12         1,400,472 FSharp.Core.dll
+```
 
 ### Do *not* assume FSharp.Core is in the GAC
 
@@ -131,13 +133,16 @@ to specify that those libraries should bind to the actual FSharp.Core used as pa
 An `app.config` is used to specify binding redirects. It is normal to redirect all lower versions of FSharp.Core to 
 the version actually being used.  For example, to redirect all versions of FSharp.Core up to 4.3.0.0 to use 4.3.1.0:
 
+```
         <dependentAssembly>
           <assemblyIdentity name="FSharp.Core" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
           <bindingRedirect oldVersion="0.0.0.0-4.3.0.0" newVersion="4.3.1.0" />
         </dependentAssembly>
+```
 
 This is located in a section of the app.config like this:
 
+```
     <?xml version="1.0" encoding="utf-8" ?>
     <configuration>
         ...
@@ -147,6 +152,7 @@ This is located in a section of the app.config like this:
           </assemblyBinding>
         </runtime>
     </configuration>
+```
 
 Application project files should normally also specify `AutoGenerateBindingRedirects` which allows tooling to 
 help keep the binding redirects up-to-date, see below.
@@ -200,11 +206,15 @@ In these cases it becomes essential to ensure you are referencing FSharp.Core pr
 
 It is normal for all F# components to define the property TargetFSharpCoreVersion:
 
+```
     <TargetFSharpCoreVersion>4.3.0.0</TargetFSharpCoreVersion>
+```
 
 or
 
+```
     <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
+```
 
 Later in the file `FSharp.Core` will be mentioned in the actual `FSharp.Core` reference, e.g.
 ```
@@ -216,7 +226,9 @@ or other variations on this.
 
 It is normal for applications to use AutoGenerateBindingRedirects in their `.fsproj` file:
 
+```
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+```
 
 This helps keep your binding redirects up-to-date when using Visual Studio and other tools that understand this property.
 
@@ -238,6 +250,7 @@ Using the appropriate reference text below is recommended.
 
 * *.NET 4.x*. For F# components restricted to run on .NET 4.x, it is normal to reference non-portable FSharp.Core using the following (adjust the FSharp.Core version number appripriately):
 
+```
     <PropertyGroup>
        ...
        <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
@@ -247,9 +260,11 @@ Using the appropriate reference text below is recommended.
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
     </Reference>
+```
 
 * * PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
 
+```
     <PropertyGroup>
        ...
        <TargetFSharpCoreVersion>3.78.3.1</TargetFSharpCoreVersion>
@@ -261,10 +276,12 @@ Using the appropriate reference text below is recommended.
          <AssemblyName>FSharp.Core.dll</AssemblyName>
          <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETCore\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
     </Reference>
+```
 
 * *Legacy PCL libraries*. "Legacy" portable projects (profile 47) use `.NETPortable` instead of `.NETCore`:
 
 
+```
     <PropertyGroup>
        ...
        <TargetFSharpCoreVersion>2.3.5.1</TargetFSharpCoreVersion>
@@ -276,6 +293,7 @@ Using the appropriate reference text below is recommended.
          <AssemblyName>FSharp.Core.dll</AssemblyName>
          <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETPortable\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
     </Reference>
+```
 
 For components  created with earlier F# tooling (e.g. Visual Studio 2012 or before), project files may use different reference text.
 These should generally be adjusted to use the formulations above, this may be done automatically by some tooling.
@@ -313,6 +331,7 @@ tooling.  While useful in some situations, this should be done with caution.
 
 Main .NET Framework DLLs (used at runtime for applications on .NET 4.x):
 
+|         |                 |   Version  |
 |:-------:|:---------------:|:-----------|
 | F# 2.0  | .NET 4.0+       |   4.0.0.0  |
 | F# 3.0  | .NET 4.0+       |   4.3.0.0  |
