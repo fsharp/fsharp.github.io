@@ -6,33 +6,30 @@ title: Notes on FSharp.Core
 # Notes and Guidelines on FSharp.Core
 
 
-* auto-gen TOC:
-{:toc}
+### Application v. Library v. Script
 
-### Application v. Library
+Each project is either an *application* or a *library*.   Examples of applications are:
 
-Below, we refer to each project as either an *application* or a *library*.   Examples of applications are:
+* a `.exe` project
 
-* a `.exe` application
+* a `.dll` project that is a test project, addin, website, or an app.
 
-* a `.dll` that is a test project, addin, website, or an app.
+Libraries are just ordinary `.dll` commponents (excluding those above which are applications). Scripts are just `.fsx` files, possibly referring to other files using `#load`.
 
-Libraries are just ordinary `.dll` commponents (excluding those above which are applications).
+### Do *not* bundle FSharp.Core with a library package
 
-### Do *not* bundle FSharp.Core with a library 
-
-When writing a library, the decision about how to bind to FSharp.Core is up to the _host_ of the library.
-Do _not_ include a copy of FSharp.Core with your library or package.  
+For a library, the decision about which `FSharp.Core` it binds to is up to the application hosting of the library.
+Do _not_ include a copy of FSharp.Core with your library or package.  If you do, you will create hell for users of
+your library.
 
 Especially, do _not_ include FSharp.Core in the ``lib`` folder of a nuget package.
 
 
 ### Do deploy FSharp.Core as part of your application
 
-For applications, FSharp.Core is normally part of the application 
-itself (so-called "xcopy deploy" of FSharp.Core).  
+For applications, FSharp.Core is normally part of the application itself (so-called "xcopy deploy" of FSharp.Core).  
 
-To achieve this, you normally use ``<Private>true</Private>`` in your project file (in the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true` properties for the `FSharp.Core` reference)
+To achieve this, you normally use ``<Private>true</Private>`` in your project file. In  Visual Studio this is equivalent to setting the `CopyLocal` property to `true` properties for the `FSharp.Core` reference.
 
 FSharp.Core.dll will normally appear in the `bin` output folder for your application. For example:
 
@@ -44,7 +41,7 @@ FSharp.Core.dll will normally appear in the `bin` output folder for your applica
 
 ### Do *not* assume FSharp.Core is in the GAC
 
-In production, deployed, compiled applications, you should never assume that 
+In compiled applications, you should never assume that 
 FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
 deploy the appropriate FSharp.Core as part of your application.  
 
@@ -74,10 +71,17 @@ be able to assume FSharp.Core is in the GAC.  But it is best to avoid this assum
 is deployed as part of your application.  To do this, use ``<Private>true</Private>`` in your project file (see below). 
 In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference.
 
+### FSharp.Core is binary compatible
 
-### Libraries target low versions
+For example, if a library refers to FSharp.Core `4.0.0.0`, at runtime it can bind to `4.3.1.0` since that is a 
+later version. 
 
-F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible
+This doesn't mean the behaviour of all routines is identical - some bug fixes may have been made - but the library
+doesn't need to be recompiled and the surface area will be compatible.
+
+### Libraries target lower versions of FSharp.Core
+
+F# ecosystem libraries should generally target the *lowest language version* and the *most portable* version of FSharp.Core feasible.
 
 If your library is part of an ecosystem, it should target the lowest version of FSharp.Core that
 is necessary for the functionality of the library.  For example, consider targeting portable profile 259, or `4.3.0.0` or
@@ -91,7 +95,7 @@ For example, profile 259 only became available for F# 3.1.  Your just either hav
 choose to target F# 3.0 (and a slightly less portable profile) *or* target F# 3.1 (and the highly portable profile 259).
 
 
-### Applications target high versions
+### Applications target higher versions of FSHarp.Core
 
 F# applications should generally use the *highest* language version and the most *platform-specific* version of FSharp.Core.
 
