@@ -61,8 +61,8 @@ deploy the appropriate FSharp.Core as part of your application.
 
 ### Do not assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
 
-Once again, do not rely on FSharp.Core being in the GAC.  For F# executable components (see above), 
-use `Private=True` for your executable components.
+Once again, do not rely on FSharp.Core being in the GAC.  For applications (see above), 
+use ``<Private>true</Private>`` for the FSharp.Core reference in the project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core`  eference.
 
 On some installations of F#, some versions of FSharp.Core are added to the GAC.  Do not rely on these
 being present in production code being deployed off your machine.
@@ -83,8 +83,13 @@ There _are_ some exceptions to this.
   be able to assume FSharp.Core is in the GAC.  
 
 But it is best to avoid this assumption and instead make sure an appropriate FSharp.Core
-is deployed as part of your application.  To do this, use ``<Private>true</Private>`` for the FSharp.Core reference
-in your project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core`  eference.
+is deployed as part of your application.  
+
+### What do do for error "Could not load file or assembly FSharp.Core, Version=4.0.0.0" or similar
+
+The normal way to resolve this is to  deploy FSharp.Core as part of your application, see above. See also [this stackoverflow question](http://stackoverflow.com/questions/24801302/could-not-load-file-or-assembly-fsharp-core-version-4-0-0-0-azure-web-role) and many other similar answers on the web.
+
+Earlier versions of F# (Visual F# 2.0) had a "runtime redistributable" you could install on target machines.  This model is now no longer used and instead you deploy FSharp.Core as part of your application.
 
 ### FSharp.Core is binary compatible
 
