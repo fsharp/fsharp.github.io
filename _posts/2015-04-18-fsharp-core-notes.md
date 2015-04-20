@@ -34,7 +34,7 @@ your library.
 The decision about which `FSharp.Core` a library binds to is up to the application hosting of the library.
 The library and/or library package can place constraints on this, but it doesn't decide it.
 
-Especially, do _not_ include FSharp.Core in the ``lib`` folder of a nuget package.
+Especially, do _not_ include FSharp.Core in the ``lib`` folder of a NuGet package.
 
 
 ### Do deploy FSharp.Core as part of your application
@@ -62,7 +62,7 @@ deploy the appropriate FSharp.Core as part of your application.
 ### Do not assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
 
 Once again, do not rely on FSharp.Core being in the GAC.  For applications (see above), 
-use ``<Private>true</Private>`` for the FSharp.Core reference in the project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core`  eference.
+use ``<Private>true</Private>`` for the FSharp.Core reference in the project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference.
 
 On some installations of F#, some versions of FSharp.Core are added to the GAC.  Do not rely on these
 being present in production code being deployed off your machine.
@@ -129,7 +129,7 @@ F# applications should generally use the *highest* language version and the most
 Generally, when wrtiting an application, you want to use the highest version of FSharp.Core available for the platform
 you are targeting.
 
-If your application in being developed by people using multipl versions of F# tooling (commmon
+If your application in being developed by people using multiple versions of F# tooling (commmon
 in open source working) you may need to target a lower version of the language and a correspondingly earlier version
 of FSharp.Core.
 
@@ -199,7 +199,7 @@ Searching on stackoverflow reveals further guidance on this topic.
 ### FSharp.Core in components using FSharp.Compiler.Service
 
 If your application of component uses FSharp.Compiler.Service, 
-see [this guide](http://fsharp.github.io/FSharp.Compiler.Service/corelib.html). This scenario is more compilcated
+see [this guide](http://fsharp.github.io/FSharp.Compiler.Service/corelib.html). This scenario is more complicated
 because FSharp.Core is used both to run your script or application, and is referenced during compilation.
 
 Likewise, if you have a script or library using FSharp.Formatting, then beware that that is using FSharp.Compiler.Service.
@@ -252,10 +252,10 @@ This is means `FSharp.Core.dll` is copied to the target directory and can be fou
 
 Libraries do not need to use this.
 
-### A C# project referencing an F# DLL or nuget package may need to also have a reference to FSharp.Core.dll
+### A C# project referencing an F# DLL or NuGet package may need to also have a reference to FSharp.Core.dll
 
-A C# project referencing an F# DLL or nuget package may need to also have a reference to FSharp.Core.dll.  This
-reference must currently be managed explicitly unless you refer to the nuget package for FSharp.Core (see below).
+A C# project referencing an F# DLL or NuGet package may need to also have a reference to FSharp.Core.dll.  This
+reference must currently be managed explicitly unless you refer to the NuGet package for FSharp.Core (see below).
 Using the appropriate reference text below is recommended.
 
 
@@ -314,30 +314,30 @@ These should generally be adjusted to use the formulations above, this may be do
 ### FSharp.Core in Xamarin apps
 
 FSharp.Core is referenced as a Private/CopyLocal component in Xamarin apps for mobile devices.  This reference is done via 
-the nuget package for FSharp.Core, see below.
+the NuGet package for FSharp.Core, see below.
 
-### The FSharp.Core nuget package
+### The FSharp.Core NuGet package
 
 FSharp.Core is also available [as a NuGet package](http://www.nuget.org/packages/FSharp.Core). 
 It is not yet normal to reference FSharp.Core via this package, though it is
-used by Xamarin application templates and by some F# library packages (as a transitive nuget dependency). 
+used by Xamarin application templates and by some F# library packages (as a transitive NuGet dependency). 
 
-At the time of writing, the relevant versions of the nuget packages were as follows (check the package versions and descriptions 
+At the time of writing, the relevant versions of the NuGet packages were as follows (check the package versions and descriptions 
 for latest information).
 
-* [The nuget package for FSharp.Core for F# 3.0 (4.3.0.0)](http://www.nuget.org/packages/FSharp.Core/3.0.2)
+* [The NuGet package for FSharp.Core for F# 3.0 (4.3.0.0)](http://www.nuget.org/packages/FSharp.Core/3.0.2)
 
-* [The nuget package for FSharp.Core for F# 3.1 (4.3.1.0)](http://www.nuget.org/packages/FSharp.Core/3.1.2.1)
+* [The NuGet package for FSharp.Core for F# 3.1 (4.3.1.0)](http://www.nuget.org/packages/FSharp.Core/3.1.2.1)
 
 Notes:
 
-* The nuget package includes all of the FSharp.Core redistributables from Visual F#. In addition, they include 
+* The NuGet package includes all of the FSharp.Core redistributables from Visual F#. In addition, they include 
 assemblies for MonoAndroid and MonoTouch built from [The F# Open Edition Repository](http://github.com/fsharp/fsharp)
 and other  extra "builds" of FSharp.Core for Xamarin-related portable profiles.
 
-* If you make the FSharp.Core nuget package a dependency of your own nuget package, you will induce a 
-transitive dependency that nuget package forany users of your package,. This forces them to manage 
-their FSharp.Core dependency more manually via nuget commands rather than via Visual Studio or other IDE
+* If you make the FSharp.Core NuGet package a dependency of your own NuGet package, you will induce a 
+transitive dependency that NuGet package for any users of your package,. This forces them to manage 
+their FSharp.Core dependency more manually via NuGet commands rather than via Visual Studio or other IDE
 tooling.  While useful in some situations, this should be done with caution.
 
 ### FSharp.Core version numbers
