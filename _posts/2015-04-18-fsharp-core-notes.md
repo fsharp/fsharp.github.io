@@ -85,7 +85,7 @@ There _are_ some exceptions to this.
 But it is best to avoid this assumption and instead make sure an appropriate FSharp.Core
 is deployed as part of your application.  
 
-### What do do for error "Could not load file or assembly FSharp.Core, Version=4.0.0.0" or similar
+### What to do for error "Could not load file or assembly FSharp.Core, Version=4.0.0.0" or similar
 
 The normal way to resolve this is to  deploy FSharp.Core as part of your application, see above. See also [this stackoverflow question](http://stackoverflow.com/questions/24801302/could-not-load-file-or-assembly-fsharp-core-version-4-0-0-0-azure-web-role) and many other similar answers on the web.
 
