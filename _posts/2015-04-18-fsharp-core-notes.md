@@ -261,18 +261,24 @@ Using the appropriate reference text below is recommended.
 
 ###  Examples of how to reference FSharp.Core
 
-* *.NET 4.x*. For F# components restricted to run on .NET 4.x, it is normal to reference non-portable FSharp.Core using the following (adjust the FSharp.Core version number appripriately):
+
+* *.NET 4.0, 4.5, 4.5.1, 4.5.2 etc.*. For F# components restricted to run on .NET 4.x, it is normal to reference non-portable FSharp.Core using the following (adjust the FSharp.Core version number appripriately):
 
 ```
     <PropertyGroup>
        ...
+       <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
        <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
        ...
     </PropertyGroup>
-    
-    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
+    ...
+    <ItemGroup>
+       ...
+      <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <Private>True</Private>
+      </Reference>
+       ...
+    </ItemGroup>
 ```
 
 * *PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
@@ -280,6 +286,9 @@ Using the appropriate reference text below is recommended.
 ```
     <PropertyGroup>
        ...
+       <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+       <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+       <TargetProfile>netcore</TargetProfile>
        <TargetFSharpCoreVersion>3.78.3.1</TargetFSharpCoreVersion>
        ...
     </PropertyGroup>
@@ -297,6 +306,8 @@ Using the appropriate reference text below is recommended.
 ```
     <PropertyGroup>
        ...
+       <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+       <TargetFrameworkProfile>Profile47</TargetFrameworkProfile>
        <TargetFSharpCoreVersion>2.3.5.1</TargetFSharpCoreVersion>
        ...
     </PropertyGroup>
@@ -308,8 +319,7 @@ Using the appropriate reference text below is recommended.
     </Reference>
 ```
 
-For components  created with earlier F# tooling (e.g. Visual Studio 2012 or before), project files may use different reference text.
-These should generally be adjusted to use the formulations above, this may be done automatically by some tooling.
+For components  created with earlier F# tooling (e.g. Visual Studio 2012 or before), project files may use different reference text. These should generally be adjusted to use the formulations above, this may be done automatically by some tooling.
 
 ### FSharp.Core in Xamarin apps
 
