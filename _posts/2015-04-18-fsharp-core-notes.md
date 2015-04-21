@@ -259,7 +259,7 @@ reference must currently be managed explicitly unless you refer to the NuGet pac
 Using the appropriate reference text below is recommended.
 
 
-###  Examples of how to reference FSharp.Core
+###  Examples of how project files reference FSharp.Core and the F# .targets file
 
 
 * *.NET 4.0, 4.5, 4.5.1, 4.5.2 etc.*. For F# components restricted to run on .NET 4.x, it is normal to reference non-portable FSharp.Core using the following (adjust the FSharp.Core version number appripriately):
@@ -279,6 +279,12 @@ Using the appropriate reference text below is recommended.
       </Reference>
        ...
     </ItemGroup>
+    ...
+    <PropertyGroup>
+        <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
+    </PropertyGroup>
+    <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+  </Choose>
 ```
 
 * *PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
@@ -293,11 +299,18 @@ Using the appropriate reference text below is recommended.
        ...
     </PropertyGroup>
 
-    <Reference Include="FSharp.Core">
+    <ItemGroup>
+       ...
+      <Reference Include="FSharp.Core">
          <Name>FSharp.Core</Name>
          <AssemblyName>FSharp.Core.dll</AssemblyName>
          <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETCore\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
-    </Reference>
+      </Reference>
+       ...
+    </ItemGroup>
+    ...
+    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.Portable.FSharp.Targets" />
+
 ```
 
 * *Legacy PCL libraries*. "Legacy" portable projects (profile 47) use `.NETPortable` instead of `.NETCore`:
@@ -312,11 +325,20 @@ Using the appropriate reference text below is recommended.
        ...
     </PropertyGroup>
 
-    <Reference Include="FSharp.Core">
+    <ItemGroup>
+      ...
+      <Reference Include="FSharp.Core">
          <Name>FSharp.Core</Name>
          <AssemblyName>FSharp.Core.dll</AssemblyName>
          <HintPath>$(MSBuildExtensionsPath32)\..\Reference Assemblies\Microsoft\FSharp\.NETPortable\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
-    </Reference>
+      </Reference>
+      ...
+    </ItemGroup>
+    ...
+    <PropertyGroup>
+        <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.Portable.FSharp.Targets</FSharpTargetsPath>
+    </PropertyGroup>
+    <Import Project="$(FSharpTargetsPath)" />
 ```
 
 For components  created with earlier F# tooling (e.g. Visual Studio 2012 or before), project files may use different reference text. These should generally be adjusted to use the formulations above, this may be done automatically by some tooling.
