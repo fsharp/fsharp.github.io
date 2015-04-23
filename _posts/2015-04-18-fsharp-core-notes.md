@@ -106,11 +106,9 @@ It doesn't mean that Y behaves the same as X (some bug fixes may have been made,
 F# ecosystem libraries should generally target the *earliest, most portable* version of FSharp.Core feasible.
 
 If your library is part of an ecosystem, it can be helpful to target the _earliest, most widespread language version_ 
-and the _earliest_ versions of the .NET Framework (e.g. 4.0 or 4.5) feasible.
-
+and the _earliest_ (4.0+) and _most portable_ profiles of the .NET Framework feasible.
 
 In some cases you might also like to attempt to make your component into a PCL Portable component.
-This is not something to do lightly: creating a portable component is harder than it seems.
 This is covered below.
 
 For personal libraries, or libraries that are effectively part of an application, the choice is yours, just target
