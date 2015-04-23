@@ -59,7 +59,7 @@ In compiled applications, you should never assume that
 FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
 deploy the appropriate FSharp.Core as part of your application.  
 
-### Do not assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
+### Do *not* assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
 
 Once again, do not rely on FSharp.Core being in the GAC.  For applications (see above), 
 use ``<Private>true</Private>`` for the FSharp.Core reference in the project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference.
