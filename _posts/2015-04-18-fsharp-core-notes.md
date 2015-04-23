@@ -59,7 +59,7 @@ In compiled applications, you should never assume that
 FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
 deploy the appropriate FSharp.Core as part of your application.  
 
-### Do not assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
+### Do *not* assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
 
 Once again, do not rely on FSharp.Core being in the GAC.  For applications (see above), 
 use ``<Private>true</Private>`` for the FSharp.Core reference in the project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference.
@@ -106,21 +106,17 @@ It doesn't mean that Y behaves the same as X (some bug fixes may have been made,
 F# ecosystem libraries should generally target the *earliest, most portable* version of FSharp.Core feasible.
 
 If your library is part of an ecosystem, it can be helpful to target the _earliest, most widespread language version_ 
-and the _most portable_ versions of FSharp.Core that is necessary for the functionality of the library.  
-For example, consider targeting F# 3.1 (now a relatively widespread version of the language) and 
-portable profile 259 (which can be used on many platforms). 
+and the _earliest_ versions of the .NET Framework (e.g. 4.0 or 4.5) feasible.
 
-This will make your library usable in more situations by more people, and you will get fewer requests to 
-recompile your library for older language versions or other platforms, and you will be happier.
 
-Equally, it can be painful to take this step, so don't do it until you're ready and you've got real users of your library.
-
-Sometimes you will have to choose between targeting the *earliest* version of F# possible, and the *most portable* profile. 
-For example, profile 259 only became available for F# 3.1.  In this case you just have to 
-either target F# 3.0 (and a less portable profile such as 47) *or* target F# 3.1 (and the highly portable profile 259).
+In some cases you might also like to attempt to make your component into a PCL Portable component.
+This is not something to do lightly: creating a portable component is harder than it seems.
+This is covered below.
 
 For personal libraries, or libraries that are effectively part of an application, the choice is yours, just target
 the latest language version and the framework you're using in your application.
+
+
 
 ### Applications target higher versions of FSharp.Core
 
@@ -205,6 +201,32 @@ because FSharp.Core is used both to run your script or application, and is refer
 Likewise, if you have a script or library using FSharp.Formatting, then beware that that is using FSharp.Compiler.Service.
 For scripts that is normally OK because they are processed using F# Interactive, and the default FSharp.Core is used.
 If you have an application using FSharp.Formatting as a component then see the guide linked above.
+
+### Making PCL-portable libraries
+
+PCL portable libraries target a subset of .NET functionality and can be used in many different
+circumstances. F# PCL portable libraries target a special FSharp.Core which is binary compatible with the final FSharp.Core used for an application (see above). The FSharp.Core numbers for PCL profiles are listed later in this guide.
+
+In some cases you might like to make your own libraries that are PCL Portable components.
+Below is a table of the recommended profiles to target depending on the minimal version of F# you can 
+assume your team or other users of your library are using.
+
+| Version | Framework       |   Recommended PCL Profile  | 
+|:-------:|:---------------:|:-----------|
+| F# 2.0  | .NET 4.0+       |   n/a  |   
+| F# 3.0  | .NET 4.0+       |  Profile47 (net45+sl5+netcore45+MonoAndroid1+MonoTouch1) | 
+| F# 3.1  | .NET 4.0+       |  Profile47 (net45+sl5+netcore45+MonoAndroid1+MonoTouch1) | 
+| F# 3.1.2  | .NET 4.0+       | Profile47 (net45+sl5+netcore45+MonoAndroid1+MonoTouch1) |
+| F# 4.0  | .NET 4.5+       |  Profile259 (portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1) or Profile47 |
+
+From the above, it can be seen that targeting F# 3.0 or 3.1 and Profile47 is a good choice for open source
+libraries.  (In Visual Studio 2013, this choice is labelled as "Portable Library (.NET 4.0, Windows Store, Silverlight 5.0)" though the generated libraries can also be used with  Xamarin Android  and Xamarin iOS.)
+
+To convert an existing project to a portable profile, it may well be easiest to  edit the project file by hand.
+See the project file fragments later in this guide.
+
+See [this bug](http://visualfsharp.codeplex.com/workitem/144) for why 
+profiles 7,78,259 are not recommended when using F# 3.1, even though the tooling allows their creation and consumption.
 
 
 ### Entries in Project Files
