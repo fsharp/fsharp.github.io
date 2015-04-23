@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Notes on FSharp.Core
+title: Notes and Guidance on FSharp.Core
+subtitle: This technical guide discusses the FSharp.Core library.  
 ---
 
-# Notes and Guidelines on FSharp.Core
+# Notes and Guidance on FSharp.Core
 
 This technical guide discusses the FSharp.Core library.  Please help improve this guide by [editing it and submitting a pull-request](https://github.com/fsharp/fsharp.github.io/blob/master/_posts/2015-04-18-fsharp-core-notes.md). 
 
