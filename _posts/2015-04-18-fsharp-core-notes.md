@@ -105,7 +105,7 @@ It doesn't mean that Y behaves the same as X (some bug fixes may have been made,
 
 F# ecosystem libraries should generally target the *earliest, most portable* version of FSharp.Core feasible.
 
-If your library is part of an ecosystem, it can be helpful to target the _earliest, most widesperead language version_ 
+If your library is part of an ecosystem, it can be helpful to target the _earliest, most widespread language version_ 
 and the _most portable_ versions of FSharp.Core that is necessary for the functionality of the library.  
 For example, consider targeting F# 3.1 (now a relatively widespread version of the language) and 
 portable profile 259 (which can be used on many platforms). 
