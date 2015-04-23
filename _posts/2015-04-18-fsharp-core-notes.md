@@ -205,8 +205,7 @@ If you have an application using FSharp.Formatting as a component then see the g
 ### Making PCL-portable libraries
 
 PCL portable libraries target a subset of .NET functionality and can be used in many different
-circumstances. F# PCL portable libraries target a special FSharp.Core.
-The FSharp.Core numbers for PCL profiles are listed later in this guide.
+circumstances. F# PCL portable libraries target a special FSharp.Core which is binary compatible with the final FSharp.Core used for an application (see above). The FSharp.Core numbers for PCL profiles are listed later in this guide.
 
 In some cases you might like to make your own libraries that are PCL Portable components.
 Below is a table of the recommended profiles to target depending on the minimal version of F# you can 
