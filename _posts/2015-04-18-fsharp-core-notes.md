@@ -71,7 +71,7 @@ being present in production code being deployed off your machine.
 There _are_ some exceptions to this.
 
 * Standard installations of F# tools on Linux and Mac on  Mono also install the latest FSharp.Core into the
-  GAC. THey also add machine-wide binding redirects for that component. That means that, for those machines, the latest innstalled FSharp.Core will be used by applications.
+  GAC. They also add machine-wide binding redirects for that component. That means that, for those machines, the latest installed FSharp.Core will be used by applications.
   
 * Some installations of F# on Windows Visual Studio do install FSharp.Core into the GAC. 
 
