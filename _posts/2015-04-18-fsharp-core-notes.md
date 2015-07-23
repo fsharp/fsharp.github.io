@@ -171,7 +171,7 @@ F# Interactive (`fsi.exe`) always references and uses the FSharp.Core of the cor
 
 - F# 3.0 --> 4.3.0.0
 - F# 3.1 --> 4.3.1.0
-- F# 4.0 --> 4.4.4.0
+- F# 4.0 --> 4.4.0.0
 
 F# Interactive can load PCL assemblies that reference compatible FSharp.Core
 
