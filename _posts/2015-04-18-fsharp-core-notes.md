@@ -436,6 +436,17 @@ Mobile and other platform DLLs  (used at compile-time and runtime for applicatio
 | F# 2.0  |   2.0.0.0  |
 | F# 3.0  |   2.3.0.0  |
 
+Version numbering system for recent and future releases 
+
+| Target Framework | F# 3.0 / VS 2012 | F# 3.1 / VS 2013 | 3.1.1, 3.1.2 updates |  F# 4.0 / VS 2015 |  F# X.Y / VS vFuture |
+|:----------------:|:----------------:|:----------------:|:--------------------:|:-----------------:|:--------------------:|
+|      .NET 2      | 2.3.0.0          | 2.3.0.0 [frozen] |                      | 2.3.0.0 [frozen]  | 2.3.0.0 [frozen]     |
+|      .NET 4      | 4.3.0.0          | 4.3.1.0          |                      | 4.4.0.0           | 4.X.Y.0              |
+|    Portable 47   | 2.3.5.0          | 2.3.5.1          |                      | 3.47.4.0          | 3.47.X.Y             |
+|    Portable 7    |                  | 3.3.1.0          |                      | 3.7.4.0           | 3.7.X.Y              |
+|    Portable 78   |                  |                  | 3.78.3.1             | 3.78.4.0          | 3.78.X.Y             |
+|    Portable 259  |                  |                  | 3.259.3.1            | 3.259.4.0         | 3.259.X.Y            |
+|    Portable N    |                  |                  |                      |                   | 3.N.X.Y              |
 
 
 ### About Us
