@@ -369,6 +369,7 @@ For components  created with earlier F# tooling (e.g. Visual Studio 2012 or befo
 FSharp.Core is referenced as a Private/CopyLocal component in Xamarin apps for mobile devices.  This reference is done via 
 the NuGet package for FSharp.Core, see below.
 
+
 ### The FSharp.Core NuGet package
 
 FSharp.Core is also available [as a NuGet package](http://www.nuget.org/packages/FSharp.Core). 
@@ -380,7 +381,9 @@ for latest information).
 
 * [The NuGet package for FSharp.Core for F# 3.0 (4.3.0.0)](http://www.nuget.org/packages/FSharp.Core/3.0.2)
 
-* [The NuGet package for FSharp.Core for F# 3.1 (4.3.1.0)](http://www.nuget.org/packages/FSharp.Core/3.1.2.1)
+* [The NuGet package for FSharp.Core for F# 3.1 (4.3.1.0)]https://www.nuget.org/packages/FSharp.Core/3.1.2.5)
+
+* [The NuGet package for FSharp.Core for F# 4.0 (4.4.0.0)](https://www.nuget.org/packages/FSharp.Core/4.0.0.1) 
 
 Notes:
 
@@ -448,10 +451,22 @@ Version numbering system for recent and future releases
 |    Portable 259  |                  |                  | 3.259.3.1            | 3.259.4.0         | 3.259.X.Y            |
 |    Portable N    |                  |                  |                      |                   | 3.N.X.Y              |
 
+### Missing FSharp.Core References in .fsproj Project Files
+
+This section deals with how .fsproj project files that are missing an FSharp.Core reference are handled by different tooling.
+
+##### Visual Studio
+
+If there is no `FSharp.Core` reference  in your fsproj, Visual Studio will assume an environment of "latest", i.e. whatever version it's currently running against. The generated compiler command line has no `FSharp.Core` ref in it. The compiler will make the same fallback decision (assume reference to whatever version it is running) in order to determine the FSharp.Core version it will use as target. So for F# 4.0 it will be as if you referenced `FSharp.Core, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a`.
+
+But that's where it gets tricky - the compiler actually has to resolve that version information to an assembly location. On Windows it will use MSBuild to do that resolution. With a regular install of the VF# tools on Windows, a reg key is written at `HKLM\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\F# 4.0 Core Assemblies` which points to the appropriate `%ProgramFiles(x86)%\Reference Assemblies\...` location which should be used for compile-time resolution.  MSBuild looks at AssemblyFoldersEx when determining candidate resolution paths (that's a general MSBuild extensibility mechanism). If you whack that key, then `FSharp.Core` winds up being resolved from the GAC, and that fails due to missing optdata/sigdata.
+
+So... for Visual Studio, the latest version of `FSharp.Core` can be obtained by inspecting the currently-executing code in Visual Studio, e.g. `fsi.exe`. But finding a suitable copy that sits next to optdata/sigdata requires outside assistance - either a reg key, a call to MSBuild or some other pointer to get you to `...\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.4.0.0\FSharp.Core.dll`.
+
 
 ### About Us
 
-The F# Core Engineering Group is a technical group associated with [The F# Software Foundation](http://fsharp.org).
+The F# Core Engineering Group is a working group associated with [The F# Software Foundation](http://fsharp.org).
 
 We manage the cross-platform and open-source [F# Compiler and Components](https://github.com/fsharp) repositories 
 and the [F# Community Project Incubation Space](https://github.com/fsprojects).
