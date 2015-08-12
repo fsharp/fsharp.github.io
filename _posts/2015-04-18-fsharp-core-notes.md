@@ -369,8 +369,8 @@ For components  created with earlier F# tooling (e.g. Visual Studio 2012 or befo
 
 ### FSharp.Core in Xamarin apps
 
-FSharp.Core is referenced as a Private/CopyLocal component in Xamarin apps for mobile devices.  This reference is done via 
-the NuGet package for FSharp.Core, see below.
+FSharp.Core is referenced as a Private/CopyLocal component in Xamarin apps for mobile devices.  This reference is handled via 
+the normal Xamarin framework install locations i.e `/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/FSharp.Core.dll` for Xamarin.iOS.
 
 
 ### Missing FSharp.Core References in .fsproj Project Files
@@ -389,8 +389,7 @@ So... for Visual Studio, the latest version of `FSharp.Core` can be obtained by 
 ## The FSharp.Core NuGet package
 
 FSharp.Core is also available [as a NuGet package](http://www.nuget.org/packages/FSharp.Core). 
-It is not yet normal to reference FSharp.Core via this package, though it is
-used by Xamarin application templates and by some F# library packages (as a transitive NuGet dependency). 
+It is not yet normal to reference FSharp.Core via this package, though it is used by some F# library packages (as a transitive NuGet dependency). 
 
 At the time of writing, the relevant versions of the NuGet packages were as follows (check the package versions and descriptions 
 for latest information).
