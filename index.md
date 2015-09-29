@@ -5,8 +5,7 @@ title: The F# Core Engineering Group
 
 <br />
 
-About Us
-========
+## About Us
 
 The F# Core Engineering Group is a technical group associated with
 [The F# Software Foundation](http://fsharp.org).
@@ -25,11 +24,11 @@ facilitate open-source contributions to the F# core components. For example:
 
 * We cooperate with the [Debian packaging team](http://packages.qa.debian.org/f/fsharp.html) to see F# packaged on Debian.
 
-# Goals and Remit
+## Goals and Remit
 
 See  our [Goals and Remit](http://fsharp.github.io/2013/07/09/group-remit.html) document.
 
-# Get Involved 
+## Get Involved 
 
 To get involved:
 
@@ -54,9 +53,7 @@ and to extend the tooling available for F# across your favorite platforms.
 <a id="bloglist" > &nbsp; </a>
 <br />
 
-
-Guides
-======
+## Guides and Posts
 
 
 <div>
@@ -78,8 +75,7 @@ Guides
 
 </div>
 
-Contact Us
-==========
+##  Contact Us
 
 Most group discussion happens in other forums. To contact the group, please either:
 
