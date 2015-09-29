@@ -10,11 +10,11 @@ This guide discusses the F# Compiler source code and implementation from a techn
 For details on contributing to the F# compiler and core library, please see 
 [Contributing to the F# Language and Compiler](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
 
-This guide can be read in conjunction with either the
-[Microsoft/visualfsharp](http://github.com/Microsoft/visualfsharp) repository, which is an upstream 
-repository to [the open edition cross-platform packaging repository]((http://github.com/fsharp/fsharp)
-and  [the F# Compiler Service]((http://github.com/fsharp/FSharp.Compiler.Service) 
-maintained by [the F# Software Foundation](http://fsharp.org).
+This guide can be read in conjunction with either 
+
+* The [Microsoft/visualfsharp](http://github.com/Microsoft/visualfsharp) repository
+* The [F# Software Foundation cross-platform packaging repository](http://github.com/fsharp/fsharp)
+* The [F# Compiler Service](http://github.com/fsharp/FSharp.Compiler.Service), a repository of [the F# Software Foundation](http://fsharp.org)
 
 This guide is work-in-progress. Please help improve this guide by [editing it and submitting a
 pull-request](https://github.com/fsharp/fsharp.github.io/blob/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
