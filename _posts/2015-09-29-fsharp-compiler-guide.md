@@ -7,10 +7,9 @@ subtitle: This technical guide discusses the F# Compiler.
 # F# Compiler Technical Guide
 
 This guide discusses the F# Compiler source code and implementation from a technical point of view.  
-For details on contributing to the F# compiler and core library, please see 
-[Contributing to the F# Language and Compiler](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
+See also [Contributing to the F# Language, Compiler and Core Library](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
 
-This guide can be read in conjunction with either 
+This guide can be read in conjunction with either
 
 * The [Microsoft/visualfsharp](http://github.com/Microsoft/visualfsharp) repository (where most changes should be submitted)
 * The [F# Software Foundation cross-platform packaging](http://github.com/fsharp/fsharp) repository
@@ -24,15 +23,15 @@ please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 # Overview
 
 The F# compiler repositories are used to produce a range of different artefacts.  For the purposes of this
-guide, the foreemost amongst these are:
+guide, the important ones are:
 
-* FSharp.Compiler.Service.dll, part of [the corresponding nuget package](https://www.nuget.org/packages/FSharp.Compiler.Service) 
-  and shipped as an integrated component in a range of F# editor and scripting tooling.
+* The [FSharp.Compiler.Service](https://www.nuget.org/packages/FSharp.Compiler.Service) nuget package and dll, 
+  shipped as an integrated component in most  F# editor and scripting tools.
 
-* fsc.exe, fsi.exe and FSharp.Compiler.dll, the core binaries of the Visual F# tools for Windows.  These tools also
+* fsc.exe, fsi.exe and FSharp.Compiler.dll, the core binaries of the Visual F# tools for Windows, by Microsoft.  These tools also
   include FSharp.LanguageService.Compiler.dll, a special trimeed-down build of the core of the F# compiler.
 
-* fsharpc, fsharpi, fsc.exe, fsi.exe, FSharp.Compiler.dll, the core binaries of the cross-platform open edition packages for F#.
+* fsharpc, fsharpi, fsc.exe, fsi.exe, FSharp.Compiler.dll, the core binaries of the cross-platform open edition packages for F#, included in both Linux packages and Xamarin tooling for F#.
 
 * FSharp.Core.dll, see [the separate guide on versions and related matters](http://fsharp.github.io/2015/04/18/fsharp-core-notes.html).  Not covered in this guide except where there
   is an interaction with the F# compiler core.
@@ -152,18 +151,6 @@ In all these cases these distributions of F# include the core of the F# compiler
 * _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fscmain.fs).
 
 
-## Geneated Code Performance 
-
-TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
-
-## Compiler Throughput Performance
-
-TBD - discusses topics related to compiler performance including phase costs, data structures, GC settings etc.
-
-## Compiler Startup Performance
-
-TBD - discusses topics related to compiler startup performance, on both Windows/.NET and Linux/OSX/Mono.
-
 ## Compiler Memory Usage
 
 Overall memory usage is a primary determinant of the usability of the F# compiler and instances of
@@ -248,6 +235,18 @@ For example:
 | ``Map<...>``                 |  ~1%       | 
 
 There are micro savings available here if you hunt carefully.
+
+## Geneated Code Performance 
+
+TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
+
+## Compiler Throughput Performance
+
+TBD - discusses topics related to compiler performance including phase costs, data structures, GC settings etc.
+
+## Compiler Startup Performance
+
+TBD - discusses topics related to compiler startup performance, on both Windows/.NET and Linux/OSX/Mono.
 
 ## Bootstrapping
 
