@@ -264,13 +264,16 @@ cases these have been bucketed:
 
 Looking at the above analysis, the conclusions at the time of writing are
 
-1. Nearly all long-lived memory is related to the TAST nodes of the F# compiler data structure, or the related Abstract IL nodes for .NET asemblies being imported.
+1. A considerable chunk of memory is used for in-memory copies of some referenced DLLs. In practice, this is difficult to
+   avoid, as similar memory is also used even if using memory-mapped DLLs.
 
-2. The Abstract IL data structures for delayed-readaing of .NET type definitions use memory inefficiently
+2. Nearly all long-lived memory is related to the TAST nodes of the F# compiler data structure, or the related Abstract IL nodes for .NET asemblies being imported.
 
-3. The Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
+3. The Abstract IL data structures for delayed-readaing of .NET type definitions use memory inefficiently
 
-4. There is a considerable "long tail" of memory usage when categorized by type
+4. The Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
+
+5. There is a considerable "long tail" of memory usage when categorized by type
 
 An alternative way to look at the data is at which F# types are being used inefficiently in long-stored objects.
 For example: 
