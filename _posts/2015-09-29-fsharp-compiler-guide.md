@@ -57,7 +57,11 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 ## Key Data Formats and Representations 
 
+The following are the key data formats and internal data representations of the F# compiler code in its various configurations:
+
 * _Input source files_  Read as Unicode text, or binary for referenced assemblies.
+
+* _Input command line arguments_  See [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs) for the full  code implementating the arguments table.  Command line arguments are also accepted by the F# Compiler Service API in project speficiations, and as optional input to F# Interactive.
 
 * _Tokens_, see [pars.fsy](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/pars.fsy), [lex.fsl](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lex.fsl), [lexhelp.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lexhelp.fs) and related files.
 
@@ -86,6 +90,8 @@ In all these cases these distributions of F# include the core of the F# compiler
 * The [F# Compiler Service Caches](https://fsharp.github.io/FSharp.Compiler.Service/caches.html), covered in the compiler service documentation (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
 ## Key Compiler Phases
+
+The following are the key phases and high-level logical operations of the F# compiler code in its various configurations:
 
 * _Basic Lexing._  Produces a token stream.
 
