@@ -4,8 +4,7 @@ title: Recommended Guidelines for F# Projects, Packages and Namespaces
 subtitle: Naming, Engineering and General Advice
 ---
 
-Recommended Guidelines for F# Projects, Packages and Namespaces 
-============================================
+# Recommended Guidelines for F# Projects, Packages and Namespaces 
 
 > Naming, Engineering and General Advice
 
