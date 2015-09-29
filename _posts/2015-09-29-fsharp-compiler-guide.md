@@ -1,7 +1,7 @@
 ---
 layout: default
 title: F# Compiler Guide
-subtitle: This technical guide discusses the F# Compiler.  
+subtitle: This technical guide discusses the F# Compiler.
 ---
 
 # F# Compiler Technical Guide
@@ -12,11 +12,11 @@ For details on contributing to the F# compiler and core library, please see
 
 This guide can be read in conjunction with either 
 
-* The [Microsoft/visualfsharp](http://github.com/Microsoft/visualfsharp) repository
-* The [F# Software Foundation cross-platform packaging repository](http://github.com/fsharp/fsharp)
-* The [F# Compiler Service](http://github.com/fsharp/FSharp.Compiler.Service), a repository of [the F# Software Foundation](http://fsharp.org)
+* The [Microsoft/visualfsharp](http://github.com/Microsoft/visualfsharp) repository (where most changes should be submitted)
+* The [F# Software Foundation cross-platform packaging](http://github.com/fsharp/fsharp) repository
+* The [F# Compiler Service](http://github.com/fsharp/FSharp.Compiler.Service) repository
 
-This guide is work-in-progress. Please help improve this guide by [editing it and submitting a
+Please help improve this guide by [editing it and submitting a
 pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
 If you have specific topics that you would like to see addressed in this guide, 
 please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
