@@ -76,13 +76,13 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 * _The incrementally emited .NET reflection assembly,_ the incremental output of fsi.exe. See [ilreflect.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilreflect.fs)
 
-* The incremental project build engine state in [IncrementalBuild.fs in the FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fs)
+* The incremental project build engine state in [IncrementalBuild.fsi](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fsi)/[IncrementalBuild.fs](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fs) in the FSharp.Compiler.Service API. (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
-* The corresonding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs)
+* The corresonding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs) (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
-* The [F# Compiler Service Operations Queue](https://fsharp.github.io/FSharp.Compiler.Service/queue.html), covered in the compiler service documentation
+* The [F# Compiler Service Operations Queue](https://fsharp.github.io/FSharp.Compiler.Service/queue.html), covered in the compiler service documentation (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
-* The [F# Compiler Service Caches](https://fsharp.github.io/FSharp.Compiler.Service/caches.html), covered in the compiler service documentation
+* The [F# Compiler Service Caches](https://fsharp.github.io/FSharp.Compiler.Service/caches.html), covered in the compiler service documentation (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
 ## Key Compiler Phases
 
