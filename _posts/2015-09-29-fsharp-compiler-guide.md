@@ -42,7 +42,7 @@ guide, the important ones are:
   shipped as an integrated component in most  F# editor and scripting tools.
 
 * fsc.exe, fsi.exe and FSharp.Compiler.dll, the core binaries of the Visual F# tools for Windows, by Microsoft.  These tools also
-  include FSharp.LanguageService.Compiler.dll, a special trimeed-down build of the core of the F# compiler.
+  include FSharp.LanguageService.Compiler.dll, a special trimmed-down build of the core of the F# compiler.
 
 * fsharpc, fsharpi, fsc.exe, fsi.exe, FSharp.Compiler.dll, the core binaries of the cross-platform open edition packages for F#, included in both Linux packages and Xamarin tooling for F#.
 
@@ -61,7 +61,7 @@ The following are the key data formats and internal data representations of the 
 
 * _Input source files_  Read as Unicode text, or binary for referenced assemblies.
 
-* _Input command line arguments_  See [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs) for the full  code implementating the arguments table.  Command line arguments are also accepted by the F# Compiler Service API in project speficiations, and as optional input to F# Interactive.
+* _Input command line arguments_  See [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs) for the full  code implementating the arguments table.  Command line arguments are also accepted by the F# Compiler Service API in project specifications, and as optional input to F# Interactive.
 
 * _Tokens_, see [pars.fsy](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/pars.fsy), [lex.fsl](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lex.fsl), [lexhelp.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lexhelp.fs) and related files.
 
@@ -100,7 +100,7 @@ The following are the key phases and high-level logical operations of the F# com
 * _Parsing_. Accepts a token stream and produces an AST per the grammar in the F# Language Specification.
 
 * _Resolving references_. See ReferenceResolution.fs/fsi.  
-  Accepts command-line arguments and produces information about assembly references. Uses MSBuild for somee references, only really used in F# Interactive.
+  Accepts command-line arguments and produces information about assembly references. Uses MSBuild for some references, only really used in F# Interactive.
 
 * _Importing referenced .NET binaries_, 
   see [import.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/import.fsi)/
@@ -190,7 +190,7 @@ On all platforms, the following factors affect startup performance:
 * Time to open referenced assemblies (e.g. mscorlib.dll, FSharp.Core.dll) and analyze them for the types and namespaces defined.  This depends particularly on whether this is correctly done in an on-demand way.  
 
 * Time to process "open" declarations are the top of each file.   Processing these declarations have been observed to take 
-  time in some cases of  F# commpilation.
+  time in some cases of  F# compilation.
 
 * Factors specific to the specific files being compiled.
 
@@ -209,7 +209,7 @@ and low user interface responsivity in tools such as Visual Studio or other edit
 
 ### Key scenarios for memory usage
 
-Overall memory usage depends considerably on scenario,phase and configuration. Some key scenarios are:
+Overall memory usage depends considerably on scenario, phase and configuration. Some key scenarios are:
 * Overall memory usage of an instance of Visual Studio or another editing environment when editing F# projects
 * Overall memory usage of the Visual F# Power Tools in Visual Studio when editing and refactoring F# projects
 * Memory usage and throughput of the F# compiler fsc.exe
@@ -271,9 +271,9 @@ Looking at the above analysis, the conclusions at the time of writing are
 
 2. Nearly all long-lived memory is related to the TAST nodes of the F# compiler data structure, or the related Abstract IL nodes for .NET asemblies being imported.
 
-3. The Abstract IL data structures for delayed-readaing of .NET type definitions use memory inefficiently
+3. The Abstract IL data structures for delayed-reading of .NET type definitions use memory inefficiently
 
-4. The Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
+4. The Abstract IL data structures for delayed-reading of .NET attributes use memory relatively inefficiently
 
 5. There is a considerable "long tail" of memory usage when categorized by type
 
