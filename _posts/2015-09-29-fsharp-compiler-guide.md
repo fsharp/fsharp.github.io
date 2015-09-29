@@ -10,7 +10,7 @@ subtitle: This technical guide discusses the F# Compiler.
 * [Introduction](#introduction)
 * [Overview](#overview)
 * [Key Data Formats and Representations](#key-data-formats-and-representations)
-* [Key Compiler Phases](#key-compiler-hases)
+* [Key Compiler Phases](#key-compiler-phases)
 * [Compiler Startup Performance](#compiler-startup-performance)
 * [Compiler Memory Usage](#compiler-memory-usage)
 * [Bootstrapping](#bootstrapping)
