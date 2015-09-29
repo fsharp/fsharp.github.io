@@ -54,28 +54,9 @@ and to extend the tooling available for F# across your favorite platforms.
 <a id="bloglist" > &nbsp; </a>
 <br />
 
+
 Guides
 ======
-
-<div>
-{% for guide in site.guides %}
-
-    <br />
-    <h2>
-      <a href="{{ site.baseurl }}{{ guide.url }}">
-        {{ guide.title }} 
-      </a> 
-    </h2>
-
-    <blockquote><p> {{ guide.subtitle }} </p>
-    </blockquote>
-
-{% endfor %}
-
-</div>
-
-Blog
-====
 
 
 <div>
@@ -89,7 +70,8 @@ Blog
     </h2>
 
     <blockquote><p> {{ post.subtitle }} 
-                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">({{ post.date | date: "%-d %B %Y" }})</time>                        </p>
+                    <!-- <time datetime="{{ post.date | date: '%Y-%m-%d' }}">({{ post.date | date: "%-d %B %Y" }})</time>   -->
+                </p>
     </blockquote>
 
 {% endfor %}
