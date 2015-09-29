@@ -27,6 +27,8 @@ footer {
 
 h1, h2, h3, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top: 80px;  /* fix anchor problem? */
+  margin-top: -80px;  /* fix anchor problem? */
 }
 h2, h3, h4 {
   font-weight: normal;
