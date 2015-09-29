@@ -38,7 +38,7 @@ please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 The F# compiler repositories are used to produce a range of different artefacts.  For the purposes of this
 guide, the important ones are:
 
-* The [FSharp.Compiler.Service](https://www.nugett.org/packages/FSharp.Compiler.Service) NuGet package and dll, 
+* The [FSharp.Compiler.Service](https://www.nuget.org/packages/FSharp.Compiler.Service) NuGet package and dll, 
   shipped as an integrated component in most  F# editor and scripting tools.
 
 * fsc.exe, fsi.exe and FSharp.Compiler.dll, the core binaries of the Visual F# tools for Windows, by Microsoft.  These tools also
@@ -306,7 +306,7 @@ repositories are bootstrapped.  That is, an existing F# compiler is used to buil
 code.  That "proto" compiler is then used to compile itself, producing a "final" compiler.  This ensures the final compiler is compiled with all relevant optimizations and fixes.
 
 The [FSharp.Compiler.Service](https://www.NuGet.org/packages/FSharp.Compiler.Service) component is not bootstrapped and is simply compiled with an existing F# compiler to produce
-a .NET 4.x component.  In  practice this is sufficient given the overall stability of the codebases.
+a .NET 4.x component.  In practice this is sufficient given the overall stability of the codebases.
 
 ## Didn't find what you want?
 
