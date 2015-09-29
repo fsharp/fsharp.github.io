@@ -93,17 +93,19 @@ The following are the key data formats and internal data representations of the 
 
 The following are the key phases and high-level logical operations of the F# compiler code in its various configurations:
 
-* _Basic Lexing._  Produces a token stream.
+* _Basic Lexing._  Produces a token stream from input source file text.
 
-* _White-space sensitive lexing_.  Accepts and produces a token stream.
+* _White-space sensitive lexing_.  Accepts and produces a token stream, augmenting per the F# Language Specification.
 
-* _Parsing_. Accepts a token stream and produces an AST.
+* _Parsing_. Accepts a token stream and produces an AST per the grammar in the F# Language Specification.
 
-* _Resolving references with MSBuild_ (only really used in F# Interactive), See ReferenceResolution.fs/fsi.  
-  Accepts command-line arguments and produces information about assembly references.
+* _Resolving references_. See ReferenceResolution.fs/fsi.  
+  Accepts command-line arguments and produces information about assembly references. Uses MSBuild for somee references, only really used in F# Interactive.
 
-* _Importing referenced .NET binaries as Abstract IL and TAST data structures_, see import.fs/fsi.
-  Accepts information about IL references and produces a TAST node for each referenced assembly, 
+* _Importing referenced .NET binaries_, 
+  see [import.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/import.fsi)/
+  [import.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/import.fs).
+  Accepts file references and produces a TAST node for each referenced assembly, 
   including information about its type definitions (and type forwarders if any).
 
 * _Importing referenced F# binaries and optimization information as TAST data structures_, see pickle.fs/fsi.
@@ -112,19 +114,18 @@ The following are the key phases and high-level logical operations of the F# com
 
 * _Sequentially type checking files_, see
   [TypeChecker.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TypeChecker.fsi)/
-  [fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TypeChecker.fs).
+  [TypeChecker.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TypeChecker.fs).
   Accepts an AST plus a type checking context/state and produces new TAST nodes
   incorporated into an updated type checking state, plus additional TAST Expression nodes used during code generation.
 
 * _Pattern match compilation_, see
-  [PatternMatchCompilation.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PatternMatchCompilation.fsi)/
-  [fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PatternMatchCompilation.fs).
+  [PatternMatchCompilation.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PatternMatchCompilation.fsi)/[PatternMatchCompilation.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PatternMatchCompilation.fs).
   Accepts a subset of checked TAST nodes representing F# pattern matching and produces TAST expressions implementing
   the pattern matching.  Called during type checking as each construct involving pattern matching is processed.
 
 * _Constraint solving_, see
   [ConstraintSolver.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ConstraintSolver.fsi)/
-  [fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ConstraintSolver.fs).
+  [ConstraintSolver.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ConstraintSolver.fs).
   A constraint solver state is maintained during type checking of a single file, and constraints are progressively
   asserted (i.e. added to this state).  Fresh inference variables are generated and variables are eliminated (solved).
   Variables are also generalized at various language constructs, or explicitly declared, making them "rigid".
@@ -132,13 +133,12 @@ The following are the key phases and high-level logical operations of the F# com
 
 * _Post-inference type checks_, see
   [PostInferenceChecks.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PostInferenceChecks.fsi)/
-  [fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PostInferenceChecks.fs).
+  [PostInferenceChecks.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PostInferenceChecks.fs).
   Called at the end of type checking/inference for each file.
   A range of checks that can only be enforced after type checking on a file is complete.
 
-* _Quotation generation_, see
-  [QuotationTranslator.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationTranslator.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationTranslator.fs) and
-  [QuotationPickler.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationPickler.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationPickler.fs).
+* _Quotation translation_, see
+  [QuotationTranslator.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationTranslator.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationTranslator.fs)/[QuotationPickler.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationPickler.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationPickler.fs).
   Generates the stored information for F# quotation nodes, generated from the TAST expression structures of the
   F# compiler. Quotations are ultimately stored as binary data plus some added type references. "ReflectedDefinition" quotations
   are collected and stored in a single blob.
@@ -151,27 +151,29 @@ The following are the key phases and high-level logical operations of the F# com
   Each of these takes TAST nodes for types andexpressions and either modifies the ndoes in place or produces new TAST nodes.  
   These phases are orchestrated in [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs)
 
-* _Abstract IL code generation_, see 
+* _Code generation_, see 
   [IlxGen.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/IlxGen.fsi)/[IlxGen.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/IlxGen.fs)
   Accepts TAST nodes and produces Abstract IL nodes.
 
-* _Abstract IL rewriting_, see 
+* _Abstract IL code rewriting_, see 
   [EraseClosures.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/EraseClosures.fs) and
   [EraseUnions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/EraseUnions.fs).
   Eliminates some constructs by rewriting Abstract IL nodes.
   
-* _Abstract IL to .NET binary_, see 
+* _Binary emit_ (used by the F# Compiler fsc.exe), see 
   [ilwrite.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fsi)/[ilwrite.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fs). 
 
-* _Abstract IL to .NET Reflection-Emit_, see 
+* _Reflection-Emit_ (used by F# Interactive fsi.exe), see 
   [ilreflect.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilreflect.fs). 
 
-* _TAST information presented as a compiler service API_, see 
+The above are the internal phases and transformations used to build the following:
+
+* _The F# Compiler Service API_, see 
   [Symbols.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/Symbols.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/Symbols.fs), 
   [service.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/service.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/service.fs) 
   and related files.
 
-* _The F# Interactive Shell_, see [fsi.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsi.fs) as a tool, and its presentation as an API  in fsi.fsi in FSharp.Compiler.Service.
+* _The F# Interactive Shell_, see [fsi.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsi.fs) as a tool, and its presentation as an API  in [fsi.fs in the FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/fsi/fsi.fs).
 
 * _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fscmain.fs).
 
@@ -181,7 +183,7 @@ The following are the key phases and high-level logical operations of the F# com
 Compiler startup performance is a key factor affecting happiness of F# users.  If the compiler took 10sec to start up,
 then far fewer people would use F#.
 
-On all platforms, the following factos affect startup performance:
+On all platforms, the following factors affect startup performance:
 
 * Time to load compiler binaries.  This depends on the size of the generated binaries, whether they are pre-compiled (e.g. using NGEN), and the way the .NET implementation loads them.
 
@@ -252,7 +254,7 @@ cases these have been bucketed:
 | ``Dictionary<Int32, String>``	 | ~3%         | TAST/AbsIL   | various tables including those used in readong binaries |
 | ``Dictionary<String, String>`` | ~2%  | TAST/AbsIL | memoization tables for strings  |
 | ``EntityRef``               	 | ~2%  | TAST | nodes representing references to entities, pointing to an EntityData |
-| ``Ident``                      | ~1.5%    | TAST | identifiers - a range and a reference to a string
+| ``Ident``                      | ~1.5%    | TAST | identifiers - a range and a reference to a string |
 | ``TType_fun``                  | ~1.5%    | TAST | node for function types, especially in imported metadata |
 | ``TType_app``                  | ~1.5%    | TAST | node for constructed types like ``list<int>`` |
 | ``FSharpList<TType>``          | ~1.5%    | TAST | lists of types, usually in tuple and type applications |
@@ -288,13 +290,13 @@ For example:
 
 There are micro savings available here if you hunt carefully.
 
-## Geneated Code Performance 
-
-TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
-
 ## Compiler Throughput Performance
 
 TBD - discusses topics related to compiler performance including phase costs, data structures, GC settings etc.
+
+## Geneated Code Performance 
+
+TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
 
 
 ## Bootstrapping
