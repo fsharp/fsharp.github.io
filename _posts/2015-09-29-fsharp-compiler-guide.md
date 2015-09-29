@@ -1,10 +1,10 @@
 ---
 layout: default
-title: F# Compiler Guide
+title: F# Compiler Technical Overview
 subtitle: This technical guide discusses the F# Compiler.
 ---
 
-# F# Compiler Technical Guide
+# F# Compiler Technical Overview
 
 This guide discusses the F# Compiler source code and implementation from a technical point of view.  
 See also [Contributing to the F# Language, Compiler and Core Library](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
