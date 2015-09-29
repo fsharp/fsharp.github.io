@@ -45,25 +45,25 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 ## Key Logical Structures
 
-* Tokens, see pars.fsy, lex.fsl, lexhelp.fs{i} and related files
+* _Tokens_, see [pars.fsy](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/pars.fsy), [lex.fsl](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/lex.fsl), [lexhelp.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/lexhelp.fs) and related files.
 
-* Abstract Syntax Tree (AST), see ast.fs, the untyped syntax tree resulting from parsing
+* _Abstract Syntax Tree (AST)_, see [ast.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/ast.fs), the untyped syntax tree resulting from parsing
 
-* Typed Abstract Syntax Tree (TAST), see tast.fs and related files, the typed, bound syntax tree including both 
+* _Typed Abstract Syntax Tree (TAST)_, see [tast.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/tast.fs) and related files. The typed, bound syntax tree including both 
   type/module definitions and their backing expressions, resulting from type checking
   and the subject of successive phases of optimization and representation change.
 
-* Type checking context/state, see for example TcState in CompileOps.fs and its constituent parts.  
+* _Type checking context/state_, see for example [TcState in CompileOps.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/CompileOps.fs#L5071) and its constituent parts, particularly TcEnv in [TypeChecker.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/TypeChecker.fs) and NameResolutionEnv in [NameResolution.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/NameResolution.fs).
   A set of tables representing the available names, assemblies etc. in scope during type checking, plus
   associated information.
 
-* Abstract IL, the output of code generation
+* Abstract IL, the output of code generation, see [ILModuleDef in il.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/absil/il.fsi#L1598)
 
-* .NET Binary (with added "pickled" F# Metadata resource), the final output of fsc.exe
+* The .NET Binary format (with added "pickled" F# Metadata resource), the final output of fsc.exe, see the ECMA 335 specification and the [ilread.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/absil/ilread.fs) and [ilwrite.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/absil/ilwrite.fs) binary reader/generator implementations.
 
-* Incremental .NET reflection assembly emit, the incremental output of fsi.exe
+* The incrementally emited .NET reflection assembly, the incremental output of fsi.exe. See [ilreflect.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/absil/ilreflect.fs)
 
-* Corresonding structures in the FSharp.Compiler.Service API
+* The corresonding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs)
 
 ## Key Phases
 
@@ -111,20 +111,16 @@ In all these cases these distributions of F# include the core of the F# compiler
   A range of checks that can only be enforced after type checking on a file is complete.
 
 * _Quotation generation_, see
-  [QuotationTranslator.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationTranslator.fsi)/
-  [fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationTranslator.fs) and
-  [QuotationPickler.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationPickler.fsi)/
-  [fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationPickler.fs).
+  [QuotationTranslator.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationTranslator.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationTranslator.fs) and
+  [QuotationPickler.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationPickler.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/QuotationPickler.fs).
   Generates the stored information for F# quotation nodes, generated from the TAST expression structures of the
   F# compiler. Quotations are ultimately stored as binary data plus some added type references. "ReflectedDefinition" quotations
   are collected and stored in a single blob.
 
 * _Optimization phases_, primarily the "Optimize" (peephole/inlining) and "Top Level Representation" (lambda lifting) phases,
   see 
-  [Optimizer.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/Optimizer.fsi)/
-  [Optimizer.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/Optimizer.fs) and
-  [InnerLambdasToTopLevelFuncs.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fsi)/
-  [fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fs) and
+  [Optimizer.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/Optimizer.fsi)/[Optimizer.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/Optimizer.fs) and
+  [InnerLambdasToTopLevelFuncs.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fs) and
   [LowerCallsAndSeqs.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/LowerCallsAndSeqs.fs).
   Each of these takes TAST nodes for types andexpressions and either modifies the ndoes in place or produces new TAST nodes.  
   These phases are orchestrated in [CompileOptions.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/CompileOptions.fs)
@@ -145,13 +141,13 @@ In all these cases these distributions of F# include the core of the F# compiler
   [ilreflect.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/absil/ilreflect.fs). 
 
 * _TAST information presented as a compiler service API_, see 
-  [Symbols.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fs)/[fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fsi), 
-  [service.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fs)/[fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fsi) 
+  [Symbols.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fs), 
+  [service.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fs) 
   and related files.
 
 * _The F# Interactive Shell_, see [fsi.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsi.fs) as a tool, and its presentation as an API  in fsi.fsi in FSharp.Compiler.Service.
 
-* _The F# Compiler Shell_, see fsc.fs and fscmain.fs
+* _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fscmain.fs).
 
 
 ## Geneated Code Performance 
