@@ -17,7 +17,7 @@ This guide can be read in conjunction with either
 * The [F# Compiler Service](http://github.com/fsharp/FSharp.Compiler.Service), a repository of [the F# Software Foundation](http://fsharp.org)
 
 This guide is work-in-progress. Please help improve this guide by [editing it and submitting a
-pull-request](https://github.com/fsharp/fsharp.github.io/blob/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
+pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
 If you have specific topics that you would like to see addressed in this guide, 
 please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 
@@ -156,13 +156,73 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
 
-## Compiler Performance 
+## Compiler Throughput Performance
 
 TBD - discusses topics related to compiler performance including phase costs, data structures, GC settings etc.
 
+## Compiler Startup Performance
+
+TBD - discusses topics related to compiler startup performance, on both Windows/.NET and Linux/OSX/Mono.
+
 ## Compiler Memory Usage
 
-TBD - discusses topics related to compiler and compiler service memory usage including data structures.
+Overall memory usage is a primary determinant of the usability of the F# compiler and instances of
+the F# compiler serivce.  Overly high memory usage results in poor throughput (particularly due to increased GC times)
+and low user interface responsivity in tools such as Visual Studio or other editing environments.
+
+Overall memory usage depends considerably on scenario,phase adn configuration. Some key scenarios are:
+* Overall memory usage of an instance of Visual Studio or another editing environment when editing F# projects
+* Overall memory usage of the Visual F# Power Tools in Visual Studio when editing and refactoring F# projects
+* Memory usage and throughput of the F# compiler fsc.exe
+* Memory usage and throughput of the F# Interactive dynamic scripting compiler fsi.exe
+
+Analyzing memory usage of the F# Compiler and instances of the F# Compiler Service can be done using tools such
+as the Visual Studio Managed Memory analysis.  For example:
+
+* To analyze memory usage of Visual Studio you can take a process minidump of the devenv.exe process in Task Manager, then open that .dmp file in another instance of Visual Studio.
+
+```
+Microsoft.FSharp.Compiler.AbstractIL.ILBinaryReader+MemChannel	24	20,035,696	20,035,696
+Microsoft.FSharp.Compiler.Tast+ValData	14,456	3,674,796	16,367,960
+Dictionary<Int32, String>	61	2,190,612	2,190,612
+Microsoft.FSharp.Compiler.Tast+EntityData	16,018	1,890,800	148,685,060
+Dictionary<String, String>	422	1,380,636	1,380,936  Microsoft.FSharp.Compiler.AbstractIL.Internal.Library+Tables+memoize@782<String, String>	24
+Microsoft.FSharp.Compiler.Tast+EntityRef	75,237	1,203,792	58,333,884
+Microsoft.FSharp.Compiler.Ast+Ident	48,158	1,098,292	1,098,292
+Microsoft.FSharp.Quotations.ExprConstInfo+ValueOp	20,022	958,924	1,109,212
+Microsoft.FSharp.Compiler.Tast+TType+TType_fun	46,048	920,960	3,227,144
+Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.Tast+TType>	54,642	874,272	1,770,444
+Lazy<Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttribute>>	24,596	784,648	16,151,812
+Microsoft.FSharp.Compiler.Tast+TyparData	17,802	783,288	2,897,324
+Func<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>	24,420	781,440	1,855,856
+Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>	24,419	781,408	2,637,232
+Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDefs	6,719	780,648	4,938,452
+Func<Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttribute>>	24,395	780,640	15,036,988
+Microsoft.FSharp.Compiler.Tast+TyconAugmentation	16,018	704,792	5,896,576
+Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef	6,694	604,956	19,695,560
+Microsoft.FSharp.Compiler.Tast+PublicPath	15,993	592,944	592,944
+Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Quotations.FSharpExpr>	36,972	591,552	17,080,672
+Microsoft.FSharp.Quotations.FSharpExpr	33,804	540,864	23,174,608
+Microsoft.FSharp.Compiler.Import+lazyModuleOrNamespaceTypeForNestedTypes@400	12,698	507,920	507,920
+Lazy<Microsoft.FSharp.Compiler.Tast+ModuleOrNamespaceType>	16,018	501,008	100,136,884
+Microsoft.FSharp.Compiler.Tast+TType+TType_app	24,773	495,460	18,247,412
+Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>	24,419	488,380	488,380
+Microsoft.FSharp.Compiler.AbstractIL.ILBinaryReader+seekReadCustomAttrs@2627	24,394	487,880	13,963,620
+Microsoft.FSharp.Compiler.Tast+ValLinkagePartialKey	20,072	483,760	706,624
+Func<Microsoft.FSharp.Compiler.Tast+ModuleOrNamespaceType>	15,055	481,760	11,734,608
+Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeRef	12,816	458,996	1,291,104
+List<Tuple<Boolean, Microsoft.FSharp.Compiler.Tast+ValRef>>	16,018	424,816	504,432
+Microsoft.FSharp.Core.FSharpOption<String>	24,638	400,436	400,436
+Microsoft.FSharp.Compiler.Ast+XmlDoc	16,312	391,680	391,680
+Microsoft.FSharp.Collections.FSharpList<Tuple<Microsoft.FSharp.Collections.FSharpList<String>, Tuple<String, Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>>>>	24,420	390,720	3,809,360
+Tuple<String, Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>>	24,419	390,704	3,027,936
+Tuple<Microsoft.FSharp.Collections.FSharpList<String>, Tuple<String, Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>>>	24,419	390,704	3,418,640
+Microsoft.FSharp.Compiler.Tast+Attrib	9,692	387,680	9,324,424
+Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.Tast+ArgReprInfo>	23,958	383,328	1,964,996
+Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>	14,131	371,864	898,412
+```
+
+
 
 ## Bootstrapping
 
