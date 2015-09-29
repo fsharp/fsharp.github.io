@@ -197,19 +197,20 @@ cases these have been bucketed:
 | Type                           |   Approx %  |  Category | Cause  |
 |:------------------------------:|:-----------:|:---------:|:---------:|
 | ``MemChannel``                 |  ~20%       | TAST Abs/IL | In-memory representations of referenced DLLs. "System" DLLs are read using a memory-mapped file. |
-| ``ValData``                 	 | ~10%         |  TAST   | per-value data, one oject for each F# value declared (or imported in optimization expressions)  |
-| ``EntityData``                 | ~7.0%         | TAST | various types for per-type-or-module-or-namespace-definition data, for each F# type declared, or F# or .NET type imported |
+| ``ValData``                 	 | ~8%         |  TAST   | per-value data, one oject for each F# value declared (or imported in optimization expressions)  |
+| + others  | | | |
+| ``EntityData``                 | ~8%         | TAST | various types for per-type-or-module-or-namespace-definition data, for each F# type declared, or F# or .NET type imported |
 | ``TyconAugmentation``          | | | |
 |  ``PublicPath``                | | | |
 |  ``Lazy<ModuleOrNamespaceType>`` | | | |
 | ``Func<ModuleOrNamespaceType>`` | | | |
 | + others  | | | |
-| ``ILTypeDefs``, ``ILTypeDef``  | ~6.0%  | TAST/AbsIL | various types and delayed thinks for reading IL type definitions from .NET assemblies |
+| ``ILTypeDefs``, ``ILTypeDef``  | ~6%  | TAST/AbsIL | various types and delayed thinks for reading IL type definitions from .NET assemblies |
 | ``Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` | | | |
 | ``Lazy<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |  |  |  | 
 | ``Func<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |   | |  | 
 | ``Import+lazyModuleOrNamespaceTypeForNestedTypes@400``   | | | |
-| ``Lazy<FSharpList<ILAttribute>>`` | ~3.5%  | TAST/AbsIL | various types for delayed thunks for reading lists of attributes about .NET assemblies |
+| ``Lazy<FSharpList<ILAttribute>>`` | ~4%  | TAST/AbsIL | various types for delayed thunks for reading lists of attributes about .NET assemblies |
 | ``ILBinaryReader+seekReadCustomAttrs@2627`` | | | |
 | ``Func<FSharpList<ILAttribute>>`` 	| | | |
 | ``Attrib``	     | | | |
@@ -224,13 +225,29 @@ cases these have been bucketed:
 | ``ValLinkagePartialKey``	     | ~0.5%  | TAST | data indicating how one assembly references a value/method/member in another |
 | ``ILTypeRef``	     | ~0.5%  | TAST/AbsIL | type references in AbstractIL metadata |
 | ``XmlDoc``	     | ~0.4%  | AST | documentation strings |
+| + a long tail of other types  | | | |
 
 Looking at the above analysis, the conclusions at the time of writing are
 
-- the Abstract IL data structures for delayed-readaing of .NET type definitions use memory inefficiently
+1. Nearly all long-lived memory is related to the TAST nodes of the F# compiler data structure, or the related Abstract IL nodes for .NET asemblies being imported.
 
-- the Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
+2. The Abstract IL data structures for delayed-readaing of .NET type definitions use memory inefficiently
 
+3. The Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
+
+4. there is a considerable "long tail" of memory usage when categorized by type
+
+An alternative way to look at the data is at which F# types are being used inefficiently in long-stored objects.
+For example: 
+
+| F# Core Type                  |   Approx %  |  
+|:------------------------------:|:-----------:|
+| ``FSharpList<...>``                 |  ~4%       | 
+| ``FSharpOption<...>``                 |  ~1.5%       | 
+| ``Tuple<...>``                 |  ~1.5%       | 
+| ``Map<...>``                 |  ~1%       | 
+
+There are micro savings available here if you hunt carefully.
 
 ## Bootstrapping
 
