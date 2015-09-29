@@ -38,7 +38,7 @@ please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 The F# compiler repositories are used to produce a range of different artefacts.  For the purposes of this
 guide, the important ones are:
 
-* The [FSharp.Compiler.Service](https://www.NuGet.org/packages/FSharp.Compiler.Service) NuGet package and dll, 
+* The [FSharp.Compiler.Service](https://www.nugett.org/packages/FSharp.Compiler.Service) NuGet package and dll, 
   shipped as an integrated component in most  F# editor and scripting tools.
 
 * fsc.exe, fsi.exe and FSharp.Compiler.dll, the core binaries of the Visual F# tools for Windows, by Microsoft.  These tools also
@@ -199,7 +199,7 @@ On Windows, compiler startup performance tends to be greatly improved through th
 On Mono/Linux/OSX, compiler startup performance is less good but is not too bad.  Some improvements can be achieved
 using AOT (Mono's equivalent of NGEN).
 
-> Note: If you are building tools using the ``FSharp.Compiler.Service`` NuGet package, NGEN is not automatically run on that DLL, and the startup timees of the tool you are building may be degraded. If possible, you should arrange for NGEN to be run when your tool is installed.
+> Note: If you are building tools using the ``FSharp.Compiler.Service`` NuGet package, NGEN is not automatically run on that DLL, and the startup time of the tool you are building may be degraded. If possible, you should arrange for NGEN to be run when your tool is installed.
 
 ## Compiler Memory Usage
 
