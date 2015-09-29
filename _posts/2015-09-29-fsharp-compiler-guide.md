@@ -152,12 +152,12 @@ The following are the key phases and high-level logical operations of the F# com
   These phases are orchestrated in [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs)
 
 * _Code generation_, see 
-  [IlxGen.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/IlxGen.fsi)/[IlxGen.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/IlxGen.fs)
+  [IlxGen.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/IlxGen.fsi)/[IlxGen.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/IlxGen.fs)
   Accepts TAST nodes and produces Abstract IL nodes.
 
 * _Abstract IL code rewriting_, see 
-  [EraseClosures.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/EraseClosures.fs) and
-  [EraseUnions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/EraseUnions.fs).
+  [EraseClosures.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/ilx/EraseClosures.fs) and
+  [EraseUnions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/ilx/EraseUnions.fs).
   Eliminates some constructs by rewriting Abstract IL nodes.
   
 * _Binary emit_ (used by the F# Compiler fsc.exe), see 
@@ -175,7 +175,7 @@ The above are the internal phases and transformations used to build the followin
 
 * _The F# Interactive Shell_, see [fsi.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsi.fs) as a tool, and its presentation as an API  in [fsi.fs in the FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/fsi/fsi.fs).
 
-* _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fscmain.fs).
+* _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fscmain.fs).
 
 
 ## Compiler Startup Performance
@@ -210,6 +210,7 @@ and low user interface responsivity in tools such as Visual Studio or other edit
 ### Key scenarios for memory usage
 
 Overall memory usage depends considerably on scenario,phase and configuration. Some key scenarios are:
+
 * Overall memory usage of an instance of Visual Studio or another editing environment when editing F# projects
 * Overall memory usage of the Visual F# Power Tools in Visual Studio when editing and refactoring F# projects
 * Memory usage and throughput of the F# compiler fsc.exe
