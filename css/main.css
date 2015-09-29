@@ -29,7 +29,7 @@ h1, h2, h3, h4 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h2 {
-  padding-top: 40px;  /* fix anchor problem - not the right way but copied from https://github.com/fsharp/fsfoundation/commit/fa6cc08cd79788757a15272d00cd35c9398900bc#diff-23b024677d4732ee53b6d7bdc52e0fe2 */
+  /* padding-top: 40px;  fix anchor problem - not the right way but copied from https://github.com/fsharp/fsfoundation/commit/fa6cc08cd79788757a15272d00cd35c9398900bc#diff-23b024677d4732ee53b6d7bdc52e0fe2 */
   margin-top: -40px;  /* fix anchor problem - not the right way but copied from https://github.com/fsharp/fsfoundation/commit/fa6cc08cd79788757a15272d00cd35c9398900bc#diff-23b024677d4732ee53b6d7bdc52e0fe2 */
 }
 h2, h3, h4 {
