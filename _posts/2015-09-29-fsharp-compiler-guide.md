@@ -4,7 +4,7 @@ title: F# Compiler Guide
 subtitle: This technical guide discusses the F# Compiler.  
 ---
 
-# F# Compiler Technical Guide (draft)
+# F# Compiler Technical Guide
 
 This guide discusses the F# Compiler source code and implementation from a technical point of view.  
 For details on contributing to the F# compiler and core library, please see 
