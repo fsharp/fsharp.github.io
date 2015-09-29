@@ -77,7 +77,7 @@ The following are the key data formats and internal data representations of the 
 
 * _Abstract IL_, the output of code generation, then used for binary generation, and the input format when reading .NET assemblies, see [ILModuleDef in il.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/il.fsi#L1598)
 
-* _The .NET Binary format_ (with added "pickled" F# Metadata resource), the final output of fsc.exe, see the ECMA 335 specification and the [ilread.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilread.fs) and [ilwrite.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fs) binary reader/generator implementations.  The added F# metadata is stored in a binary resource, see [pickle.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/pickle.fs).
+* _The .NET Binary format_ (with added "pickled" F# Metadata resource), the final output of fsc.exe, see the ECMA 335 specification and the [ilread.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilread.fs) and [ilwrite.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fs) binary reader/generator implementations.  The added F# metadata is stored in a binary resource, see [TastPickle.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TastPickle.fs).
 
 * _The incrementally emited .NET reflection assembly,_ the incremental output of fsi.exe. See [ilreflect.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilreflect.fs)
 
