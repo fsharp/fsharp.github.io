@@ -44,6 +44,8 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 ## Key Logical Structures
 
+* _Input source files_  Read as Unicode text, or binary for referenced assemblies.
+
 * _Tokens_, see [pars.fsy](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/pars.fsy), [lex.fsl](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/lex.fsl), [lexhelp.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/lexhelp.fs) and related files.
 
 * _Abstract Syntax Tree (AST)_, see [ast.fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/ast.fs), the untyped syntax tree resulting from parsing
@@ -64,9 +66,7 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 * The corresonding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs)
 
-## Key Phases
-
-* _Input source files_  Read as Unicode text.
+## Key Compiler Phases
 
 * _Basic Lexing._  Produces a token stream.
 
@@ -151,6 +151,29 @@ In all these cases these distributions of F# include the core of the F# compiler
 * _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fscmain.fs).
 
 
+## Compiler Startup Performance
+
+Compiler startup performance is a key factor affecting happiness of F# users.  If the compiler took 10sec to start up,
+then far fewer people would use F#.
+
+On all platforms, the following factos affect startup performance:
+
+* Time to load compiler binaries.  This depends on the size of the generated binaries, whether they are pre-compiled (e.g. using NGEN), and the way the .NET implementation loads them.
+
+* Time to open referenced assemblies (e.g. mscorlib.dll, FSharp.Core.dll) and analyze them for the types and namespaces defined.  This depends particularly on whether this is correctly done in an on-demand way.  
+
+* Time to process "open" declarations are the top of each file.   Processing these declarations have been observed to take 
+  time in some cases of  F# commpilation.
+
+* Factors specific to the specific files being compiled.
+
+On Windows, compiler startup performance tends to be greatly improved through the use of NGEN.  NGEN is run on ``fsc.exe`` and ``fsi.exe`` for installations of the Visual F# Tools.  
+
+On Mono/Linux/OSX, compiler startup performance is less good but is not too bad.  Some improvements can be achieved
+using AOT (Mono's equivalent of NGEN).
+
+> Note: If you are building tools using the ``FSharp.Compiler.Service`` nuget package, NGEN is not automatically run on that DLL, and the startup timees of the tool you are building may be degraded. If possible, you should arrange for NGEN to be run when your tool is installed.
+
 ## Compiler Memory Usage
 
 Overall memory usage is a primary determinant of the usability of the F# compiler and instances of
@@ -222,7 +245,7 @@ Looking at the above analysis, the conclusions at the time of writing are
 
 3. The Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
 
-4. there is a considerable "long tail" of memory usage when categorized by type
+4. There is a considerable "long tail" of memory usage when categorized by type
 
 An alternative way to look at the data is at which F# types are being used inefficiently in long-stored objects.
 For example: 
@@ -244,9 +267,6 @@ TBD - will discuss various aspects of generated code and the parts of the compil
 
 TBD - discusses topics related to compiler performance including phase costs, data structures, GC settings etc.
 
-## Compiler Startup Performance
-
-TBD - discusses topics related to compiler startup performance, on both Windows/.NET and Linux/OSX/Mono.
 
 ## Bootstrapping
 
