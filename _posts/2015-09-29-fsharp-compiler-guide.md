@@ -38,11 +38,11 @@ please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 The F# compiler repositories are used to produce a range of different artefacts.  For the purposes of this
 guide, the important ones are:
 
-* The [FSharp.Compiler.Service](https://www.nuget.org/packages/FSharp.Compiler.Service) nuget package and dll, 
+* The [FSharp.Compiler.Service](https://www.nuget.org/packages/FSharp.Compiler.Service) NuGet package and dll, 
   shipped as an integrated component in most  F# editor and scripting tools.
 
 * fsc.exe, fsi.exe and FSharp.Compiler.dll, the core binaries of the Visual F# tools for Windows, by Microsoft.  These tools also
-  include FSharp.LanguageService.Compiler.dll, a special trimeed-down build of the core of the F# compiler.
+  include FSharp.LanguageService.Compiler.dll, a special trimmed-down build of the core of the F# compiler.
 
 * fsharpc, fsharpi, fsc.exe, fsi.exe, FSharp.Compiler.dll, the core binaries of the cross-platform open edition packages for F#, included in both Linux packages and Xamarin tooling for F#.
 
@@ -61,7 +61,7 @@ The following are the key data formats and internal data representations of the 
 
 * _Input source files_  Read as Unicode text, or binary for referenced assemblies.
 
-* _Input command line arguments_  See [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs) for the full  code implementating the arguments table.  Command line arguments are also accepted by the F# Compiler Service API in project speficiations, and as optional input to F# Interactive.
+* _Input command line arguments_  See [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs) for the full  code implementing the arguments table.  Command line arguments are also accepted by the F# Compiler Service API in project specifications, and as optional input to F# Interactive.
 
 * _Tokens_, see [pars.fsy](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/pars.fsy), [lex.fsl](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lex.fsl), [lexhelp.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lexhelp.fs) and related files.
 
@@ -79,11 +79,11 @@ The following are the key data formats and internal data representations of the 
 
 * _The .NET Binary format_ (with added "pickled" F# Metadata resource), the final output of fsc.exe, see the ECMA 335 specification and the [ilread.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilread.fs) and [ilwrite.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fs) binary reader/generator implementations.  The added F# metadata is stored in a binary resource, see [TastPickle.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TastPickle.fs).
 
-* _The incrementally emited .NET reflection assembly,_ the incremental output of fsi.exe. See [ilreflect.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilreflect.fs)
+* _The incrementally emitted .NET reflection assembly,_ the incremental output of fsi.exe. See [ilreflect.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilreflect.fs)
 
 * The incremental project build engine state in [IncrementalBuild.fsi](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fsi)/[IncrementalBuild.fs](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fs) in the FSharp.Compiler.Service API. (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
-* The corresonding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs) (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
+* The corresponding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs) (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
 * The [F# Compiler Service Operations Queue](https://fsharp.github.io/FSharp.Compiler.Service/queue.html), covered in the compiler service documentation (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
@@ -100,7 +100,7 @@ The following are the key phases and high-level logical operations of the F# com
 * _Parsing_. Accepts a token stream and produces an AST per the grammar in the F# Language Specification.
 
 * _Resolving references_. See ReferenceResolution.fs/fsi.  
-  Accepts command-line arguments and produces information about assembly references. Uses MSBuild for somee references, only really used in F# Interactive.
+  Accepts command-line arguments and produces information about assembly references. Uses MSBuild for some references, only really used in F# Interactive.
 
 * _Importing referenced .NET binaries_, 
   see [import.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/import.fsi)/
@@ -148,7 +148,7 @@ The following are the key phases and high-level logical operations of the F# com
   [Optimizer.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/Optimizer.fsi)/[Optimizer.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/Optimizer.fs) and
   [InnerLambdasToTopLevelFuncs.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fs) and
   [LowerCallsAndSeqs.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/LowerCallsAndSeqs.fs).
-  Each of these takes TAST nodes for types andexpressions and either modifies the ndoes in place or produces new TAST nodes.  
+  Each of these takes TAST nodes for types and expressions and either modifies the nodes in place or produces new TAST nodes.  
   These phases are orchestrated in [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs)
 
 * _Code generation_, see 
@@ -190,7 +190,7 @@ On all platforms, the following factors affect startup performance:
 * Time to open referenced assemblies (e.g. mscorlib.dll, FSharp.Core.dll) and analyze them for the types and namespaces defined.  This depends particularly on whether this is correctly done in an on-demand way.  
 
 * Time to process "open" declarations are the top of each file.   Processing these declarations have been observed to take 
-  time in some cases of  F# commpilation.
+  time in some cases of  F# compilation.
 
 * Factors specific to the specific files being compiled.
 
@@ -199,12 +199,12 @@ On Windows, compiler startup performance tends to be greatly improved through th
 On Mono/Linux/OSX, compiler startup performance is less good but is not too bad.  Some improvements can be achieved
 using AOT (Mono's equivalent of NGEN).
 
-> Note: If you are building tools using the ``FSharp.Compiler.Service`` nuget package, NGEN is not automatically run on that DLL, and the startup timees of the tool you are building may be degraded. If possible, you should arrange for NGEN to be run when your tool is installed.
+> Note: If you are building tools using the ``FSharp.Compiler.Service`` NuGet package, NGEN is not automatically run on that DLL, and the startup time of the tool you are building may be degraded. If possible, you should arrange for NGEN to be run when your tool is installed.
 
 ## Compiler Memory Usage
 
 Overall memory usage is a primary determinant of the usability of the F# compiler and instances of
-the F# compiler serivce.  Overly high memory usage results in poor throughput (particularly due to increased GC times)
+the F# compiler service.  Overly high memory usage results in poor throughput (particularly due to increased GC times)
 and low user interface responsivity in tools such as Visual Studio or other editing environments.
 
 ### Key scenarios for memory usage
@@ -234,7 +234,7 @@ cases these have been bucketed:
 | Type                           |   Approx %  |  Category | Cause  |
 |:------------------------------:|:-----------:|:---------:|:---------:|
 | ``MemChannel``                 |  ~20%       | TAST Abs/IL | In-memory representations of referenced DLLs. "System" DLLs are read using a memory-mapped file. |
-| ``ValData``                 	 | ~12%         |  TAST   | per-value data, one oject for each F# value declared (or imported in optimization expressions)  |
+| ``ValData``                 	 | ~12%         |  TAST   | per-value data, one object for each F# value declared (or imported in optimization expressions)  |
 | + others  | | | |
 | ``EntityData``                 | ~12%         | TAST | various types for per-type-or-module-or-namespace-definition data, for each F# type declared, or F# or .NET type imported |
 | ``TyconAugmentation``          | | | |
@@ -251,14 +251,14 @@ cases these have been bucketed:
 | ``ILBinaryReader+seekReadCustomAttrs@2627`` | | | |
 | ``Func<FSharpList<ILAttribute>>`` 	| | | |
 | ``Attrib``	     | | | |
-| ``Dictionary<Int32, String>``	 | ~3%         | TAST/AbsIL   | various tables including those used in readong binaries |
+| ``Dictionary<Int32, String>``	 | ~3%         | TAST/AbsIL   | various tables including those used in reading binaries |
 | ``Dictionary<String, String>`` | ~2%  | TAST/AbsIL | memoization tables for strings  |
 | ``EntityRef``               	 | ~2%  | TAST | nodes representing references to entities, pointing to an EntityData |
 | ``Ident``                      | ~1.5%    | TAST | identifiers - a range and a reference to a string |
 | ``TType_fun``                  | ~1.5%    | TAST | node for function types, especially in imported metadata |
 | ``TType_app``                  | ~1.5%    | TAST | node for constructed types like ``list<int>`` |
 | ``FSharpList<TType>``          | ~1.5%    | TAST | lists of types, usually in tuple and type applications |
-| ``TyparData``                  | ~1.5%    | TAST | data about type inference variables and gneric parameters |
+| ``TyparData``                  | ~1.5%    | TAST | data about type inference variables and generic parameters |
 | ``ValLinkagePartialKey``	     | ~1%  | TAST | data indicating how one assembly references a value/method/member in another |
 | ``ILTypeRef``	     | ~1%  | TAST/AbsIL | type references in AbstractIL metadata |
 | ``XmlDoc``	     | ~1%  | AST | documentation strings |
@@ -269,11 +269,11 @@ Looking at the above analysis, the conclusions at the time of writing are
 1. A considerable chunk of memory is used for in-memory copies of some referenced DLLs. In practice, this is difficult to
    avoid, as similar memory is also used even if using memory-mapped DLLs.
 
-2. Nearly all long-lived memory is related to the TAST nodes of the F# compiler data structure, or the related Abstract IL nodes for .NET asemblies being imported.
+2. Nearly all long-lived memory is related to the TAST nodes of the F# compiler data structure, or the related Abstract IL nodes for .NET assemblies being imported.
 
-3. The Abstract IL data structures for delayed-readaing of .NET type definitions use memory inefficiently
+3. The Abstract IL data structures for delayed-reading of .NET type definitions use memory inefficiently
 
-4. The Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
+4. The Abstract IL data structures for delayed-reading of .NET attributes use memory relatively inefficiently
 
 5. There is a considerable "long tail" of memory usage when categorized by type
 
@@ -294,7 +294,7 @@ There are micro savings available here if you hunt carefully.
 
 TBD - discusses topics related to compiler performance including phase costs, data structures, GC settings etc.
 
-## Geneated Code Performance 
+## Generated Code Performance 
 
 TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
 
@@ -305,8 +305,8 @@ The [Microsoft/visualfsharp](http://github.com/Microsoft/visualfsharp) and [fsha
 repositories are bootstrapped.  That is, an existing F# compiler is used to build a "proto" compiler from the current source
 code.  That "proto" compiler is then used to compile itself, producing a "final" compiler.  This ensures the final compiler is compiled with all relevant optimizations and fixes.
 
-The [FSharp.Compiler.Service] component is not bootstrapped and is simpy compiled with an existing F# compiler to produce
-a .NET 4.x component.  In  practice this is sufficient given the overall stability of the codebases.
+The [FSharp.Compiler.Service](https://www.NuGet.org/packages/FSharp.Compiler.Service) component is not bootstrapped and is simply compiled with an existing F# compiler to produce
+a .NET 4.x component.  In practice this is sufficient given the overall stability of the codebases.
 
 ## Didn't find what you want?
 
