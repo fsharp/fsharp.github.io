@@ -164,6 +164,15 @@ TBD - discusses topics related to compiler performance including phase costs, da
 
 TBD - discusses topics related to compiler and compiler service memory usage including data structures.
 
+## Bootstrapping
+
+The [Microsoft/visualfsharp](http://github.com/Microsoft/visualfsharp) and [fsharp/fsharp](http://github.com/fsharp/fsharp) 
+repositories are bootstrapped.  That is, an existing F# compiler is used to build a "proto" compiler from the current source
+code.  That "proto" compiler is then used to compile itself, producing a "final" compiler.  This ensures the final compiler is compiled with all relevant optimizations and fixes.
+
+The [FSharp.Compiler.Service] component is not bootstrapped and is simpy compiled with an existing F# compiler to produce
+a .NET 4.x component.  In  practice this is sufficient given the overall stability of the codebases.
+
 ## Didn't find what you want?
 
 Please [add an issue](https://github.com/fsharp/fsharp.github.io/issues) outlining what technical information you were looking 
