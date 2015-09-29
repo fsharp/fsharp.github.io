@@ -3,20 +3,19 @@ layout: default
 title: The F# Core Engineering Group Goals, Remit and Activities
 ---
 
-The F# Core Engineering Group: Goals and Remit
-==========================================
+# The F# Core Engineering Group: Goals and Remit
 
 This document describes the goals, remit and activities of the F# Core Engineering Group.
 
-# Goals
+## Goals
 
 To organise, promote and contribute to work on F#'s core tooling to make development pain free and fully featured, enable it on new platforms, host F# code in new ways and ensure best-practice engineering in the F# community.
 
-# Group Remit
+## Group Remit
 
 The group's remit covers the following areas:
 
-## Compiler, Core Library and Compiler Service 
+### Compiler, Core Library and Compiler Service 
 
 The group commits to ensuring the easy availability of the F# Compiler, Core library and Compiler Service on all major platforms at high quality. Particular points of activity are:
 
@@ -40,7 +39,7 @@ The group commits to ensuring the easy availability of the F# Compiler, Core lib
 - We aim to help facilitate cross-platform development on the compiler, core library and compiler service.
 
 
-## Editing/IDE Tools
+### Editing/IDE Tools
 
 The group aims to help the F# community deliver high quality, consistent, easy-to-install, reliable editing experiences for F# code on all major platforms and as many editors as feasible
 
@@ -65,12 +64,12 @@ We also aim to
 - Encourage and facilitate Notebook/Workbook experiences (iPython notebook)
 
 
-## Package Management
+### Package Management
 
 The group aim to contribute to improving package management and tools that support cross-platform F# development.
 
 
-## Virtual Machine Images/Containers
+### Virtual Machine Images/Containers
 
 The group encourages and facilitates the creation of pre-bundled VM images and containers which include F#, e.g.
 
@@ -78,7 +77,7 @@ The group encourages and facilitates the creation of pre-bundled VM images and c
 
 - Vagrant
 
-## Continuous Integration
+### Continuous Integration
 
 The group aim to 
 
@@ -133,16 +132,16 @@ We will look for inspiration from other package-based software communities for h
 
 
 
-## Hosting
+### Hosting
 
 The group aims to facilitate the development of new F# development experiences through “hosting” F# (whether client-side as an API, server-side or other variations).
 
 
-## Incubation Space
+### Incubation Space
 
 The group manages  and facilitates the [F# Community Incubation Space](http://github.com/fsprojects) as an incubation space for F# community projects.
 
-## Documentation
+### Documentation
 
 The group commits to 
 
@@ -157,7 +156,7 @@ The group commits to
 - Help the community create roadmaps for core libraries to improve functionality, engineering, and documentation
 
 
-## Interoperability
+### Interoperability
 
 The group aims to facilitate and encourage core interoperability tooling such as
 
@@ -165,12 +164,12 @@ The group aims to facilitate and encourage core interoperability tooling such as
 
 - Knowledge of tooling that can be used to interoperate with other systems
 
-## Distributed Computing Frameworks
+### Distributed Computing Frameworks
 
 While not part of the core remit of the group, we keep an eye on and encourage/facilitate the emerging distributed compute frameworks which work well with F# code, for example,  Akka.NET,  M-Brace/Cloud-F# and Orleans.
 
 
-# What We Don’t Do
+## What We Don’t Do
 
 We don’t maintain every library and tool that the F# community creates. Only the following components are “maintained” by this group. 
 
@@ -190,10 +189,10 @@ We don’t focus on tooling that relies on other minority 3rd party proprietary 
 
 Larger projects such as improved mobile support will probably need to end up as separate discussions with teams of volunteers. Most of these are mentioned in ‘Initial Remit’ above.
 
-# Possible Specific New Activities (as of late 2014)
+## Possible Specific New Activities (as of late 2014)
 
 
-## IDEs and Editors
+### IDEs and Editors
 
 Possible new activities include: 
 
@@ -203,7 +202,7 @@ Possible new activities include:
 
 - Apply the compiler services API to embed and integrate F# with other development experiences, e.g. ScriptCs + Edge.js + node
 
-## Libraries
+### Libraries
 
 Possible new activities include: 
 
