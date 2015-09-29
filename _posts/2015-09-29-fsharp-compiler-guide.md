@@ -70,7 +70,7 @@ In all these cases these distributions of F# include the core of the F# compiler
   A set of tables representing the available names, assemblies etc. in scope during type checking, plus
   associated information.
 
-* _Abstract IL_, the output of code generation, see [ILModuleDef in il.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/il.fsi#L1598)
+* _Abstract IL_, the output of binary generation and the input format when reading .NET assemblies, see [ILModuleDef in il.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/il.fsi#L1598)
 
 * _The .NET Binary format_ (with added "pickled" F# Metadata resource), the final output of fsc.exe, see the ECMA 335 specification and the [ilread.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilread.fs) and [ilwrite.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fs) binary reader/generator implementations.  The added F# metadata is stored in a binary resource, see [pickle.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/pickle.fs).
 
