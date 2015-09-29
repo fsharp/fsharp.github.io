@@ -232,35 +232,35 @@ cases these have been bucketed:
 | Type                           |   Approx %  |  Category | Cause  |
 |:------------------------------:|:-----------:|:---------:|:---------:|
 | ``MemChannel``                 |  ~20%       | TAST Abs/IL | In-memory representations of referenced DLLs. "System" DLLs are read using a memory-mapped file. |
-| ``ValData``                 	 | ~8%         |  TAST   | per-value data, one oject for each F# value declared (or imported in optimization expressions)  |
+| ``ValData``                 	 | ~12%         |  TAST   | per-value data, one oject for each F# value declared (or imported in optimization expressions)  |
 | + others  | | | |
-| ``EntityData``                 | ~8%         | TAST | various types for per-type-or-module-or-namespace-definition data, for each F# type declared, or F# or .NET type imported |
+| ``EntityData``                 | ~12%         | TAST | various types for per-type-or-module-or-namespace-definition data, for each F# type declared, or F# or .NET type imported |
 | ``TyconAugmentation``          | | | |
 |  ``PublicPath``                | | | |
 |  ``Lazy<ModuleOrNamespaceType>`` | | | |
 | ``Func<ModuleOrNamespaceType>`` | | | |
 | + others  | | | |
-| ``ILTypeDefs``, ``ILTypeDef``  | ~6%  | TAST/AbsIL | various types and delayed thinks for reading IL type definitions from .NET assemblies |
+| ``ILTypeDefs``, ``ILTypeDef``  | ~9%  | TAST/AbsIL | various types and delayed thinks for reading IL type definitions from .NET assemblies |
 | ``Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` | | | |
 | ``Lazy<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |  |  |  | 
 | ``Func<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |   | |  | 
 | ``Import+lazyModuleOrNamespaceTypeForNestedTypes@400``   | | | |
-| ``Lazy<FSharpList<ILAttribute>>`` | ~4%  | TAST/AbsIL | various types for delayed thunks for reading lists of attributes about .NET assemblies |
+| ``Lazy<FSharpList<ILAttribute>>`` | ~6%  | TAST/AbsIL | various types for delayed thunks for reading lists of attributes about .NET assemblies |
 | ``ILBinaryReader+seekReadCustomAttrs@2627`` | | | |
 | ``Func<FSharpList<ILAttribute>>`` 	| | | |
 | ``Attrib``	     | | | |
-| ``Dictionary<Int32, String>``	 | ~2%         | TAST/AbsIL   | various tables including those used in readong binaries |
-| ``Dictionary<String, String>`` | ~1.3%  | TAST/AbsIL | memoization tables for strings  |
-| ``EntityRef``               	 | ~1.2%  | TAST | nodes representing references to entities, pointing to an EntityData |
-| ``Ident``                      | ~1%    | TAST | identifiers - a range and a reference to a string
-| ``TType_fun``                  | ~1%    | TAST | node for function types, especially in imported metadata |
-| ``TType_app``                  | ~1%    | TAST | node for constructed types like ``list<int>`` |
-| ``FSharpList<TType>``          | ~1%    | TAST | lists of types, usually in tuple and type applications |
-| ``TyparData``                  | ~1%    | TAST | data about type inference variables and gneric parameters |
-| ``ValLinkagePartialKey``	     | ~0.5%  | TAST | data indicating how one assembly references a value/method/member in another |
-| ``ILTypeRef``	     | ~0.5%  | TAST/AbsIL | type references in AbstractIL metadata |
-| ``XmlDoc``	     | ~0.4%  | AST | documentation strings |
-| + a long tail of other types  | | | |
+| ``Dictionary<Int32, String>``	 | ~3%         | TAST/AbsIL   | various tables including those used in readong binaries |
+| ``Dictionary<String, String>`` | ~2%  | TAST/AbsIL | memoization tables for strings  |
+| ``EntityRef``               	 | ~2%  | TAST | nodes representing references to entities, pointing to an EntityData |
+| ``Ident``                      | ~1.5%    | TAST | identifiers - a range and a reference to a string
+| ``TType_fun``                  | ~1.5%    | TAST | node for function types, especially in imported metadata |
+| ``TType_app``                  | ~1.5%    | TAST | node for constructed types like ``list<int>`` |
+| ``FSharpList<TType>``          | ~1.5%    | TAST | lists of types, usually in tuple and type applications |
+| ``TyparData``                  | ~1.5%    | TAST | data about type inference variables and gneric parameters |
+| ``ValLinkagePartialKey``	     | ~1%  | TAST | data indicating how one assembly references a value/method/member in another |
+| ``ILTypeRef``	     | ~1%  | TAST/AbsIL | type references in AbstractIL metadata |
+| ``XmlDoc``	     | ~1%  | AST | documentation strings |
+| + a long tail of other types, most of which probably belong in the above general categories, increasing the totals to 100%  | | | |
 
 Looking at the above analysis, the conclusions at the time of writing are
 
@@ -280,7 +280,8 @@ For example:
 | ``FSharpList<...>``                 |  ~4%       | 
 | ``FSharpOption<...>``                 |  ~1.5%       | 
 | ``Tuple<...>``                 |  ~1.5%       | 
-| ``Map<...>``                 |  ~1%       | 
+| ``FSharpMap<...>``                 |  ~1%       | 
+| ``FSharpSet<...>``                 |  ~0% (negligible)       | 
 
 There are micro savings available here if you hunt carefully.
 
