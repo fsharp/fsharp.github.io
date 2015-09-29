@@ -170,7 +170,9 @@ Overall memory usage is a primary determinant of the usability of the F# compile
 the F# compiler serivce.  Overly high memory usage results in poor throughput (particularly due to increased GC times)
 and low user interface responsivity in tools such as Visual Studio or other editing environments.
 
-Overall memory usage depends considerably on scenario,phase adn configuration. Some key scenarios are:
+### Key scenarios for memory usage
+
+Overall memory usage depends considerably on scenario,phase and configuration. Some key scenarios are:
 * Overall memory usage of an instance of Visual Studio or another editing environment when editing F# projects
 * Overall memory usage of the Visual F# Power Tools in Visual Studio when editing and refactoring F# projects
 * Memory usage and throughput of the F# compiler fsc.exe
@@ -179,49 +181,55 @@ Overall memory usage depends considerably on scenario,phase adn configuration. S
 Analyzing memory usage of the F# Compiler and instances of the F# Compiler Service can be done using tools such
 as the Visual Studio Managed Memory analysis.  For example:
 
-* To analyze memory usage of Visual Studio you can take a process minidump of the devenv.exe process in Task Manager, then open that .dmp file in another instance of Visual Studio.
+### Analyzing memory usage
 
-```
-Microsoft.FSharp.Compiler.AbstractIL.ILBinaryReader+MemChannel	24	20,035,696	20,035,696
-Microsoft.FSharp.Compiler.Tast+ValData	14,456	3,674,796	16,367,960
-Dictionary<Int32, String>	61	2,190,612	2,190,612
-Microsoft.FSharp.Compiler.Tast+EntityData	16,018	1,890,800	148,685,060
-Dictionary<String, String>	422	1,380,636	1,380,936  Microsoft.FSharp.Compiler.AbstractIL.Internal.Library+Tables+memoize@782<String, String>	24
-Microsoft.FSharp.Compiler.Tast+EntityRef	75,237	1,203,792	58,333,884
-Microsoft.FSharp.Compiler.Ast+Ident	48,158	1,098,292	1,098,292
-Microsoft.FSharp.Quotations.ExprConstInfo+ValueOp	20,022	958,924	1,109,212
-Microsoft.FSharp.Compiler.Tast+TType+TType_fun	46,048	920,960	3,227,144
-Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.Tast+TType>	54,642	874,272	1,770,444
-Lazy<Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttribute>>	24,596	784,648	16,151,812
-Microsoft.FSharp.Compiler.Tast+TyparData	17,802	783,288	2,897,324
-Func<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>	24,420	781,440	1,855,856
-Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>	24,419	781,408	2,637,232
-Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDefs	6,719	780,648	4,938,452
-Func<Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttribute>>	24,395	780,640	15,036,988
-Microsoft.FSharp.Compiler.Tast+TyconAugmentation	16,018	704,792	5,896,576
-Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef	6,694	604,956	19,695,560
-Microsoft.FSharp.Compiler.Tast+PublicPath	15,993	592,944	592,944
-Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Quotations.FSharpExpr>	36,972	591,552	17,080,672
-Microsoft.FSharp.Quotations.FSharpExpr	33,804	540,864	23,174,608
-Microsoft.FSharp.Compiler.Import+lazyModuleOrNamespaceTypeForNestedTypes@400	12,698	507,920	507,920
-Lazy<Microsoft.FSharp.Compiler.Tast+ModuleOrNamespaceType>	16,018	501,008	100,136,884
-Microsoft.FSharp.Compiler.Tast+TType+TType_app	24,773	495,460	18,247,412
-Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>	24,419	488,380	488,380
-Microsoft.FSharp.Compiler.AbstractIL.ILBinaryReader+seekReadCustomAttrs@2627	24,394	487,880	13,963,620
-Microsoft.FSharp.Compiler.Tast+ValLinkagePartialKey	20,072	483,760	706,624
-Func<Microsoft.FSharp.Compiler.Tast+ModuleOrNamespaceType>	15,055	481,760	11,734,608
-Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeRef	12,816	458,996	1,291,104
-List<Tuple<Boolean, Microsoft.FSharp.Compiler.Tast+ValRef>>	16,018	424,816	504,432
-Microsoft.FSharp.Core.FSharpOption<String>	24,638	400,436	400,436
-Microsoft.FSharp.Compiler.Ast+XmlDoc	16,312	391,680	391,680
-Microsoft.FSharp.Collections.FSharpList<Tuple<Microsoft.FSharp.Collections.FSharpList<String>, Tuple<String, Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>>>>	24,420	390,720	3,809,360
-Tuple<String, Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>>	24,419	390,704	3,027,936
-Tuple<Microsoft.FSharp.Collections.FSharpList<String>, Tuple<String, Lazy<Tuple<Microsoft.FSharp.Compiler.AbstractIL.IL+ILScopeRef, Microsoft.FSharp.Compiler.AbstractIL.IL+ILAttributes, Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>>>>>	24,419	390,704	3,418,640
-Microsoft.FSharp.Compiler.Tast+Attrib	9,692	387,680	9,324,424
-Microsoft.FSharp.Collections.FSharpList<Microsoft.FSharp.Compiler.Tast+ArgReprInfo>	23,958	383,328	1,964,996
-Lazy<Microsoft.FSharp.Compiler.AbstractIL.IL+ILTypeDef>	14,131	371,864	898,412
-```
+To analyze memory usage of the Visual F# Tools in Visual Studio (with or without the Visual F# Power Tools) 
 
+1.  Take a process minidump of the devenv.exe process in Task Manager
+2.  Open that .dmp file in another instance of Visual Studio and click on "Debug Managed Memory"
+
+You can also compare to a baseline generated without using the Visual F# Tools.
+
+This buckets memory usage by type and lets you analyze the roots keeping those objects alive.  
+At the time of writing, these were some of the top types consuming managed memory were as follows. In some
+cases these have been bucketed:
+
+| Type                           |   Approx %  |  Category | Cause  |
+|:------------------------------:|:-----------:|:---------:|:---------:|
+| ``MemChannel``                 |  ~20%       | TAST Abs/IL | In-memory representations of referenced DLLs. "System" DLLs are read using a memory-mapped file. |
+| ``ValData``                 	 | ~10%         |  TAST   | per-value data, one oject for each F# value declared (or imported in optimization expressions)  |
+| ``EntityData``                 | ~7.0%         | TAST | various types for per-type-or-module-or-namespace-definition data, for each F# type declared, or F# or .NET type imported |
+| ``TyconAugmentation``          | | | |
+|  ``PublicPath``                | | | |
+|  ``Lazy<ModuleOrNamespaceType>`` | | | |
+| ``Func<ModuleOrNamespaceType>`` | | | |
+| + others  | | | |
+| ``ILTypeDefs``, ``ILTypeDef``  | ~6.0%  | TAST/AbsIL | various types and delayed thinks for reading IL type definitions from .NET assemblies |
+| ``Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` | | | |
+| ``Lazy<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |  |  |  | 
+| ``Func<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |   | |  | 
+| ``Import+lazyModuleOrNamespaceTypeForNestedTypes@400``   | | | |
+| ``Lazy<FSharpList<ILAttribute>>`` | ~3.5%  | TAST/AbsIL | various types for delayed thunks for reading lists of attributes about .NET assemblies |
+| ``ILBinaryReader+seekReadCustomAttrs@2627`` | | | |
+| ``Func<FSharpList<ILAttribute>>`` 	| | | |
+| ``Attrib``	     | | | |
+| ``Dictionary<Int32, String>``	 | ~2%         | TAST/AbsIL   | various tables including those used in readong binaries |
+| ``Dictionary<String, String>`` | ~1.3%  | TAST/AbsIL | memoization tables for strings  |
+| ``EntityRef``               	 | ~1.2%  | TAST | nodes representing references to entities, pointing to an EntityData |
+| ``Ident``                      | ~1%    | TAST | identifiers - a range and a reference to a string
+| ``TType_fun``                  | ~1%    | TAST | node for function types, especially in imported metadata |
+| ``TType_app``                  | ~1%    | TAST | node for constructed types like ``list<int>`` |
+| ``FSharpList<TType>``          | ~1%    | TAST | lists of types, usually in tuple and type applications |
+| ``TyparData``                  | ~1%    | TAST | data about type inference variables and gneric parameters |
+| ``ValLinkagePartialKey``	     | ~0.5%  | TAST | data indicating how one assembly references a value/method/member in another |
+| ``ILTypeRef``	     | ~0.5%  | TAST/AbsIL | type references in AbstractIL metadata |
+| ``XmlDoc``	     | ~0.4%  | AST | documentation strings |
+
+Looking at the above analysis, the conclusions at the time of writing are
+
+- the Abstract IL data structures for delayed-readaing of .NET type definitions use memory inefficiently
+
+- the Abstract IL data structures for delayed-readaing of .NET attributes use memory relatively inefficiently
 
 
 ## Bootstrapping
