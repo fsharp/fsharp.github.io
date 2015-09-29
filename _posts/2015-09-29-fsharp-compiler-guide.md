@@ -53,7 +53,7 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 * The [fsharp](https://github.com/Microsoft/visualfsharp/tree/master/src/fsharp) directory contains the core compiler logic
 
-* The [absil](https://github.com/Microsoft/visualfsharp/tree/master/src/fsharp) directory contains the Abstract IL library which the F# compiler uses
+* The [absil](https://github.com/Microsoft/visualfsharp/tree/master/src/absil) directory contains the Abstract IL library which the F# compiler uses
 
 ## Key Data Formats and Representations 
 
