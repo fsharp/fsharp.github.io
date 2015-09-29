@@ -6,8 +6,20 @@ subtitle: This technical guide discusses the F# Compiler.
 
 # F# Compiler Technical Overview
 
+## Contents
+* [Introduction](#introduction)
+* [Overview](#overview)
+* [Key Data Formats and Representations](#key-data-formats-and-representations)
+* [Key Compiler Phases](#key-compiler-hases)
+* [Compiler Startup Performance](#compiler-startup-performance)
+* [Compiler Memory Usage](#compiler-memory-usage)
+* [Bootstrapping](#bootstrapping)
+
+## Introduction
+
 This guide discusses the F# Compiler source code and implementation from a technical point of view.  
 See also [Contributing to the F# Language, Compiler and Core Library](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
+
 
 This guide can be read in conjunction with either
 
@@ -20,7 +32,7 @@ pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015
 If you have specific topics that you would like to see addressed in this guide, 
 please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 
-# Overview
+## Overview 
 
 The F# compiler repositories are used to produce a range of different artefacts.  For the purposes of this
 guide, the important ones are:
@@ -42,7 +54,7 @@ In all these cases these distributions of F# include the core of the F# compiler
 
 * The [absil](https://github.com/Microsoft/visualfsharp/tree/master/src/fsharp) directory contains the Abstract IL library which the F# compiler uses
 
-## Key Logical Structures
+## Key Data Formats and Representations 
 
 * _Input source files_  Read as Unicode text, or binary for referenced assemblies.
 
