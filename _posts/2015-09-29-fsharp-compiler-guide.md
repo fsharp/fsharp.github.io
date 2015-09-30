@@ -35,7 +35,7 @@ please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 
 ## Overview 
 
-The F# compiler repositories are used to produce a range of different artefacts.  For the purposes of this
+The F# compiler repositories are used to produce a range of different artifacts.  For the purposes of this
 guide, the important ones are:
 
 * The [FSharp.Compiler.Service](https://www.nuget.org/packages/FSharp.Compiler.Service) NuGet package and dll, 
