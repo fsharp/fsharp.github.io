@@ -42,12 +42,12 @@ guide, the important ones are:
 * The [FSharp.Compiler.Service](https://www.nuget.org/packages/FSharp.Compiler.Service) NuGet package and dll, 
   shipped as an integrated component in most  F# editor and scripting tools.
 
-* fsc.exe, fsi.exe and FSharp.Compiler.dll, the core binaries of the Visual F# tools for Windows, by Microsoft.  These tools also
-  include FSharp.LanguageService.Compiler.dll, a special trimmed-down build of the core of the F# compiler.
+* `fsc.exe`, `fsi.exe` and `FSharp.Compiler.dll`, the core binaries of the Visual F# tools for Windows, by Microsoft.  These tools also
+  include `FSharp.LanguageService.Compiler.dll`, a special trimmed-down build of the core of the F# compiler.
 
-* fsharpc, fsharpi, fsc.exe, fsi.exe, FSharp.Compiler.dll, the core binaries of the cross-platform open edition packages for F#, included in both Linux packages and Xamarin tooling for F#.
+* `fsharpc`, `fsharpi`, `fsc.exe`, `fsi.exe`, `FSharp.Compiler.dll`, the core binaries of the cross-platform open edition packages for F#, included in both Linux packages and Xamarin tooling for F#.
 
-* FSharp.Core.dll, see [the separate guide on versions and related matters](http://fsharp.github.io/2015/04/18/fsharp-core-notes.html).  Not covered in this guide except where there
+* `FSharp.Core.dll` (see [the separate guide on versions and related matters](http://fsharp.github.io/2015/04/18/fsharp-core-notes.html)) is not covered in this guide except where there
   is an interaction with the F# compiler core.
 
 In all these cases these distributions of F# include the core of the F# compiler:
@@ -94,13 +94,13 @@ The following are the key data formats and internal data representations of the 
 
 The following are the key phases and high-level logical operations of the F# compiler code in its various configurations:
 
-* _Basic Lexing._  Produces a token stream from input source file text.
+* _Basic lexing_.  Produces a token stream from input source file text.
 
 * _White-space sensitive lexing_.  Accepts and produces a token stream, augmenting per the F# Language Specification.
 
 * _Parsing_. Accepts a token stream and produces an AST per the grammar in the F# Language Specification.
 
-* _Resolving references_. See ReferenceResolution.fs/fsi.  
+* _Resolving references_. See [ReferenceResolution.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ReferenceResolution.fsi)/[ReferenceResolution.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ReferenceResolution.fs).  
   Accepts command-line arguments and produces information about assembly references. Uses MSBuild for some references, only really used in F# Interactive.
 
 * _Importing referenced .NET binaries_, 
@@ -188,7 +188,7 @@ On all platforms, the following factors affect startup performance:
 
 * Time to load compiler binaries.  This depends on the size of the generated binaries, whether they are pre-compiled (e.g. using NGEN), and the way the .NET implementation loads them.
 
-* Time to open referenced assemblies (e.g. mscorlib.dll, FSharp.Core.dll) and analyze them for the types and namespaces defined.  This depends particularly on whether this is correctly done in an on-demand way.  
+* Time to open referenced assemblies (e.g. `mscorlib.dll`, `FSharp.Core.dll`) and analyze them for the types and namespaces defined.  This depends particularly on whether this is correctly done in an on-demand way.  
 
 * Time to process "open" declarations are the top of each file.   Processing these declarations have been observed to take 
   time in some cases of  F# compilation.
@@ -214,7 +214,7 @@ Overall memory usage depends considerably on scenario,phase and configuration. S
 
 * Overall memory usage of an instance of Visual Studio or another editing environment when editing F# projects
 * Overall memory usage of the Visual F# Power Tools in Visual Studio when editing and refactoring F# projects
-* Memory usage and throughput of the F# compiler fsc.exe
+* Memory usage and throughput of the F# compiler `fsc.exe`
 * Memory usage and throughput of the F# Interactive dynamic scripting compiler fsi.exe
 
 Analyzing memory usage of the F# Compiler and instances of the F# Compiler Service can be done using tools such
@@ -246,7 +246,7 @@ percentages are approximate and depend on scenario. In some cases these have bee
 |  ``Lazy<ModuleOrNamespaceType>`` | | | |
 | ``Func<ModuleOrNamespaceType>`` | | | |
 | + others  | | | |
-| ``ILTypeDefs``, ``ILTypeDef``  | ~9%  | TAST/AbsIL | various types and delayed thinks for reading IL type definitions from .NET assemblies |
+| ``ILTypeDefs``, ``ILTypeDef``  | ~9%  | TAST/AbsIL | various types and delayed thunks for reading IL type definitions from .NET assemblies |
 | ``Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` | | | |
 | ``Lazy<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |  |  |  | 
 | ``Func<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |   | |  | 
