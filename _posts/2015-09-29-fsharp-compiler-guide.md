@@ -15,6 +15,12 @@ subtitle: This technical guide discusses the F# Compiler.
 * [Compiler Memory Usage](#compiler-memory-usage)
 * [Bootstrapping](#bootstrapping)
 
+Please help improve this guide by [editing it and submitting a
+pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
+If you have specific topics that you would like to see addressed in this guide, 
+please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
+
+
 ## Introduction
 
 This guide discusses the F# Compiler source code and implementation from a technical point of view.  
@@ -27,11 +33,6 @@ This guide can be read in conjunction with any or all of:
 * The [F# Compiler Service](http://github.com/fsharp/FSharp.Compiler.Service) repository
 
 These all include the same core code, and the relationship between them is described [here](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
-
-Please help improve this guide by [editing it and submitting a
-pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
-If you have specific topics that you would like to see addressed in this guide, 
-please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 
 ## Overview 
 
@@ -229,12 +230,14 @@ To analyze memory usage of the Visual F# Tools in Visual Studio (with or without
 You can also compare to a baseline generated without using the Visual F# Tools.
 
 This buckets memory usage by type and lets you analyze the roots keeping those objects alive.  
-At the time of writing, these were some of the top types consuming managed memory were as follows. In some
-cases these have been bucketed:
+At the time of writing, these were some of the top types consuming managed memory were as follows - the 
+percentages are approximate and depend on scenario. In some cases these have been bucketed:
 
 | Type                           |   Approx %  |  Category | Cause  |
 |:------------------------------:|:-----------:|:---------:|:---------:|
 | ``MemChannel``                 |  ~20%       | TAST Abs/IL | In-memory representations of referenced DLLs. "System" DLLs are read using a memory-mapped file. |
+|  ``ByteFile``                | | | |
+| + others  | | | |
 | ``ValData``                 	 | ~12%         |  TAST   | per-value data, one object for each F# value declared (or imported in optimization expressions)  |
 | + others  | | | |
 | ``EntityData``                 | ~12%         | TAST | various types for per-type-or-module-or-namespace-definition data, for each F# type declared, or F# or .NET type imported |
@@ -248,13 +251,26 @@ cases these have been bucketed:
 | ``Lazy<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |  |  |  | 
 | ``Func<Tuple<ILScopeRef, ILAttributes, Lazy<ILTypeDef>>`` |   | |  | 
 | ``Import+lazyModuleOrNamespaceTypeForNestedTypes@400``   | | | |
+| + others  | | | |
+| ``MapNode<string,Item>``  | ~10%  | TAST/NameResolution (in editor) | incremental TcState and name resolution environments stored for various open files and intermediate file points in an active Visual Studio sesson |
+| ``MapNode<string,EntityRef>``   | | | |
+| ``CapturedNameResolution``   | | | |
+| ``NameResolutionEnv``   | | | |
+| + others  | | | |
 | ``Lazy<FSharpList<ILAttribute>>`` | ~6%  | TAST/AbsIL | various types for delayed thunks for reading lists of attributes about .NET assemblies |
 | ``ILBinaryReader+seekReadCustomAttrs@2627`` | | | |
 | ``Func<FSharpList<ILAttribute>>`` 	| | | |
 | ``Attrib``	     | | | |
+| + others  | | | |
 | ``Dictionary<Int32, String>``	 | ~3%         | TAST/AbsIL   | various tables including those used in reading binaries |
 | ``Dictionary<String, String>`` | ~2%  | TAST/AbsIL | memoization tables for strings  |
-| ``EntityRef``               	 | ~2%  | TAST | nodes representing references to entities, pointing to an EntityData |
+| ``EntityRef``               	 | ~3%  | TAST | nodes representing references to entities, pointing to an EntityData |
+| ``NonLocalEntityRef``	     | | | |
+| + others  | | | |
+| ``SynExpr.App``               	 | ~3%  | AST | nodes for untyped syntax tree, kept by editor environment |
+| + others  | | | |
+| ``ILMethodDefs``, ``ILMethodDef``  | ~2%  | TAST/AbsIL | various types for reading IL methode definitions from .NET assemblies |
+| + others  | | | |
 | ``Ident``                      | ~1.5%    | TAST | identifiers - a range and a reference to a string |
 | ``TType_fun``                  | ~1.5%    | TAST | node for function types, especially in imported metadata |
 | ``TType_app``                  | ~1.5%    | TAST | node for constructed types like ``list<int>`` |
