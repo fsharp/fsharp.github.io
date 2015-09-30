@@ -13,7 +13,7 @@ One of the goals of the F# Core Engineering group is to help ensure best enginee
 
 In this post we outline some current recommended guidelines for naming and engineering for F# projects, packages and namespaces.
 We particularly focus on open projects such as those in the [F# Community Projects](http://fsharp.org/community/projects/) list or
-[packages in Nuget for an "FSharp" search](http://www.nuget.org/packages?q=fsharp).
+[packages in NuGet for an "FSharp" search](http://www.nuget.org/packages?q=fsharp).
 
 These are recommendations we make as a working group based on our remit as part of the F# Software Foundation. 
 They are not hard-and-fast rules, and are offered for discussion amongst
@@ -38,7 +38,7 @@ First, as a group we recognize that:
 5. We want to continue to encourage and scale the positive and productive spirit with which the F# community operates by sharing
    information about how to make successful, long-lasting and broad-reach components in a collaborative way.
 
-In light of these, we cover some specific recommendedations with regard to naming, quality and general advice below.
+In light of these, we cover some specific recommendations with regard to naming, quality and general advice below.
 They are written to augment the existing [F# Component Design Guidelines](http://fsharp.org/specs/component-design-guidelines/).
 Some of these recommendations may eventually be added to those guidelines.
 
@@ -86,7 +86,7 @@ For example,
 
 - [Deedle](http://bluemountaincapital.github.io/Deedle/) package
   is branded as "An exploratory data library for .NET" and includes a C#-facing API (implemented in F#). 
-  It was successfully renamed from "FSharp.Data.DataFrame" to broaden its reach, and at the time of writinng [a Google
+  It was successfully renamed from "FSharp.Data.DataFrame" to broaden its reach, and at the time of writing [a Google
   search for "C# DataFrame"](http://www.google.co.uk/#q=c%23+dataframe) brings Deedle as the first hit.
 
 Likewise, some projects are product-like or are actual products, often with reach beyond the worldwide community of F# developers
@@ -144,7 +144,7 @@ We encourage incubation of candidates for the FSharp.* namespace.  One way to do
 -	FSharp.Linq.Experimental.XYZ
 -	FSharp.Core.Experimental.XYZ
 
-The use of "Experimental" is is useful and recommended in early stages.  Renaming projects and packages is fairly well
+The use of "Experimental" is useful and recommended in early stages.  Renaming projects and packages is fairly well
 supported by GitHub and existing package managers, combined with global-search-and-replace.
 
 
@@ -173,13 +173,13 @@ or other community forums.
 ### Guideline: Apply good software engineering practice before publicizing your project
 
 Before you publicize an open, public-facing project, it pays to get all the basics in place to allow
-people to collaborate with you.  These are, minimially:  
+people to collaborate with you.  These are, minimally:  
 
 - *Naming*.  Get the naming of your project right. Make its purpose clear. 
 
 - *README* and *Road Map*.  Add a clear, simple README to your project. Make its purpose clear. Add a road map too.
 
-- *Packaging*.  Make a package for your library, component or tool. often this will be a nuget package, 
+- *Packaging*.  Make a package for your library, component or tool. often this will be a NuGet package, 
   but if it is some other kind of tool then make and publish the appropriate package. For example,
   the [Emacs mode for F#](http://fsharp.github.io/fsharpbinding/) is published as a MELPA package.
   Document how the package gets published.
@@ -191,13 +191,13 @@ people to collaborate with you.  These are, minimially:
 
 - *Tutorials*.  Ensure your project has tutorials as part of its documentation. Templates and examples are available in the [F# Project Scaffolding](https://github.com/fsprojects/ProjectScaffold)
 
-- *Vidoes*.  If you've given a talk on your project, add a link to the video. It's a great way to introduce yourself to potential contributors.
+- *Videos*.  If you've given a talk on your project, add a link to the video. It's a great way to introduce yourself to potential contributors.
 
-- *Continuous Integration*.  Add continuous integration build and testing to your project, for example using AppVeyor or Travis.  For AppVeyor, this is done by addding `appveyor.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/appveyor.yml)) and 
+- *Continuous Integration*.  Add continuous integration build and testing to your project, for example using AppVeyor or Travis.  For AppVeyor, this is done by adding `appveyor.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/appveyor.yml)) and 
   registering your project.  For Travis, you add a `.travis.yml` ([example](https://github.com/fsprojects/ProjectScaffold/blob/master/.travis.yml)) and register the project.
   Travis provides OSX and Linux machines - OSX machines are used if the language is set to "objective-c".
 
-- *Reach a Known State*.  Document all known issues.  Consider labelling somme of them as "up-for-grabs". Don't leave undocumented minefields in your package or tool.
+- *Reach a Known State*.  Document all known issues.  Consider labeling some of them as "up-for-grabs". Don't leave undocumented minefields in your package or tool.
 
 - *Cross-platform*.  If working on Windows, ensure your project uses a cross-platform build-and-test using Travis if possible.
 
@@ -220,7 +220,7 @@ Please contribute fixes and improvement to the scaffolding to make it easier for
 
 ### Guideline: Evolving code and new features should be carried out on a feature branch, and merged in only when ready
 
-Do not develop features in your "master" branch or published nuget packages.  Instead, use a feature branch, or a fork,
+Do not develop features in your "master" branch or published NuGet packages.  Instead, use a feature branch, or a fork,
 or a new project, or a component marked Experimental (or similar).
 
 <br />
@@ -370,7 +370,7 @@ of this space.
 ### Guideline: Do recruit additional contributors and maintainers of your project.
 
 Please contribute fixes and improvement to the project scaffolding to make it easier for others to use.  If you add your
-project to [The F# Community Incubation Space](http://github.com/fsprojects) then the owners of tha space will 
+project to [The F# Community Incubation Space](http://github.com/fsprojects) then the owners of the space will 
 also automatically be able to perform some maintenance tasks on your repository, including accepting pull requests
 or curating issues.
 

@@ -19,16 +19,16 @@ The group's remit covers the following areas:
 
 The group commits to ensuring the easy availability of the F# Compiler, Core library and Compiler Service on all major platforms at high quality. Particular points of activity are:
 
-- We work cooperativley with the Visual F# compiler team at Microsoft to allow open source contributions and integrate Microsoft updates to the F# open source release into the F# repositories on GitHub.  
+- We work cooperatively with the Visual F# compiler team at Microsoft to allow open source contributions and integrate Microsoft updates to the F# open source release into the F# repositories on GitHub.  
   (See [this blog entry](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) and [the Visual F# Team priorities](https://visualfsharp.codeplex.com/wikipage?title=Current%20Priorities%20))
 
 - We work cooperatively with Xamarin to integrate the F# Compiler into Mono release on the Mac and Linux
 
 - We enable testing for the open edition of the F# compiler, particularly through CI systems (Travis and AppVeyor)
 
-- We work cooperativley with  Debian packaging and other distributions to ensure Linux packages are available for F# on Debian and RPM, Gentoo/Arch builds
+- We work cooperatively with  Debian packaging and other distributions to ensure Linux packages are available for F# on Debian and RPM, Gentoo/Arch builds
 
-- We work cooperatively with the Visual F# compiler team to aligng code bases with Visual F# team repos
+- We work cooperatively with the Visual F# compiler team to align code bases with Visual F# team repos
 
 - We aim to keep the  [the homebrew formula](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/fsharp.rb) for F# up-to-date
 
@@ -118,7 +118,7 @@ We focus on tooling to support the generation of libraries by the F# community
 
 - PCL (portable class libraries) on all platforms
 
-We will consider having the FSSF “bless” libraries and tools through one or more of:
+We will consider having the FSSF “blessed” libraries and tools through one or more of:
 
 - Publishing them under a FSSF NuGet accounts
 
@@ -206,7 +206,7 @@ Possible new activities include:
 
 Possible new activities include: 
 
--  Clean out dead projects and packages. If projects continue to be of use to the general community and the current maintainers are happy with the idea, some of these projects should be considered for ‘upgrading’ to the fsharp github account and being promoted by the F# Foundation.
+-  Clean out dead projects and packages. If projects continue to be of use to the general community and the current maintainers are happy with the idea, some of these projects should be considered for ‘upgrading’ to the fsharp GitHub account and being promoted by the F# Foundation.
 
 - Improve existing Type Providers and ensure they work cross platform.
 

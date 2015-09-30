@@ -22,7 +22,7 @@ Current pain points:
 
 - [#r is not consistent on Mono/Linux/OSX](https://github.com/fsharp/fsharp/issues/251)
 
-- [fslang.uservoice.com](http://fslang.uservoice.com) is not a great site for making langauge/library suggestions
+- [fslang.uservoice.com](http://fslang.uservoice.com) is not a great site for making language/library suggestions
 
 - There are a [too many places to make suggestions and report issues](http://fsharp.org/guides/engineering/issues)
 
@@ -60,7 +60,7 @@ Current pain points:
 
 - Quality of some FSharp.* packages on nuget is poor and/or experimental
 
-- There are too many packages usng the FSharp.* name, especially two-word package names like FSharp.XYZ
+- There are too many packages using the FSharp.* name, especially two-word package names like FSharp.XYZ
 
 ### Documentation
 
