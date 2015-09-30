@@ -169,8 +169,8 @@ The following are the key phases and high-level logical operations of the F# com
 The above are the internal phases and transformations used to build the following:
 
 * _The F# Compiler Service API_, see 
-  [Symbols.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/Symbols.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/Symbols.fs), 
-  [service.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/service.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/vs/service.fs) 
+  [Symbols.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fs), 
+  [service.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fs) 
   and related files.
 
 * _The F# Interactive Shell_, see [fsi.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsi.fs) as a tool, and its presentation as an API  in [fsi.fs in the FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/fsi/fsi.fs).
