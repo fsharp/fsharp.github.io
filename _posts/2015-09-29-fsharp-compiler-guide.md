@@ -92,6 +92,10 @@ The following are the key data formats and internal data representations of the 
 
 ## Key Compiler Phases
 
+Below, you can see a diagram of how different phases of F# compiler work:
+
+<a href="/img/fscomp-phases.png"><img src="/img/fscomp-phases.png" /></a>
+
 The following are the key phases and high-level logical operations of the F# compiler code in its various configurations:
 
 * _Basic Lexing._  Produces a token stream from input source file text.
