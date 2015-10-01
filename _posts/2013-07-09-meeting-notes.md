@@ -41,9 +41,9 @@ Notes from the chat session (we didn’t take a full copy of the chat log):
  
 8. People said positive things about ExtCore, and perhaps that could be brought more into the center of the picture in the library space
  
-9. Don talked about how 60% of F# newcomers come through http://fsharp.org, and that that is the primary place we can inform people about F# and its associated tools.
+9. Don talked about how 60% of F# newcomers come through http://fsharp.org, and that is the primary place we can inform people about F# and its associated tools.
  
-10.  We talked through the RProvider as an example: a GitHub repo page doesn't cut it as a "landing page" for newcomers, e.g. for the RProvider. One solution is to make a github pages page for your project. Also, the RProvider has a nuget package, which wasn’t well known and is not discoverable.
+10.  We talked through the RProvider as an example: a GitHub repo page doesn't cut it as a "landing page" for newcomers, e.g. for the RProvider. One solution is to make a GitHub pages page for your project. Also, the RProvider has a nuget package, which wasn’t well known and is not discoverable.
  
 11. There was a lot of interest in having FSharp.Charting be cross-platform
  
@@ -69,13 +69,13 @@ Action items
 
 - @Don says he’ll send around resources on Vagrant including the standard VagrantFile for a VM that has F# 3.0 and Mono 3.0 installed.
 
-- @Rick says it's possible to make the matlab provider cross-platform, but he needs wrappers for matlab dynamic libraries that will be supported in mono. And he has no clue how to go about it.
+- @Rick says it's possible to make the Matlab provider cross-platform, but he needs wrappers for Matlab dynamic libraries that will be supported in mono. And he has no clue how to go about it.
 
 - @Robin says I will take “FSharp.Charting Cross Platform” to start.
 
 - @Don will send around a sample of using OxyPlot for cross-platform charting with PDFs
 
-- @Everyone agreed to send Rick feedback on the Matlab type provider (install a trial edition of matlab)
+- @Everyone agreed to send Rick feedback on the Matlab type provider (install a trial edition of Matlab)
 
 Participating founders (as of July 2013)
 

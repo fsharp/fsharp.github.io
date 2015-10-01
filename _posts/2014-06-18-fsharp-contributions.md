@@ -39,7 +39,7 @@ the core of the F# open source tools, especially in a cross-platform setting. Th
 You can browse our [core repos](https://github.com/fsharp) and the other 
 [community projects](http://fsharp.org/community/projects/). As you can see, there is a huge 
 amount going on in F# open source tooling, libraries and related initiatives! We encourage you 
-bothto  use and contribute to these initiatives.
+both to use and contribute to these initiatives.
 
 That said, there are some things we don't do:
 
@@ -76,7 +76,7 @@ Note that:
 
     The second of these contains additional changes for turning the F# compiler code into a compiler service component with a clean API.
 
-As shown in the diagram, your contributions will eventually be merged into two important downstream Git-enabled repos, both on github. In particular, your contributions will flow into the 
+As shown in the diagram, your contributions will eventually be merged into two important downstream Git-enabled repos, both on GitHub. In particular, your contributions will flow into the 
     [FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service) repo and its 
     [nuget package releases](http://www.nuget.org/packages/FSharp.Compiler.Service/). 
 
@@ -94,7 +94,7 @@ _all the F# tooling is ultimately derived from one professionally-tested codebas
 curated by the Visual F# team at Microsoft, which you can contribute to.   This helps ensure 
 the unity of both the F# language and its main implementations.
 
-Why We Ask You To Contribute via the Visual F# Tools Repo
+Why We Ask You To Contribute via the Visual F# Tools repo
 ---------------------------------------------------------
 
 In the above diagram, we ask you to submit your contributions to the F# Language, Compiler and Core 
