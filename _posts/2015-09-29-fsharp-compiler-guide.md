@@ -330,9 +330,7 @@ be interrupted and cancelled.  The documentation of the [F# Compiler Service Ope
 
 To clarify:
 
-* ``fsi.exe`` (F# Interactive) doesn’t use time slicing – it forces eventually computations synchronously without interruption
-
-*	``fsc.exe`` (F# Compiler) doesn’t use time slicing – it forces eventually computations synchronously without interruption
+* ``fsi.exe`` (F# Interactive) and ``fsc.exe`` don't use time sliced computations – they force ``eventually`` computations synchronously without interruption. 
 
 * Instances of the F# compiler service use time slicing for two things:
 
