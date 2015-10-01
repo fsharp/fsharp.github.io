@@ -319,6 +319,32 @@ TBD - discusses topics related to compiler performance including phase costs, da
 
 TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
 
+## Incremental Time Slicing and the Reactor thread in FSharp.Compiler.Service
+
+Some parts of the F# codebase (specifically, the type checker) 
+are written using ``eventually`` computation expressions, see [EventuallyBuilder](https://github.com/Microsoft/visualfsharp/blob/6a68e46d73763220cc9949e9540cbca0ecf9776a/tests/fsharpqa/Source/CodeGen/EmittedIL/ComputationExpressions/ComputationExprLibrary.fs#L88).  
+These define resumption-like computations which can be  time-sliced, suspended or discarded at "bind" points.
+
+This is done to ensure that long-running type-checking and other computations in the F# Compiler Service can 
+be interrupted and cancelled.  The documentation of the [F# Compiler Service Operations Queue](https://fsharp.github.io/FSharp.Compiler.Service/queue.html) covers some aspects of this.
+
+To clarify:
+
+* ``fsi.exe`` (F# Interactive) doesn’t use time slicing – it forces eventually computations synchronously without interruption
+
+*	``fsc.exe`` (F# Compiler) doesn’t use time slicing – it forces eventually computations synchronously without interruption
+
+* Instances of the F# compiler service use time slicing for two things:
+
+1.	The low-priority computations of the reactor thread (i.e. the background typechecking of the incremental builder)
+2.	The typechecking phase of TypeCheckOneFile which are high-priority computations on the reactor thread.
+
+The first can be interrupted by having the incremental builder dependency graph 
+(see [IncrementalBuild.fsi](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fsi)/[IncrementalBuild.fs](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fs)) 
+decide not to bother continuing with the computation (it drops it on the floor)
+
+The second can be interrupted via having ``isResultObsolete`` to the F# Compiler Service API return true.
+
 
 ## Bootstrapping
 
