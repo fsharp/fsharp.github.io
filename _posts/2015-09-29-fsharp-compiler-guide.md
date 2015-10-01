@@ -14,6 +14,7 @@ subtitle: This technical guide discusses the F# Compiler.
 * [Compiler Startup Performance](#compiler-startup-performance)
 * [Compiler Memory Usage](#compiler-memory-usage)
 * [Bootstrapping](#bootstrapping)
+* [``eventually`` computations](#eventually-computations)
 
 Please help improve this guide by [editing it and submitting a
 pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
@@ -319,7 +320,7 @@ TBD - discusses topics related to compiler performance including phase costs, da
 
 TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
 
-## ``Eventually`` Computations
+## ``eventually`` Computations
 
 Some parts of the F# codebase (specifically, the type checker) 
 are written using ``eventually`` computation expressions, see [EventuallyBuilder](https://github.com/Microsoft/visualfsharp/blob/6a68e46d73763220cc9949e9540cbca0ecf9776a/tests/fsharpqa/Source/CodeGen/EmittedIL/ComputationExpressions/ComputationExprLibrary.fs#L88).  
