@@ -319,7 +319,7 @@ TBD - discusses topics related to compiler performance including phase costs, da
 
 TBD - will discuss various aspects of generated code and the parts of the compiler responsible.
 
-## Incremental Time Slicing and the Reactor thread in FSharp.Compiler.Service
+## ``Eventually`` Computations
 
 Some parts of the F# codebase (specifically, the type checker) 
 are written using ``eventually`` computation expressions, see [EventuallyBuilder](https://github.com/Microsoft/visualfsharp/blob/6a68e46d73763220cc9949e9540cbca0ecf9776a/tests/fsharpqa/Source/CodeGen/EmittedIL/ComputationExpressions/ComputationExprLibrary.fs#L88).  
