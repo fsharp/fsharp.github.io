@@ -137,10 +137,6 @@ We will look for inspiration from other package-based software communities for h
 The group aims to facilitate the development of new F# development experiences through “hosting” F# (whether client-side as an API, server-side or other variations).
 
 
-### Incubation Space
-
-The group manages  and facilitates the [F# Community Incubation Space](http://github.com/fsprojects) as an incubation space for F# community projects.
-
 ### Documentation
 
 The group commits to 
