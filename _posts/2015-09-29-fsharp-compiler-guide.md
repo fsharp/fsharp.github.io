@@ -11,6 +11,7 @@ subtitle: This technical guide discusses the F# Compiler.
 * [Overview](#overview)
 * [Key Data Formats and Representations](#key-data-formats-and-representations)
 * [Key Compiler Phases](#key-compiler-phases)
+* [Abbreviations](#abbreviations)
 * [Compiler Startup Performance](#compiler-startup-performance)
 * [Compiler Memory Usage](#compiler-memory-usage)
 * [Bootstrapping](#bootstrapping)
@@ -183,6 +184,30 @@ The above are the internal phases and transformations used to build the followin
 
 * _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fscmain.fs).
 
+
+## Abbreviations
+
+The compiler codebase uses various abbreviations.  Here are some of them:
+
+| Abbreviation             |   Meaning  |  
+|:------------------------------:|:-----------:|
+| ``typar``                 |  Type Parameter |
+| TyparStaticReq            | static requirement on a type parameter |
+| ``tyvar``                | Type Variable, usually referring to an IL type variable, the compiled form of an F# type parameter |
+| ``scoref``              | The scope of a reference in IL metadata, either assembly, ``.netmodule`` or local |
+| ``g``                   | The TcGlobals value |
+| ``m``                   | A source code range marker |
+| ``celem``               | Custom attribute element |
+| ``mimpl``               | IL interface method implementation |
+| ``ccu``                | Reference to an F# compilation unit = an F# DLL (possibly including the DLL being compiled)  |
+| ``amap``                | Assembly map, saying how to map IL references to F# CCUs |
+
+| Phase Abbreviation             |   Meaning  |  
+|:------------------------------:|:-----------:|
+| ``Syn``                  | Abstract Syntax Tree |
+| ``Tc``                  | Type-checker |
+| ``IL``                 | Abstract  IL = F# representation of .NET IL |
+| ``Ilx``                 | Extended Abstract IL = .NET IL plus a coulpe of contructs that get erased |
 
 ## Compiler Startup Performance
 
