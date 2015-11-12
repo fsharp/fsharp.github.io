@@ -190,7 +190,7 @@ The above are the internal phases and transformations used to build the followin
 The compiler codebase uses various abbreviations.  Here are some of them:
 
 | Abbreviation             |   Meaning  |  
-|:------------------------------:|:-----------:|
+|:------------------------------|:-----------|
 | ``typar``                 |  Type Parameter |
 | TyparStaticReq            | static requirement on a type parameter |
 | ``tyvar``                | Type Variable, usually referring to an IL type variable, the compiled form of an F# type parameter |
@@ -203,7 +203,7 @@ The compiler codebase uses various abbreviations.  Here are some of them:
 | ``amap``                | Assembly map, saying how to map IL references to F# CCUs |
 
 | Phase Abbreviation             |   Meaning  |  
-|:------------------------------:|:-----------:|
+|:------------------------------|:-----------|
 | ``Syn``                  | Abstract Syntax Tree |
 | ``Tc``                  | Type-checker |
 | ``IL``                 | Abstract  IL = F# representation of .NET IL |
@@ -264,7 +264,7 @@ At the time of writing, these were some of the top types consuming managed memor
 percentages are approximate and depend on scenario. In some cases these have been bucketed:
 
 | Type                           |   Approx %  |  Category | Cause  |
-|:------------------------------:|:-----------:|:---------:|:---------:|
+|:------------------------------|-----------:|:---------|:---------|
 | ``MemChannel``                 |  ~20%       | TAST Abs/IL | In-memory representations of referenced DLLs. "System" DLLs are read using a memory-mapped file. |
 |  ``ByteFile``                | | | |
 | + others  | | | |
@@ -328,7 +328,7 @@ An alternative way to look at the data is at which F# types are being used ineff
 For example: 
 
 | F# Core Type                  |   Approx %  |  
-|:------------------------------:|:-----------:|
+|:------------------------------|-----------:|
 | ``FSharpList<...>``                 |  ~4%       | 
 | ``FSharpOption<...>``                 |  ~1.5%       | 
 | ``Tuple<...>``                 |  ~1.5%       | 
