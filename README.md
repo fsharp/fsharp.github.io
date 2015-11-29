@@ -19,7 +19,7 @@ facilitate open-source contributions to the F# core components. For example:
 Maintainers
 -----------
 
-Tha maintainers of this repository appointed by the F# Core Engineering Group are:
+The maintainers of this repository appointed by the F# Core Engineering Group are:
 
  - [Dave Thomas](https://github.com/7sharp9), [Tomas Petricek](http://github.com/tpetricek) 
  - with help and guidance from [Don Syme](http://github.com/dsyme), 
