@@ -340,7 +340,7 @@ Pass all assemblies through FxCop / Code Analysis and fix violations of the foll
 - [CA1304: Specify CultureInfo](http://msdn.microsoft.com/en-us/library/ms182189.aspx)
 - [CA1305: Specify IFormatProvider](http://msdn.microsoft.com/en-us/library/ms182190.aspx)
 - [CA1307: Specify StringComparison](http://msdn.microsoft.com/en-us/library/bb386080.aspx)
-- [CA1308: Normalize strings to uppercase]([http://msdn.microsoft.com/en-us/library/bb386042.aspx)
+- [CA1308: Normalize strings to uppercase](http://msdn.microsoft.com/en-us/library/bb386042.aspx)
 - [CA1309: Use ordinal StringComparison](http://msdn.microsoft.com/en-us/library/bb385972.aspx)
  
 
