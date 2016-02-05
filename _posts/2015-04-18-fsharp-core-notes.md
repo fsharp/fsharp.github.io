@@ -12,6 +12,7 @@ This technical guide discusses the FSharp.Core library.  Please help improve thi
 ## Contents
 {:.no_toc}
 
+* Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
 ## Introduction
