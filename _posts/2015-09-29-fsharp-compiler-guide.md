@@ -12,6 +12,7 @@ subtitle: This technical guide discusses the F# Compiler.
 * [Key Data Formats and Representations](#key-data-formats-and-representations)
 * [Key Compiler Phases](#key-compiler-phases)
 * [Abbreviations](#abbreviations)
+* [Optimizations](#optimizations)
 * [Compiler Startup Performance](#compiler-startup-performance)
 * [Compiler Memory Usage](#compiler-memory-usage)
 * [Bootstrapping](#bootstrapping)
@@ -236,6 +237,38 @@ The compiler codebase uses various abbreviations.  Here are some of them:
 | ``Tc``                  | Type-checker |
 | ``IL``                 | Abstract  IL = F# representation of .NET IL |
 | ``Ilx``                 | Extended Abstract IL = .NET IL plus a coulpe of contructs that get erased |
+
+
+## Optimizations
+
+The optimizations are performed in `Optimizer.fs`, `Detuple.fs`, `InnerLambdasToTopLevelFuncs.fs` and `LowerCallsAndSeqs.fs`.
+
+The optimizations in `Optimizer.fs` are:
+* propagation of known values (constants, x = y, lambdas, tuples/records/union-cases of known values)
+* inlining of known lambda values
+* eliminating unused bindings
+* eliminating sequential code when there is no side-effect
+* eliminating switches when we determine definite success or failure of pattern matching
+* eliminating getting fields from an immutable record/tuple/union-case of known value
+* expand tuple bindings "let v = (x1,...x3)" to avoid allocations if it's not used as a first class value
+* propogating cutting big functions into multiple methods, especially at match cases, to avoid massive methods that tak a long time to JIT
+* removing tailcalls when it is determined that no code in the transitive closure does a tailcall nor recurses
+
+
+### Potential future optimization: better inlining
+
+From [this user voice request](http://fslang.uservoice.com/forums/245727-f-language/suggestions/6137978-better-inlining-analysis-and-heuristic-algorithms): It would be great if the compiler can inline away CPS compositions like the following. 
+
+      let inline f k = (fun x -> k (x + 1)) 
+      let inline g k = (fun x -> k (x + 2)) 
+      (f << g) id 1 // 4
+
+That thread includes the insightful comment:
+  
+> The problem I've described in one of the links Jack has linked to is actually more basic than the OP's. It's that the first order function passed as an argument to a second order function is not inlined even if both the second and first order functions are marked as inline. This makes it so that using second order functions always comes with a performance penalty, which is not the case for first order functions.
+
+
+
 
 ## Compiler Startup Performance
 
