@@ -14,7 +14,6 @@ please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 # Contents
 {:.no_toc}
 
-* Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
 ## Introduction
