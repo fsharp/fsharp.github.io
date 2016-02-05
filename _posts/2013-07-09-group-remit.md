@@ -7,6 +7,11 @@ title: The F# Core Engineering Group Goals, Remit and Activities
 
 This document describes the goals, remit and activities of the F# Core Engineering Group.
 
+# Contents  
+{:.no_toc}  
+
+{:toc}  
+
 ## Goals
 
 To organise, promote and contribute to work on F#'s core tooling to make development pain free and fully featured, enable it on new platforms, host F# code in new ways and ensure best-practice engineering in the F# community.
