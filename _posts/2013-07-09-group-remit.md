@@ -7,7 +7,7 @@ title: The F# Core Engineering Group Goals, Remit and Activities
 
 This document describes the goals, remit and activities of the F# Core Engineering Group.
 
-# Contents  
+## Contents  
 {:.no_toc}  
 
 {:toc}  
