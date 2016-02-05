@@ -5,13 +5,14 @@ subtitle: This technical guide discusses the F# Compiler.
 ---
 
 # F# Compiler Technical Overview
+{:no_toc}
 
 Please help improve this guide by [editing it and submitting a
 pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
 If you have specific topics that you would like to see addressed in this guide, 
 please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 
-# Contents
+## Contents
 {:.no_toc}
 
 {:toc}
