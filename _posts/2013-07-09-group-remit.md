@@ -4,6 +4,7 @@ title: The F# Core Engineering Group Goals, Remit and Activities
 ---
 
 # The F# Core Engineering Group: Goals and Remit
+{:.no_toc}  
 
 This document describes the goals, remit and activities of the F# Core Engineering Group.
 
