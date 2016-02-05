@@ -5,9 +5,17 @@ subtitle: Naming, Engineering and General Advice
 ---
 
 # Recommended Guidelines for F# Projects, Packages and Namespaces 
+{:.no_toc}
 
 > Naming, Engineering and General Advice
 
+
+## Contents
+{:.no_toc}
+
+{:toc}
+
+## Introduction
 
 One of the goals of the F# Core Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
 
