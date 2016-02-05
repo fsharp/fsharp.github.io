@@ -6,8 +6,15 @@ subtitle: How Your Contributions to the F# Language, Compiler and Core Library A
 
 Contributing to the F# Language and Compiler
 ============================================
+{:.no_toc}  
 
 > How Your Contributions to the F# Language, Compiler and Core Library Are Delivered Cross-Platform.
+
+## Contents  
+{:.no_toc}  
+
+{:toc}  
+
 
 In this post, we outline how we, the [F# Core Engineering Group][fsg] (a technical working group of 
 [The F# Software Foundation][fsf]) – are collaborating with the [Visual F# Tools][fst] team at 
