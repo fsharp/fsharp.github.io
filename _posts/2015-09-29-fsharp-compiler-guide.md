@@ -6,23 +6,16 @@ subtitle: This technical guide discusses the F# Compiler.
 
 # F# Compiler Technical Overview
 
-## Contents
-* [Introduction](#introduction)
-* [Overview](#overview)
-* [Key Data Formats and Representations](#key-data-formats-and-representations)
-* [Key Compiler Phases](#key-compiler-phases)
-* [Abbreviations](#abbreviations)
-* [Optimizations](#optimizations)
-* [Compiler Startup Performance](#compiler-startup-performance)
-* [Compiler Memory Usage](#compiler-memory-usage)
-* [Bootstrapping](#bootstrapping)
-* [``eventually`` computations](#eventually-computations)
-
 Please help improve this guide by [editing it and submitting a
 pull-request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2015-09-29-fsharp-compiler-guide.md). 
 If you have specific topics that you would like to see addressed in this guide, 
 please [add an issue](https://github.com/fsharp/fsharp.github.io/issues).
 
+# Contents
+{:.no_toc}
+
+* Will be replaced with the ToC, excluding the "Contents" header
+{:toc}
 
 ## Introduction
 
