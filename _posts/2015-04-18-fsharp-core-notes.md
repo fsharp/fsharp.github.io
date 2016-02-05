@@ -389,7 +389,8 @@ So... for Visual Studio, the latest version of `FSharp.Core` can be obtained by 
 ## The FSharp.Core NuGet package
 
 FSharp.Core is also available [as a NuGet package](http://www.nuget.org/packages/FSharp.Core). 
-It is not yet normal to reference FSharp.Core via this package, though it is used by some F# library packages (as a transitive NuGet dependency). 
+
+It is now very common  to reference FSharp.Core via this package, and this may help greatly in some situations, e.g. developing portable libraries on Linux.  You may also find you reference this package via a  transitive NuGet dependency.
 
 At the time of writing, the relevant versions of the NuGet packages were as follows (check the package versions and descriptions 
 for latest information).
@@ -409,7 +410,7 @@ and other  extra "builds" of FSharp.Core for Xamarin-related portable profiles.
 * If you make the FSharp.Core NuGet package a dependency of your own NuGet package, you will induce a 
 transitive dependency that NuGet package for any users of your package,. This forces them to manage 
 their FSharp.Core dependency more manually via NuGet commands rather than via Visual Studio or other IDE
-tooling.  While useful in some situations, this should be done with caution.
+tooling.  Use caution if necessary.
 
 ## FSharp.Core version numbers
 
