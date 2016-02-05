@@ -5,10 +5,12 @@ subtitle: This technical guide discusses the FSharp.Core library.
 ---
 
 # Notes and Guidance on FSharp.Core
+{:.no_toc}
 
 This technical guide discusses the FSharp.Core library.  Please help improve this guide by [editing it and submitting a pull-request](https://github.com/fsharp/fsharp.github.io/blob/master/_posts/2015-04-18-fsharp-core-notes.md). 
 
 ## Highlights
+{:.no_toc}
 
 * [Do not bundle FSharp.Core with a library](#do-not-bundle-fsharp-core-with-a-library)  
 * [Do bundle FSharp.Core with an application](#do-deploy-fsharp-core-as-part-of-your-application)  
@@ -474,6 +476,7 @@ Version numbering system for recent and future releases
 
 
 ### About Us
+{:.no_toc}
 
 The F# Core Engineering Group is a working group associated with [The F# Software Foundation](http://fsharp.org).
 
