@@ -245,7 +245,7 @@ The optimizations in `Optimizer.fs` are:
 * eliminating switches when we determine definite success or failure of pattern matching
 * eliminating getting fields from an immutable record/tuple/union-case of known value
 * expand tuple bindings "let v = (x1,...x3)" to avoid allocations if it's not used as a first class value
-* propogating cutting big functions into multiple methods, especially at match cases, to avoid massive methods that tak a long time to JIT
+* propogating cutting big functions into multiple methods, especially at match cases, to avoid massive methods that take a long time to JIT
 * removing tailcalls when it is determined that no code in the transitive closure does a tailcall nor recurses
 
 
