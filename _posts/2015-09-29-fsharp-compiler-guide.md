@@ -436,6 +436,13 @@ decide not to bother continuing with the computation (it drops it on the floor)
 
 The second can be interrupted via having ``isResultObsolete`` to the F# Compiler Service API return true.
 
+### The F# Compiler Service Operations Queue
+
+The F# Compiler Service has [technical documentation on the operations queue](https://fsharp.github.io/FSharp.Compiler.Service/queue.html) used by the FSharpChecker component.
+
+### The F# Compiler Service Caches
+
+The F# Compiler Service has [technical documentation on the caches](https://fsharp.github.io/FSharp.Compiler.Service/caches.html) used by the FSharpChecker component.
 
 ## Bootstrapping
 
