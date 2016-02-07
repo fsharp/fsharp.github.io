@@ -179,10 +179,12 @@ The above are the internal phases and transformations used to build the followin
 
 * _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fscmain.fs).
 
+## Coding Standards and Idioms
 
-## Abbreviations
+### Abbreviations
 
-The compiler codebase uses various abbreviations.  Here are some of them:
+The compiler codebase uses various abbreviations. These aren't necessarily good standards but they are what's used. 
+Here are some of them:
 
 | Abbreviation             |   Meaning  |  
 |:------------------------------|:-----------|
