@@ -453,6 +453,123 @@ code.  That "proto" compiler is then used to compile itself, producing a "final"
 The [FSharp.Compiler.Service](https://www.NuGet.org/packages/FSharp.Compiler.Service) component is not bootstrapped and is simply compiled with an existing F# compiler to produce
 a .NET 4.x component.  In practice this is sufficient given the overall stability of the codebases.
 
+## FSharp.Build
+
+``FSharp.Build.dll`` and ``Microsoft.FSharp.targets`` give XBuild/MSBuild support for F# projects (``.fsproj``).  Although
+not strictly part of the F# compiler, these components are always found in F# tool distributions for Mono and Windows.
+
+Also, Mono's XBuild targets files [Microsoft.Common.targets](https://github.com/mono/mono/blob/ef407901f8fdd9ed8c377dbec8123b5afb932ebb/mcs/tools/xbuild/data/12.0/Microsoft.Common.targets) processes EmbeddedResource items differently to MSBuild and this can lead to differences in how things work.
+
+The best test project for understanding what's going on with resource names is ``tests\projects\Sample_VS2012_FSharp_ConsoleApp_net45_with_resource``.
+This includes various EmbeddedResource items and some custom "FsSrGen" items that give rise to resources.
+
+### How F# handles EmbeddedResource items differently to C# (details)
+
+F# differs subtly to C# in how EmbeddedResource items in ``.fsproj`` files are handled.
+
+When the ``Sample_VS2012_FSharp_ConsoleApp_net45_with_resource`` EmbeddedResource specifications
+(minus the FsSrGen one) are used in a C# project we get roughly these command line arguments:
+```
+/resource:obj\Debug\ResxResource.resources
+/resource:obj\Debug\ResxResourceWithLogicalName.resources,The.Explicit.Name.Of.ResxResourceWithLogicalName 
+/resource:obj\Debug\SubDir.ResxResourceInSubDir.resources 
+/resource:obj\Debug\SubDir.ResxResourceWithLogicalNameInSubDir.resources,The.Explicit.Name.Of.ResxResourceWithLogicalNameInSubDir 
+/resource:NonResxResourceWithLogicalName.txt,The.Explicit.Name.Of.NonResxResourceWithLogicalName 
+/resource:NonResxResource.txt,NonResxResource.txt 
+/resource:SubDir\NonResxResourceInSubDir.txt,SubDir.NonResxResourceInSubDir.txt 
+/resource:SubDir\NonResxResourceWithLogicalNameInSubDir.txt,The.Explicit.Name.Of.NonResxResourceWithLogicalNameInSubDir
+```
+
+This gives a .NET Binary with these resource names:
+```
+.mresource public ResxResource.resources
+.mresource public The.Explicit.Name.Of.ResxResourceWithLogicalName
+.mresource public SubDir.ResxResourceInSubDir.resources
+.mresource public The.Explicit.Name.Of.ResxResourceWithLogicalNameInSubDir
+.mresource public The.Explicit.Name.Of.NonResxResourceWithLogicalName
+.mresource public NonResxResource.txt
+.mresource public SubDir.NonResxResourceInSubDir.txt
+.mresource public The.Explicit.Name.Of.NonResxResourceWithLogicalNameInSubDir
+```
+
+For F# on Windows using MSBuild we get these command line arguments:
+
+```
+--resource:obj\Debug\ResxResource.resources 
+--resource:obj\Debug\ResxResourceWithLogicalName.resources 
+--resource:obj\Debug\SubDir.ResxResourceInSubDir.resources 
+--resource:obj\Debug\SubDir.ResxResourceWithLogicalNameInSubDir.resources 
+--resource:NonResxResourceWithLogicalName.txt 
+--resource:NonResxResource.txt 
+--resource:SubDir\NonResxResourceInSubDir.txt 
+--resource:SubDir\NonResxResourceWithLogicalNameInSubDir.txt
+--resource:obj\Debug\FSComp.resources 
+```
+
+This gives a .NET Binary with these resource names:
+
+```
+.mresource public ResxResource.resources
+.mresource public ResxResourceWithLogicalName.resources
+.mresource public SubDir.ResxResourceInSubDir.resources
+.mresource public SubDir.ResxResourceWithLogicalNameInSubDir.resources
+.mresource public NonResxResourceWithLogicalName.txt
+.mresource public NonResxResource.txt
+.mresource public NonResxResourceInSubDir.txt
+.mresource public NonResxResourceWithLogicalNameInSubDir.txt
+.mresource public FSComp.resources
+```
+
+For F# on Linux/OSX using Mono and XBuild we get:
+
+```
+--resource:obj/Debug/ResxResource.resources 
+--resource:obj/Debug/ResxResourceWithLogicalName.resources 
+--resource:obj/Debug/ResxResourceInSubDir.resources 
+--resource:obj/Debug/ResxResourceWithLogicalNameInSubDir.resources 
+--resource:obj/Debug/FSComp.resources 
+--resource:obj/Debug/FSCompLinkedInSuperDir.resources 
+--resource:obj/Debug/FSCompLinkedInSameDir.resources 
+--resource:obj/Debug/FSCompLinkedInSubDir.resources 
+--resource:obj/Debug/NonResxResourceWithLogicalName.txt 
+--resource:obj/Debug/NonResxResource.txt 
+--resource:obj/Debug/NonResxResourceInSubDir.txt 
+--resource:obj/Debug/NonResxResourceWithLogicalNameInSubDir.txt
+```
+This gives a .NET Binary with these resource names:
+
+```
+.mresource public ResxResource.resources 
+.mresource public ResxResourceWithLogicalName.resources 
+.mresource public ResxResourceInSubDir.resources 
+.mresource public ResxResourceWithLogicalNameInSubDir.resources 
+.mresource public FSComp.resources 
+.mresource public FSCompLinkedInSuperDir.resources 
+.mresource public FSCompLinkedInSameDir.resources 
+.mresource public FSCompLinkedInSubDir.resources 
+.mresource public NonResxResourceWithLogicalName.txt 
+.mresource public NonResxResource.txt 
+.mresource public NonResxResourceInSubDir.txt 
+.mresource public NonResxResourceWithLogicalNameInSubDir.txt
+```
+Note 
+
+* For both C# and F# on Windows ResX resources in subdirectories have ``SubDir`` prefixed. This is correct (C# also adds a default namespace, but the `RootNamespace`` property is not set by default in F# projects - I've removed it from the C# project).  
+
+* For F# on Windows, NonResX resources in subdirectories do not have ``SubDir`` prefixed.  This deviates from C# [Tracking Bug Issue](https://github.com/Microsoft/visualfsharp/issues/922).  It's unlikely we can change this at this point as it would be a breaking change but ideally it should be changed.
+
+* For F# on Linux, the resources are missing their subdirectory names in all cases.  [Tracking bug issue](https://github.com/fsharp/fsharp/issues/562)
+
+      .mresource public SubDir.ResxResourceInSubDir.resources
+
+  v.
+  
+      .mresource public ResxResourceInSubDir.resources
+
+* For F#, the explicit LogicalName property seems to be ignored even on Windows [Tracking issue](https://github.com/Microsoft/visualfsharp/issues/1050). 
+
+
+
 ## End Notes
 
 ### Didn't find what you want?
