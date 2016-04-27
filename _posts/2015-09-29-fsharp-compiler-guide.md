@@ -234,6 +234,44 @@ Here are some of them:
 | ``IL``                 | Abstract  IL = F# representation of .NET IL |
 | ``Ilx``                 | Extended Abstract IL = .NET IL plus a coulpe of contructs that get erased |
 
+## Error Messages and User-facing Text
+
+### Adding Error Messages
+
+Steffen Forkmann has written [an excellent introductory guide to adding a new error message](http://www.navision-blog.de/blog/2016/04/25/make-failure-great-again-a-small-journey-into-the-f-compiler/).
+
+### Formatting User Text from TAST items
+
+When formatting TAST objects such as ``TyconRef``s as text, you normally use either
+
+* The functions in the ``NicePrint`` module such as ``NicePrint.outputTyconRef``.  These take
+  a ``DisplayEnv`` that records the context in which a type was referenced, e.g. the open
+  namespaces.  Opened namespaces are not shown in the displayed output.
+
+* The ``DisplayName`` properties on the relevant object.  This drops the ``'n`` text that .NET
+  adds to the compiled name of a type, and uses the F#-facing name for a type rather than
+  the coompiled name for a type (e.g. the name given in a ``CompiledName`` attribute).
+
+* The functions such as ``Tastops.fullTextOfTyconRef``, usedd to show the full, qualified name of an item.
+
+When formatting "info" objects, see the functions in the ``NicePrint`` module.
+
+
+### Notes on displaying types
+
+When displaying a type, you will normally want to "prettify" the type first (i.e. make the type "pretty"). 
+This converts any remining type inference variables to new, better user-friendly type variables with names
+like ``'a''.  Various functions prettify types prior to display, e.g. ``NicePrint.layoutPrettifiedTypes``
+and others.
+
+When displaying multiple types in a comparative way, e.g. two types that didn't match, you will want to
+display the minimal amount of infomation to convey the fact that the two types are different, e.g.
+``NicePrint.minimalStringsOfTwoTypes``.
+
+When displaying a type, you have the option of displaying the constraints implied by any type variables
+mentioned in the types, appended as ``when ...``. For example, ``NicePrint.layoutPrettifiedTypeAndConstraints``.
+
+
 
 ## Performance 
 
