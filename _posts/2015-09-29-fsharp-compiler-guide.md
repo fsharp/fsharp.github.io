@@ -260,7 +260,7 @@ When formatting "info" objects, see the functions in the ``NicePrint`` module.
 ### Notes on displaying types
 
 When displaying a type, you will normally want to "prettify" the type first (i.e. make the type "pretty"). 
-This converts any remining type inference variables to new, better user-friendly type variables with names
+This converts any remaining type inference variables to new, better user-friendly type variables with names
 like ``'a''.  Various functions prettify types prior to display, e.g. ``NicePrint.layoutPrettifiedTypes``
 and others.
 
