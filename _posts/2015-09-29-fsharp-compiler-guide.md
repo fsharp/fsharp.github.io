@@ -250,9 +250,9 @@ When formatting TAST objects such as ``TyconRef``s as text, you normally use eit
 
 * The ``DisplayName`` properties on the relevant object.  This drops the ``'n`` text that .NET
   adds to the compiled name of a type, and uses the F#-facing name for a type rather than
-  the coompiled name for a type (e.g. the name given in a ``CompiledName`` attribute).
+  the compiled name for a type (e.g. the name given in a ``CompiledName`` attribute).
 
-* The functions such as ``Tastops.fullTextOfTyconRef``, usedd to show the full, qualified name of an item.
+* The functions such as ``Tastops.fullTextOfTyconRef``, used to show the full, qualified name of an item.
 
 When formatting "info" objects, see the functions in the ``NicePrint`` module.
 
@@ -261,7 +261,7 @@ When formatting "info" objects, see the functions in the ``NicePrint`` module.
 
 When displaying a type, you will normally want to "prettify" the type first (i.e. make the type "pretty"). 
 This converts any remaining type inference variables to new, better user-friendly type variables with names
-like ``'a''.  Various functions prettify types prior to display, e.g. ``NicePrint.layoutPrettifiedTypes``
+like ``'a``.  Various functions prettify types prior to display, e.g. ``NicePrint.layoutPrettifiedTypes``
 and others.
 
 When displaying multiple types in a comparative way, e.g. two types that didn't match, you will want to
