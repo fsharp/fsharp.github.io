@@ -295,8 +295,7 @@ Always explicitly stating cultural intent should ensure correct operation of the
 F# developers should be aware of the behaviour of F#'s [core operators](http://msdn.microsoft.com/en-us/library/ee353754.aspx) with respect to cultural sensitivity:-
 
 - F# and FSharp.Core always use Ordinal (non-cultural, case-sensitive) string comparison by default for "compare", "=", "<>", "<", ">", Seq.sort, Seq.sortBy, HashIdentity.Structural, ComparisonIdentity.Structural and so on
-- core operators `byte`, `decimal`, `float`, `float32`, `int`, `int16`, `int32`, `int64`, `sbyte`, `uint16`, `unit32`, `uint64` convert strings using the invariant culture
-- although core operator `string` is currently documented as "Converts the argument to a string using ToString." - i.e. System.Object.ToString, which would result in a culturally sensitive value-to-string conversion for numbers and DateTimes - in fact it converts numbers and DateTimes using the invariant culture.
+- core operators `byte`, `decimal`, `float`, `float32`, `int`, `int16`, `int32`, `int64`, `sbyte`, `uint16`, `unit32`, `uint64` convert strings using the invariant culture.
  
 F# developers can and should rely on the behaviour of these operators, and the need to be explicit about Invariant Culture conversions and Ordinal comparisons is removed when using these operators.    
 
