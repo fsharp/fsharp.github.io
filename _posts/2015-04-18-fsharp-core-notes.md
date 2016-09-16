@@ -231,6 +231,8 @@ assume your team or other users of your library are using.
 From the above, it can be seen that targeting F# 3.0 or 3.1 and Profile47 is a good choice for open source
 libraries.  (In Visual Studio 2013, this choice is labeled as "Portable Library (.NET 4.0, Windows Store, Silverlight 5.0)" though the generated libraries can also be used with  Xamarin Android  and Xamarin iOS.)
 
+You should always reference FSharp.Core via [the FSharp.Core nuget package](https://www.nuget.org/packages/FSharp.Core/) when preparing PCL libraries, since this will select the correct corresponding FSharp.Core version, including on Linux and OSX.
+
 To convert an existing project to a portable profile, it may well be easiest to  edit the project file by hand.
 See the project file fragments later in this guide.
 
