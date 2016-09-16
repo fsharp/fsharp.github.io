@@ -15,7 +15,7 @@ This technical guide discusses the FSharp.Core library.  Please help improve thi
 * [Do not bundle FSharp.Core with a library](#do-not-bundle-fsharp-core-with-a-library)  
 * [Do bundle FSharp.Core with an application](#do-deploy-fsharp-core-as-part-of-your-application)  
 * [FSharp.Core is binary compatible](#fsharp-core-is-binary-compatible)  
-* [C# projects referencing F# projects need an FSharp.Core reference](#a-c-project-referencing-an-f-dll-or-nuget-package-may-need-to-also-have-a-reference-to-fsharp-core-dll)  
+* [C# projects referencing F# projects need an FSharpap.Core reference](#a-c-project-referencing-an-f-dll-or-nuget-package-may-need-to-also-have-a-reference-to-fsharp-core-dll)  
 * [The FSharp.Core NuGet Package](#the-fsharp-core-nuget-package)  
 * [FSharp.Core version numbers](#fsharp-core-version-numbers)  
 
@@ -401,6 +401,8 @@ So... for Visual Studio, the latest version of `FSharp.Core` can be obtained by 
 FSharp.Core is also available [as a NuGet package](http://www.nuget.org/packages/FSharp.Core). 
 
 It is now very common  to reference FSharp.Core via this package, and this may help greatly in some situations, e.g. developing portable libraries on Linux.  You may also find you reference this package via a  transitive NuGet dependency.
+
+You should reference the FSharp.Core NuGet package when build PCL components, especially when working across multiple platforms.
 
 At the time of writing, the relevant versions of the NuGet packages were as follows (check the package versions and descriptions 
 for latest information).
