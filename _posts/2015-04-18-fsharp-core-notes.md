@@ -318,7 +318,6 @@ Using the appropriate reference text below is recommended.
         <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
     </PropertyGroup>
     <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
-  </Choose>
 ```
 
 * *PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
