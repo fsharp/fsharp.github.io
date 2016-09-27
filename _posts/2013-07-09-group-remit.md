@@ -21,6 +21,11 @@ To organise, promote and contribute to work on F#'s core tooling to make develop
 
 The group's remit covers the following areas:
 
+### Language Design Process
+
+We run the [F# Language and Core Library Design Process](http://fsharp.github.io/2016/09/26/fsharp-rfc-process.html).  This
+includes [F# Language Design UserVoice](http://fslang.uservoice.com).
+
 ### Compiler, Core Library and Compiler Service 
 
 The group commits to ensuring the easy availability of the F# Compiler, Core library and Compiler Service on all major platforms at high quality. Particular points of activity are:
@@ -28,7 +33,7 @@ The group commits to ensuring the easy availability of the F# Compiler, Core lib
 - We work cooperatively with the Visual F# compiler team at Microsoft to allow open source contributions and integrate Microsoft updates to the F# open source release into the F# repositories on GitHub.  
   (See [this blog entry](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) and [the Visual F# Team priorities](https://visualfsharp.codeplex.com/wikipage?title=Current%20Priorities%20))
 
-- We work cooperatively with Xamarin to integrate the F# Compiler into Mono release on the Mac and Linux
+- We work cooperatively with Xamarin to integrate the F# Compiler into Mono releases on the Mac and Linux
 
 - We enable testing for the open edition of the F# compiler, particularly through CI systems (Travis and AppVeyor)
 
@@ -36,9 +41,9 @@ The group commits to ensuring the easy availability of the F# Compiler, Core lib
 
 - We work cooperatively with the Visual F# compiler team to align code bases with Visual F# team repos
 
-- We aim to keep the  [the homebrew formula](https://github.com/Homebrew/homebrew/blob/master/Library/Formula/fsharp.rb) for F# up-to-date
+- We aim to keep the  [the homebrew formula](https://github.com/Homebrew/homebrew-core/blob/7a4dabfc1a2acd9f01a1670fde4f0094c4fb6ffa/Formula/mono.rb) for F# up-to-date
 
-- We help maintain and improve the PCL (Portable Class Library) support for F# across multiple platforms and devices
+- We help maintain and improve the PCL (Portable Class Library) and .NET Standard support for F# across multiple platforms and devices
 
 - We aim to improve the documentation quality of the core compiler and library components.
 
@@ -47,27 +52,7 @@ The group commits to ensuring the easy availability of the F# Compiler, Core lib
 
 ### Editing/IDE Tools
 
-The group aims to help the F# community deliver high quality, consistent, easy-to-install, reliable editing experiences for F# code on all major platforms and as many editors as feasible
-
-Currently the focus for “full featured” tooling is on 
-   
-   - Visual Studio additional tooling
-
-   - MonoDevelop/Xamarin Studio
-
-   - Emacs
-
-   - If necessary, facilitate 3rd-party tooling (Cloud Sharper, Tsunami etc.)
-
-   - Emerging editor bindings yet to reach critical sustained usage are Sublime, Vim
-
-We also aim to 
-
-- Help maintain the FSharpBinding as an important project for Windows/Mac/Linux open-source development tools
-
-- Assist with lightweight project support for other editors (LightTable,etc)
-
-- Encourage and facilitate Notebook/Workbook experiences (iPython notebook)
+The group aims to help the F# community deliver high quality, consistent, easy-to-install, reliable editing experiences for F# code on all major platforms and as many editors as feasible. We also aim to encourage and facilitate Notebook/Workbook experiences (e.g. iPython notebook)
 
 
 ### Package Management
@@ -79,9 +64,9 @@ The group aim to contribute to improving package management and tools that suppo
 
 The group encourages and facilitates the creation of pre-bundled VM images and containers which include F#, e.g.
 
-- Docker
+- Docker (e.g. [The Official Docker F# Image](https://github.com/fsprojects/docker-fsharp)
 
-- Vagrant
+- Vagrant (e.g. [this image](https://github.com/intellifactory/vagrant-fsharp/blob/master/ubuntu-trusty/Vagrantfile)
 
 ### Continuous Integration
 
@@ -136,6 +121,7 @@ The criteria for a library or framework to get this blessing will be rigorous - 
 
 We will look for inspiration from other package-based software communities for how to manage this process.
 
+We will loko to improve existing Type Providers and ensure they work cross platform.
 
 
 ### Hosting
@@ -175,9 +161,11 @@ While not part of the core remit of the group, we keep an eye on and encourage/f
 
 We don’t maintain every library and tool that the F# community creates. Only the following components are “maintained” by this group. 
 
-- The open edition of the F# compiler and core library
+- [The open edition of the F# compiler and core library](http://github.com/fsharp/fsharp)
 
-- The FSharpBinding project
+- [The F# Compiler Service](http://github.com/fsharp/FSharp.Compiler.Service)
+
+- [The F# RFC Process](http://github.com/fsharp/fsharp.github.io) and [FSharpLangDesign Notes](http://github.com/fsharp/FSharpLangDesign)
 
 All other projects are done on a cooperative basis with the project owners and F# community.
 
@@ -191,32 +179,10 @@ We don’t focus on tooling that relies on other minority 3rd party proprietary 
 
 Larger projects such as improved mobile support will probably need to end up as separate discussions with teams of volunteers. Most of these are mentioned in ‘Initial Remit’ above.
 
-## Possible Specific New Activities (as of late 2014)
-
-
-### IDEs and Editors
-
-Possible new activities include: 
-
-- Create Mono Portable library F# template for MonoDevelop/XS
-
-- Implement iOS designer for F# VS/XS
-
-- Apply the compiler services API to embed and integrate F# with other development experiences, e.g. ScriptCs + Edge.js + node
-
-### Libraries
-
-Possible new activities include: 
-
--  Clean out dead projects and packages. If projects continue to be of use to the general community and the current maintainers are happy with the idea, some of these projects should be considered for ‘upgrading’ to the fsharp GitHub account and being promoted by the F# Foundation.
-
-- Improve existing Type Providers and ensure they work cross platform.
-
-
-
 <br />
  
 _Published: 02 July 2013_  
 _Updated: 19 September 2014_  
+_Updated: 27 September 2016_
 
 _(on behalf of the F# Core Engineering group)_
