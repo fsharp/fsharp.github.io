@@ -30,13 +30,28 @@ facilitate open-source contributions to the F# core components. For example:
 
 * We cooperate with the [Debian packaging team](http://packages.qa.debian.org/f/fsharp.html) to see F# packaged on Debian.
 
-Membership of the group is currently informal: it is a name we give to the contributors to repositories such as [visualfsharp](http://github.com/Microsoft/visualfsharp),  [fsharp](http://github.com/fsharp/fsharp), [FSharp.Compiler.Service](http://github.com/fsharp/FSharp.Compiler.Service),   [FSharpLangDesign](http://github.com/fsharp/FSharpLangDesign) and this site, [fsharp.github.io](http://github.com/fsharp/fsharp.github.io).  
-
-The group is not responsible for all F# core engineering, but tries to help keep F# delivered and available widely through the above activities.
 
 ## Goals and Remit
 
 See  our [Goals and Remit](http://fsharp.github.io/2013/07/09/group-remit.html) document.
+
+##  Group Membership
+
+
+Membership of the group is currently informal: it is a name we give to the contributors to repositories such as [visualfsharp](http://github.com/Microsoft/visualfsharp),  [fsharp](http://github.com/fsharp/fsharp), [FSharp.Compiler.Service](http://github.com/fsharp/FSharp.Compiler.Service),   [FSharpLangDesign](http://github.com/fsharp/FSharpLangDesign) and this site, [fsharp.github.io](http://github.com/fsharp/fsharp.github.io).  
+
+The group is not responsible for all F# core engineering, but rather helpto  keep F# delivered and available widely through the above activities.
+
+The convenors of the F# Core Engineering Group are Dave Thomas, Tomas Petricek and Don Syme.
+You can contact them directly, though it is better to use one of the public forums above.
+
+There are many contributors to F# Core Engineering - see the repositories for ful contributor lists.
+
+Some specific contributors in non-coding areas are:
+* [Chester Husk III](https://github.com/baronfel/) - Language Design Issue Curation and other contributions
+* [Jared Hester](https://github.com/cloudRoutine) - Language Design Issue Curation and other contributions
+* [Kurt Schelfthout](https://github.com/kurtschelfthout) - Language RFC Curation and other contributions
+* [Marcus Griep](https://github.com/neoeinstein) - Language RFC Curation and other contributions
 
 ## Get Involved 
 
@@ -56,6 +71,7 @@ To get involved:
 Our mission is to maintain the excellent quality of the core F# implementation across these platforms,
 and to extend the tooling available for F# across your favorite platforms.
 
+If you have are working in some particular area and would ike to update your activity/responsibility, please [submit an edit to this page](https://github.com/fsharp/fsharp.github.io/edit/master/index.md).
 
 <a id="bloglist" > &nbsp; </a>
 <br />
@@ -96,5 +112,3 @@ Most group discussion happens in other forums. To contact the group, please eith
 If using the Xamarin, Microsoft or other packaging for F#, you should use
 the support contacts for those products.  They may also refer you to the above forums for some issues.
 
-The convenors of the F# Core Engineering Group are Michael Newtown, Dave Thomas, Tomas Petricek and Don Syme.
-You can contact them directly, though it is better to use one of the public forums above.
