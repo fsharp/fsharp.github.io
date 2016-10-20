@@ -7,16 +7,16 @@ subtitle: A link to the F# RFC process
 # The F# Language and Core Library RFC Process
 {:.no_toc}
 
-This post briefy mentions [the F# Language and Core Library RFC Process](https://github.com/fsharp/FSharpLangDesign/blob/master/README.md),
+This post briefy mentions [the F# Language and Core Library RFC Process](https://github.com/fsharp/fslang-design/blob/master/README.md),
 one of the activities of the FSSF Core Engineering Group.
 
 Since 2015, development of the F# Language and Core Library has been using an RFC process.
 
 1. Use [F# Language Suggestions](https://github.com/fsharp/fslang-suggestions/) to submit ideas, vote on them and discuss them.
 
-2. Ideas which get "approved in principle" get an [RFC entry](https://github.com/fsharp/FSharpLangDesign/tree/master/RFCs) based on the [template](https://github.com/fsharp/FSharpLangDesign/blob/master/RFC_template.md), and a corresponding [RFC discussion thread](https://github.com/fsharp/FSharpLangDesign/issues)
+2. Ideas which get "approved in principle" get an [RFC entry](https://github.com/fsharp/fslang-design/tree/master/RFCs) based on the [template](https://github.com/fsharp/fslang-design/blob/master/RFC_template.md), and a corresponding [RFC discussion thread](https://github.com/fsharp/fslang-design/issues)
 
-3. Implementations and testing are usually submitted to the [visualfsharp](https://github.com/Microsoft/visualfsharp/pulls) repository and then integrated to [fsharp](https://github.com/Microsoft/fsharp/fsharp) and  [FSharp.Compiler.Service](https://github.com/Microsoft/fsharp/FSharp.Compiler.Service)
+3. Implementations and testing are usually submitted to the [visualfsharp](https://github.com/Microsoft/visualfsharp/) repository and then integrated to [fsharp](https://github.com/fsharp/fsharp) and  [FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service)
 
 Please contribute to this process, either by creating RFCs, commenting on the discussion threads,
 sending pull requests to modify and clarify existing RFCs, or doing the implementation, testing and
