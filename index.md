@@ -17,7 +17,7 @@ facilitate open-source contributions to the F# core components. For example:
 
 * We run the [F# Language Design and Core Library RFC Process](http://fsharp.github.io/2016/09/26/fsharp-rfc-process.html)
 
-* We help maintain the "Use F#" guides such as [Use F# on Windows](http://fsharp.org/use/windows), [Use F# on Linux](http://fsharp.org/use/linux) and [Use F# on OSX](http://fsharp.org/use/osx).
+* We help maintain the "Use F#" guides such as [Use F# on Windows](http://fsharp.org/use/windows), [Use F# on Linux](http://fsharp.org/use/linux) and [Use F# on OSX](http://fsharp.org/use/mac).
 
 * We work cooperatively with the [Visual F# Tools team](http://blogs.msdn.com/b/fsharpteam) to 
   [facilitate contributions](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) to
