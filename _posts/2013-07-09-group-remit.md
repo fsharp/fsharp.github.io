@@ -24,7 +24,7 @@ The group's remit covers the following areas:
 ### Language Design Process
 
 We run the [F# Language and Core Library Design Process](http://fsharp.github.io/2016/09/26/fsharp-rfc-process.html).  This
-includes [F# Language Design UserVoice](http://fslang.uservoice.com).
+includes [F# Language Design GitHub](https://github.com/fsharp/fslang-suggestions).
 
 ### Compiler, Core Library and Compiler Service 
 
