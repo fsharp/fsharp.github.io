@@ -104,7 +104,7 @@ Most group discussion happens in other forums. To contact the group, please eith
 
 * [Ask questions on StackOverflow](http://stackoverflow.com/tags/f%23/info)
 * [Post to our Google Group](http://groups.google.com/group/fsharp-opensource)
-* [Propose or discuss an F# language feature](http://fslang.uservoice.com) - please check for duplicates first
+* [Propose or discuss an F# language feature](https://github.com/fsharp/fslang-suggestions) - please check for duplicates first
 * [Contribute an issue to the F# compiler and library](http://fsharp.github.io/2014/06/18/fsharp-contributions.html)
 * [Contribute an issue to other core repositories](http://github.com/fsharp)
 * [Contribute an issue to other F# community incubation projects](http://github.com/fsprojects)
