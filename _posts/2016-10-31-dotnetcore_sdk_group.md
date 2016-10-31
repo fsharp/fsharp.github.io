@@ -46,7 +46,7 @@ To help new contributors, we'll do some quick session focused on contribuing abo
 
 - Weekly chat about progress
 
-We'll start soon, so you can add yourself in https://goo.gl/7esjsF or join #dotnetcore channel in FSF slack for info.
+We'll start intro sessions soon, so you can add yourself in [https://goo.gl/7esjsF](https://goo.gl/7esjsF) or join #dotnetcore channel in FSF slack for info.
 
 ## Features and roadmap
 {:.no_toc}
