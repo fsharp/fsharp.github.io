@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Developer group about F# in .NET Core and .NET Core Sdk
+title: Developer group about F# in .NET Core and .NET Core SDK
 subtitle: Group focused to improve the F# story on .NET Core and integration in the .NET Core SDK
 ---
 
@@ -35,12 +35,15 @@ To help new contributors, we'll do some quick session focused on contribuing abo
 - Foundamentals:
   - Topics like .net core/coreclr/netstandard/msbuild/sdk/ide
   - How the sdk and f# integration works, from zero to final executable/package
+
 - Overview of areas who require help
   - Like compiler/ide/tooling/docs/testing/libraries/etc
   - Everyone has their own agenda and definition of fun
+
 - Quickstart how to hack dotnet sdk about f# integration
   - from clone repo -> hack -> check if works.
   - Same for core project too
+
 - Weekly chat about progress
 
 We'll start soon, so you can add yourself in https://goo.gl/7esjsF or join #dotnetcore channel in FSF slack for info.
