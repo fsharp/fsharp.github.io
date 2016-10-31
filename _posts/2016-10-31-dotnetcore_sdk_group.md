@@ -116,3 +116,5 @@ Some features are already implemented, some not, some are partial.
 - Mono, Xamarin, IOS, etc
 - List f# project who support or doesnt support netstandard1.6
 - Type Providers: require `netstandard2.0`
+
+Enrico Sada, Dave Thomas
