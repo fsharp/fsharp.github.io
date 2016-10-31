@@ -4,28 +4,28 @@ title: Developer group about F# in .NET Core and .NET Core SDK
 subtitle: Group focused to improve the F# story on .NET Core and integration in the .NET Core SDK
 ---
 
-# .NET Core Development Group
+# Towards a .NET Core Development Group
 {:.no_toc}
 
-Group focused to improve the F# story on .NET Core and integration 
+We propose to have a group focused to improve the F# story on .NET Core and integration 
 in the .NET Core SDK.
 
 ## Summary
 {:.no_toc}
 
-The goals is to improve the experience for:
+The goal is to improve the experience for:
 
 - New users
 - Existing projects in ecosystem who want to add .NET Core support
 
 Because the goal is about the whole experience, lots of different areas/projects are interested.
 
-It's not about using .NET Core, but about contributing to so F# will be awesome to use on .NET Core and .NET Core Sdk
+It's not about using .NET Core, but about contributing to so F# will be awesome to use on the .NET Core and .NET Core SDK.
 
 ## Want to help?
 {:.no_toc}
 
-Everyone can start contribute by himself already, everything is open source.
+Everyone can start contribute by him/herself already, everything is open source.
 
 But the topic is new and there were also various changes in the previous months (netstandard/project.json),
 so it's a bit difficult to get the current status, where start, where is going.
@@ -67,8 +67,8 @@ Some features are already implemented, some not, some are partial.
 ### Basics
 {:.no_toc}
 
-- Support for .NET Core Sdk preview3 (next version)
-- Msbuild based, fsproj
+- Support for .NET Core SDK preview3 (next version)
+- MSBUILD based, fsproj
   - Sdk+compiler from nuget package
 - Supported OS: same as .NET Core Sdk
 - Must be possibile to use normal workflow from sdk
