@@ -4,7 +4,7 @@ title: Developer group about F# in .NET Core and .NET Core SDK
 subtitle: Group focused to improve the F# story on .NET Core and integration in the .NET Core SDK
 ---
 
-# Towards a .NET Core Development Group
+# Starting an F# + .NET Core Development Group
 {:.no_toc}
 
 We propose to have a group focused to improve the F# story on .NET Core and integration 
