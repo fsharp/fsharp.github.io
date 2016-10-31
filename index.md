@@ -48,6 +48,7 @@ You can contact them directly, though it is better to use one of the public foru
 There are many contributors to F# Core Engineering - see the repositories for ful contributor lists.
 
 Some specific contributors in non-coding areas are:
+
 * [Chester Husk III](https://github.com/baronfel/) - Language Design Issue Curation and other contributions
 * [Jared Hester](https://github.com/cloudRoutine) - Language Design Issue Curation and other contributions
 * [Kurt Schelfthout](https://github.com/kurtschelfthout) - Language RFC Curation and other contributions
