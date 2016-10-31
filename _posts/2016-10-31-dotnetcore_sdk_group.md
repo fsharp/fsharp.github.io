@@ -10,6 +10,9 @@ subtitle: Group focused to improve the F# story on .NET Core and integration in 
 We propose to have a group focused to improve the F# story on .NET Core and integration 
 in the .NET Core SDK.
 
+Add yourself in https://goo.gl/7esjsF or join #dotnetcore channel in FSF slack for info.
+
+
 ## Summary
 {:.no_toc}
 
@@ -45,8 +48,6 @@ To help new contributors, we'll do some quick session focused on contribuing abo
   - Same for core project too
 
 - Weekly chat about progress
-
-We'll start soon, so you can add yourself in https://goo.gl/7esjsF or join #dotnetcore channel in FSF slack for info.
 
 ## Features and roadmap
 {:.no_toc}
