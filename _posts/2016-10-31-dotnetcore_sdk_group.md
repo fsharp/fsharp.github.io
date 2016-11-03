@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Developer group about F# in .NET Core and .NET Core SDK
+title: Starting an F# + .NET Core Development Group
 subtitle: Group focused to improve the F# story on .NET Core and integration in the .NET Core SDK
 ---
 
