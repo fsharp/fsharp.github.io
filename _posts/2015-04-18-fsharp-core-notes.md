@@ -89,6 +89,7 @@ There _are_ some exceptions to this.
   - VS2012 installs FSharp.Core 4.3.0.0 only
   - VS2013 installs FSharp.Core 4.3.1.0 only
   - VS2015 installs FSharp.Core 4.4.0.0 only
+  - VS2017 installs FSharp.Core 4.4.1.0 only
 
   If you can assume a particular version of Visual Studio (e.g. in a dev/test situation), then you may
   be able to assume FSharp.Core is in the GAC.  
