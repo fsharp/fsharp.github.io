@@ -89,6 +89,7 @@ There _are_ some exceptions to this.
   - VS2012 installs FSharp.Core 4.3.0.0 only
   - VS2013 installs FSharp.Core 4.3.1.0 only
   - VS2015 installs FSharp.Core 4.4.0.0 only
+  - VS2017 __doesn't__ install FSharp.Core to the GAC
 
   If you can assume a particular version of Visual Studio (e.g. in a dev/test situation), then you may
   be able to assume FSharp.Core is in the GAC.  
@@ -182,6 +183,7 @@ F# Interactive (`fsi.exe`) always references and uses the FSharp.Core of the cor
 - F# 3.0 --> 4.3.0.0
 - F# 3.1 --> 4.3.1.0
 - F# 4.0 --> 4.4.0.0
+- F# 4.1 --> 4.4.1.0
 
 F# Interactive can load PCL assemblies that reference compatible FSharp.Core
 
@@ -412,6 +414,8 @@ for latest information).
 
 * [The NuGet package for FSharp.Core for F# 4.0 (4.4.0.0)](https://www.nuget.org/packages/FSharp.Core/4.0.0.1) 
 
+* [The NuGet package for FSharp.Core for F# 4.1 (4.4.1.0)](https://www.nuget.org/packages/FSharp.Core/4.1.2) 
+
 Notes:
 
 * The NuGet package includes all of the FSharp.Core redistributables from Visual F#. In addition, they include 
@@ -433,6 +437,7 @@ Main .NET Framework DLLs (used at runtime for applications on .NET 4.x):
 | F# 3.0  | .NET 4.0+       |   4.3.0.0  |
 | F# 3.1  | .NET 4.0+       |   4.3.1.0  |
 | F# 4.0  | .NET 4.5+       |   4.4.0.0  |
+| F# 4.1  | .NET 4.5+       |   4.4.1.0  |
 
 Portable PCL profiles (used at compile-time for portable libraries, can also be used at runtime when testing or as part of Windows Phone/Store apps):
 
