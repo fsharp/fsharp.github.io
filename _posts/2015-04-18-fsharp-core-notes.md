@@ -16,8 +16,8 @@ This technical guide discusses the FSharp.Core library.  Please help improve thi
 * [Do bundle FSharp.Core with an application](#do-deploy-fsharp-core-as-part-of-your-application)  
 * [FSharp.Core is binary compatible](#fsharp-core-is-binary-compatible)  
 * [C# projects referencing F# projects need an FSharpap.Core reference](#a-c-project-referencing-an-f-dll-or-nuget-package-may-need-to-also-have-a-reference-to-fsharp-core-dll)  
-* [The FSharp.Core NuGet Package](#the-fsharp-core-nuget-package)  
-* [FSharp.Core version numbers](#fsharp-core-version-numbers)  
+* [The FSharp.Core NuGet Package](#the-fsharpcore-nuget-package)  
+* [FSharp.Core version numbers](#fsharpcore-version-numbers)  
 
 ## Contents
 {:.no_toc}
