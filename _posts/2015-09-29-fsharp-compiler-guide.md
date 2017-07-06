@@ -271,6 +271,85 @@ display the minimal amount of infomation to convey the fact that the two types a
 When displaying a type, you have the option of displaying the constraints implied by any type variables
 mentioned in the types, appended as ``when ...``. For example, ``NicePrint.layoutPrettifiedTypeAndConstraints``.
 
+## Type Providers
+
+### Design-time and Runtime Assemblies for Cross Targeting Type Providers
+
+We will use FSharp.Data as our example of a cross-targeting type provider.
+
+FSharp.Data.nupkg is basically made of two binaries
+* FSharp.Data.dll (runtime component, gets added as a reference when the nuget package gets installed)
+* FSharp.Data.DesignTime.dll (design-time component, gets Assembly.LoadFrom loaded by fsc.exe, fsi.exe, devenv.exe, FsAutoComplete.exe)
+
+The layout is currently:
+
+    lib\whatever-runtime-framework-moniker-1\FSharp.Data.dll
+    lib\whatever-runtime-framework-moniker-1\FSharp.Data.DesignTime.dll
+
+    lib\whatever-runtime-framework-moniker-2\FSharp.Data.dll
+    lib\whatever-runtime-framework-moniker-2\FSharp.Data.DesignTime.dll
+
+At the time of writing the design time compoenent is alongside the runtime component because [that's how the F# compiler locates the design-time component to load into the compiler given the runtime reference](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ExtensionTyping.fs#L54).   The [references node](https://github.com/fsharp/FSharp.Data/blob/master/nuget/FSharp.Data.nuspec#L34) in the nuspec mean that only FSharp.Data.dll gets added as reference to the project.
+
+Let’s assume the design time component is properly “cross-targeting”, that is:
+
+> Cross-targeting = capable of providing types and code compatible with any target framework and reference assembly set which is itself compatible with the runtime component 
+
+For example if we have
+
+    lib\netstandard1.6\FSharp.Data.dll
+    lib\netstandard1.6\FSharp.Data.DesignTime.dll
+
+then the design-time component must be able to provide suitable types and code correctly regardless of whether we are compiling for .NET 4.6, .NET Core App 2.0, .NET Standard 2.0 etc.
+
+Now, the design-time component doesn’t **have* * to be a .NET Standard 1.6 component – but it must be loadable into all of
+
+                fsc.exe (running on .NET Framework 32 bit)
+                fsi.exe (running on .NET Framework 32 bit)
+                fsiAnyCpu.exe (running on .NET Framework 64 bit)
+                devenv.exe (running on .NET Framework 32 bit)
+                FsAutoComplete.exe (running on .NET Framework 64 bit)
+                Any other host of FSharp.Compiler.Service.dll (running on .NET Framework 32 or 64 bit)
+
+                * fsc.exe (running on .NET Core)
+                * fsi.exe (running on .NET Core)
+                * fsiAnyCpu.exe (running on .NET Core)
+                * FsAutoComplete.exe (eventually running on .NET Core)
+                * Any other host of FSharp.Compiler.Service.dll (running on .NET Core)
+
+The ones marked * are all new requirements now we support running the F# compiler on .NET Core.
+
+Right now, we just assume the design-time component is suitable for loading into the compiler, and there will be an exception if it isn’t.  For example, it you make a 64-bit design-time component, then you can’t use it with devenv.exe.
+
+Given this, we could in theory have multiple design-time components and a process to select the right one.   The nuget package would have a shape like this:
+
+    lib\runtime-framework-moniker-1\FSharp.Data.dll
+    lib\runtime-framework-moniker-2\FSharp.Data.dll
+    build\design -framework-moniker-1\FSharp.Data.DesignTime.dll
+    build\design -framework-moniker-2\FSharp.Data.DesignTime.dll
+
+and we would adjust the part of FSharp.Compiler.Private.dll that loads type providers to respect this shape and load the right design-time DLL using some rules and some information about the system we’re running on.  This feels complex but maybe it is possible. Note that each design-time DLL has to still be able to provide code correctly for cross-targeting compilation
+
+The problem with all this is the spectacular complexity it induces for the type provider author, both in creating the package and testing the combinations.  We could implement all of this and almost no one would use it.  The complexities are mind blowing.
+
+In contrast, simply using .NET Standard 1.6 or 2.0 components for both the runtime component and the design-time component is, by comparison, much simpler, and seems to be sufficient for most cases.  See, for example, how the FSharp.Data nuspec looks after this simplification.
+
+There’s overlap here with Roslyn analyzers, though they don’t emit code.  There’s also overlap with Scala macros – and I know JetBrains and the Scala compiler team have gone back and forth on whether those should be run in-process, interpreted etc.  Running code at design-time which generates code for the target platform just screws with your head..   
+
+Recommendations to people would be:
+
+1.	If possible use netstandard2.0 for both runtime and design-time components 
+
+2.	If for some reason you have a runtime dependency on .NET Framework, then use net45, net461 etc  for your runtime component
+
+3.	If for some reason you have optional functionality which lights up on .NET Framework, then have both a net45 and a netstandard2.0 runtime components.  In both cases the neighbouring design-time component should still be netstandard2.0 if possible.
+
+4.	If for some reason you have a design-time dependency on a .NET Framework component (e.g. you are using a .NET Framework database connectivity library at compile-time), then ok, your design-time component becomes .NET 4.x, and you will not be able to use this type provider with any design-time tooling that executes using .NET Core.  You will have to apply the workaround in https://github.com/Microsoft/visualfsharp/issues/3303 even to compile your code.  Luckily for you, most design-time tooling like Visual Studio and FsAutoComplete executes using .NET Framework for some time to come.
+
+5.	If your requirements are completely fractal, then consider shipping multiple versions of your type provider, but still try to make the design-time components be netstandard2.0 if possible.
+
+
+
 
 
 ## Performance 
