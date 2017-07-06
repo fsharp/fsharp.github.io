@@ -348,7 +348,19 @@ Recommendations to people would be:
 
 5.	If your requirements are completely fractal, then consider shipping multiple versions of your type provider, but still try to make the design-time components be netstandard2.0 if possible.
 
+Some other comments about the design-time components:
 
+1.	There is a legacy [load from GAC](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ExtensionTyping.fs#L59) path that tries to load design-time DLLs using Assembly.Load.  This is stupid and never used, and we should just convert it to throw an error
+
+2.	The design time DLL may have dependencies. It is my understanding that these dependencies must be alongside the design-time DLL. However I’ve seen people implement adhoc AppDomain.AssemblyLoad event hackery to go looking for the dependencies in neighbouring pacakges.  Ugh. 
+
+3.	As I understand things the design-time DLLs can’t have their own binding redirect policy
+
+4.	Multiple different type provider dseign-time components may be loaded into the same host (devenv.exe, fsc.exe etc.).  This causes potential problems, e.g two different projects in VS may use two different FSharp.Data.DesignTime.dll.  We currently just ignore those problems – whatever happens happens.
+
+There’s no way to solve 2, 3 and 4 except to run each type provider in its own process (or app domain).  The same thing must come up with Roslyn analyzers. A few years ago we took a few passes at making the way we access information from type providers less object-oriented (System.Type etc.) and more service-oriented (one flat REST-like API, no state) but didn't complete the effort, it is hard.   
+
+Plugins which run at design-time and which generate expressions/types/code for the target platform have a lot of pitfalls…
 
 
 
