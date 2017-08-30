@@ -5,24 +5,24 @@ title: F# Core Engineering Activities
 
 <br />
 
-The "F# Core Engineering Group" is a loose term for the people who maintain and contribute to the repositories of [The F# Software Foundation](http://fsharp.org). We don't meet synchronously, all work is coordinated via github issues.
+The "F# Core Engineering Group" is a loose term for the people who maintain and contribute to the repositories of [The F# Software Foundation](http://fsharp.org). There are no "meetings", all work is coordinated via github issues.
 
 These people - both maintainers and contributors - work cooperatively with major industrial and community contributors to F# to facilitate open-source contributions to the F# core components. For example:
 
-* We run the [F# Language Design and Core Library RFC Process](http://fsharp.github.io/2016/09/26/fsharp-rfc-process.html)
+* They together run the [F# Language Design and Core Library RFC Process](http://fsharp.github.io/2016/09/26/fsharp-rfc-process.html)
 
-* We help maintain the "Use F#" guides such as [Use F# on Windows](http://fsharp.org/use/windows), [Use F# on Linux](http://fsharp.org/use/linux) and [Use F# on OSX](http://fsharp.org/use/mac).
+* They together help maintain the "Use F#" guides such as [Use F# on Windows](http://fsharp.org/use/windows), [Use F# on Linux](http://fsharp.org/use/linux) and [Use F# on OSX](http://fsharp.org/use/mac).
 
-* We work cooperatively with the [Visual F# Tools team](http://blogs.msdn.com/b/fsharpteam) to 
+* They together work cooperatively with the [Visual F# Tools team](http://blogs.msdn.com/b/fsharpteam) to 
   [facilitate contributions](http://fsharp.github.io/2014/06/18/fsharp-contributions.html) to
   the F# language, compiler and libraries via the [Visual F# Tools repository](https://github.com/Microsoft/visualfsharp)
 
-* We cooperate with the [Xamarin](http://xamarin.com) team to see F# packaged as part of Xamarin tools for [OSX](http://fsharp.org/use/mac), 
+* They together cooperate with the [Xamarin](http://xamarin.com) team to see F# packaged as part of Xamarin tools for [OSX](http://fsharp.org/use/mac), 
   [Android](http://fsharp.org/use/android) and [iOS](http://fsharp.org/use/ios).
 
-* We cooperate with the [Mono team](http://www.mono-project.com/) to see F# packaged as part of standard Mono distributions.
+* They together cooperate with the [Mono team](http://www.mono-project.com/) to see F# packaged as part of standard Mono distributions.
 
-* We cooperate with the [Debian packaging team](http://packages.qa.debian.org/f/fsharp.html) to see F# packaged on Debian.
+* They together cooperate with the [Debian packaging team](http://packages.qa.debian.org/f/fsharp.html) to see F# packaged on Debian.
 
 
 ## Goals and Remit
