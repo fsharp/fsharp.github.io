@@ -48,7 +48,7 @@ Some specific people with maintainer permissions are as follows:
 * [**fsharp**](http://github.com/fsharp/fsharp) - [Don Syme](https://github.com/dsyme/), Enrico Sada, Tomas Petricek  and http://github.com/fsharp/FSharp.Compiler.Service
 * [**FSharp.Compiler.Service**](http://github.com/fsharp/FSharp.Compiler.Service) [Don Syme](https://github.com/dsyme/), Enrico Sada, Tomas Petricek
 * [**fsharp.github.io**](http://github.com/fsharp/fsharp.github.io) - [Don Syme](https://github.com/dsyme/), Dave Thomas, Tomas Petricek  and http://github.com/fsharp/FSharp.Compiler.Service
-* [**fslang-design**](http://github.com/fsharp/fslang-design) and [**fslang-suggestions**](http://github.com/fsharp/fslang-suggestions) - [Chester Husk III](https://github.com/baronfel/), [Jared Hester](https://github.com/cloudRoutine), [Kurt Schelfthout](https://github.com/kurtschelfthout), [Marcus Griep](https://github.com/neoeinstein) - Language Design, Suggestion, RFC Curation and other contributions
+* [**fslang-design**](http://github.com/fsharp/fslang-design) and [**fslang-suggestions**](http://github.com/fsharp/fslang-suggestions) -  [Don Syme](https://github.com/dsyme/), [Chester Husk III](https://github.com/baronfel/), [Jared Hester](https://github.com/cloudRoutine), [Kurt Schelfthout](https://github.com/kurtschelfthout), [Marcus Griep](https://github.com/neoeinstein) - Language Design, Suggestion, RFC Curation and other contributions
 
 ## Get Involved 
 
