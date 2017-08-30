@@ -1,17 +1,13 @@
 ---
 layout: default
-title: The F# Core Engineering Group
+title: F# Core Engineering Activities
 ---
 
 <br />
 
-## About Us
+The "F# Core Engineering Group" is a loose term for the people who maintain and contribute to the repositories of [The F# Software Foundation](http://fsharp.org). We don't meet synchronously, all work is coordinated via github issues.
 
-The F# Core Engineering Group is a technical group associated with [The F# Software Foundation](http://fsharp.org).
-We manage the cross-platform and open-source [F# Compiler and Components](https://github.com/fsharp) repositories. 
-
-
-The group works cooperatively with major industrial and community contributors to F# to facilitate open-source contributions to the F# core components. For example:
+These people - both maintainers and contributors - work cooperatively with major industrial and community contributors to F# to facilitate open-source contributions to the F# core components. For example:
 
 * We run the [F# Language Design and Core Library RFC Process](http://fsharp.github.io/2016/09/26/fsharp-rfc-process.html)
 
@@ -33,20 +29,16 @@ The group works cooperatively with major industrial and community contributors t
 
 See  our [Goals and Remit](http://fsharp.github.io/2013/07/09/group-remit.html) document.
 
+The group dates back to 2013 and the FSSF board assigns permissions and conducts oversight of the activities [through a board resolution in 2015](http://foundation.fsharp.org/core_engineering_wg).
+
+
 ##  Group Membership
 
+The "group" is just a name given to contributors to repositories such as [visualfsharp](http://github.com/Microsoft/visualfsharp),  [fsharp](http://github.com/fsharp/fsharp), [FSharp.Compiler.Service](http://github.com/fsharp/FSharp.Compiler.Service), [FSharpLangDesign](http://github.com/fsharp/FSharpLangDesign) and this site, [fsharp.github.io](http://github.com/fsharp/fsharp.github.io).  
 
-Membership of the group is currently informal: it is a name given to contributors to repositories such as [visualfsharp](http://github.com/Microsoft/visualfsharp),  [fsharp](http://github.com/fsharp/fsharp), [FSharp.Compiler.Service](http://github.com/fsharp/FSharp.Compiler.Service), [FSharpLangDesign](http://github.com/fsharp/FSharpLangDesign) and this site, [fsharp.github.io](http://github.com/fsharp/fsharp.github.io).  
+Some specific people with permissions are:
 
-The group is not responsible for all F# core engineering, but rather help to keep F# delivered and available widely through the above activities.
-
-The convenors of the F# Core Engineering Group are Dave Thomas, Tomas Petricek and Don Syme.
-You can contact them directly, though it is better to use one of the public forums mentioned above.
-
-There are many contributors to F# Core Engineering - see the repositories for full contributor lists.
-
-Some specific contributors in non-coding areas are:
-
+* [Don Syme](https://github.com/dsyme/), Enrico Sada, Tomas Petricek - Have permissions under http://github.com/fsharp/fsharp and http://github.com/fsharp/FSharp.Compiler.Service
 * [Chester Husk III](https://github.com/baronfel/) - Language Design Issue Curation and other contributions
 * [Jared Hester](https://github.com/cloudRoutine) - Language Design Issue Curation and other contributions
 * [Kurt Schelfthout](https://github.com/kurtschelfthout) - Language RFC Curation and other contributions
