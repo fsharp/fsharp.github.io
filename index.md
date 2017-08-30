@@ -24,25 +24,31 @@ These people - both maintainers and contributors - work cooperatively with major
 
 * They together cooperate with the [Debian packaging team](http://packages.qa.debian.org/f/fsharp.html) to see F# packaged on Debian.
 
+The  [FAKE](http://github.com/fsharp/FAKE) repository is here for historical reasons. Thsi is not considered an FSSF repository.
+
+Please join in the fun!
+
 
 ## Goals and Remit
 
 See  our [Goals and Remit](http://fsharp.github.io/2013/07/09/group-remit.html) document.
 
-The group dates back to 2013 and the FSSF board assigns permissions and conducts oversight of the activities [through a board resolution in 2015](http://foundation.fsharp.org/core_engineering_wg).
+The group dates back to 2013 and the FSSF board assigns permissions and conducts oversight of the activities [through a board resolution in 2015](http://foundation.fsharp.org/core_engineering_wg).  
 
+The FSSF board appoint a "chairperson" who has responsibility for assigning permissions and arranging a degree of oversight. The last chairperson appointed was Tomas Petricek for 2015-16, a new chaiperson is currently being sought.
+
+Maintainer (pull-request) permissions for various repositories is listed below.
 
 ##  Group Membership
 
 The "group" is just a name given to contributors to repositories such as [visualfsharp](http://github.com/Microsoft/visualfsharp),  [fsharp](http://github.com/fsharp/fsharp), [FSharp.Compiler.Service](http://github.com/fsharp/FSharp.Compiler.Service), [FSharpLangDesign](http://github.com/fsharp/FSharpLangDesign) and this site, [fsharp.github.io](http://github.com/fsharp/fsharp.github.io).  
 
-Some specific people with permissions are:
+Some specific people with maintainer permissions are as follows:
 
-* [Don Syme](https://github.com/dsyme/), Enrico Sada, Tomas Petricek - Have permissions under http://github.com/fsharp/fsharp and http://github.com/fsharp/FSharp.Compiler.Service
-* [Chester Husk III](https://github.com/baronfel/) - Language Design Issue Curation and other contributions
-* [Jared Hester](https://github.com/cloudRoutine) - Language Design Issue Curation and other contributions
-* [Kurt Schelfthout](https://github.com/kurtschelfthout) - Language RFC Curation and other contributions
-* [Marcus Griep](https://github.com/neoeinstein) - Language RFC Curation and other contributions
+* [**fsharp**](http://github.com/fsharp/fsharp) - [Don Syme](https://github.com/dsyme/), Enrico Sada, Tomas Petricek  and http://github.com/fsharp/FSharp.Compiler.Service
+* [**FSharp.Compiler.Service**](http://github.com/fsharp/FSharp.Compiler.Service) [Don Syme](https://github.com/dsyme/), Enrico Sada, Tomas Petricek
+* [**fsharp.github.io**](http://github.com/fsharp/fsharp.github.io) - [Don Syme](https://github.com/dsyme/), Dave Thomas, Tomas Petricek  and http://github.com/fsharp/FSharp.Compiler.Service
+* [**fslang-design**](http://github.com/fsharp/fslang-design) and [**fslang-suggestions**](http://github.com/fsharp/fslang-suggestions) - [Chester Husk III](https://github.com/baronfel/), [Jared Hester](https://github.com/cloudRoutine), [Kurt Schelfthout](https://github.com/kurtschelfthout), [Marcus Griep](https://github.com/neoeinstein) - Language Design, Suggestion, RFC Curation and other contributions
 
 ## Get Involved 
 
