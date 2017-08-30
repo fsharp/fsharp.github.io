@@ -24,7 +24,7 @@ These people - both maintainers and contributors - work cooperatively with major
 
 * They together cooperate with the [Debian packaging team](http://packages.qa.debian.org/f/fsharp.html) to see F# packaged on Debian.
 
-The  [FAKE](http://github.com/fsharp/FAKE) repository is here for historical reasons. Thsi is not considered an FSSF repository.
+The [vim-fsharp](https://github.com/fsharp/vim-fsharp), [emacs-mode-fsharp](https://github.com/fsharp/emacs-fsharp-mode), [sublime-fsharp-package](https://github.com/fsharp) and [FAKE](http://github.com/fsharp/FAKE) repositories are here for historical reasons, they are not considered to be FSSF repositories.
 
 Please join in the fun!
 
