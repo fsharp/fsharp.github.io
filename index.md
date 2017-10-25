@@ -97,7 +97,7 @@ If you are working in some particular area and would like to update your activit
 
 ##  Contact Us
 
-Most group discussion happens in other forums. To contact the group use either:
+Most group discussion happens in other forums. To contact the group use any of the following:
 
 * [Ask questions on StackOverflow](http://stackoverflow.com/tags/f%23/info)
 * [Post to our Google Group](http://groups.google.com/group/fsharp-opensource)
@@ -106,4 +106,4 @@ Most group discussion happens in other forums. To contact the group use either:
 * [Contribute an issue to other core repositories](http://github.com/fsharp)
 * [Contribute an issue to other F# community incubation projects](http://github.com/fsprojects)
 
-If you are using a package F# from Xamarin, Microsoft or another company you should contact them via their support for any issues or questions. The may refer you to one of our forums for some specific issues.
+If you are using an F# package from Xamarin, Microsoft or another company then you should contact them via their support for any issues or questions. They may refer you to one of our forums for some specific issues.
