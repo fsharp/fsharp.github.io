@@ -414,7 +414,7 @@ for latest information).
 
 * [The NuGet package for FSharp.Core for F# 4.0 (4.4.0.0)](https://www.nuget.org/packages/FSharp.Core/4.0.0.1) 
 
-* [The NuGet package for FSharp.Core for F# 4.1 (4.4.1.0)](https://www.nuget.org/packages/FSharp.Core/4.1.2) 
+* [The NuGet package for FSharp.Core for F# 4.1 (4.4.1.0)](https://www.nuget.org/packages/FSharp.Core/4.1.17) 
 
 Notes:
 
