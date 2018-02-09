@@ -52,7 +52,7 @@ Especially, do _not_ include FSharp.Core in the ``lib`` folder of a NuGet packag
 
 For applications, FSharp.Core is normally part of the application itself (so-called "xcopy deploy" of FSharp.Core).  
 
-For modern tempaltes, this is the default. For older templates, you may need to use ``<Private>true</Private>`` in your project file. In  Visual Studio this is equivalent to setting the `CopyLocal` property to `true` properties for the `FSharp.Core` reference.
+For modern templates, this is the default. For older templates, you may need to use ``<Private>true</Private>`` in your project file. In  Visual Studio this is equivalent to setting the `CopyLocal` property to `true` properties for the `FSharp.Core` reference.
 
 FSharp.Core.dll will normally appear in the `bin` output folder for your application. For example:
 
