@@ -9,16 +9,6 @@ subtitle: This technical guide discusses the FSharp.Core library.
 
 This technical guide discusses the FSharp.Core library.  Please help improve this guide by [editing it and submitting a pull-request](https://github.com/fsharp/fsharp.github.io/blob/master/_posts/2015-04-18-fsharp-core-notes.md). 
 
-## Highlights
-{:.no_toc}
-
-* FSharp.Core is binary compatible
-* Bundle FSharp.Core with an application
-* Do not bundle FSharp.Core with a library
-* C# projects referencing F# projects may need an FSharp.Core reference
-* Always reference FSharp.Core via the NuGet Package
-* Do not assume FSharp.Core is in the GAC
-
 ## Contents
 {:.no_toc}
 
@@ -27,7 +17,18 @@ This technical guide discusses the FSharp.Core library.  Please help improve thi
 
 ## General Guidance 
 
+
+### FSharp.Core is binary compatible
+
+FSharp.Core is binary compatible across versions of the F# language. For example, FSharp.Core `4.0.0.0` (F# 2.0) is binary compatible with  `4.3.0.0` (F# 3.0), `4.3.1.0` (F# 3.1), `4.4.0.0` (F# 4.0) , `4.4.1.0` (F# 4.1), , `4.4.3.0` (F# 4.1+)  and so on.
+
+Likewise, FSharp.Core is binary compatible from "portable" and "netstandard" profiles to actual runtime implementations. For example, FSharp.Core  for `netstandard1.6` is binary compatible with the runtime implementation assembly `4.4.3.0` for .NET Core and .NET Framework apps.
+
+Binary compatibility means that a component built for X can instead bind to Y at runtime.
+It doesn't mean that Y behaves 100% the same as X (some bug fixes may have been made, and Y may have more functionality than X).
+
 ### Application v. Library v. Script
+{:.no_toc}
 
 Each project is either an *application* or a *library*.
 
@@ -48,7 +49,7 @@ The library and/or library package can place constraints on this, but it doesn't
 Especially, do _not_ include FSharp.Core in the ``lib`` folder of a NuGet package.
 
 
-### Deploy FSharp.Core as part of an application
+### Always deploy FSharp.Core as part of a compiled application
 
 For applications, FSharp.Core is normally part of the application itself (so-called "xcopy deploy" of FSharp.Core).  
 
@@ -76,15 +77,6 @@ If using new-style .NET SDK project files, use:
 
     <PackageReference Update="FSharp.Core" Version="4.2.3" />
 
-
-### FSharp.Core is binary compatible
-
-FSharp.Core is binary compatible across versions of the F# language. For example, FSharp.Core `4.0.0.0` (F# 2.0) is binary compatible with  `4.3.0.0` (F# 3.0), `4.3.1.0` (F# 3.1), `4.4.0.0` (F# 4.0) , `4.4.1.0` (F# 4.1), , `4.4.3.0` (F# 4.1+)  and so on.
-
-Likewise, FSharp.Core is binary compatible from "portable" and "netstandard" profiles to actual runtime implementations. For example, FSharp.Core  for `netstandard1.6` is binary compatible with the runtime implementation assembly `4.4.3.0` for .NET Core and .NET Framework apps.
-
-Binary compatibility means that a component built for X can instead bind to Y at runtime.
-It doesn't mean that Y behaves 100% the same as X (some bug fixes may have been made, and Y may have more functionality than X).
 
 ### Libraries should target lower versions of FSharp.Core
 
@@ -120,6 +112,7 @@ of FSharp.Core.
 In compiled applications, you should never assume that 
 FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
 deploy the appropriate FSharp.Core as part of your application.  
+
 
 ## Further Technical Notes
 
@@ -158,6 +151,10 @@ This is located in a section of the app.config like this:
 
 Application project files should normally also specify `AutoGenerateBindingRedirects` which allows tooling to 
 help keep the binding redirects up-to-date, see below.
+
+### Some systems supporting F# (e.g. Azure Functions, Azure Notebooks, F# Interactive) may assume a fixed FSharp.Core
+
+Some deployments of F# programming may assume a fixed FSharp.Core, e.g. earlier versions of Azure Functions, F# Interactive (see below) and so on.
 
 ### FSharp.Core in F# Interactive
 {:.no_toc}
