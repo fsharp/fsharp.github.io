@@ -64,7 +64,7 @@ FSharp.Core.dll will normally appear in the `bin` output folder for your applica
     14/10/2014  12:12         1,400,472 FSharp.Core.dll
 ```
 
-## Always reference FSharp.Core via the NuGet package.
+### Always reference FSharp.Core via the NuGet package.
 
 FSharp.Core is now always referenced via [the NuGet package](http://www.nuget.org/packages/FSharp.Core). 
 
