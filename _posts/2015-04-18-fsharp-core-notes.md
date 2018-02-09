@@ -97,7 +97,7 @@ As of February 2018 new editions of F# libraries should generally do the followi
 * Be `netstandard1.6`, or `netstandard2.0` with an additional .NET Framework 4.5 (`net45`) build
 * Use FSharp.Core nuget 4.2.3 (assembly version 4.4.1.0) or 4.3.3 (assembly version 4.4.3.0)
 
-You should no longer to make your library a PCL "Portable" component. They are deprecated.
+You should no longer make your library a PCL "Portable" component. They are deprecated.
 
 For personal libraries, or libraries that are effectively part of an application, the choice is yours, just target
 the latest language version and the framework you're using in your application.
