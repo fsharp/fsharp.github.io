@@ -312,6 +312,7 @@ When using new-style .NET SDK project files, Just add:
 or another appropriate version, see above.
 
 ### New-style F# project files: Use ``TargetFSharpCoreVersion``
+{:.no_toc}
 
 It is normal for all F# components to define the property TargetFSharpCoreVersion:
 
@@ -395,11 +396,13 @@ When using new-style .NET SDK project files, Just add:
 For components  created with earlier F# tooling (e.g. Visual Studio 2012 or before), project files may use different reference text. These should generally be adjusted to use the formulations above, this may be done automatically by some tooling.
 
 ### Old-style F# project files: FSharp.Core in Xamarin project files
+{:.no_toc}
 
 FSharp.Core is referenced as a Private/CopyLocal component in Xamarin apps for mobile devices.  This reference should be done via a nuget package rather than an implicit reference.
 
 
 ### Old-style F# project files: Missing FSharp.Core References in .fsproj Project Files
+{:.no_toc}
 
 This section deals with how .fsproj project files that are missing an FSharp.Core reference are handled by different tooling.
 
