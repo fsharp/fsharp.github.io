@@ -12,12 +12,12 @@ This technical guide discusses the FSharp.Core library.  Please help improve thi
 ## Highlights
 {:.no_toc}
 
-* Do not bundle FSharp.Core with a library
-* Bundle FSharp.Core with an application
 * FSharp.Core is binary compatible
+* Bundle FSharp.Core with an application
+* Do not bundle FSharp.Core with a library
 * C# projects referencing F# projects may need an FSharp.Core reference
 * Always reference FSharp.Core via the NuGet Package
-* Tables of FSharp.Core version and package numbers
+* Do not assume FSharp.Core is in the GAC
 
 ## Contents
 {:.no_toc}
@@ -103,7 +103,7 @@ For personal libraries, or libraries that are effectively part of an application
 the latest language version and the framework you're using in your application.
 
 
-### Applications target higher versions of FSharp.Core
+### Applications should target higher versions of FSharp.Core
 
 F# applications should generally use the *highest* language version and the most *platform-specific* version of FSharp.Core.
 
@@ -115,25 +115,16 @@ in open source working) you may need to target a lower version of the language a
 of FSharp.Core.
 
 
-## FSharp.Core version and NuGet  package numbers
+### Do *not* assume FSharp.Core is in the GAC
 
-See [the F# version information RFC](https://github.com/fsharp/fslang-design/blob/master/tooling/FST-1004-versioning-plan.md).
+In compiled applications, you should never assume that 
+FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
+deploy the appropriate FSharp.Core as part of your application.  
 
-
-Main .NET Framework DLLs (used at runtime for applications on .NET 4.x):
-
-|         |                 |   Version  | Nuget |
-|:-------:|:---------------:|:-----------|:------|
-| F# 2.0  | .NET 4.0+       |   4.0.0.0  |       |
-| F# 3.0  | .NET 4.0+       |   4.3.0.0  | [3.0.2](https://www.nuget.org/packages/FSharp.Core/3.0.2) |
-| F# 3.1  | .NET 4.0+       |   4.3.1.0  | [3.1.2.5](https://www.nuget.org/packages/FSharp.Core/3.1.2.5) |
-| F# 4.0  | .NET 4.5+, pcls       |   4.4.0.0  | [4.0.0.1](https://www.nuget.org/packages/FSharp.Core/4.0.0.1) |
-| F# 4.1  | .NET 4.5+, netstandard1.6+       |   4.4.1.0  | [4.2.3](https://www.nuget.org/packages/FSharp.Core/4.1.1.18) |
-| F# 4.1x | .NET 4.5+, netstandard1.6+       |   4.4.3.0  | [4.3.3](https://www.nuget.org/packages/FSharp.Core/3.0.2) |
-
-
+## Further Technical Notes
 
 ### Use Binding Redirects for Applications
+{:.no_toc}
 
 If applications use library components that reference an earlier FSharp.Core, then they may need binding redirects
 to specify that those libraries should bind to the actual FSharp.Core used as part of the application.
@@ -169,6 +160,7 @@ Application project files should normally also specify `AutoGenerateBindingRedir
 help keep the binding redirects up-to-date, see below.
 
 ### FSharp.Core in F# Interactive
+{:.no_toc}
 
 F# Interactive (`fsi.exe`) always references and uses the FSharp.Core of the corresponding tool chain, as follows:
 
@@ -181,6 +173,7 @@ F# Interactive (`fsi.exe`) always references and uses the FSharp.Core of the cor
 F# Interactive can load PCL assemblies that reference compatible FSharp.Core
 
 ### FSharp.Core and static linking
+{:.no_toc}
 
 The ILMerge tool and the F# compiler both allow static linking of assemblies including static linking of FSharp.Core.
 This can be useful to build a single standalone file for a tool.
@@ -197,6 +190,7 @@ Searching on stackoverflow reveals further guidance on this topic.
 
 
 ### FSharp.Core in components using FSharp.Compiler.Service
+{:.no_toc}
 
 If your application of component uses FSharp.Compiler.Service, 
 see [this guide](http://fsharp.github.io/FSharp.Compiler.Service/corelib.html). This scenario is more complicated
@@ -207,6 +201,7 @@ For scripts that is normally OK because they are processed using F# Interactive,
 If you have an application using FSharp.Formatting as a component then see the guide linked above.
 
 ### Making .NET Standard 1.6 and 2.0 libraries
+{:.no_toc}
 
 .NET Standard library binaries can be shared and used in all modern .NET implementations.  Where possible
 you should make your library a .NET Standard 1.6 or 2.0 component.  For example, when using a new-style F# project file
@@ -230,13 +225,8 @@ You can multi-target to produce both .NET 4.5 and .NET Standard 2.0 versions of 
 
     <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
 
-### Do *not* assume FSharp.Core is in the GAC
-
-In compiled applications, you should never assume that 
-FSharp.Core is in the GAC ("Global Assembly Cache").  Instead, you should 
-deploy the appropriate FSharp.Core as part of your application.  
-
 ### Do *not* assume any specific version of FSharp.Core is in the GAC, even if it is on your machine
+{:.no_toc}
 
 Once again, do not rely on FSharp.Core being in the GAC.  For applications (see above), 
 use ``<Private>true</Private>`` for the FSharp.Core reference in the project file (see below). In the Visual Studio IDE this is equivalent to setting the `CopyLocal` property to `true`  properties for the `FSharp.Core` reference.
@@ -264,24 +254,45 @@ But it is best to avoid this assumption and instead make sure an appropriate FSh
 is deployed as part of your application.  
 
 ### Do *not* use an implicit FSharp.Core from a shared Xamarin mobile framework
+{:.no_toc}
 
 In some versions of Xamarin tooling, an older version of FSharp.Core is in the shared framework, especially for iOS.
 You should not use this version, and instead have an explicit reference to an FSharp.Core nuget pacakage in your iOS project.
 
 ### If you reference FSharp.Core, you may need to reference System.Numerics
+{:.no_toc}
 
 FSharp.Core doesn't have a strong binary dependency on System.Numerics (i.e. big-integer support).
 
 However, for some deployments of F# code (e.g. Xamarin mobile apps) you may need to add an explicit reference if it is not present already.
 
 ### What to do for error "Could not load file or assembly FSharp.Core, Version=4.0.0.0" or similar
+{:.no_toc}
 
 The normal way to resolve this is to  deploy FSharp.Core as part of your application, see above. See also [this stackoverflow question](http://stackoverflow.com/questions/24801302/could-not-load-file-or-assembly-fsharp-core-version-4-0-0-0-azure-web-role) and many other similar answers on the web.
 
 Earlier versions of F# (Visual F# 2.0) had a "runtime redistributable" you could install on target machines.  This model is now no longer used and instead you deploy FSharp.Core as part of your application.
 
 
-## Reference Material:  `FSharp.Core` Entries in Project Files
+## Reference: FSharp.Core version and NuGet  package numbers
+
+See [the F# version information RFC](https://github.com/fsharp/fslang-design/blob/master/tooling/FST-1004-versioning-plan.md).
+
+
+Main .NET Framework DLLs (used at runtime for applications on .NET 4.x):
+
+|         |                 |   Version  | Nuget |
+|:-------:|:---------------:|:-----------|:------|
+| F# 2.0  | .NET 4.0+       |   4.0.0.0  |       |
+| F# 3.0  | .NET 4.0+       |   4.3.0.0  | [3.0.2](https://www.nuget.org/packages/FSharp.Core/3.0.2) |
+| F# 3.1  | .NET 4.0+       |   4.3.1.0  | [3.1.2.5](https://www.nuget.org/packages/FSharp.Core/3.1.2.5) |
+| F# 4.0  | .NET 4.5+, pcls       |   4.4.0.0  | [4.0.0.1](https://www.nuget.org/packages/FSharp.Core/4.0.0.1) |
+| F# 4.1  | .NET 4.5+, netstandard1.6+       |   4.4.1.0  | [4.2.3](https://www.nuget.org/packages/FSharp.Core/4.1.1.18) |
+| F# 4.1x | .NET 4.5+, netstandard1.6+       |   4.4.3.0  | [4.3.3](https://www.nuget.org/packages/FSharp.Core/3.0.2) |
+
+
+
+## Reference:  `FSharp.Core` Entries in Project Files
 
 By default, Visual Studio, Xamarin Studio and other tools generate well-formed F# `.fsproj` project files which
 reference FSharp.Core in an appropriate way for the purpose that the component serves.  However, when using F# in 
@@ -292,6 +303,7 @@ In these cases it becomes essential to ensure you are referencing FSharp.Core pr
 There are old-style project files and new-style ".NET SDK" project files.
 
 ### New-style project files: Use ``PackageReference`` (unless using Paket)
+{:.no_toc}
 
 When using new-style .NET SDK project files, Just add:
 
@@ -320,6 +332,7 @@ Later in the file `FSharp.Core` will be mentioned in the actual `FSharp.Core` re
 or other variations on this.
 
 ### Old-style F# project files: Use ``AutoGenerateBindingRedirects=true`` in applications
+{:.no_toc}
 
 It is normal for applications to use AutoGenerateBindingRedirects in their `.fsproj` file:
 
@@ -330,6 +343,7 @@ It is normal for applications to use AutoGenerateBindingRedirects in their `.fsp
 This helps keep your binding redirects up-to-date when using Visual Studio and other tools that understand this property.
 
 ### Old-style F# project files: Use ``Private=True`` when referencing FSharp.Core in applications
+{:.no_toc}
 
 Applications should use `Private=true` in their FSharp.Core reference. 
 This is means `FSharp.Core.dll` is copied to the target directory and can be found at runtime, see above.
@@ -337,6 +351,7 @@ This is means `FSharp.Core.dll` is copied to the target directory and can be fou
 Libraries do not need to use this.
 
 ### Old-style F# project files: A C# project referencing an F# DLL or NuGet package may need to also have a reference to FSharp.Core.dll
+{:.no_toc}
 
 A C# project referencing an F# DLL or NuGet package may need to also have a reference to FSharp.Core.dll.  This
 reference must currently be managed explicitly unless you refer to the NuGet package for FSharp.Core (see below).
@@ -344,6 +359,7 @@ Using the appropriate reference text below is recommended.
 
 
 ### Old-style F# project files: Examples of how project files reference FSharp.Core and the F# .targets file
+{:.no_toc}
 
 
 * *.NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6.1, 4.7, netstandard1.6/2.0 etc.*. 
@@ -400,6 +416,7 @@ So... for Visual Studio, the latest version of `FSharp.Core` can be obtained by 
 
 
 ### OLD INFORMATION: Making PCL libraries
+{:.no_toc}
 
 Don't. These are deprecated.
 
@@ -432,6 +449,7 @@ See [this bug](http://visualfsharp.codeplex.com/workitem/144) for why
 profiles 7,78,259 are not recommended when using F# 3.1, even though the tooling allows their creation and consumption.
 
 ### OLD INFORMATION: Fragments of project files for portable libraries (now deprecated)
+{:.no_toc}
 
 * *PCL libraries*. For F# portable PCL library components, it is normal to use the following text in the project file:
 
@@ -489,6 +507,7 @@ profiles 7,78,259 are not recommended when using F# 3.1, even though the tooling
 
 
 ### OLD INFORMATION: Old version numbers
+{:.no_toc}
 
 Portable PCL profiles (used at compile-time for portable libraries, can also be used at runtime when testing or as part of Windows Phone/Store apps):
 
