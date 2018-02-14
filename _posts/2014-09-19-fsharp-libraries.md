@@ -17,33 +17,32 @@ subtitle: Naming, Engineering and General Advice
 
 ## Introduction
 
-One of the goals of the F# Core Engineering group is to help ensure best engineering practices in public-facing F# components and packages.
+One of the goals of F# Core Engineering is to help ensure best engineering practices in public-facing F# components and packages.
 
 In this post we outline some recommended guidelines for naming and engineering for F# projects, packages and namespaces.
 We particularly focus on open projects such as those in the [F# Community Projects](http://fsharp.org/community/projects/) list or
 [packages in NuGet for an "FSharp" search](http://www.nuget.org/packages?q=fsharp).
 
-These are recommendations we make as a working group based on our remit as part of the F# Software Foundation. 
-They are not hard-and-fast rules, and are offered for discussion amongst
+These are recommendations - they are not hard-and-fast rules, and are offered for discussion amongst
 F# developers. If you would like to discuss these guidelines or suggest modifications, 
 please [edit this file on GitHub and submit a pull request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2014-09-19-fsharp-libraries.md).
 
-First, as a group we recognize that:
+There is agreement on the following:
 
-1. We recognize that FSharp.* projects should be high-quality or trending rapidly in that direction.
-   Any packages and code under the FSharp.* namespace should be of sufficient quality to be considered 
+1. FSharp.* projects should be high-quality or trending **rapidly** in that direction.
+   Ideally any packages and code under the FSharp.* namespace should be of sufficient quality to be considered 
    ready for production use by people in the wider F# community. 
 
-2. We recognize the need to avoid pollution of the FSharp.* namespace, particularly by unfinished projects.
+2. We need to avoid pollution of the FSharp.* namespace, particularly by unfinished projects.
 
-3. We recognize the need to encourage incubation and experimentation using FSharp.* project, package and namespace names. 
+3. We need to encourage some degree of incubation and experimentation using FSharp.* project, package and namespace names. 
    Important F# components such as [FSharp.Data](http://fsharp.github.io/FSharp.Data/) have developed in this way.
 
-4. We recognize that packages and projects using FSharp.* naming should generally be cross-platform,
-   unless explicitly qualified by some platform-specific moniker (e.g. "Windows", "Android", "Gtk" or "Linux").
+4. Packages and projects using FSharp.* naming should generally be cross-platform,
+   unless explicitly qualified by some platform-specific moniker (e.g. "Windows", "Android", "Azure", "Gtk" or "Linux").
    Code in the FSharp.* namespace should build, run and pass tests across multiple platforms.
    
-5. We want to continue to encourage and scale the positive and productive spirit with which the F# community operates by sharing
+5. We want to encourage and scale the positive and productive spirit with which the F# community operates by sharing
    information about how to make successful, long-lasting and broad-reach components in a collaborative way.
 
 In light of these, we cover some specific recommendations with regard to naming, quality and general advice below.
