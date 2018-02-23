@@ -31,6 +31,10 @@ This guide can be read in conjunction with any or all of:
 
 These all include the same core code, and the relationship between them is described [here](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
 
+## Getting started guides
+
+* [My first week with the F# Compiler](https://medium.com/@willie.tetlow/f-mentorship-week-1-36f51d3812d4)
+
 ## Overview 
 
 The F# compiler repositories are used to produce a range of different artifacts.  For the purposes of this
