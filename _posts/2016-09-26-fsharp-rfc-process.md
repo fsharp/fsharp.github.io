@@ -10,7 +10,7 @@ subtitle: A link to the F# RFC process
 This post briefy mentions [the F# Language and Core Library RFC Process](https://github.com/fsharp/fslang-design/blob/master/README.md),
 one of the activities of the FSSF Core Engineering Group.
 
-Since 2015, development of the F# Language and Core Library has been using an RFC process.
+Since 2015, development of the F# Language and Core Library has been using an RFC (request for comments) process.
 
 1. Use [F# Language Suggestions](https://github.com/fsharp/fslang-suggestions/) to submit ideas, vote on them and discuss them.
 
