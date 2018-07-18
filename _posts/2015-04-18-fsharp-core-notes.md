@@ -338,6 +338,12 @@ It is normal for applications to use AutoGenerateBindingRedirects in their `.fsp
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 ```
 
+You may also need
+
+```
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+```
+
 This helps keep your binding redirects up-to-date when using Visual Studio and other tools that understand this property.
 
 ### Old-style F# project files: Use ``Private=True`` when referencing FSharp.Core in applications
