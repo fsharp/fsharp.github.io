@@ -75,7 +75,23 @@ If you are using an old-style project file, see the information further below.
 
 If using new-style .NET SDK project files, use:
 
-    <PackageReference Update="FSharp.Core" Version="4.2.3" />
+    <PackageReference Update="FSharp.Core" Version="4.5.0" />
+
+### Make your FSharp.Core references explicit
+
+Modern .NET SDK-style F# projects allow for the useof  an _implicit_ FSharp.Core reference, where the FSharp.Core referenced is determined by the .NET SDK being used to compile the project.  The exact version of FSharp.Core implicitly referenced by F# projects will depend on your .NET SDK, e.g. see [this table](https://github.com/fsharp/fsharp.github.io/pull/89#issuecomment-426729015).
+
+Implicit FSharp.Core references only apply to F# projects and not C# projects. 
+
+In most software engineering it is better to pin down the exact version of FSharp.Core being used. This means your referenced libraries don't depend on tooling version. This is particularly important for nuget packages.
+
+To do this, add an explicit reference.  In F# projects use `Update`:
+
+    <PackageReference Update="FSharp.Core" Version="4.5.2" />
+
+In C# projects use:
+
+    <PackageReference Include="FSharp.Core" Version="4.5.2" />
 
 
 ### Libraries should target lower versions of FSharp.Core
@@ -89,6 +105,10 @@ As of February 2018 new editions of F# libraries should generally do the followi
 * Be `netstandard1.6`, or `netstandard2.0` with an additional .NET Framework 4.5 (`net45`) build
 * Use FSharp.Core nuget 4.2.3 (assembly version 4.4.1.0) for `netstandard1.6`
 * Use FSharp.Core nuget 4.3.4 (assembly version 4.4.3.0) for `netstandard2.0`
+
+For example, in F# projects use the following for most library projects:
+
+    <PackageReference Update="FSharp.Core" Version="4.3.4" />
 
 You should no longer make your library a PCL "Portable" component. They are deprecated.
 
