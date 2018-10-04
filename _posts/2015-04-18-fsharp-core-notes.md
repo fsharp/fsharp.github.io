@@ -79,13 +79,13 @@ If using new-style .NET SDK project files, use:
 
 ### Make your FSharp.Core references explicit
 
-Modern .NET SDK-style F# projects allow for the useof  an _implicit_ FSharp.Core reference, where the FSharp.Core referenced is determined by the .NET SDK being used to compile the project.  The exact version of FSharp.Core implicitly referenced by F# projects will depend on your .NET SDK, e.g. see [this table](https://github.com/fsharp/fsharp.github.io/pull/89#issuecomment-426729015).
+Modern .NET SDK-style F# projects allow for an _implicit_ FSharp.Core reference, where the `FSharp.Core` package referenced is determined by the .NET SDK being used to compile the project.  The exact version referenced will depend on your .NET SDK, e.g. see [this table](https://github.com/fsharp/fsharp.github.io/pull/89#issuecomment-426729015).
 
 Implicit FSharp.Core references only apply to F# projects and not C# projects. 
 
-In most software engineering it is better to pin down the exact version of FSharp.Core being used. This means your referenced libraries don't depend on tooling version. This is particularly important for nuget packages.
+In most software engineering it is better to pin down the exact version of FSharp.Core being used. This means your referenced libraries don't depend on tooling version. This is particularly important when making nuget packages where you don't want to unexpectedly force a package upgrade on downstream consumers.  It is also important when working with mixed F#/C# solutions.
 
-To do this, add an explicit reference.  In F# projects use `Update`:
+To prevent the use of implicit references, add an explicit reference.  In F# projects you **must** use `Update`:
 
     <PackageReference Update="FSharp.Core" Version="4.5.2" />
 
