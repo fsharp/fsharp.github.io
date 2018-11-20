@@ -5,9 +5,11 @@ title: F# Core Engineering Activities
 
 <br />
 
-"F# Core Engineering Activities" is a loose term for activities by the people who maintain and contribute to the repositories of [The F# Software Foundation](http://fsharp.org). There are no "meetings", all work is coordinated via github issues.
+"F# Core Engineering Activities" is a loose term for activities by the people who maintain and contribute to the repositories of [The F# Software Foundation](http://fsharp.org). There are not many "meetings", most work is coordinated via github issues.  
 
 These people - both maintainers and contributors - work cooperatively with major industrial and community contributors to F# to facilitate open-source contributions to the F# core components.
+
+Each Monday we aspire to hold an "F# Compiler and Core Engineering Office Hours" chat on [the #compiler channel of the F# Software Foundation](https://fsharp.slack.com/messages/C05325FDM).  Normally hosted by Don Syme, we're also looking for volunteers to act as host when he's not available.
 
 The activities include:
 
