@@ -10,7 +10,7 @@ This online session 18 people joined to discuss the term "Core Engineering".
 
 Questions could be posted during the meeting with prefix "QUESTION:" and as it was an open session also comments could be added with the "COMMENT:" prefix.
 
-The discussion started with a reference to the [google-document](https://docs.google.com/document/d/1wAAR0v1dglXXQThqaMN_iNHi5xSH1boAlP3q-_4kSWI/edit?usp=sharing) to explain the reason why the discussion is happening. Afterwards Don Syme stated the goals for the meeting being to come up with a list of actionable improvements that the community can make to ease development in the core F# repositories and document those in the github repository Microsoft/visualfsharp or elsewhere.
+The discussion started with a reference to the [google-document](https://docs.google.com/document/d/1wAAR0v1dglXXQThqaMN_iNHi5xSH1boAlP3q-_4kSWI/edit?usp=sharing) written by Victor P. R. Müller to explain the reason why the discussion is happening. Afterwards Don Syme stated the goals for the meeting being to come up with a list of actionable improvements that the community can make to ease development in the core F# repositories and document those in the github repository Microsoft/visualfsharp or elsewhere.
 
 The particular proposed solutions / taks named Proposed Core Engineering Task (PCET) can be found at the end of the document.
 
@@ -20,7 +20,7 @@ The list of questions and ideas of the google document where worked through in t
 - Some RFC’s for accepted features are such incomplete that it’s not possible to start implementing them
 - Expected timeframe for an accepted feature with started implementation isn’t available
 
-Don Syme states he's fine with the current approach of handling language suggestions speaking of not closing suggestions rather instead labeling suggestions with "proably-not". However he agrees that the RFC list needs some love and should be cleaned of such which may be better closed and or rebooted. To address this issue the PCET 1 was created where importantly a RFC may be rebooted if it doesn't get a comment or change within a couple of months. Regular meetings to clean up RFC's have been disagreed to aswell voting about whether a RFC should be closed, the process itself prefered be asnychronous only.
+Don Syme states he's fine with the current approach of handling language suggestions speaking of not closing suggestions rather instead labeling suggestions with "probably-not". However he agrees that the RFC list needs some love and should be cleaned of such which may be better closed and or rebooted. To address this issue the PCET 1 was created where importantly a RFC may be rebooted if it doesn't get a comment or change within a couple of months. Regular meetings to clean up RFC's have been disagreed to aswell voting about whether a RFC should be closed, the process itself prefered be asnychronous only.
 
 Besides he announced that the office hours will now be regulary hold every monday 5 pm GMT either by himself or other volunteers.
 
@@ -31,8 +31,8 @@ Afterwards the current situation that Don Syme is only deciding whether a langua
 Furthermore a discussion takes place about whether the design governance or process increase the difficulty of working in the compiler (with different opinions).
 
 For language design certain statements are now fully official:
-- The decision on TCs is clear: we won't put a fully-fledged version of TCs into F# while there is any chance that the corresponding feature will be put into C# (quote Don Syme)
-- we will seek to evolve the SRTP mecahnism to accurately support some TC-like scenarios but in a fairly conservative way (quote Don Syme)
+- The decision on Type Classes is clear: we won't put a fully-fledged version of Type Classes into F# while there is any chance that the corresponding feature will be put into C# (quote Don Syme)
+- we will seek to evolve the SRTP mechanism to accurately support some Type Class like scenarios but in a fairly conservative way (quote Don Syme)
 
 Further question points which have been adressed afterwards are:
 - separation of compiler and tools into different repositories
