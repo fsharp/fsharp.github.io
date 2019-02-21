@@ -31,9 +31,11 @@ This guide can be read in conjunction with any or all of:
 
 These all include the same core code, and the relationship between them is described [here](http://fsharp.github.io/2014/06/18/fsharp-contributions.html).
 
-## Getting started guides
+## Getting started guides and tools
 
 * [My first week with the F# Compiler](https://medium.com/@willie.tetlow/f-mentorship-week-1-36f51d3812d4)
+
+* [Fantomas AST viewer](http://ratatosk.dynu.net/ast/#?code=Q)  Great for learning about the AST and parsing of the F# compiler. Also the [Fantomas source code formatter online REPL](http://ratatosk.dynu.net/fantomas) to test out formatting F# source code.
 
 ## Overview 
 
