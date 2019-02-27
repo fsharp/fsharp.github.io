@@ -288,7 +288,17 @@ The F# compiler must accept large inputs such as
 * long sequences of `match x with ... | ...` expressions
 * combinations of these
 
-Asides from array expressions, most of these are called "linear" expressions in that there is a single linear hole in the shape of expressions, e.g. to be more precise about where these linear holes are:
+The general problem is that the input sizes accepted in various dimensions are determined partly by
+available process stack for the devenv.exe, fsc.exe, fsi.exe and fsiAnyCpu.exe processes.  The input size
+limitations are not precisely specified nor do we test to precise numbers and fail above those numbers). Instead
+historically we've been able to remove these limits when we've encountered them by moving more stack to the heap
+for certain operations (e.g. collecting free variables down long chains of `let`) through standard continuation coding
+techniques in the compiler.
+
+In many dimensions of expansion, large expressions simply don't occur - for example you don't get lambdas nested 20,000 deep
+(you might get 100 deep at most). However, the above cases are examples where large expressions do occur in practice.
+
+Asides from array expressions, most of the above are called "linear" expressions in that there is a single linear hole in the shape of expressions, e.g. to be more precise about where these linear holes are:
 * `expr :: HOLE` (list expressions or other right-linear constructions)
 * `expr; HOLE` (sequential expressions)
 * `let v = expr in HOLE` (let expressions)
