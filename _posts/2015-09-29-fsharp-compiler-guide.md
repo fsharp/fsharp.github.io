@@ -277,97 +277,86 @@ display the minimal amount of infomation to convey the fact that the two types a
 When displaying a type, you have the option of displaying the constraints implied by any type variables
 mentioned in the types, appended as ``when ...``. For example, ``NicePrint.layoutPrettifiedTypeAndConstraints``.
 
+## Input Size Limitations
+
+The F# compiler must accept large inputs such as 
+* large array expressions
+* large list expressions
+* long lists of sequential expressions
+* long lists of `let v1 = e1 in let v2 = e2 in ....`
+* long sequences of `if .. then ... else` expressions
+* long sequences of `match x with ... | ...` expressions
+* combinations of these
+
+The general problem is that the input sizes accepted in various dimensions are determined partly by
+available process stack for the devenv.exe, fsc.exe, fsi.exe and fsiAnyCpu.exe processes.  The input size
+limitations are not precisely specified nor do we test to precise numbers and fail above those numbers). Instead
+historically we've been able to remove these limits when we've encountered them by moving more stack to the heap
+for certain operations (e.g. collecting free variables down long chains of `let`) through standard continuation coding
+techniques in the compiler.
+
+In many dimensions of expansion, large expressions simply don't occur - for example you don't get lambdas nested 20,000 deep
+(you might get 100 deep at most). However, the above cases are examples where large expressions do occur in practice.
+
+Asides from array expressions, most of the above are called "linear" expressions in that there is a single linear hole in the shape of expressions, e.g. to be more precise about where these linear holes are:
+* `expr :: HOLE` (list expressions or other right-linear constructions)
+* `expr; HOLE` (sequential expressions)
+* `let v = expr in HOLE` (let expressions)
+* `if expr then expr else HOLE` (conditional expression)
+* `match expr with pat[vs] -> e1[vs] | pat2 -> HOLE` (e.g. `match expr with Some x -> ... | None -> ...`)
+
+Note application expressions are not actually in this list.
+
+Processing these in the naive way often uses unbounded stack.  Instead, these should be processed using continuations that place the stack frames on the heap.  For example, the `remapExpr` operation becomes two functions, `remapExpr` (for non-linear cases) and
+`remapLinearExpr` (for linear cases).  The latter tailcalls for constructs in the `HOLE` positions mentioned above, passing
+the result to the continuation.
+```
+and remapLinearExpr g compgen tmenv expr contf =
+    match expr with 
+    | Expr.Let (bind, bodyExpr, m, _) ->  
+        ...
+        // tailcall for the linear position
+        remapLinearExpr g compgen tmenvinner bodyExpr (contf << (fun bodyExpr' -> 
+            ...))
+      
+    | Expr.Sequential (expr1, expr2, dir, spSeq, m)  -> 
+        ...
+        // tailcall for the linear position
+        remapLinearExpr g compgen tmenv expr2 (contf << (fun expr2' -> 
+            ...))
+
+    | LinearMatchExpr (spBind, exprm, dtree, tg1, expr2, sp2, m2, ty) ->
+        ...
+        // tailcall for the linear position
+        remapLinearExpr g compgen tmenv expr2 (contf << (fun expr2' ->  ...))
+        
+    | LinearOpExpr (op, tyargs, argsFront, argLast, m) -> 
+        ...
+        // tailcall for the linear position
+        remapLinearExpr g compgen tmenv argLast (contf << (fun argLast' -> ...))
+
+    | _ -> contf (remapExpr g compgen tmenv e) 
+
+and remapExpr (g: TcGlobals) (compgen:ValCopyFlag) (tmenv:Remap) expr =
+    match expr with
+    ...
+    | LinearOpExpr _ 
+    | LinearMatchExpr _ 
+    | Expr.Sequential _  
+    | Expr.Let _ -> remapLinearExpr g compgen tmenv expr (fun x -> x)
+```
+Note
+* the tell-tale use of `contf` (continuation function)
+* the processing of the body expression `e` of a let-expression is tail-recursive, if the next construct is also a let-expression.
+* the processing of the `e2` expression of a sequential-expression is tail-recursive
+* the processing of the second expression in a cons is tail-recursive
+
+The code above may be considered incomplete, because arbitrary _combinations_ of `let` and sequential expressions aren't going to be dealt with in a tail-recursive way.  We generally try to do these combinations as well.
+
+
 ## Type Providers
 
-### Design-time and Runtime Assemblies for Cross Targeting Type Providers
-
-We will use FSharp.Data as our example of a cross-targeting type provider.
-
-FSharp.Data.nupkg is basically made of two binaries
-* FSharp.Data.dll (runtime component, gets added as a reference when the nuget package gets installed)
-* FSharp.Data.DesignTime.dll (design-time component, gets Assembly.LoadFrom loaded by fsc.exe, fsi.exe, devenv.exe, FsAutoComplete.exe)
-
-The layout is currently:
-
-    lib\whatever-runtime-framework-moniker-1\FSharp.Data.dll
-    lib\whatever-runtime-framework-moniker-1\FSharp.Data.DesignTime.dll
-
-    lib\whatever-runtime-framework-moniker-2\FSharp.Data.dll
-    lib\whatever-runtime-framework-moniker-2\FSharp.Data.DesignTime.dll
-
-At the time of writing the design time compoenent is alongside the runtime component because [that's how the F# compiler locates the design-time component to load into the compiler given the runtime reference](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ExtensionTyping.fs#L54).   The [references node](https://github.com/fsharp/FSharp.Data/blob/master/nuget/FSharp.Data.nuspec#L34) in the nuspec mean that only FSharp.Data.dll gets added as reference to the project.
-
-Let’s assume the design time component is properly “cross-targeting”, that is:
-
-> Cross-targeting = capable of providing types and code compatible with any target framework and reference assembly set which is itself compatible with the runtime component 
-
-For example if we have
-
-    lib\netstandard1.6\FSharp.Data.dll
-    lib\netstandard1.6\FSharp.Data.DesignTime.dll
-
-then the design-time component must be able to provide suitable types and code correctly regardless of whether we are compiling for .NET 4.6, .NET Core App 2.0, .NET Standard 2.0 etc.
-
-Now, the design-time component doesn’t **have* * to be a .NET Standard 1.6 component – but it must be loadable into all of
-
-                fsc.exe (running on .NET Framework 32 bit)
-                fsi.exe (running on .NET Framework 32 bit)
-                fsiAnyCpu.exe (running on .NET Framework 64 bit)
-                devenv.exe (running on .NET Framework 32 bit)
-                FsAutoComplete.exe (running on .NET Framework 64 bit)
-                Any other host of FSharp.Compiler.Service.dll (running on .NET Framework 32 or 64 bit)
-
-                * fsc.exe (running on .NET Core)
-                * fsi.exe (running on .NET Core)
-                * fsiAnyCpu.exe (running on .NET Core)
-                * FsAutoComplete.exe (eventually running on .NET Core)
-                * Any other host of FSharp.Compiler.Service.dll (running on .NET Core)
-
-The ones marked * are all new requirements now we support running the F# compiler on .NET Core.
-
-Right now, we just assume the design-time component is suitable for loading into the compiler, and there will be an exception if it isn’t.  For example, it you make a 64-bit design-time component, then you can’t use it with devenv.exe.
-
-Given this, we could in theory have multiple design-time components and a process to select the right one.   The nuget package would have a shape like this:
-
-    lib\runtime-framework-moniker-1\FSharp.Data.dll
-    lib\runtime-framework-moniker-2\FSharp.Data.dll
-    build\design -framework-moniker-1\FSharp.Data.DesignTime.dll
-    build\design -framework-moniker-2\FSharp.Data.DesignTime.dll
-
-and we would adjust the part of FSharp.Compiler.Private.dll that loads type providers to respect this shape and load the right design-time DLL using some rules and some information about the system we’re running on.  This feels complex but maybe it is possible. Note that each design-time DLL has to still be able to provide code correctly for cross-targeting compilation
-
-The problem with all this is the spectacular complexity it induces for the type provider author, both in creating the package and testing the combinations.  We could implement all of this and almost no one would use it.  The complexities are mind blowing.
-
-In contrast, simply using .NET Standard 1.6 or 2.0 components for both the runtime component and the design-time component is, by comparison, much simpler, and seems to be sufficient for most cases.  See, for example, how the FSharp.Data nuspec looks after this simplification.
-
-There’s overlap here with Roslyn analyzers, though they don’t emit code.  There’s also overlap with Scala macros – and I know JetBrains and the Scala compiler team have gone back and forth on whether those should be run in-process, interpreted etc.  Running code at design-time which generates code for the target platform just screws with your head..   
-
-Recommendations to people would be:
-
-1.	If possible use netstandard2.0 for both runtime and design-time components 
-
-2.	If for some reason you have a runtime dependency on .NET Framework, then use net45, net461 etc  for your runtime component
-
-3.	If for some reason you have optional functionality which lights up on .NET Framework, then have both a net45 and a netstandard2.0 runtime components.  In both cases the neighbouring design-time component should still be netstandard2.0 if possible.
-
-4.	If for some reason you have a design-time dependency on a .NET Framework component (e.g. you are using a .NET Framework database connectivity library at compile-time), then ok, your design-time component becomes .NET 4.x, and you will not be able to use this type provider with any design-time tooling that executes using .NET Core.  You will have to apply the workaround in https://github.com/Microsoft/visualfsharp/issues/3303 even to compile your code.  Luckily for you, most design-time tooling like Visual Studio and FsAutoComplete executes using .NET Framework for some time to come.
-
-5.	If your requirements are completely fractal, then consider shipping multiple versions of your type provider, but still try to make the design-time components be netstandard2.0 if possible.
-
-Some other comments about the design-time components:
-
-1.	There is a legacy [load from GAC](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ExtensionTyping.fs#L59) path that tries to load design-time DLLs using Assembly.Load.  This is stupid and never used, and we should just convert it to throw an error
-
-2.	The design time DLL may have dependencies. It is my understanding that these dependencies must be alongside the design-time DLL. However I’ve seen people implement adhoc AppDomain.AssemblyLoad event hackery to go looking for the dependencies in neighbouring pacakges.  Ugh. 
-
-3.	As I understand things the design-time DLLs can’t have their own binding redirect policy
-
-4.	Multiple different type provider dseign-time components may be loaded into the same host (devenv.exe, fsc.exe etc.).  This causes potential problems, e.g two different projects in VS may use two different FSharp.Data.DesignTime.dll.  We currently just ignore those problems – whatever happens happens.
-
-There’s no way to solve 2, 3 and 4 except to run each type provider in its own process (or app domain).  The same thing must come up with Roslyn analyzers. A few years ago we took a few passes at making the way we access information from type providers less object-oriented (System.Type etc.) and more service-oriented (one flat REST-like API, no state) but didn't complete the effort, it is hard.   
-
-Plugins which run at design-time and which generate expressions/types/code for the target platform have a lot of pitfalls…
-
+The [`FSharp.TypeProvider.SDK`](https://github.com/fsprojects/FSharp.TypeProviders.SDK/) project is now the canonical home for information on type providers.
 
 
 ## Performance 
