@@ -536,6 +536,32 @@ TBD - discuss topics related to compiler performance including phase costs, data
 
 ## From Compiler to Language Service
 
+### Cross-project references
+
+The compiler is generally built to compile one assembly: the assumption that we're compiling one assembly is baked into several aspects of the design of the TAST.
+
+In contract, FCS supports compiling a graph of projects, each for a different assembly. The TAST nodes are **not** shared between different project compilations.  (ILModuleReader are shared by artificially extending their lifetime via caches).
+
+How does this work?
+
+* The [RawFSharpAssemblyData](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/service/service.fs#L2376) is the data blob that would normally be stuffed in the F# resource in the generated DLL  in a normal compilation. That's the "output" of checking each project.
+
+* This is used as "input" for the assembly reference of each consuming project (instead of an on-disk DLL)
+
+* Within each consuming project that blob is then resurrected to TAST nodes via TastPickle.fs.
+
+Could we share? The thing is,  I have no idea how to share these nodes - either from a lifetime point of view nor from a correctness point of view.
+
+* Re correctness: the process of generating this blob (TastPickle `p_XYZ`) and resurrecting it (TastPickle `u_*`) does some transformations to the TAST that are necessary for correctness of compilation, e.g. https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TastPickle.fs#L737.   So basically the TAST nodes from the compilation of one assembly are _not_ valid when compiling a different assembly. 
+
+  Indeed it's much worse than this - the TAST nodes include CcuData nodes which have access to a number of callbacks into the TcImports compilation context for the assembly being compiled, e.g. https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/tast.fs#L4156. So Tast nodes are "tied to a particular compilation of a particular assembly".
+
+  I don't think there's any way we can share these as a result without a **lot** of hard work digging out these assumption. Note that pretty much all the TAST nodes for an assembly compilation are tied together in a graph.
+
+* Re lifetime: the TAST nodes are tied together in a graph, so sharing one or two of them might drag across the entire graph and extend lifetimes of that graph.  That is risky.
+
+To reiterate: the compiler is built to compile an assembly, and the assumption that we're compiling one assembly is baked into several aspects of the design of the TAST.
+
 ### ``eventually`` Computations
 
 Some parts of the F# codebase (specifically, the type checker) 
