@@ -130,11 +130,17 @@ Use the following prefixes where possible, rather than inventing new ones:
 
 -   `FSharp.Control`: Functionality related to control flow, such as asynchronous programming, message passing, 
 event-based programming, reactive programming, and similar
+
 -   `FSharp.Data`: Types related to data access, data schema, and similar
+
 -   `FSharp.Text`: Text processing, formating, printing, or similar functionality
+
 -   `FSharp.Azure`: Types related to cloud computing on the Azure plattform.
+
 -   `FSharp.AWS`: Types related to cloud computing on the AWS plattform.
+
 -   `FSharp.Compiler`: Functionality relating to compilation of F#
+
 -   `FSharp.Core`: Use sparingly.  Typically required for helper types required by incubation of compiler features
 
 For example, a library like "FSharp.Actor" might be better renamed to "FSharp.Control.Actor". Similarly, "FSharp.Reactive"
@@ -189,10 +195,17 @@ The following are draft guidelines for adding support for transpilation, based o
 
 * Do add CI testing for the transpilation.
 
+* Do use feature-specific switches `#if NO_FOO_FEATURE` rather than `#if MYTRANSPILER`.
+
+* Do assess the quality of the transpilation tool, and the degree of support for language and library.
+
 * Consider using an appropriate different namespace, e.g. `Fable.Data.Adaptive` for transpiled versions of the library.
 
 * Consider the maintenance burden of the necessary `#if` when making your decisions, including the long-term maintenance by other contributors.
 
+* Consider the strategic ramifications and network effects of your choice of supported transpilers and execution infrastructure.  Are other F# users and contributors using these tools?  Will the resulting ecosystem be viable?  Does the execution infratstructure having growing and widespread adoption in industry?
+
+As an example, as of 2019 the `dotnet/fsharp` repository has decided not to support transpilation for the `FSharp.Compiler.Service` library component.  However, a separate fork of that repository is maintained by one of the contributors to a particular transpiler (Fable).
 
 ## Engineering Guidelines
 
