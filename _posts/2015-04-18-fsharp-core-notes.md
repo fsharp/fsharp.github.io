@@ -145,7 +145,7 @@ If applications use library components that reference an earlier FSharp.Core, th
 to specify that those libraries should bind to the actual FSharp.Core used as part of the application.
 
 An `app.config` is used to specify binding redirects. It is normal to redirect all lower versions of FSharp.Core to 
-the version actually being used.  For example, to redirect all versions of FSharp.Core up to 4.3.0.0 to use 4.3.1.0:
+the version actually being used.  For example, to redirect all versions of FSharp.Core up to 4.4.1.0 to use 4.4.3.0:
 
 ```
         <dependentAssembly>
