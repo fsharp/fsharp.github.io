@@ -35,7 +35,7 @@ These all include the same core code, and the relationship between them is descr
 
 * [My first week with the F# Compiler](https://medium.com/@willie.tetlow/f-mentorship-week-1-36f51d3812d4)
 
-* [Fantomas AST viewer](http://ratatosk.dynu.net/ast/#?code=Q)  Great for learning about the AST and parsing of the F# compiler. Also the [Fantomas source code formatter online REPL](http://ratatosk.dynu.net/fantomas) to test out formatting F# source code.
+* [Fantomas AST viewer](https://fsprojects.github.io/fantomas-tools/#/ast)  Great for learning about the AST and parsing of the F# compiler. Also the [Fantomas source code formatter online REPL](https://fsprojects.github.io/fantomas-tools/#/fantomas/preview) to test out formatting F# source code.
 
 ## Overview 
 
