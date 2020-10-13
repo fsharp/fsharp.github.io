@@ -65,29 +65,27 @@ The following are the key data formats and internal data representations of the 
 
 * _Input source files_  Read as Unicode text, or binary for referenced assemblies.
 
-* _Input command line arguments_  See [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs) for the full  code implementing the arguments table.  Command line arguments are also accepted by the F# Compiler Service API in project specifications, and as optional input to F# Interactive.
+* _Input command line arguments_  See [CompilerOptions.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/CompilerOptions.fs) for the full  code implementing the arguments table.  Command line arguments are also accepted by the F# Compiler Service API in project specifications, and as optional input to F# Interactive.
 
-* _Tokens_, see [pars.fsy](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/pars.fsy), [lex.fsl](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lex.fsl), [lexhelp.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/lexhelp.fs) and related files.
+* _Tokens_, see [pars.fsy](https://github.com/dotnet/fsharp/blob/main/src/fsharp/pars.fsy), [lex.fsl](https://github.com/dotnet/fsharp/blob/main/src/fsharp/lex.fsl), [lexhelp.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/lexhelp.fs) and related files.
 
-* _Abstract Syntax Tree (AST)_, see [ast.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ast.fs), the untyped syntax tree resulting from parsing
+* _Abstract Syntax Tree (AST)_, see [SyntaxTree.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/SyntaxTree.fs), the untyped syntax tree resulting from parsing.
 
-* _Typed Abstract Syntax Tree (TAST)_, see [tast.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/tast.fs) and related files. The typed, bound syntax tree including both 
-  type/module definitions and their backing expressions, resulting from type checking
-  and the subject of successive phases of optimization and representation change.
+* _Typed Abstract Syntax Tree (TAST)_, see [TypedTree.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/TypedTree.fs) and related files. The typed, bound syntax tree includes both type/module definitions and their backing expressions. It is the result of type checking the untyped syntax tree and the subject of successive phases of optimization and representation change.
 
-* _Type checking context/state_, see for example [TcState in CompileOps.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOps.fs#L5071) and its constituent parts, particularly TcEnv in [TypeChecker.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TypeChecker.fs) and NameResolutionEnv in [NameResolution.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/NameResolution.fs).
+* _Type checking context/state_, see for example [TcState in ParseAndCheckInputs.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/ParseAndCheckInputs.fs#L548) and its constituent parts, particularly TcEnv in [TypeChecker.fs](https://raw.githubusercontent.com/dotnet/fsharp/main/src/fsharp/TypeChecker.fs) and NameResolutionEnv in [NameResolution.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/NameResolution.fs#L334).
   A set of tables representing the available names, assemblies etc. in scope during type checking, plus
   associated information.
 
-* _Abstract IL_, the output of code generation, then used for binary generation, and the input format when reading .NET assemblies, see [ILModuleDef in il.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/il.fsi#L1598)
+* _Abstract IL_, the output of code generation, then used for binary generation, and the input format when reading .NET assemblies, see [ILModuleDef in il.fs](https://github.com/dotnet/fsharp/blob/main/src/absil/il.fs#L2302)
 
-* _The .NET Binary format_ (with added "pickled" F# Metadata resource), the final output of fsc.exe, see the ECMA 335 specification and the [ilread.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilread.fs) and [ilwrite.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fs) binary reader/generator implementations.  The added F# metadata is stored in a binary resource, see [TastPickle.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TastPickle.fs).
+* _The .NET Binary format_ (with added "pickled" F# Metadata resource), the final output of fsc.exe, see the ECMA 335 specification and the [ilread.fs](https://github.com/dotnet/fsharp/blob/main/src/absil/ilread.fs) and [ilwrite.fs](https://github.com/dotnet/fsharp/blob/main/src/absil/ilwrite.fs) binary reader/generator implementations.  The added F# metadata is stored in a binary resource, see [TypedTreePickle.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/TypedTreePickle.fs).
 
-* _The incrementally emitted .NET reflection assembly,_ the incremental output of fsi.exe. See [ilreflect.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilreflect.fs)
+* _The incrementally emitted .NET reflection assembly,_ the incremental output of fsi.exe. See [ilreflect.fs](https://github.com/dotnet/fsharp/blob/main/src/absil/ilreflect.fs)
 
-* The incremental project build engine state in [IncrementalBuild.fsi](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fsi)/[IncrementalBuild.fs](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs/IncrementalBuild.fs) in the FSharp.Compiler.Service API. (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
+* The incremental project build engine state in [IncrementalBuild.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/service/IncrementalBuild.fsi)/[IncrementalBuild.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/service/IncrementalBuild.fs) in the FSharp.Compiler.Service API.
 
-* The corresponding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/fsharp/FSharp.Compiler.Service/tree/master/src/fsharp/vs) (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
+* The corresponding APIs wrapping and accessing these structures in [the public-facing FSharp.Compiler.Service API](https://github.com/dotnet/fsharp/tree/main/src/fsharp/service)
 
 * The [F# Compiler Service Operations Queue](https://fsharp.github.io/FSharp.Compiler.Service/queue.html), covered in the compiler service documentation (note: An older version of this functionality persists internally in the Microsoft\visualfsharp repository for the Visual F# Tools)
 
@@ -107,83 +105,83 @@ The following are the key phases and high-level logical operations of the F# com
 
 * _Parsing_. Accepts a token stream and produces an AST per the grammar in the F# Language Specification.
 
-* _Resolving references_. See [ReferenceResolution.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ReferenceResolution.fsi)/[ReferenceResolution.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ReferenceResolution.fs).  
+* _Resolving references_. See [LegacyMSBuildReferenceResolver.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/LegacyMSBuildReferenceResolver.fsi)/[LegacyMSBuildReferenceResolver.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/LegacyMSBuildReferenceResolver.fs).  
   Accepts command-line arguments and produces information about assembly references. Uses MSBuild for some references, only really used in F# Interactive.
 
 * _Importing referenced .NET binaries_, 
-  see [import.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/import.fsi)/
-  [import.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/import.fs).
+  see [import.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/import.fsi)/
+  [import.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/import.fs).
   Accepts file references and produces a TAST node for each referenced assembly, 
   including information about its type definitions (and type forwarders if any).
 
-* _Importing referenced F# binaries and optimization information as TAST data structures_, see pickle.fs/fsi.
+* _Importing referenced F# binaries and optimization information as TAST data structures_, see [TypedTreePickle.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/TypedTreePickle.fs)/[TypedTreePickle.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/TypedTreePickle.fsi).
   Accepts binary data and produces  TAST nodes for each referenced assembly, 
   including information about its type/module/function/member definitions.
 
 * _Sequentially type checking files_, see
-  [TypeChecker.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TypeChecker.fsi)/
-  [TypeChecker.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/TypeChecker.fs).
+  [TypeChecker.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/TypeChecker.fsi)/
+  [TypeChecker.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/TypeChecker.fs).
   Accepts an AST plus a type checking context/state and produces new TAST nodes
   incorporated into an updated type checking state, plus additional TAST Expression nodes used during code generation.
 
 * _Pattern match compilation_, see
-  [PatternMatchCompilation.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PatternMatchCompilation.fsi)/[PatternMatchCompilation.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PatternMatchCompilation.fs).
+  [PatternMatchCompilation.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/PatternMatchCompilation.fsi)/[PatternMatchCompilation.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/PatternMatchCompilation.fs).
   Accepts a subset of checked TAST nodes representing F# pattern matching and produces TAST expressions implementing
   the pattern matching.  Called during type checking as each construct involving pattern matching is processed.
 
 * _Constraint solving_, see
-  [ConstraintSolver.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ConstraintSolver.fsi)/
-  [ConstraintSolver.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/ConstraintSolver.fs).
+  [ConstraintSolver.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/ConstraintSolver.fsi)/
+  [ConstraintSolver.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/ConstraintSolver.fs).
   A constraint solver state is maintained during type checking of a single file, and constraints are progressively
   asserted (i.e. added to this state).  Fresh inference variables are generated and variables are eliminated (solved).
   Variables are also generalized at various language constructs, or explicitly declared, making them "rigid".
   Called during type checking as each construct is processed.
 
 * _Post-inference type checks_, see
-  [PostInferenceChecks.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PostInferenceChecks.fsi)/
-  [PostInferenceChecks.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/PostInferenceChecks.fs).
+  [PostInferenceChecks.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/PostInferenceChecks.fsi)/
+  [PostInferenceChecks.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/PostInferenceChecks.fs).
   Called at the end of type checking/inference for each file.
   A range of checks that can only be enforced after type checking on a file is complete.
 
 * _Quotation translation_, see
-  [QuotationTranslator.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationTranslator.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationTranslator.fs)/[QuotationPickler.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationPickler.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/QuotationPickler.fs).
+  [QuotationTranslator.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/QuotationTranslator.fsi)/[fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/QuotationTranslator.fs)/[QuotationPickler.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/QuotationPickler.fsi)/[fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/QuotationPickler.fs).
   Generates the stored information for F# quotation nodes, generated from the TAST expression structures of the
   F# compiler. Quotations are ultimately stored as binary data plus some added type references. "ReflectedDefinition" quotations
   are collected and stored in a single blob.
 
 * _Optimization phases_, primarily the "Optimize" (peephole/inlining) and "Top Level Representation" (lambda lifting) phases,
   see 
-  [Optimizer.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/Optimizer.fsi)/[Optimizer.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/Optimizer.fs) and
-  [InnerLambdasToTopLevelFuncs.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fsi)/[fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/InnerLambdasToTopLevelFuncs.fs) and
-  [LowerCallsAndSeqs.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/LowerCallsAndSeqs.fs).
+  [Optimizer.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/Optimizer.fsi)/[Optimizer.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/Optimizer.fs) and
+  [InnerLambdasToTopLevelFuncs.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/InnerLambdasToTopLevelFuncs.fsi)/[fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/InnerLambdasToTopLevelFuncs.fs) and
+  [LowerCallsAndSeqs.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/LowerCallsAndSeqs.fs).
   Each of these takes TAST nodes for types and expressions and either modifies the nodes in place or produces new TAST nodes.  
-  These phases are orchestrated in [CompileOptions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/CompileOptions.fs)
+  These phases are orchestrated in [CompileOptions.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/CompilerOptions.fs)
 
 * _Code generation_, see 
-  [IlxGen.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/IlxGen.fsi)/[IlxGen.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/IlxGen.fs)
+  [IlxGen.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/IlxGen.fsi)/[IlxGen.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/IlxGen.fs)
   Accepts TAST nodes and produces Abstract IL nodes.
 
 * _Abstract IL code rewriting_, see 
-  [EraseClosures.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/ilx/EraseClosures.fs) and
-  [EraseUnions.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/ilx/EraseUnions.fs).
+  [EraseClosures.fs](https://github.com/dotnet/fsharp/blob/main/src/ilx/EraseClosures.fs) and
+  [EraseUnions.fs](https://github.com/dotnet/fsharp/blob/main/src/ilx/EraseUnions.fs).
   Eliminates some constructs by rewriting Abstract IL nodes.
   
 * _Binary emit_ (used by the F# Compiler fsc.exe), see 
-  [ilwrite.fsi](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fsi)/[ilwrite.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilwrite.fs). 
+  [ilwrite.fsi](https://github.com/dotnet/fsharp/blob/main/src/absil/ilwrite.fsi)/[ilwrite.fs](https://github.com/dotnet/fsharp/blob/main/src/absil/ilwrite.fs). 
 
 * _Reflection-Emit_ (used by F# Interactive fsi.exe), see 
-  [ilreflect.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/absil/ilreflect.fs). 
+  [ilreflect.fs](https://github.com/dotnet/fsharp/blob/main/src/absil/ilreflect.fs). 
 
 The above are the internal phases and transformations used to build the following:
 
 * _The F# Compiler Service API_, see 
-  [Symbols.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/Symbols.fs), 
-  [service.fsi](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fsi)/[fs](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/vs/service.fs) 
+  [Symbols.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/symbols/Symbols.fsi)/[fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/symbols/Symbols.fs), 
+  [service.fsi](https://github.com/dotnet/fsharp/blob/main/src/fsharp/service/service.fsi)/[fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/service/service.fs) 
   and related files.
 
-* _The F# Interactive Shell_, see [fsi.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsi/fsi.fs) as a tool, and its presentation as an API  in [fsi.fs in the FSharp.Compiler.Service](https://github.com/fsharp/FSharp.Compiler.Service/blob/master/src/fsharp/fsi/fsi.fs).
+* _The F# Interactive Shell_, see [fsi.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/fsi/fsi.fs) which is both bundled as a standalone tool, as well as an API exposed by the F# Compiler Service API.
 
-* _The F# Compiler Shell_, see [fsc.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fsc.fs) and [fscmain.fs](https://github.com/Microsoft/visualfsharp/blob/master/src/fsharp/fscmain.fs).
+* _The F# Compiler Shell_, see [fsc.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/fsc.fs) and [fscmain.fs](https://github.com/dotnet/fsharp/blob/main/src/fsharp/fscmain.fs).
 
 ## Coding Standards and Idioms
 
