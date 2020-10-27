@@ -30,11 +30,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/#bloglist">Blog</a></li>
-                    <li><a href="https://github.com/fsharp">Core Projects</a></li>
                     <li><a href="https://github.com/fsprojects">Incubation Zone</a></li>
                     <li><a href="http://fsharp.org">F# Software Foundation</a></li>
-                    <li><a href="/#contact-us">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -60,52 +57,8 @@
           <div class="col-md-9">
             {{ content }}
           </div>
-
-          <div class="col-md-3" id="rightPanel">
-
-          <p><a href="/#bloglist">Recent Guides and Posts</a>
-                                  <a href="/feed.xml"><img src="/img/rss.jpg" id="feed" alt="RSS feed" /></a>
-
-          </p>
-<ul>
-{% for post in site.posts %}
-
-    <li>
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        {{ post.title }} <!-- <time datetime="{{ post.date | date: '%Y-%m-%d' }}">({{ post.date | date: "%B %Y" }})</time> -->
-      </a> 
-    </li>
-
-
-{% endfor %}
-
-</ul>
-      
-          </div>
-        </div>
-        <div class="container text-center">
-            <footer>
-                <p>Submit a change request by <a href="https://github.com/fsharp/fsharp.github.io">editing this site on github</a>.</p>
-            </footer>
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-35753329-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
 </body>
 </html>
