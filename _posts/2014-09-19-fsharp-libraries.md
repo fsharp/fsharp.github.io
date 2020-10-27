@@ -9,6 +9,11 @@ subtitle: Naming, Engineering and General Advice
 
 > Naming, Engineering and General Advice
 
+## Author
+
+Don Syme, with advice from various contributors to F# Core Engineering discussions. 
+
+Originally drafted September 2014, with subsequent minor updates.
 
 ## Contents
 {:.no_toc}
@@ -17,17 +22,16 @@ subtitle: Naming, Engineering and General Advice
 
 ## Introduction
 
-One of the goals of F# Core Engineering is to help ensure best engineering practices in public-facing F# components and packages.
+One of the historic goals of the "F# Core Engineering" group is to help ensure best engineering practices in public-facing F# components and packages.
 
-In this post we outline some recommended guidelines for naming and engineering for F# projects, packages and namespaces.
-We particularly focus on open projects such as those in the [F# Community Projects](http://fsharp.org/community/projects/) list or
+In this document we capture some recommended guidelines for naming and engineering for F# projects, packages and namespaces. This is based on how things stood in 2014, and we have continued to update these with minor modifications. We particularly focus on open projects such as those in the [F# Community Projects](http://fsharp.org/community/projects/) list or
 [packages in NuGet for an "FSharp" search](http://www.nuget.org/packages?q=fsharp).
 
 These are recommendations - they are not hard-and-fast rules, and are offered for discussion amongst
 F# developers. If you would like to discuss these guidelines or suggest modifications, 
 please [edit this file on GitHub and submit a pull request](https://github.com/fsharp/fsharp.github.io/edit/master/_posts/2014-09-19-fsharp-libraries.md).
 
-There is agreement on the following:
+In discussions, there has been agreement on the following:
 
 1. FSharp.* projects should be high-quality or trending **rapidly** in that direction.
    Ideally any packages and code under the FSharp.* namespace should be of sufficient quality to be considered 
@@ -126,11 +130,17 @@ Use the following prefixes where possible, rather than inventing new ones:
 
 -   `FSharp.Control`: Functionality related to control flow, such as asynchronous programming, message passing, 
 event-based programming, reactive programming, and similar
+
 -   `FSharp.Data`: Types related to data access, data schema, and similar
+
 -   `FSharp.Text`: Text processing, formating, printing, or similar functionality
+
 -   `FSharp.Azure`: Types related to cloud computing on the Azure plattform.
+
 -   `FSharp.AWS`: Types related to cloud computing on the AWS plattform.
+
 -   `FSharp.Compiler`: Functionality relating to compilation of F#
+
 -   `FSharp.Core`: Use sparingly.  Typically required for helper types required by incubation of compiler features
 
 For example, a library like "FSharp.Actor" might be better renamed to "FSharp.Control.Actor". Similarly, "FSharp.Reactive"
@@ -168,6 +178,32 @@ The F# community love to help and give good advice.  Seek advice via the [#fshar
 or other community forums.
 
 <br />
+
+## Transpiling Guidelines
+
+<br />
+
+Some F# libraries are candidates for cross-compilation using F# transpiler tools such as Fable and WebSharper. Other transpilers for other targets may also be developed over time.
+
+The following are draft guidelines for adding support for transpilation, based on information available in 2019.
+
+* Consider supporting transpilation by one or more alternative toolchains.  It is not required or obligatory.
+
+* Do ensure that the qualities of the library are not diminished significantly, e.g. API design, documentation and performance.
+
+* Do be positive to contributions which add support and testing for other transpilers.  However there is no obligation to support any particular transpiler. 
+
+* Do add CI testing for the transpilation.
+
+* Do use feature-specific switches `#if NO_FOO_FEATURE` rather than `#if MYTRANSPILER`.
+
+* Do assess the quality of the transpilation tool, and the degree of support for language and library.
+
+* Consider using an appropriate different namespace, e.g. `Fox.Collections.Rapid` for transpiled version of the (hypothetical) `FSharp.Collections.Rapid` library.
+
+* Consider the maintenance burden of the necessary `#if` when making your decisions, including the long-term maintenance by other contributors.
+
+As an example, as of October 2019 the `dotnet/fsharp` repository has decided not to support transpilation for the `FSharp.Compiler.Service` library component.  However, some transpilers maintain separate forks of that repository.
 
 ## Engineering Guidelines
 
